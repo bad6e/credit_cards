@@ -5,3 +5,11 @@ script:
 - bundle install
 - bundle exec rake db:create db:schema:load
 - bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: 3f594efc-ee73-4cae-917d-7d1642316d66
+  app: creditcards
+  on:
+    repo: bad6e/credit_cards
+    branch: master
