@@ -32,6 +32,8 @@ gem 'bootstrap_form'
 
 gem "figaro"
 
+
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -45,5 +47,6 @@ group :development, :test do
   gem 'launchy'
   gem 'pry', :require => 'pry'
   gem 'shoulda-matchers'
+  gem "nokogiri"
 end
 
