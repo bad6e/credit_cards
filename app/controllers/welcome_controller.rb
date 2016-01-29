@@ -4,12 +4,6 @@ class WelcomeController < ApplicationController
   require 'open-uri'
 
   def index
-    @page = Nokogiri::HTML(open("http://thepointsguy.com/credit-cards/airline/"))
-
-    @page = @page.css(".card-header").css("h2").map do |cc|
-      cc.text
-    end
+    @cards = Card.all
   end
-
-
 end
