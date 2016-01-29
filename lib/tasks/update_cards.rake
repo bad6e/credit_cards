@@ -5,19 +5,26 @@ task :update_cards => :environment do
   require 'open-uri'
 
   Card.delete_all
-  puts "Deleted old cards"
 
   @page = Nokogiri::HTML(open("http://thepointsguy.com/credit-cards/"))
 
-  # Total Commits
+  # Card Name
   @list = @page.css(".card-header").css("h2").map do |cc|
     cc.text
   end
   puts "Mapped credit cards"
 
-  @list.each do |card|
-    Card.create(name: card)
+  # Fee
+  @fee = @page.css(".stat-four").css(".bottom").map do |fee|
+    fee.text
   end
+
+  @data = @list.zip(@fee)
+
+  @data.each do |data|
+    Card.create(name: data[0], annual_fee: data[1])
+  end
+
   puts "Update Card Database"
   puts "All done Mr. Doucette"
 end
