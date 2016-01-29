@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $(function(){
     $('#select_origin').autocomplete({
-      minLength: 3,
+      minLength: 2,
       source: '/api/v1/search',
       focus: function(event, ui) {
         $('#select_origin').val(ui.item.name);
