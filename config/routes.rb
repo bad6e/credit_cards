@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "welcome#index"
   get 'about', to: 'about#index'
-
+  get 'blog', to: 'blog#index'
 
   resources :cards, only: [:show]
 
