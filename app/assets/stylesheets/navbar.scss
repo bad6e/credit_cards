@@ -85,9 +85,7 @@ $black          : #000;
   .ui-menu-item {
     max-width: 325px;
     font-family: 'Raleway', sans-serif;
-    padding-top: 8px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 6px 5px;
     color: $white;
     background-color: $colHighlight;
   }
