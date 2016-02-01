@@ -1,0 +1,77 @@
+$bgDefault      : #fff;
+$bgHighlight    : #D3D3D3;
+$colDefault     : #464646;
+$colHighlight   : #0e95e0;
+$white          : #FFF;
+$black          : #000;
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:500);
+
+.navbar-default {
+  background-color: $bgDefault;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight; }
+    }
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        font-family: 'Raleway', sans-serif;
+        font-size: 15px;
+        &:hover,  &:focus {
+          color: $colHighlight; }
+        }
+      }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        }
+      }
+    > .open {
+      > a, > a:hover, > a:focus {
+        background-color: white;
+       }
+      }
+    }
+  .navbar-toggle {
+    &:hover, &:focus {
+     }
+    .icon-bar {
+      background-color: $colDefault;
+      }
+  }
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .dropdown-menu {
+    background-color: $colHighlight;
+    > li > a {
+      color: $white;
+      font-family: 'Raleway', sans-serif;
+      font-size: 15px;
+    }
+    a:hover {
+      color: $black;
+      background-color:$colHighlight;
+    }
+  }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+    color: $colHighlight; }
+    }
+  }
+
+  .navbar-form .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+
+
