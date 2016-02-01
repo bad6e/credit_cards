@@ -58,7 +58,7 @@ $black          : #000;
     }
     a:hover {
       color: $black;
-      background-color:$colHighlight;
+      background-color: $colHighlight;
     }
   }
   .navbar-link {
@@ -80,4 +80,13 @@ $black          : #000;
 
   .navbar-form .input-group > .form-control {
     width: 325px;
+  }
+
+  .ui-menu-item {
+    max-width: 325px;
+    font-family: 'Raleway', sans-serif;
+    padding-top: 5px;
+    padding-left: 2px;
+    color: $white;
+    background-color: $colHighlight;
   }
