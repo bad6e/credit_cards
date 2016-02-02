@@ -14,11 +14,30 @@ task :update_cards => :environment do
   end
   puts "Mapped card names"
 
+  #Intro Rate
+  @rate = @page.css(".stat-two").css(".bottom").map do |rate|
+    rate.text
+  end
+  puts "Mapped Intro Rates"
+
+  #APR
+  @apr = @page.css(".stat-three").css(".bottom").map do |apr|
+    apr.text
+  end
+  puts "Mapped APR"
+
   # Fee
   @fee = @page.css(".stat-four").css(".bottom").map do |fee|
     fee.text
   end
   puts "Mapped card fees"
+
+  # Image
+  @image = @page.css(".card-left").css('img').map do |image|
+    image.attr('src')
+  end
+  puts "Mapped Image URL"
+
 
   #Card Details
   @links = @page.css('.terms').css('a').map { |link| link['href'] }
@@ -39,11 +58,29 @@ task :update_cards => :environment do
 
   #Organize Data
   @data_one = @list.zip(@fee)
-  @data_two = @data_one.zip(grouped_details)
+  @data_two = @data_one.zip(@apr)
+
+  @data_three = @data_two.map do |r|
+    r.flatten
+  end
+
+  @data_four = @data_three.zip(@rate)
+
+  @data_five = @data_four.map do |r|
+    r.flatten
+  end
+
+  @data_six = @data_five.zip(@image)
+
+  @data_seven = @data_six.map do |r|
+    r.flatten
+  end
+
+  @data = @data_seven.zip(grouped_details)
 
   #Save Data
-  @data_two.each do |data|
-    Card.create(name: data[0][0], annual_fee: data[0][1], information: data[1])
+  @data.each do |data|
+    Card.create(name: data[0][0], annual_fee: data[0][1], apr: data[0][2], intro_rate: data[0][3], image_link: data[0][4], information: data[1])
   end
 
   puts "Update Card Database"
