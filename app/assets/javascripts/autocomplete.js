@@ -9,7 +9,7 @@ $(document).ready(function(){
       },
       select: function(event, ui) {
         $('#select_origin').val(ui.item.name);
-          window.location = "cards/" + ui.item.id;
+          window.location.pathname = "cards/" + ui.item.id;
       }
     })
     .data("uiAutocomplete")._renderItem = function(div, item){
