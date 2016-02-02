@@ -80,7 +80,13 @@ task :update_cards => :environment do
 
   #Save Data
   @data.each do |data|
-    Card.create(name: data[0][0], annual_fee: data[0][1], apr: data[0][2], intro_rate: data[0][3], image_link: data[0][4], information: data[1])
+    Card.find_or_create_by(name: data[0][0]) do |card|
+      card.annual_fee  = data[0][1]
+      card.apr         = data[0][2]
+      card.intro_rate  = data[0][3]
+      card.image_link  = data[0][4]
+      card.information = data[1]
+    end
   end
 
   puts "Update Card Database"
