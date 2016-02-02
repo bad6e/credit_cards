@@ -1,3 +1,27 @@
-// Place all the styles related to the cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Raleway:500);
+
+.page-header {
+  font-family: 'Raleway', sans-serif;
+}
+
+.card-row {
+  padding-top: 20px;
+}
+
+.related-cards {
+  padding-top: 40px;
+}
+
+.related-card-header {
+  padding-top: 80px;
+}
+
+.related-card-name {
+  padding-top: 10px;
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+}

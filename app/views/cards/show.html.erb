@@ -1,74 +1,69 @@
 <!-- Page Content -->
-    <div class="container">
-
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header"><%= @card.name %>
-                    <small><%= @card.annual_fee %></small>
-                </h1>
-
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Portfolio Item Row -->
-        <div class="row">
-          <div class="col-md-8">
-            <img class="img-responsive" src=<%= @card.image_link %> alt="">
-          </div>
-
-          <div class="col-md-4">
-             <h3>Card Details</h3>
-              <ul>
-                  <li>Intro Rate: <%= @card.intro_rate %></li>
-                  <li>APR: <%= @card.apr %></li>
-              </ul>
-              <h3>Card Description</h3>
-              <ul>
-                <% @card.information.each do |r| %>
-                <li><%= r %></l1>
-                <% end %>
-              </ul>
-          </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Related Projects Row -->
-        <div class="row">
-
-            <div class="col-lg-12">
-                <h3 class="page-header">Related Cards</h3>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
+  <div class="container">
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header"><%= @card.name %>
+          <small><%= @card.annual_fee %></small></h1>
+      </div>
     </div>
+    <!-- /.row -->
+    <!-- Portfolio Item Row -->
+    <div class="row card-row">
+      <div class="col-md-3 well">
+        <img class="img-responsive" src=<%= @card.image_link %> alt="">
+        <h3>Card Details</h3>
+          <h5><strong>Intro Rate:</strong> <%= @card.intro_rate %></h5>
+          <h5><strong>APR:</strong> <%= @card.apr %></h5>
+          <h5><strong>Annual Fee:</strong> <%= @card.annual_fee %></h5>
+      </div>
+
+      <div class="col-md-9 well">
+        <h3>Card Description</h3>
+        <ul>
+          <% @card.information.each do |r| %>
+          <li><%= r %></l1>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Related Cards Row -->
+    <div class="row">
+      <div class="col-lg-12">
+          <h3 class="page-header related-card-header">Related Cards</h3>
+      </div>
+
+      <div class="related-cards">
+        <div class="col-sm-3 col-xs-6">
+          <a href="#">
+            <img class="img-responsive img-hover img-related" src=<%= @card.image_link %> alt="">
+            <p class="related-card-name">Card Name</p>
+          </a>
+      </div>
+
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img class="img-responsive img-hover img-related" src=<%= @card.image_link %> alt="">
+                <p class="related-card-name">Card Name</p>
+            </a>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img class="img-responsive img-hover img-related" src=<%= @card.image_link %> alt="">
+                <p class="related-card-name">Card Name</p>
+            </a>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+            <a href="#">
+                <img class="img-responsive img-hover img-related" src=<%= @card.image_link %> alt="">
+                <p class="related-card-name">Card Name</p>
+            </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <!-- /.row -->
