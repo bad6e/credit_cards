@@ -4,8 +4,6 @@ task :update_cards => :environment do
   require 'nokogiri'
   require 'open-uri'
 
-  Card.delete_all
-
   @page = Nokogiri::HTML(open("http://thepointsguy.com/credit-cards/airline/"))
 
   # Card Name
