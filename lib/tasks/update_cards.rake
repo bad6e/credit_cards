@@ -4,89 +4,111 @@ task :update_cards => :environment do
   require 'nokogiri'
   require 'open-uri'
 
-  @page = Nokogiri::HTML(open("http://thepointsguy.com/credit-cards/airline/"))
+  class CardScraper
 
-  # Card Name
-  @list = @page.css(".card-header").css("h2").map do |cc|
-    cc.text
-  end
-  puts "Mapped card names"
-
-  #Intro Rate
-  @rate = @page.css(".stat-two").css(".bottom").map do |rate|
-    rate.text
-  end
-  puts "Mapped Intro Rates"
-
-  #APR
-  @apr = @page.css(".stat-three").css(".bottom").map do |apr|
-    apr.text
-  end
-  puts "Mapped APR"
-
-  # Fee
-  @fee = @page.css(".stat-four").css(".bottom").map do |fee|
-    fee.text
-  end
-  puts "Mapped card fees"
-
-  # Image
-  @image = @page.css(".card-left").css('img').map do |image|
-    image.attr('src')
-  end
-  puts "Mapped Image URL"
-
-
-  #Card Details
-  @links = @page.css('.terms').css('a').map { |link| link['href'] }
-
-  individual_details = []
-  grouped_details = []
-  n = 0
-  @links.each do |link|
-    @new_page = Nokogiri::HTML(open("http://thepointsguy.com/#{link}"))
-    stuff = @new_page.css(".card-right").css("ul").children.each do |r|
-      individual_details << r.text
+    def initialize
+      open_urls
     end
-    puts "Did card #{n}"
-    n += 1
-    grouped_details << individual_details
-    individual_details = []
-  end
 
-  #Organize Data
-  @data_one = @list.zip(@fee)
-  @data_two = @data_one.zip(@apr)
+    def open_urls
+      url_list.each do |url|
+        @page = Nokogiri::HTML(open("http://thepointsguy.com/credit-cards/#{url}/"))
+        @url = url
+        save_data
+        clean_data
+      end
+    end
 
-  @data_three = @data_two.map do |r|
-    r.flatten
-  end
+    def url_list
+      ["airline","business-rewards","hotel","cash-back"]
+    end
 
-  @data_four = @data_three.zip(@rate)
+    def card_name
+      puts "Mapped card names"
+      return @page.css(".card-header").css("h2").map {|card| card.text}
+    end
 
-  @data_five = @data_four.map do |r|
-    r.flatten
-  end
+    def intro_rate
+      puts "Mapped Intro Rates"
+      return @page.css(".stat-two").css(".bottom").map {|rate| rate.text}
+    end
 
-  @data_six = @data_five.zip(@image)
+    def apr
+      puts "Mapped APR"
+      return @page.css(".stat-three").css(".bottom").map {|apr| apr.text}
+    end
 
-  @data_seven = @data_six.map do |r|
-    r.flatten
-  end
+    def annual_fee
+      puts "Mapped card fees"
+      return @page.css(".stat-four").css(".bottom").map {|fee| fee.text}
+    end
 
-  @data = @data_seven.zip(grouped_details)
+    def image_url
+      puts "Mapped Image URL"
+      return @page.css(".card-left").css('img').map {|image| image.attr('src')}
+    end
 
-  #Save Data
-  @data.each do |data|
-    Card.find_or_create_by(name: data[0][0]) do |card|
-      card.annual_fee  = data[0][1]
-      card.apr         = data[0][2]
-      card.intro_rate  = data[0][3]
-      card.image_link  = data[0][4]
-      card.information = data[1]
+    def card_details
+      @links = @page.css('.terms').css('a').map {|link| link['href']}
+      individual_details = []
+      @grouped_details = []
+      n = 1
+      @links.each do |link|
+        @new_page = Nokogiri::HTML(open("http://thepointsguy.com/#{link}"))
+        stuff = @new_page.css(".card-right").css("ul").children.each do |r|
+          individual_details << r.text
+        end
+        puts "Scraped card number #{n}"
+        n += 1
+        @grouped_details << individual_details
+        individual_details = []
+      end
+    end
+
+    def scrape_data
+      @card_name    = card_name
+      @intro_rate   = intro_rate
+      @apr          = apr
+      @annual_fee   = annual_fee
+      @image_url    = image_url
+      card_details
+    end
+
+    def clean_data
+      @card_name       = []
+      @intro_rate      = []
+      @apr             = []
+      @annual_fee      = []
+      @image_url       = []
+      @grouped_details = []
+    end
+
+    def organize_data
+      @data = @card_name.zip(@annual_fee, @apr, @intro_rate, @image_url, @grouped_details)
+    end
+
+    def save_data
+      scrape_data
+      organize_data
+      @data.each do |data|
+        Card.find_or_create_by(name: data[0]) do |card|
+          card.annual_fee  = data[1]
+          card.apr         = data[2]
+          card.intro_rate  = data[3]
+          card.image_link  = data[4]
+          card.information = data[5]
+        end
+        assign_category(data)
+      puts "Updated the Card Database"
+      end
+    end
+
+    def assign_category(data)
+      c = Card.find_by(name: data[0])
+      if c.categories == []
+        c.categories << Category.find_by(name: @url)
+      end
     end
   end
-
-  puts "Update Card Database"
-  puts "All done Mr. Doucette"
+  CardScraper.new
 end
