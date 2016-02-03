@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202192927) do
+ActiveRecord::Schema.define(version: 20160203003601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,4 +28,22 @@ ActiveRecord::Schema.define(version: 20160202192927) do
     t.string   "image_link"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorizings", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "card_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categorizings", ["card_id"], name: "index_categorizings_on_card_id", using: :btree
+  add_index "categorizings", ["category_id"], name: "index_categorizings_on_category_id", using: :btree
+
+  add_foreign_key "categorizings", "cards"
+  add_foreign_key "categorizings", "categories"
 end
