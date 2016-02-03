@@ -3,11 +3,11 @@
     <!-- Page Heading -->
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header"><%= @card.name %>
-          <small><%= @card.annual_fee %></small></h1>
+        <h1 class="page-header"><%= @card.card_name.name %>
+          <small><%= @card.card_name.annual_fee %></small></h1>
         <ol class="breadcrumb">
           <li>Category</li>
-          <li class="active"><%= @category_name %></li>
+          <li class="active"><%= @card.category_name %></li>
         </ol>
       </div>
     </div>
@@ -15,18 +15,18 @@
     <!-- Portfolio Item Row -->
     <div class="row card-row well">
       <div class="col-md-3">
-        <img class="img-responsive" src=<%= @card.image_link %> alt="">
+        <img class="img-responsive" src=<%= @card.card_name.image_link %> alt="">
         <h3>Card Details</h3>
-        <h5><strong>Intro Rate:</strong> <%= @card.intro_rate %></h5>
-        <h5><strong>APR:</strong> <%= @card.apr %></h5>
-        <h5><strong>Annual Fee:</strong> <%= @card.annual_fee %></h5>
+        <h5><strong>Intro Rate:</strong> <%= @card.card_name.intro_rate %></h5>
+        <h5><strong>APR:</strong> <%= @card.card_name.apr %></h5>
+        <h5><strong>Annual Fee:</strong> <%= @card.card_name.annual_fee %></h5>
       </div>
 
       <div class="col-md-9 well">
         <h3>Card Description</h3>
         <ul>
-          <% @card.information.each do |r| %>
-          <li><%= r %></li>
+          <% @card.card_name.information.each do |info| %>
+          <li><%= info %></li>
           <% end %>
         </ul>
       </div>
@@ -36,9 +36,9 @@
     <!-- Related Cards Row -->
     <div class="row">
       <div class="col-lg-12">
-          <h3 class="page-header related-card-header">Related <%= @category_name%> Cards</h3>
+          <h3 class="page-header related-card-header">Related <%= @card.category_name%> Cards</h3>
       </div>
-      <% @featured_cards.each do |card| %>
+      <% @card.featured_cards.each do |card| %>
       <div class="related-cards">
         <div class="col-sm-3 col-xs-6">
           <img class="img-responsive img-hover img-related" src=<%= card.image_link %> alt="">
