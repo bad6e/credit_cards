@@ -1,5 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:category_one) {
+    Category.create(name: "airline")
+  }
+
+  it "is valid" do
+    expect(category_one).to be_valid
+  end
+
+   it "is invalid without a name" do
+    category_one.name = nil
+    expect(category_one).to be_invalid
+  end
 end
