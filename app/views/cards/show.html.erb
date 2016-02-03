@@ -41,10 +41,8 @@
       <% @featured_cards.each do |card| %>
       <div class="related-cards">
         <div class="col-sm-3 col-xs-6">
-          <a href="#">
-            <img class="img-responsive img-hover img-related" src=<%= card.image_link %> alt="">
-            <p class="related-card-name"><%= card.name %></p>
-          </a>
+          <img class="img-responsive img-hover img-related" src=<%= card.image_link %> alt="">
+          <p class="related-card-name"><%= link_to card.name, card_path(card)%></p>
         </div>
       </div>
       <% end %>
