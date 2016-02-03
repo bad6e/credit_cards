@@ -15,7 +15,7 @@ class CardPresenter
   end
 
   def featured_cards
-    categories.first.cards.limit(4).order("RANDOM()")
+    categories.first.cards.limit(4).where.not(name: card_name.name).order("RANDOM()")
   end
 
   private
