@@ -3,10 +3,10 @@ class Card < ActiveRecord::Base
   has_many :categories, through: :categorizings
 
   validates :name, presence: true, uniqueness: true
-  validates :annual_fee, presence: true, uniqueness: true
+  validates :annual_fee, presence: true
   validates :information, presence: true
-  validates :apr, presence: true, uniqueness: true
-  validates :intro_rate, presence: true, uniqueness: true
+  validates :apr, presence: true
+  validates :intro_rate, presence: true
   validates :image_link, presence: true, uniqueness: true
 
   def parse_name
