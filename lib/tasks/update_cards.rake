@@ -7,7 +7,20 @@ task :update_cards => :environment do
   class CardScraper
 
     def initialize
-      @page = Nokogiri::HTML(open("http://thepointsguy.com/credit-cards/airline/"))
+      open_urls
+    end
+
+    def open_urls
+      url_list.each do |url|
+        @page = Nokogiri::HTML(open("http://thepointsguy.com/credit-cards/#{url}/"))
+        @url = url
+        save_data
+        clean_data
+      end
+    end
+
+    def url_list
+      ["airline","business-rewards","hotel","cash-back"]
     end
 
     def card_name
@@ -61,6 +74,15 @@ task :update_cards => :environment do
       card_details
     end
 
+    def clean_data
+      @card_name       = []
+      @intro_rate      = []
+      @apr             = []
+      @annual_fee      = []
+      @image_url       = []
+      @grouped_details = []
+    end
+
     def organize_data
       @data = @card_name.zip(@annual_fee, @apr, @intro_rate, @image_url, @grouped_details)
     end
@@ -78,18 +100,15 @@ task :update_cards => :environment do
         end
         assign_category(data)
       puts "Updated the Card Database"
-      puts "All done Mr. Doucette"
       end
     end
 
     def assign_category(data)
       c = Card.find_by(name: data[0])
       if c.categories == []
-        c.categories << Category.find(1)
+        c.categories << Category.find_by(name: @url)
       end
     end
   end
-
-  CardScraper.new.save_data
-
+  CardScraper.new
 end
