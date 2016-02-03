@@ -1,6 +1,7 @@
 class Card < ActiveRecord::Base
   has_many :categorizings
   has_many :categories, through: :categorizings
+  has_many :bonus
 
   validates :name, presence: true, uniqueness: true
   validates :annual_fee, presence: true
