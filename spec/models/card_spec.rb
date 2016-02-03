@@ -19,6 +19,15 @@ RSpec.describe Card, type: :model do
                 image_link: "www.test-plus.com")
   }
 
+  let(:category_one) {
+    Category.create(name: "cash-back")
+  }
+
+  def set_category
+    c = Card.find(card_one.id)
+    c.categories << Category.find(category_one.id)
+  end
+
   it "is valid" do
     expect(card_one).to be_valid
   end
@@ -51,5 +60,10 @@ RSpec.describe Card, type: :model do
   it "is invalid without an image url" do
     card_one.image_link = nil
     expect(card_one).to be_invalid
+  end
+
+  it "should parse the cards category name correctly" do
+    set_category
+    expect(card_one.parse_name).to eq("Cash Back")
   end
 end
