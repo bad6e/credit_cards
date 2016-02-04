@@ -10,7 +10,7 @@ class Card < ActiveRecord::Base
   validates :intro_rate, presence: true
   validates :image_link, presence: true, uniqueness: true
 
-  def parse_name
+  def parse_card_name
     name = self.categories.first.name
     display_name = name.gsub("-", " ").titleize
   end

@@ -11,7 +11,7 @@ class CardPresenter
   end
 
   def category_name
-    Card.find(card_id).parse_name
+    Card.find(card_id).parse_card_name
   end
 
   def featured_cards
