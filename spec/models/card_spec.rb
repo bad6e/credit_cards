@@ -64,6 +64,6 @@ RSpec.describe Card, type: :model do
 
   it "should parse the cards category name correctly" do
     set_category
-    expect(card_one.parse_name).to eq("Cash Back")
+    expect(card_one.parse_card_name).to eq("Cash Back")
   end
 end

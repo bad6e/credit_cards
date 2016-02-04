@@ -15,6 +15,7 @@ gem "figaro"
 gem 'rails_12factor'
 gem 'responders'
 gem 'jquery-ui-rails'
+gem 'friendly_id'
 
 group :development do
   gem 'web-console', '~> 2.0'
