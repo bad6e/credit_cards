@@ -1,8 +1,8 @@
  <div class="container">
-    <div class="row">
+    <div class="row well">
       <div class="col-lg-12">
         <h2>Card Details</h2>
-        <%= render partial: 'edit_form' %>
+        <%= render partial: 'edit_card_form' %>
         <h3>Card Rewards</h3>
         <div id='rewards'>
         <% @card_rewards.rewards.each do |reward| %>

@@ -1,8 +1,8 @@
-<%= bootstrap_form_for([:admin, @reward]) do |reward_form| %>
-  Card Id: <%= @reward.card_id %>
-  <%= reward_form.number_field :amount %>
-  <%= reward_form.number_field :spending_amount %>
-  <%= reward_form.date_field :record_date %>
-  <%= reward_form.hidden_field :card_id, value: @reward.card_id %>
-<%= reward_form.submit 'Add New Reward' %>
-<% end %>
+<div class="container">
+  <div class="row well">
+    <div class="col-lg-12">
+      <h2>Add a New Reward for <%= @card_name %></h2>
+      <%= render 'new_reward_form' %>
+    </div>
+  </div>
+</div>

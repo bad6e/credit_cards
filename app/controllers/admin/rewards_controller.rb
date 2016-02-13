@@ -2,6 +2,7 @@ class Admin::RewardsController < ApplicationController
 
   def new
     @reward         = Reward.new
+    @card_name      = Card.find(params[:id]).name
     @card_id        = Card.find(params[:id]).id
     @reward.card_id = @card_id
   end
