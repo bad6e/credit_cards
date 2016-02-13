@@ -10,6 +10,7 @@ class Admin::CardsController < Admin::BaseController
 
   def new
     @card = Card.new
+    @card.categories.build
   end
 
   def create
@@ -22,6 +23,8 @@ class Admin::CardsController < Admin::BaseController
   end
 
   def edit
+    @card.categories.build
+    @card_rewards = CardPresenter.new(@card.id)
   end
 
   def update
@@ -39,16 +42,18 @@ class Admin::CardsController < Admin::BaseController
 
   private
 
+    def load_card
+      @card = Card.find(params[:id])
+    end
+
     def card_params
       params.require(:card).permit(:name,
                                    :annual_fee,
                                    :information,
                                    :apr,
                                    :intro_rate,
-                                   :image_link)
-    end
-
-    def load_card
-      @card = Card.find(params[:id])
+                                   :image_link,
+                                   categories_attributes: [:id, :name, :slug, :_destroy],
+                                   rewards_attributes: [:id, :amount, :spending_amount, :record_date])
     end
 end

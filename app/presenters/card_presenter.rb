@@ -18,6 +18,10 @@ class CardPresenter
     category_list.first.cards.limit(4).where.not(name: card_name.name).order("RANDOM()")
   end
 
+  def rewards
+    card_name.rewards.order(record_date: :desc)
+  end
+
   private
 
   def category_list
