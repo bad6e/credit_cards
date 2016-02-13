@@ -7,4 +7,10 @@ class Reward < ActiveRecord::Base
   validates :spending_amount,
     presence: true
 
+  validates :record_date,
+    presence: true
+
+  validates :length_of_time,
+    presence: true
+
 end
