@@ -32,4 +32,12 @@ feature "admin" do
 
     expect(current_path).to eq(admin_login_path)
   end
+
+  scenario "admin can not see admin pages without logging in" do
+    visit admin_cards_path
+
+    within('.dialog') do
+      expect(page).to have_content("We're sorry, but you are not authorized to view this page! (403)")
+    end
+  end
 end

@@ -2,7 +2,6 @@ shared_context "features" do
 
   def admin_login
     visit admin_login_path
-
     user = User.create(first_name: "Bret",
                        last_name: "Doucette",
                        email: "test@test.com",
