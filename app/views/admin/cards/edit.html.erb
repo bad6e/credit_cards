@@ -4,14 +4,21 @@
         <h2>Card Details</h2>
         <%= render partial: 'edit_card_form' %>
         <h3>Card Rewards</h3>
-        <div id='rewards'>
-        <% @card_rewards.rewards.each do |reward| %>
-          <h5>Reward Amount: <%= reward.amount %></h5>
-          <h5>Record Date: <%= reward.record_date %></h5>
-          <h5>Spending Amount: <%= reward.spending_amount %></h5><br>
-        <% end %>
-        <%= link_to "Add Another for #{@card.name} ", {:controller => "rewards", :action => "new", :id => @card.id } %>
-      </div>
+        <table class='table table-bordered'id='rewards'>
+          <tr>
+            <th>Record Date</th>
+            <th>Reward Amount (Points/Miles)</th>
+            <th>Required Spending Amount</th>
+          </tr>
+          <tr>
+            <% @card_rewards.rewards.each do |reward| %>
+              <td><%= reward.record_date %></td><br>
+              <td><%= reward.amount %></td>
+              <td><%= number_to_currency(reward.spending_amount) %></td>
+          </tr>
+          <% end %>
+      </table>
+      <%= link_to "Add Another Reward for #{@card.name} ", {:controller => "rewards", :action => "new", :id => @card.id } %>
     </div>
   </div>
 </div>
