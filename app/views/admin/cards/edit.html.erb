@@ -9,12 +9,14 @@
             <th>Record Date</th>
             <th>Reward Amount (Points/Miles)</th>
             <th>Required Spending Amount</th>
+            <th>Length of Time (Months) </th>
           </tr>
           <tr>
             <% @card_rewards.rewards.each do |reward| %>
               <td><%= reward.record_date %></td><br>
               <td><%= reward.amount %></td>
               <td><%= number_to_currency(reward.spending_amount) %></td>
+              <td><%= reward.length_of_time %></td>
           </tr>
           <% end %>
       </table>
