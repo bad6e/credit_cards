@@ -88,4 +88,14 @@ RSpec.describe Card, type: :model do
     card_list.map {|card| card.name }
     expect(card_list.include?(card_one.name)).to eq(false)
   end
+
+  it "returns the rewards associated with a specific card" do
+     Reward.create(amount: 50000,
+                  spending_amount: 3000,
+                  record_date: "2016-02-18",
+                  length_of_time: 3,
+                  card_id: card_one.id)
+
+    expect(CardPresenter.new(card_one.id).rewards.count).to eq(1)
+  end
 end

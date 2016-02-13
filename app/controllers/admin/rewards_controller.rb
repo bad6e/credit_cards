@@ -21,6 +21,7 @@ class Admin::RewardsController < ApplicationController
       params.require(:reward).permit(:amount,
                                      :spending_amount,
                                      :record_date,
+                                     :length_of_time,
                                      :card_id)
     end
 end
