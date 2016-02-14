@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header"> Admin - All Cards</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7 card-list">
+      <% @cards.each do |card| %>
+      <div id="card-<%= card.id %>">
+        <%= card.name %> | <%= link_to 'Edit', edit_admin_card_path(card) %>
+        <hr>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<li><%= link_to "Add New Card", new_admin_card_path %></li>
+<li><%= link_to "Logout", admin_logout_path, method: :delete %></li>
+

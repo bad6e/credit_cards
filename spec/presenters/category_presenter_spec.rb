@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Card, type: :model do
+RSpec.describe Category, type: :model do
   let(:category_one) {
-    Category.create(name: "airline")
+    Category.create(name: "airline",
+                    slug: "airline")
   }
 
   let(:card_one) {
@@ -68,34 +69,22 @@ RSpec.describe Card, type: :model do
     c5.categories << Category.find(category_one.id)
   end
 
-  it "returns the card" do
-    expect(CardPresenter.new(card_one.id).card_name.name).to eq("Southwest Airlines Premier")
+  it "returns the category" do
+    expect(CategoryPresenter.new(category_one.id).category.name).to eq("airline")
   end
 
-  it "returns the category name" do
+  it "returns the category's name parsed correctly" do
+    expect(CategoryPresenter.new(category_one.id).category_name).to eq("Airline")
+  end
+
+  it "returns the number of cards per category" do
     set_category
-    expect(CardPresenter.new(card_one.id).category_name).to eq("Airline")
+    expect(CategoryPresenter.new(category_one.id).number_of_cards_per_category).to eq(5)
   end
 
-  it "returns four featured cards" do
+  it "returns all the cards associated with a category" do
     set_category
-    expect(CardPresenter.new(card_one.id).featured_cards.count).to eq(4)
-  end
-
-  it "returns four featured cards and excludes the card searched" do
-    set_category
-    card_list = CardPresenter.new(card_one.id).featured_cards
-    card_list.map {|card| card.name }
-    expect(card_list.include?(card_one.name)).to eq(false)
-  end
-
-  it "returns the rewards associated with a specific card" do
-     Reward.create(amount: 50000,
-                   spending_amount: 3000,
-                   record_date: "2016-02-18",
-                   length_of_time: 3,
-                   card_id: card_one.id)
-
-    expect(CardPresenter.new(card_one.id).rewards.count).to eq(1)
+    expect(CategoryPresenter.new(category_one.id).categories_cards.count).to eq(5)
+    expect(CategoryPresenter.new(category_one.id).categories_cards.first.name).to eq("Southwest Airlines Premier")
   end
 end

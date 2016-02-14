@@ -11,22 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204003017) do
+ActiveRecord::Schema.define(version: 20160213183840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "citext"
-
-  create_table "bonus", force: :cascade do |t|
-    t.integer  "amount"
-    t.integer  "spending_amount"
-    t.date     "record_date"
-    t.integer  "card_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "bonus", ["card_id"], name: "index_bonus_on_card_id", using: :btree
 
   create_table "cards", force: :cascade do |t|
     t.citext   "name"
@@ -58,7 +47,29 @@ ActiveRecord::Schema.define(version: 20160204003017) do
   add_index "categorizings", ["card_id"], name: "index_categorizings_on_card_id", using: :btree
   add_index "categorizings", ["category_id"], name: "index_categorizings_on_category_id", using: :btree
 
-  add_foreign_key "bonus", "cards"
+  create_table "rewards", force: :cascade do |t|
+    t.integer  "amount"
+    t.integer  "spending_amount"
+    t.date     "record_date"
+    t.integer  "card_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "length_of_time"
+  end
+
+  add_index "rewards", ["card_id"], name: "index_rewards_on_card_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "role",            default: 0
+  end
+
   add_foreign_key "categorizings", "cards"
   add_foreign_key "categorizings", "categories"
+  add_foreign_key "rewards", "cards"
 end

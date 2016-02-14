@@ -1,0 +1,8 @@
+<%= bootstrap_form_for([:admin, @reward]) do |reward_form| %>
+  <%= reward_form.number_field :amount, append: "Points" %>
+  <%= reward_form.number_field :spending_amount, prepend: "$" %>
+  <%= reward_form.date_field :record_date %>
+  <%= reward_form.number_field :length_of_time, append: "Months" %>
+  <%= reward_form.hidden_field :card_id, value: @reward.card_id %>
+<%= reward_form.submit 'Add New Reward' %>
+<% end %>

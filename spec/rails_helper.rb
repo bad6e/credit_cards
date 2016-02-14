@@ -6,6 +6,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'support/features'
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -36,5 +37,10 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.infer_spec_type_from_file_location!
+end
+
+def admin_login
+
+
 end
 

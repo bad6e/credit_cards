@@ -5,7 +5,8 @@ class Category < ActiveRecord::Base
   has_many :categorizings
   has_many :cards, through: :categorizings
 
-  validates :name, presence: true, uniqueness: true
+  validates :name,
+    presence: true
 
   def parse_category_name
     display_name = self.name.gsub("-", " ").titleize

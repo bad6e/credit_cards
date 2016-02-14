@@ -1,11 +1,17 @@
-require 'rails_helper'
-
-RSpec.describe Card, type: :model do
-  let(:category_one) {
+shared_context "features" do
+  let!(:category_one) {
     Category.create(name: "airline")
   }
 
-  let(:card_one) {
+  let!(:admin_one) {
+    User.create(first_name: "Bret",
+                last_name: "Doucette",
+                email: "test@test.com",
+                password: "password",
+                role: 1)
+  }
+
+  let!(:card_one) {
     Card.create(name: "Southwest Airlines Premier",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
@@ -14,7 +20,7 @@ RSpec.describe Card, type: :model do
                 image_link: "www.test-premier.com")
   }
 
-  let(:card_two) {
+  let!(:card_two) {
     Card.create(name: "Southwest Airlines Plus",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
@@ -24,7 +30,7 @@ RSpec.describe Card, type: :model do
   }
 
 
-  let(:card_three) {
+  let!(:card_three) {
     Card.create(name: "Chase Preferred",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
@@ -33,7 +39,7 @@ RSpec.describe Card, type: :model do
                 image_link: "www.test-chase.com")
   }
 
-  let(:card_four) {
+  let!(:card_four) {
     Card.create(name: "Citi Thank You",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
@@ -42,7 +48,7 @@ RSpec.describe Card, type: :model do
                 image_link: "www.test-thankyou.com")
   }
 
-  let(:card_five) {
+  let!(:card_five) {
     Card.create(name: "Barclays World Travel",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
@@ -68,34 +74,17 @@ RSpec.describe Card, type: :model do
     c5.categories << Category.find(category_one.id)
   end
 
-  it "returns the card" do
-    expect(CardPresenter.new(card_one.id).card_name.name).to eq("Southwest Airlines Premier")
+  def admin_login
+    visit admin_login_path
+    fill_in "user[email]", with: admin_one.email
+    fill_in "user[password]", with: admin_one.password
+    click_on "Login"
   end
 
-  it "returns the category name" do
-    set_category
-    expect(CardPresenter.new(card_one.id).category_name).to eq("Airline")
-  end
-
-  it "returns four featured cards" do
-    set_category
-    expect(CardPresenter.new(card_one.id).featured_cards.count).to eq(4)
-  end
-
-  it "returns four featured cards and excludes the card searched" do
-    set_category
-    card_list = CardPresenter.new(card_one.id).featured_cards
-    card_list.map {|card| card.name }
-    expect(card_list.include?(card_one.name)).to eq(false)
-  end
-
-  it "returns the rewards associated with a specific card" do
-     Reward.create(amount: 50000,
-                   spending_amount: 3000,
-                   record_date: "2016-02-18",
-                   length_of_time: 3,
-                   card_id: card_one.id)
-
-    expect(CardPresenter.new(card_one.id).rewards.count).to eq(1)
+  def admin_edit
+    admin_login
+    within("#card-#{card_one.id}") do
+      first(:link, "Edit").click
+    end
   end
 end
