@@ -1,5 +1,4 @@
 shared_context "features" do
-
   let!(:category_one) {
     Category.create(name: "airline")
   }
@@ -77,7 +76,6 @@ shared_context "features" do
 
   def admin_login
     visit admin_login_path
-
     fill_in "user[email]", with: admin_one.email
     fill_in "user[password]", with: admin_one.password
     click_on "Login"
@@ -85,10 +83,8 @@ shared_context "features" do
 
   def admin_edit
     admin_login
-
     within("#card-#{card_one.id}") do
       first(:link, "Edit").click
     end
-
   end
 end
