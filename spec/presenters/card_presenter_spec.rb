@@ -91,10 +91,10 @@ RSpec.describe Card, type: :model do
 
   it "returns the rewards associated with a specific card" do
      Reward.create(amount: 50000,
-                  spending_amount: 3000,
-                  record_date: "2016-02-18",
-                  length_of_time: 3,
-                  card_id: card_one.id)
+                   spending_amount: 3000,
+                   record_date: "2016-02-18",
+                   length_of_time: 3,
+                   card_id: card_one.id)
 
     expect(CardPresenter.new(card_one.id).rewards.count).to eq(1)
   end

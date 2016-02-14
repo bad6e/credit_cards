@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "admin" do
-  include_context "features"
+include_context "features"
 
   scenario "admin can log out" do
     admin_login
