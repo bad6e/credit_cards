@@ -40,4 +40,27 @@ feature "admin" do
       find_field('card[image_link]').value.should eq 'Test Name5'
     end
   end
-end
+
+  scenario "admin can add rewards for a specific card" do
+    admin_edit
+
+    click_on "Add Another Reward for #{card_one.name}"
+
+    expect(current_path).to eq(new_admin_reward_path)
+    expect(page).to have_content("Add a New Reward for #{card_one.name}")
+
+    fill_in "reward[amount]", with: 50000
+    fill_in "reward[spending_amount]", with: 3000
+    fill_in "reward[record_date]", with: "2016-02-18"
+    fill_in "reward[length_of_time]", with: 3
+    click_on "Add New Reward"
+
+    expect(current_path).to eq(edit_admin_card_path(card_one))
+    within('.table') do
+      expect(page).to have_content("5000")
+      expect(page).to have_content("$3,000.00")
+      expect(page).to have_content("2016-02-18")
+      expect(page).to have_content("3")
+    end
+  end
+ end

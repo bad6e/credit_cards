@@ -10,7 +10,7 @@ class Admin::RewardsController < ApplicationController
   def create
     @reward = Reward.new(reward_params)
     if @reward.save
-      redirect_to admin_cards_path
+      redirect_to edit_admin_card_path(reward_params[:card_id])
     else
       render :new
     end
