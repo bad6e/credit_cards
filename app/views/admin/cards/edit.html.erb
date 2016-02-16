@@ -3,25 +3,29 @@
       <div class="col-lg-12">
         <div class="card-details">
           <h2>Card Details</h2>
-          <%= render partial: 'edit_card_form' %>
+          <%= render partial: 'form' %>
         </div>
         <h3>Card Rewards</h3>
-        <table class='table table-bordered'id='rewards'>
-          <tr>
-            <th>Record Date</th>
-            <th>Reward Amount (Points/Miles)</th>
-            <th>Required Spending Amount</th>
-            <th>Length of Time (Months) </th>
-          </tr>
-          <tr>
+        <% if @card_rewards.rewards.any? %>
+          <table class='table table-bordered'id='rewards'>
+            <tr>
+              <th>Record Date</th>
+              <th>Reward Amount (Points/Miles)</th>
+              <th>Required Spending Amount</th>
+              <th>Length of Time (Months) </th>
+            </tr>
+            <tr>
             <% @card_rewards.rewards.each do |reward| %>
               <td><%= reward.record_date %></td><br>
               <td><%= reward.amount %></td>
               <td><%= number_to_currency(reward.spending_amount) %></td>
               <td><%= reward.length_of_time %></td>
-          </tr>
-          <% end %>
-      </table>
+            </tr>
+            <% end %>
+          </table>
+      <% else %>
+        <h5>This card has no rewards!</h5>
+      <% end %>
       <%= link_to "Add Another Reward for #{@card.name} ", {:controller => "rewards", :action => "new", :id => @card.id } %>
     </div>
   </div>

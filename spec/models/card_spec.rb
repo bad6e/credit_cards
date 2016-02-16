@@ -42,11 +42,6 @@ RSpec.describe Card, type: :model do
     expect(card_one).to be_invalid
   end
 
-  it "is invalid without a card information" do
-    card_one.information = nil
-    expect(card_one).to be_invalid
-  end
-
   it "is invalid without an apr rate" do
     card_one.apr = nil
     expect(card_one).to be_invalid

@@ -24,7 +24,7 @@ feature "admin" do
     fill_in "card[apr]", with: "Test Name3"
     fill_in "card[intro_rate]", with: "Test Name4"
     fill_in "card[image_link]", with: "Test Name5"
-    click_on "Update Card"
+    click_on "Submit Information"
 
     expect(current_path).to eq(admin_cards_path)
 
