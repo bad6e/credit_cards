@@ -17,8 +17,6 @@ class Card < ActiveRecord::Base
               uniqueness: true
   validates :annual_fee,
               presence: true
-  validates :information,
-              presence: true
   validates :apr,
               presence: true
   validates :intro_rate,

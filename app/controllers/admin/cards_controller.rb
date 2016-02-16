@@ -1,5 +1,6 @@
 class Admin::CardsController < Admin::BaseController
   before_action :load_card, only: [:show, :edit, :update, :destroy]
+  before_action :load_presenter, only: [:edit, :update]
 
   def index
     @cards = Card.all
@@ -16,21 +17,24 @@ class Admin::CardsController < Admin::BaseController
   def create
     @card = Card.new(card_params)
     if @card.save
+      flash[:success] = "Card successfully added!"
       redirect_to admin_cards_path
     else
+      flash.now[:errors] = @card.errors.full_messages.join(", ")
       render :new
     end
   end
 
   def edit
     @card.categories.build
-    @card_rewards = CardPresenter.new(@card.id)
   end
 
   def update
     if @card.update(card_params)
+      flash[:success] = "Card successfully updated!"
       redirect_to admin_cards_path
     else
+      flash.now[:errors] = @card.errors.full_messages.join(", ")
       render :edit
     end
   end
@@ -44,6 +48,10 @@ class Admin::CardsController < Admin::BaseController
 
     def load_card
       @card = Card.find(params[:id])
+    end
+
+    def load_presenter
+      @card_rewards = CardPresenter.new(@card.id)
     end
 
     def card_params
