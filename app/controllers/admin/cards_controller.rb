@@ -72,7 +72,6 @@ class Admin::CardsController < Admin::BaseController
                                    :intro_rate,
                                    :image_link,
                                    categories_attributes: [:id, :name, :slug, :_destroy],
-                                   rewards_attributes: [:id, :amount, :spending_amount, :record_date],
                                    :information => [])
     end
 end

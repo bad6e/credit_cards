@@ -8,10 +8,6 @@ class Card < ActiveRecord::Base
                                   reject_if: :all_blank,
                                   allow_destroy: true
 
-  accepts_nested_attributes_for :rewards,
-                                reject_if: proc { |attributes| attributes['amount'].blank? },
-                                allow_destroy: true
-
   validates :name,
               presence: true,
               uniqueness: true
