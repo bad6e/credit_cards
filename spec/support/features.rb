@@ -57,7 +57,7 @@ shared_context "features" do
                 image_link: "www.test-barclaystravel.com")
   }
 
-  def set_category
+  def set_card_categories
     c1 = Card.find(card_one.id)
     c1.categories << Category.find(category_one.id)
 

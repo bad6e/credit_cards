@@ -33,7 +33,7 @@ feature "admin" do
     within(".card-description") do
       expect(page).to have_css('ul')
       expect(page).to have_content("This is the best card ever.")
-      expect(page).to have_content(" I really like it.")
+      expect(page).to have_content("I really like it.")
       expect(page).to have_content("Fact.")
     end
 
