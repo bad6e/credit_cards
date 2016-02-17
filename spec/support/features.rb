@@ -3,6 +3,18 @@ shared_context "features" do
     Category.create(name: "airline")
   }
 
+  let!(:category_two) {
+    Category.create(name: "hotel")
+  }
+
+  let!(:category_three) {
+    Category.create(name: "cash-back")
+  }
+
+  let!(:category_four) {
+    Category.create(name: "travel")
+  }
+
   let!(:admin_one) {
     User.create(first_name: "Bret",
                 last_name: "Doucette",

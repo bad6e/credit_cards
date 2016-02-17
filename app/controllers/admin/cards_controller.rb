@@ -12,12 +12,13 @@ class Admin::CardsController < Admin::BaseController
 
   def new
     @card = Card.new
-    @card.categories.build
   end
 
   def create
-    @card = Card.new(card_params)
+    selected_categories = card_params[:categories]
+    @card = Card.new(card_params.except(:categories))
     if @card.save
+      assign_categories_to_card(selected_categories)
       flash[:success] = "Card successfully added!"
       redirect_to admin_cards_path
     else
@@ -65,13 +66,22 @@ class Admin::CardsController < Admin::BaseController
                                     .map! {|info| "#{info}." }
     end
 
+    def assign_categories_to_card(selected_categories)
+      selected_categories.each do |id|
+        if id != ""
+          category = Category.find(id)
+          @card.categories << category
+        end
+      end
+    end
+
     def card_params
       params.require(:card).permit(:name,
                                    :annual_fee,
                                    :apr,
                                    :intro_rate,
                                    :image_link,
-                                   categories_attributes: [:id, :name, :slug, :_destroy],
+                                   :categories => [],
                                    :information => [])
     end
 end

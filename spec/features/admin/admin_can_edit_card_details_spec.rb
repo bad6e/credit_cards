@@ -12,7 +12,6 @@ feature "admin" do
 
     expect(current_path).to eq(edit_admin_card_path(card_one))
     expect(page).to have_content("Card Details")
-    expect(page).to have_content("Card Categories")
     expect(page).to have_content("Card Rewards")
   end
 

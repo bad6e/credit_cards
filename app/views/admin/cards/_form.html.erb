@@ -5,14 +5,7 @@
   <%= card_form.text_field :intro_rate %>
   <%= card_form.text_field :image_link %>
   <%= card_form.text_field :information %>
-  <h3>Card Categories</h3>
-  <div id='categories'>
-    <%= card_form.fields_for :categories do |categories_fields| %>
-      <%= categories_fields.text_field :name %>
-      <%= categories_fields.text_field :slug %>
-      <%= categories_fields.check_box :_destroy %>
-      <%= categories_fields.label :_destroy, 'remove' %>
-    <% end %>
-  </div>
+  <%= card_form.collection_select :categories, Category.order(:name),:id,:name, {:include_blank => true}, {:multiple => true} %>
   <%= card_form.submit 'Submit Information' %>
 <% end %>
+
