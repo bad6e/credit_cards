@@ -1,6 +1,7 @@
 class Admin::CardsController < Admin::BaseController
   before_action :load_card, only: [:show, :edit, :update, :destroy]
   before_action :load_presenter, only: [:edit, :update]
+  before_filter :format_card_information, only: [:create, :update]
 
   def index
     @cards = Card.all
@@ -54,14 +55,24 @@ class Admin::CardsController < Admin::BaseController
       @card_rewards = CardPresenter.new(@card.id)
     end
 
+    def format_card_information
+      convert_form_information_to_sentences(params)
+    end
+
+    def convert_form_information_to_sentences(params)
+      params[:card][:information] = params[:card][:information].
+                                    split(".")
+                                    .map! {|info| "#{info}." }
+    end
+
     def card_params
       params.require(:card).permit(:name,
                                    :annual_fee,
-                                   :information,
                                    :apr,
                                    :intro_rate,
                                    :image_link,
                                    categories_attributes: [:id, :name, :slug, :_destroy],
-                                   rewards_attributes: [:id, :amount, :spending_amount, :record_date])
+                                   rewards_attributes: [:id, :amount, :spending_amount, :record_date],
+                                   :information => [])
     end
 end

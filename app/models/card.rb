@@ -29,5 +29,9 @@ class Card < ActiveRecord::Base
     name = self.categories.first.name
     display_name = name.gsub("-", " ").titleize
   end
+
+  def convert_form_information(params)
+    binding.pry
+  end
 end
 

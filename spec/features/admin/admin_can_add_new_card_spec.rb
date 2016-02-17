@@ -15,9 +15,28 @@ feature "admin" do
     fill_in "card[apr]", with: "12.99%"
     fill_in "card[intro_rate]", with: "N/A"
     fill_in "card[image_link]", with: "www.test.com"
+    fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
     click_on "Submit Information"
+
+    card = Card.last
+    card.categories << Category.first
 
     expect(current_path).to eq(admin_cards_path)
     expect(page).to have_content("Test Name1")
+
+    visit card_path(card)
+    expect(page).to have_content("Test Name1")
+    expect(page).to have_content("$99")
+    expect(page).to have_content("12.99%")
+    expect(page).to have_content("N/A")
+
+    within(".card-description") do
+      expect(page).to have_css('ul')
+      expect(page).to have_content("This is the best card ever.")
+      expect(page).to have_content(" I really like it.")
+      expect(page).to have_content("Fact.")
+    end
+
+
   end
 end

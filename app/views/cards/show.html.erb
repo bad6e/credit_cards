@@ -24,11 +24,13 @@
         <h5><strong>Annual Fee:</strong> <%= @card.card_name.annual_fee %></h5>
       </div>
 
-      <div class="col-md-9 well">
+      <div class="col-md-9 well card-description">
         <h3>Card Description</h3>
         <ul>
+          <% n = 1 %>
           <% @card.card_name.information.each do |info| %>
-          <li><%= info %></li>
+          <li id="information-<%= n %>"><%= info %></li>
+          <% n += 1 %>
           <% end %>
         </ul>
       </div>
