@@ -19,7 +19,7 @@ class Card < ActiveRecord::Base
   validates :image_link,
               presence: true
 
-  def parse_card_name
+  def parse_card_categories_names
     name = self.categories.map do |category|
       category.name.gsub("-", " ").titleize
     end

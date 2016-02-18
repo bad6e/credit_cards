@@ -10,8 +10,8 @@ class CardPresenter
     Card.find(card_id)
   end
 
-  def category_name
-    Card.find(card_id).parse_card_name
+  def parsed_category_names
+    Card.find(card_id).parse_card_categories_names
   end
 
   def featured_cards
@@ -29,8 +29,6 @@ class CardPresenter
   def brets_favorite?
     card_name.categories.include?(Category.find_by(name: "bret's-favorite-cards"))
   end
-
-  private
 
   def category_list
     Card.find(card_id).categories
