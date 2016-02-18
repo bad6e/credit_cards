@@ -3,7 +3,7 @@ require "rails_helper"
 feature "admin" do
   include_context "features"
 
-  scenario "admin can add new card" do
+  scenario "admin can add new card and assign it to multiple categories" do
     admin_login
 
     click_on "Add New Card"
@@ -16,10 +16,31 @@ feature "admin" do
     fill_in "card[intro_rate]", with: "N/A"
     fill_in "card[image_link]", with: "www.test.com"
     fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
+    select "airline", :from => "card[categories][]"
+    select "travel", :from => "card[categories][]"
+    select "cash-back", :from => "card[categories][]"
     click_on "Submit Information"
 
     card = Card.last
-    card.categories << Category.first
+
+    expect(card.categories.first.name).to eq("airline")
+    expect(card.categories.second.name).to eq("cash-back")
+    expect(card.categories.third.name).to eq("travel")
+
+    category_first = Category.find_by(name: 'cash-back')
+    visit category_path(category_first)
+    expect(page).to have_content("Test Name1")
+
+    category_second = Category.find_by(name: 'airline')
+    visit category_path(category_second)
+    expect(page).to have_content("Test Name1")
+  end
+
+  scenario "admin can add new card and upon saving - card infromation displays correctly" do
+    admin_login
+    click_on "Add New Card"
+    fill_in_card_information
+    card = Card.last
 
     expect(current_path).to eq(admin_cards_path)
     expect(page).to have_content("Test Name1")
@@ -36,7 +57,5 @@ feature "admin" do
       expect(page).to have_content("I really like it.")
       expect(page).to have_content("Fact.")
     end
-
-
   end
 end
