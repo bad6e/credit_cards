@@ -3,24 +3,27 @@ task :update_cards => :environment do
   puts "To Infinity and Beyond!"
   require 'nokogiri'
   require 'open-uri'
+  require 'models/useragent'
+
+  include UserAgent
 
   class CardScraper
-
     def initialize
+      @user_agent = UserAgent::OpenFile.new.open_file
       open_urls
     end
 
     def open_urls
       url_list.each do |url|
-        @page = Nokogiri::HTML(open("http://thepointsguy.com/credit-cards/#{url}/"))
-        @url = url
+        @page = Nokogiri::HTML(open("http://thepointsguy.com/credit-cards/#{url}/", "User-Agent" => @user_agent.sample[0] ))
+        @url  = url
         save_data
         clean_data
       end
     end
 
     def url_list
-      ["airline"]
+      ["airline","business-rewards", "hotel", "cash-back", "other"]
     end
 
     def card_name
@@ -54,11 +57,12 @@ task :update_cards => :environment do
       @grouped_details = []
       n = 1
       @links.each do |link|
-        @new_page = Nokogiri::HTML(open("http://thepointsguy.com/#{link}"))
+        user_agent = @user_agent.sample[0]
+        @new_page = Nokogiri::HTML(open("http://thepointsguy.com/#{link}", "User-Agent" => user_agent))
         stuff = @new_page.css(".card-right").css("ul").children.each do |r|
           individual_details << r.text
         end
-        puts "Scraped card number #{n}"
+        puts "Scraped card number #{n} as #{user_agent} "
         n += 1
         @grouped_details << individual_details
         individual_details = []
