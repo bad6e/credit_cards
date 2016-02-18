@@ -99,4 +99,17 @@ shared_context "features" do
       first(:link, "Edit").click
     end
   end
+
+  def fill_in_card_information
+    fill_in "card[name]", with: "Test Name1"
+    fill_in "card[annual_fee]", with: "$99"
+    fill_in "card[apr]", with: "12.99%"
+    fill_in "card[intro_rate]", with: "N/A"
+    fill_in "card[image_link]", with: "www.test.com"
+    fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
+    select "airline", :from => "card[categories][]"
+    select "travel", :from => "card[categories][]"
+    select "cash-back", :from => "card[categories][]"
+    click_on "Submit Information"
+  end
 end
