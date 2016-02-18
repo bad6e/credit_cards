@@ -1,4 +1,16 @@
-// @import url(https://fonts.googleapis.com/css?family=Raleway:500);
+@import url(https://fonts.googleapis.com/css?family=Raleway:500);
+
+$bgDefault      : #fff;
+$bgHighlight    : #D3D3D3;
+$colDefault     : #464646;
+$colHighlight   : #0e95e0;
+$white          : #FFF;
+$black          : #000;
+
+.picture-row {
+
+}
+
 
 .page-header {
   font-family: 'Raleway', sans-serif;
@@ -28,4 +40,19 @@
 
 h3 {
   font-family: 'Raleway', sans-serif;
+}
+
+.center-block {
+  display: block;
+  margin: 70px auto;
+  max-width: 100%;
+ }
+
+ .well-picture {
+    padding: 19px;
+    background-color: $bgHighlight;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }

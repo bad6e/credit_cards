@@ -19,14 +19,17 @@
       <div class="col-md-3">
         <img class="img-responsive" src=<%= @card.card_name.image_link %> alt="">
         <h3>Card Details</h3>
+        <h5>Intro Rate: <%= @card.card_name.intro_rate %></h5>
+        <h5>APR: <%= @card.card_name.apr %></h5>
+        <h5>Annual Fee: <%= @card.card_name.annual_fee %></h5>
+        <h3>Bonus Information</h3>
         <% if @card.brets_favorite? %>
-        <h5><strong>Sign Up Bonus:</strong> 50,000 points</h5>
-        <h5><strong>Spending Requirements:</strong> $1,000</h5>
-        <h5><strong>Length of Time:</strong> 3 Months</h5>
+          <h5>Sign Up Bonus: 50,000 points</h5>
+          <h5>Spending Requirements: $1,000</h5>
+          <h5>Length of Time: 3 Months</h5>
+        <% else %>
+        <p>See <a href="/categories/brets-favorite-cards">Bret's Favorite Cards</a> for Premium Bonus Information</p>
         <% end %>
-        <h5><strong>Intro Rate:</strong> <%= @card.card_name.intro_rate %></h5>
-        <h5><strong>APR:</strong> <%= @card.card_name.apr %></h5>
-        <h5><strong>Annual Fee:</strong> <%= @card.card_name.annual_fee %></h5>
       </div>
 
       <div class="col-md-9 well card-description">
