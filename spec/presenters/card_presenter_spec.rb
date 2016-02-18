@@ -72,9 +72,9 @@ RSpec.describe Card, type: :model do
     expect(CardPresenter.new(card_one.id).card_name.name).to eq("Southwest Airlines Premier")
   end
 
-  it "returns the category name" do
+  it "returns the parsed category names in an array" do
     set_category
-    expect(CardPresenter.new(card_one.id).category_name).to eq("Airline")
+    expect(CardPresenter.new(card_one.id).parsed_category_names).to eq(["Airline"])
   end
 
   it "returns four featured cards" do
