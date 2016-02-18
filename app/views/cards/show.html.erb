@@ -19,8 +19,10 @@
       <div class="col-md-3">
         <img class="img-responsive" src=<%= @card.card_name.image_link %> alt="">
         <h3>Card Details</h3>
+        <% if @card.brets_favorite? %>
         <h5><strong>Sign Up Bonus:</strong> 50,000 points</h5>
         <h5><strong>Spending Requirements:</strong> $1,000</h5>
+        <% end %>
         <h5><strong>Intro Rate:</strong> <%= @card.card_name.intro_rate %></h5>
         <h5><strong>APR:</strong> <%= @card.card_name.apr %></h5>
         <h5><strong>Annual Fee:</strong> <%= @card.card_name.annual_fee %></h5>
@@ -42,7 +44,7 @@
     <!-- Related Cards Row -->
     <div class="row">
       <div class="col-lg-12">
-          <h3 class="page-header related-card-header">Related <%= @card.category_name%> Cards</h3>
+          <h3 class="page-header related-card-header">Related <%= @card.featured_cards_category_name %> Cards</h3>
       </div>
       <% @card.featured_cards.each do |card| %>
       <div class="related-cards">

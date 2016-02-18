@@ -18,8 +18,16 @@ class CardPresenter
     category_list.first.cards.limit(4).where.not(name: card_name.name).order("RANDOM()")
   end
 
+  def featured_cards_category_name
+    category_list.first.parse_category_name
+  end
+
   def rewards
     card_name.rewards.order(record_date: :desc)
+  end
+
+  def brets_favorite?
+    card_name.categories.include?(Category.find_by(name: "bret's-favorite-cards"))
   end
 
   private
