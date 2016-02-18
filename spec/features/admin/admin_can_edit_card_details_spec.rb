@@ -77,6 +77,37 @@ feature "admin" do
     expect(page).to have_content("Test Name1")
   end
 
+  scenario "admin can't add the same category to the same card twice" do
+    admin_edit
+    fill_in_card_information
+
+    expect(current_path).to eq(admin_cards_path)
+
+    expect(card_one.categories.first.name).to eq("airline")
+    expect(card_one.categories.second.name).to eq("cash-back")
+    expect(card_one.categories.third.name).to eq("travel")
+    expect(card_one.categories.count).to eq(3)
+
+    visit admin_cards_path
+    within("#card-#{card_one.id}") do
+      first(:link, "Edit").click
+    end
+
+    fill_in "card[name]", with: "Test Name1"
+    fill_in "card[annual_fee]", with: "$99"
+    fill_in "card[apr]", with: "12.99%"
+    fill_in "card[intro_rate]", with: "N/A"
+    fill_in "card[image_link]", with: "www.test.com"
+    fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
+    select "airline", :from => "card[categories][]"
+    select "travel", :from => "card[categories][]"
+    select "cash-back", :from => "card[categories][]"
+    select "hotel", :from => "card[categories][]"
+    click_on "Submit Information"
+
+    expect(card_one.categories.count).to eq(4)
+  end
+
   scenario "admin can add rewards for a specific card" do
     admin_edit
 

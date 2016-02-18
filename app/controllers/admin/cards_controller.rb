@@ -70,11 +70,15 @@ class Admin::CardsController < Admin::BaseController
 
     def assign_categories_to_card(selected_categories)
       selected_categories.each do |id|
-        if id != ""
+        if ((id != "") and (card_not_already_assigned(id) == false))
           category = Category.find(id)
           @card.categories << category
         end
       end
+    end
+
+    def card_not_already_assigned(id)
+      @card.categories.include?(Category.find(id))
     end
 
     def card_params
