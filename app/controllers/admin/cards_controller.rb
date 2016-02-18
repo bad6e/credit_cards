@@ -32,7 +32,9 @@ class Admin::CardsController < Admin::BaseController
   end
 
   def update
-    if @card.update(card_params)
+    selected_categories = card_params[:categories]
+    if @card.update(card_params.except(:categories))
+      assign_categories_to_card(selected_categories)
       flash[:success] = "Card successfully updated!"
       redirect_to admin_cards_path
     else
