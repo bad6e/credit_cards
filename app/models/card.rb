@@ -9,8 +9,7 @@ class Card < ActiveRecord::Base
                                   allow_destroy: true
 
   validates :name,
-              presence: true,
-              uniqueness: true
+              presence: true
   validates :annual_fee,
               presence: true
   validates :apr,
@@ -18,8 +17,7 @@ class Card < ActiveRecord::Base
   validates :intro_rate,
               presence: true
   validates :image_link,
-              presence: true,
-              uniqueness: true
+              presence: true
 
   def parse_card_name
     name = self.categories.first.name
