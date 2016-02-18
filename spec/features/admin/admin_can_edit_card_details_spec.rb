@@ -106,6 +106,10 @@ feature "admin" do
     click_on "Submit Information"
 
     expect(card_one.categories.count).to eq(4)
+    expect(card_one.categories.include?(Category.find_by(name: "airline"))).to eq(true)
+    expect(card_one.categories.include?(Category.find_by(name: "cash-back"))).to eq(true)
+    expect(card_one.categories.include?(Category.find_by(name: "travel"))).to eq(true)
+    expect(card_one.categories.include?(Category.find_by(name: "hotel"))).to eq(true)
   end
 
   scenario "admin can add rewards for a specific card" do
