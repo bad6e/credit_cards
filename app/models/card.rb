@@ -20,8 +20,9 @@ class Card < ActiveRecord::Base
               presence: true
 
   def parse_card_name
-    name = self.categories.first.name
-    display_name = name.gsub("-", " ").titleize
+    name = self.categories.map do |category|
+      category.name.gsub("-", " ").titleize
+    end
   end
 
   def convert_form_information(params)

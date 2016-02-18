@@ -7,7 +7,9 @@
           <small><%= @card.card_name.annual_fee %></small></h1>
         <ol class="breadcrumb">
           <li>Category</li>
-          <li class="active"><%= @card.category_name %></li>
+          <% @card.category_name.each do |name| %>
+            <li class="active"><%= link_to name, category_path(name.downcase) %></li>
+            <% end %>
         </ol>
       </div>
     </div>
