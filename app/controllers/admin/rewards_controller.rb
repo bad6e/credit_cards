@@ -23,7 +23,6 @@ class Admin::RewardsController < ApplicationController
   end
 
   def update
-    @reward = Reward.new(reward_params)
     if @reward.update(reward_params)
       flash[:success] = "Reward successfully updated!"
       redirect_to edit_admin_card_path(reward_params[:card_id])
