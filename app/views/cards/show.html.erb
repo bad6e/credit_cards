@@ -24,9 +24,9 @@
         <h5>Annual Fee: <%= @card.card_name.annual_fee %></h5>
         <h3>Bonus Information</h3>
         <% if @card.brets_favorite? %>
-          <h5>Sign Up Bonus: 50,000 points</h5>
-          <h5>Spending Requirements: $1,000</h5>
-          <h5>Length of Time: 3 Months</h5>
+          <h5>Sign Up Bonus: <%= @card.rewards.last.amount %></h5>
+          <h5>Spending Requirements: <%= number_to_currency(@card.rewards.last.spending_amount, precision: 0) %></h5>
+          <h5>Length of Time: <%= @card.rewards.last.length_of_time %> Months</h5>
         <% else %>
         <p>See <a href="/categories/brets-favorite-cards">Bret's Favorite Cards</a> for Premium Bonus Information</p>
         <% end %>
