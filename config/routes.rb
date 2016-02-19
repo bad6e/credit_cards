@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   namespace "admin" do
     resources :cards, only: [:new, :create, :edit, :update, :index]
-    resources :rewards, only: [:new, :create, :edit, :update, :index]
+    resources :rewards, only: [:new, :create, :edit, :update, :index, :destroy]
   end
 
   namespace :api do
