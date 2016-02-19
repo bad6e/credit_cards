@@ -42,9 +42,13 @@
           <% end %>
         </ul>
       </div>
+      <% if @card.brets_favorite? %>
+        <div class='col-md-3 col-md-offset-3'>
+          <button type="button" class="btn btn-success btn-lg btn-block ">Apply Here</button>
+        </div>
+      <% end %>
     </div>
     <!-- /.row -->
-
     <!-- Related Cards Row -->
     <div class="row">
       <div class="col-lg-12">
@@ -54,7 +58,7 @@
       <div class="related-cards">
         <div class="col-sm-3 col-xs-6">
           <img class="img-responsive img-hover img-related" src=<%= card.image_link %> alt="">
-          <p class="related-card-name"><%= link_to card.name, card_path(card)%></p>
+          <p class="related-card-name"><%= link_to card.name, card_path(card) %></p>
         </div>
       </div>
       <% end %>
