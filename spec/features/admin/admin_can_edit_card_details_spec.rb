@@ -128,7 +128,7 @@ feature "admin" do
     click_on "Add New Reward"
 
     expect(current_path).to eq(edit_admin_card_path(card_one))
-    save_and_open_page
+
     within('.table') do
       expect(page).to have_content("5000")
       expect(page).to have_content("$3,000.00")

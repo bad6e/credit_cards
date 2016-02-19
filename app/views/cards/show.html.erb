@@ -24,9 +24,9 @@
         <h5>Annual Fee: <%= @card.card_name.annual_fee %></h5>
         <h3>Bonus Information</h3>
         <% if @card.brets_favorite? %>
-          <h5>Sign Up Bonus: <%= @card.rewards.last.amount %></h5>
-          <h5>Spending Requirements: <%= number_to_currency(@card.rewards.last.spending_amount, precision: 0) %></h5>
-          <h5>Length of Time: <%= @card.rewards.last.length_of_time %> Months</h5>
+          <h5>Sign Up Bonus: <%= @card.rewards.first.amount %></h5>
+          <h5>Spending Requirements: <%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %></h5>
+          <h5>Length of Time: <%= @card.rewards.first.length_of_time %> Months</h5>
         <% else %>
         <p>See <a href="/categories/brets-favorite-cards">Bret's Favorite Cards</a> for Premium Bonus Information</p>
         <% end %>
@@ -44,7 +44,7 @@
       </div>
       <% if @card.brets_favorite? %>
         <div class='col-md-3 col-md-offset-3'>
-          <button type="button" class="btn btn-success btn-lg btn-block ">Apply Here</button>
+          <%= button_to "Apply Here", @card.rewards.first.apply_link, :method => "get", class: "btn btn-success btn-lg btn-block"  %>
         </div>
       <% end %>
     </div>
