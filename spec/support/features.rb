@@ -15,6 +15,10 @@ shared_context "features" do
     Category.create(name: "travel")
   }
 
+  let!(:category_five) {
+    Category.create(name: "bret's-favorite-cards")
+  }
+
   let!(:admin_one) {
     User.create(first_name: "Bret",
                 last_name: "Doucette",
@@ -111,5 +115,15 @@ shared_context "features" do
     select "travel", :from => "card[categories][]"
     select "cash-back", :from => "card[categories][]"
     click_on "Submit Information"
+  end
+
+  def fill_in_reward_information
+    click_on "Add Another Reward for #{card_one.name}"
+    fill_in "reward[amount]", with: 50000
+    fill_in "reward[spending_amount]", with: 3000
+    fill_in "reward[record_date]", with: "2016-02-18"
+    fill_in "reward[length_of_time]", with: 3
+    fill_in "reward[apply_link]", with: "www.test.com"
+    click_on "Add New Reward"
   end
 end

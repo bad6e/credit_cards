@@ -1,10 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
 
-$bgDefault      : #fff;
-$bgHighlight    : #D3D3D3;
-$colDefault     : #464646;
-$colHighlight   : #0e95e0;
-$white          : #FFF;
+$white          : #fff;
+$lightgray      : #D3D3D3;
+$darkgray       : #464646;
+$skyblue        : #0e95e0;
+$lighterskyblue : #269fe3;
 $black          : #000;
 
 .picture-row {
@@ -40,4 +40,35 @@ $black          : #000;
 
 h3 {
   font-family: 'Raleway', sans-serif;
+}
+
+.btn {
+  padding: 14px 24px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-success {
+    background: $skyblue;
+    color: $white;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+    background: $lighterskyblue;
+}
+
+.btn-success:active, .btn-success.active {
+    background: $lightgray;
+    box-shadow: none;
+}
+
+.btn-success:active:focus {
+  background-color: $lightgray;
 }
