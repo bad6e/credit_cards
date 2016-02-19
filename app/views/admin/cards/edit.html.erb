@@ -14,6 +14,7 @@
               <th>Required Spending Amount</th>
               <th>Length of Time (Months)</th>
               <th>Apply Link </th>
+              <th></th>
             </tr>
             <tr>
             <% @card_rewards.rewards.each do |reward| %>
@@ -22,6 +23,7 @@
               <td><%= number_to_currency(reward.spending_amount) %></td>
               <td><%= reward.length_of_time %></td>
               <td><%= reward.apply_link %></td>
+              <td><%= link_to "Edit", edit_admin_reward_path(reward) %></td>
             </tr>
             <% end %>
           </table>
