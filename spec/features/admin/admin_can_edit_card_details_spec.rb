@@ -124,14 +124,17 @@ feature "admin" do
     fill_in "reward[spending_amount]", with: 3000
     fill_in "reward[record_date]", with: "2016-02-18"
     fill_in "reward[length_of_time]", with: 3
+    fill_in "reward[apply_link]", with: "www.test.com"
     click_on "Add New Reward"
 
     expect(current_path).to eq(edit_admin_card_path(card_one))
+    save_and_open_page
     within('.table') do
       expect(page).to have_content("5000")
       expect(page).to have_content("$3,000.00")
       expect(page).to have_content("2016-02-18")
       expect(page).to have_content("3")
+      expect(page).to have_content("www.test.com")
     end
   end
  end

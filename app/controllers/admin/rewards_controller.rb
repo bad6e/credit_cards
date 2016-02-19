@@ -22,6 +22,7 @@ class Admin::RewardsController < ApplicationController
                                      :spending_amount,
                                      :record_date,
                                      :length_of_time,
-                                     :card_id)
+                                     :card_id,
+                                     :apply_link)
     end
 end
