@@ -111,30 +111,4 @@ feature "admin" do
     expect(card_one.categories.include?(Category.find_by(name: "travel"))).to eq(true)
     expect(card_one.categories.include?(Category.find_by(name: "hotel"))).to eq(true)
   end
-
-  scenario "admin can add rewards for a specific card" do
-    admin_edit
-
-    click_on "Add Another Reward for #{card_one.name}"
-
-    expect(current_path).to eq(new_admin_reward_path)
-    expect(page).to have_content("Add a New Reward for #{card_one.name}")
-
-    fill_in "reward[amount]", with: 50000
-    fill_in "reward[spending_amount]", with: 3000
-    fill_in "reward[record_date]", with: "2016-02-18"
-    fill_in "reward[length_of_time]", with: 3
-    fill_in "reward[apply_link]", with: "www.test.com"
-    click_on "Add New Reward"
-
-    expect(current_path).to eq(edit_admin_card_path(card_one))
-
-    within('.table') do
-      expect(page).to have_content("5000")
-      expect(page).to have_content("$3,000.00")
-      expect(page).to have_content("2016-02-18")
-      expect(page).to have_content("3")
-      expect(page).to have_content("www.test.com")
-    end
-  end
  end
