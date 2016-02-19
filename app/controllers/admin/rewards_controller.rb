@@ -1,5 +1,5 @@
 class Admin::RewardsController < ApplicationController
-  before_action :load_reward, only: [:edit, :update]
+  before_action :load_reward, only: [:edit, :update, :destroy]
 
   def new
     @reward         = Reward.new
@@ -30,6 +30,13 @@ class Admin::RewardsController < ApplicationController
       flash.now[:errors] = @reward.errors.full_messages.join(", ")
       render :edit
     end
+  end
+
+  def destroy
+    card_id = @reward.card_id
+    @reward.delete
+    flash[:success] = "Reward successfully deleted!"
+    redirect_to edit_admin_card_path(card_id)
   end
 
   private
