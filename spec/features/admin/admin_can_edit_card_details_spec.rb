@@ -41,7 +41,7 @@ feature "admin" do
       find_field('card[apr]').value.should eq "12.99%"
       find_field('card[intro_rate]').value.should eq "N/A"
       find_field('card[image_link]').value.should eq "www.test.com"
-      find_field('card[information]').value.should eq "This is the best card ever. I really like it. Fact.."
+      find_field('card[information]').value.should eq "This is the best card ever. I really like it. Fact."
     end
 
     visit card_path(card_one)
@@ -120,7 +120,7 @@ feature "admin" do
     fill_in "card[apr]", with: "12.99%"
     fill_in "card[intro_rate]", with: "N/A"
     fill_in "card[image_link]", with: "www.test.com"
-    fill_in "card[information]", with: "This card has 16.24%. The price on this card is 3.00. I..like this card."
+    fill_in "card[information]", with: "This card has 16.24%. The price on this card is 3.00. I like this card."
     select "airline", :from => "card[categories][]"
     select "travel", :from => "card[categories][]"
     select "cash-back", :from => "card[categories][]"
@@ -138,7 +138,7 @@ feature "admin" do
       expect(page).to have_css('ul')
       expect(page).to have_content("This card has 16.24%.")
       expect(page).to have_content("The price on this card is 3.00.")
-      expect(page).to have_content("I..like this card.")
+      expect(page).to have_content("I like this card.")
     end
   end
 end
