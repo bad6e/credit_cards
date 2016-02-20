@@ -1,26 +1,32 @@
-<!-- Page Content -->
-  <div class="container">
-    <!-- Page Heading/Breadcrumbs -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Your Search Results Returned <%= pluralize(@cards.count, "card") %></h1>
+    </div>
+  </div>
+
+  <% @cards.each do |card| %>
     <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">Your Search Results Returned <%= @cards.count %> Total Card(s)</h1>
+      <div class="col-md-7">
+        <%= link_to image_tag(card.image_link, class:"img-responsive img-hover"), card_path(card) %>
+      </div>
+
+      <div class="col-md-5 well">
+        <h3><%= link_to card.name, card_path(card) %></h3>
+        <h4><%= card.annual_fee %></h4>
+        <p><%= card.information[0]%></p>
+        <%= link_to "See More Information", card_path(card), class: "btn btn-success" %>
       </div>
     </div>
     <!-- /.row -->
-    <!-- Project One -->
-    <% @cards.each do |card| %>
-      <div class="row">
-        <div class="col-md-7">
-          <%= link_to image_tag(card.image_link, class:"img-responsive img-hover"), card_path(card) %>
-        </div>
+    <hr>
+  <% end %>
+</div>
 
-        <div class="col-md-5 well">
-          <h3><%= link_to card.name, card_path(card) %></h3>
-          <h4><%= card.annual_fee %></h4>
-          <p><%= card.information[0]%></p>
-          <%= link_to "See More Information", card_path(card), class: "btn btn-success" %>
-        </div>
-      </div>
-      <!-- /.row -->
-      <hr>
-    <% end %>
+<div class="row text-center">
+  <div class="col-lg-12">
+    <div class="container paginate">
+      <%= will_paginate %>
+    </div>
+  </div>
+</div>

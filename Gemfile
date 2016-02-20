@@ -16,7 +16,8 @@ gem 'rails_12factor'
 gem 'responders'
 gem 'jquery-ui-rails'
 gem 'friendly_id'
-gem 'cocoon'
+gem "will_paginate"
+gem "bootstrap-will_paginate"
 
 group :development do
   gem 'web-console', '~> 2.0'
