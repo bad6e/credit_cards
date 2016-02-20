@@ -63,9 +63,11 @@ class Admin::CardsController < Admin::BaseController
     end
 
     def convert_form_information_to_sentences(params)
-      params[:card][:information] = params[:card][:information].
-                                    split(".")
-                                    .map! {|info| "#{info}." }
+      split_params                = params[:card][:information].split(". ")
+      last_element_formatted      = split_params[-1].gsub(".", "")
+      split_params.pop
+      formatted_information       = split_params.insert(-1, last_element_formatted)
+      params[:card][:information] = formatted_information.map! {|info| "#{info}." }
     end
 
     def assign_categories_to_card(selected_categories)
