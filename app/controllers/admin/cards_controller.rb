@@ -64,7 +64,7 @@ class Admin::CardsController < Admin::BaseController
 
     def convert_form_information_to_sentences(params)
       params[:card][:information] = params[:card][:information].
-                                    split(".")
+                                    split(". ")
                                     .map! {|info| "#{info}." }
     end
 
