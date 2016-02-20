@@ -22,7 +22,7 @@ feature "admin" do
 
     within('.table') do
       expect(page).to have_content("5000")
-      expect(page).to have_content("$3,000.00")
+      expect(page).to have_content("$3,000")
       expect(page).to have_content("2016-02-18")
       expect(page).to have_content("3")
       expect(page).to have_content("www.test.com")
@@ -51,7 +51,7 @@ feature "admin" do
 
     within(".table") do
       expect(page).to have_content("60000")
-      expect(page).to have_content("$4,000.00")
+      expect(page).to have_content("$4,000")
       expect(page).to have_content("2016-02-19")
       expect(page).to have_content("4")
       expect(page).to have_content("www.test1.com")
