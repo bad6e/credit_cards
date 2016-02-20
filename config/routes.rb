@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'about', to: 'about#index'
   get 'blog', to: 'blog#index'
 
-  resources :cards, only: [:show]
+  resources :cards, only: [:index, :show]
   resources :categories, only: [:show]
 
   get '/admin-login', to: 'sessions#new'

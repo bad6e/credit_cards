@@ -1,4 +1,6 @@
 class Card < ActiveRecord::Base
+  # attr_accessor :name
+
   has_many :rewards, dependent: :destroy
 
   has_many :categorizings
@@ -27,6 +29,10 @@ class Card < ActiveRecord::Base
 
   def convert_form_information(params)
     binding.pry
+  end
+
+  def self.search(params)
+    where("name LIKE ?", "%#{params}%")
   end
 end
 
