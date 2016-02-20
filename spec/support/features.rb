@@ -33,7 +33,7 @@ shared_context "features" do
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
                 intro_rate: "N/A",
-                image_link: "www.test-premier.com")
+                image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
   let!(:card_two) {
@@ -42,7 +42,7 @@ shared_context "features" do
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
                 intro_rate: "N/A",
-                image_link: "www.test-plus.com")
+                image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
 

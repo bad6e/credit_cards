@@ -1,4 +1,6 @@
 class Card < ActiveRecord::Base
+  # attr_accessor :name
+
   has_many :rewards, dependent: :destroy
 
   has_many :categorizings
@@ -19,6 +21,8 @@ class Card < ActiveRecord::Base
   validates :image_link,
               presence: true
 
+  self.per_page = 10
+
   def parse_card_categories_names
     name = self.categories.map do |category|
       category.name.gsub("-", " ").titleize
@@ -27,6 +31,10 @@ class Card < ActiveRecord::Base
 
   def convert_form_information(params)
     binding.pry
+  end
+
+  def self.search(params)
+    where("name LIKE ?", "%#{params}%")
   end
 end
 
