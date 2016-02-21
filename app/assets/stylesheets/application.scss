@@ -8,14 +8,14 @@
 
 //GENERAL FOLDER
 //Sass Theme Files
-@import "styles/general/style.scss";
-@import "styles/general/updates.scss";
-@import "styles/general/responsive.scss";
-@import "styles/general/custom.scss";
-@import "styles/general/ie.scss";
+@import "styles/base/style.scss";
+@import "styles/base/updates.scss";
+@import "styles/base/responsive.scss";
+@import "styles/base/custom.scss";
+@import "styles/base/ie.scss";
 
 //Modern Business Theme Files
-@import "styles/general/modern-business.scss";
+@import "styles/base/modern-business.scss";
 
 
 //////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@
 
 //STYLES FOLDER
 //Layout Specific Styles
-@import "styles/navbar.scss";
-@import "styles/cards-index.scss";
-@import "styles/cards-show.scss";
+@import "styles/styles/navbar.scss";
+@import "styles/styles/cards-index.scss";
+@import "styles/styles/cards-show.scss";
 
