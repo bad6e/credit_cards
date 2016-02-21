@@ -7,6 +7,11 @@ $black          : #000;
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
 
+.navbar {
+  margin-bottom: 0px;
+   border-bottom: 2px solid $white;
+}
+
 .navbar-default {
   background-color: $bgDefault;
   padding-top: 10px;
@@ -126,4 +131,3 @@ $black          : #000;
   text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
 }
-

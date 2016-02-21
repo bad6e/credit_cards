@@ -1,7 +1,26 @@
+//Bootstrap CSS
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "modern-business";
-@import "navbar";
-@import "cards-show";
-@import "cards-index";
 
+//SHARED FOLDER
+//Shared Files
+@import "shared/font-awesome.min";
+@import "shared/animate.min";
+
+//Revolution Slider Files
+@import "shared/revolution_slider/settings.scss";
+// @import "shared/revolution_slider/styles.scss";
+
+//STYLES FOLDER
+//Layout Specific Styles
+@import "styles/navbar.scss";
+@import "styles/cards-index.scss";
+@import "styles/cards-show.scss";
+
+//Layout - General Styles
+@import "styles/general/style.scss";
+@import "styles/general/updates.scss";
+@import "styles/general/modern-business.scss";
+
+//Layout - General Responsive Styles
+@import "styles/responsive/responsive.scss";
