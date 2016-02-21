@@ -2,6 +2,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+///////////////////////////////////////////////////////////////////
+
+
+//GENERAL FOLDER
+//Sass Theme Files
+@import "styles/general/style.scss";
+@import "styles/general/updates.scss";
+@import "styles/general/responsive.scss";
+@import "styles/general/custom.scss";
+@import "styles/general/ie.scss";
+
+//Modern Business Theme Files
+@import "styles/general/modern-business.scss";
+
+
+//////////////////////////////////////////////////////////////////
+
+
 //SHARED FOLDER
 //Shared Files
 @import "shared/font-awesome.min";
@@ -9,7 +28,10 @@
 
 //Revolution Slider Files
 @import "shared/revolution_slider/settings.scss";
-// @import "shared/revolution_slider/styles.scss";
+
+
+/////////////////////////////////////////////////////////////////
+
 
 //STYLES FOLDER
 //Layout Specific Styles
@@ -17,10 +39,3 @@
 @import "styles/cards-index.scss";
 @import "styles/cards-show.scss";
 
-//Layout - General Styles
-@import "styles/general/style.scss";
-@import "styles/general/updates.scss";
-@import "styles/general/modern-business.scss";
-
-//Layout - General Responsive Styles
-@import "styles/responsive/responsive.scss";
