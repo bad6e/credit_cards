@@ -309,7 +309,7 @@ button, input[type="button"].button {
 a.button {
   display: inline-block; background: #d9d9d9; font-size: 0.8333em; line-height: 1.8333em; white-space: nowrap; text-align: center;
   &:hover { background: $green-theme-color; }
-  &.btn-mini { padding-left: 10px; padding-right: 10px; }
+  &.btn-mini { padding-left: 10px; padding-right: 10px; margin-bottom: 10px; }
   &.btn-large, &.btn-medium, &.btn-small, &.full-width { font-weight: bold; }
 }
 
