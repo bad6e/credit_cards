@@ -895,6 +895,9 @@ ol {  }
 .tab-pane {
   [class^="col-"], [class*=" col-"] { padding-left: 10px; padding-right: 10px; }
   .row { margin-top: 0; margin-left: -10px; margin-right: -10px; }
+  li {
+    margin-bottom: 3px;
+  }
 }
 .tab-container {
   ul.tabs {
