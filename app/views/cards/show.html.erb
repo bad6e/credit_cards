@@ -26,7 +26,7 @@
               <a href="#car-upgrade" data-toggle="tab">Bonus Graph</a>
             </li>
           </ul>
-          <div class="tab-content">
+          <div class="tab-content card-description">
             <div class="tab-pane fade in active" id="car-details">
             <h2>Card Information</h2>
             <ul>
@@ -51,24 +51,27 @@
               </div>
               <% if @card.brets_favorite? %>
                 <h2>Bret's Special Sauce</h2>
-                <div class="car-features box">
+                <div class="car-features box bonus-information-side">
                   <div class="row add-clearfix">
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-user circle"></i>Reward: 50000 Miles
+                        <i class="soap-icon-user circle"></i>Reward: <%= @card.rewards.first.amount %> Miles
                       </span>
                     </div>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-suitcase circle"></i>Time: 3 Months
+                        <i class="soap-icon-suitcase circle"></i><%= pluralize(@card.rewards.first.length_of_time, "Month") %>
                       </span>
                     </div>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-aircon circle"></i>Spending Requirement: $2000
+                        <i class="soap-icon-aircon circle"></i>Spending Requirement: <%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %>
                       </span>
                     </div>
                   </div>
+                </div>
+                <div class='col-md-12 apply-here'>
+                  <%= button_to "Apply Here", @card.rewards.first.apply_link, :method => "get", class: "btn btn-success btn-lg btn-block"  %>
                 </div>
               <% end %>
             </div>
@@ -99,26 +102,28 @@
                 <span class="mileage pull-right"><%= @card.card_name.apr %></span>
               </div>
               <h3 class="box-title">Bonus Information<small>Available for Bret's Favorite Cards</small></h3>
-              <% if @card.brets_favorite? %>
-                <div class="mile clearfix">
-                  <span class="skin-color">Sign Up Bonus:</span>
-                  <span class="mileage pull-right"><%= @card.rewards.first.amount %></span>
-                </div>
-                <div class="mile clearfix">
-                  <span class="skin-color">Spending Requirements:</span>
-                  <span class="mileage pull-right"><%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %></span>
-                </div>
-                <div class="mile clearfix">
-                  <span class="skin-color">Length of Time:</span>
-                  <span class="mileage pull-right"><%= @card.rewards.first.length_of_time %> </span>
-                </div>
-                <span class="price clearfix">
-                  <small class="pull-left">Rating</small>
-                  <span class="pull-right">TBD</span>
-                </span>
-              <% else %>
-                <h6 class="box-title"><a href="/categories/brets-favorite-cards">See Bret's Favorite Cards</a></h6>
-              <% end %>
+              <div class="bonus-information">
+                <% if @card.brets_favorite? %>
+                  <div class="mile clearfix">
+                    <span class="skin-color">Sign Up Bonus:</span>
+                    <span class="mileage pull-right"><%= @card.rewards.first.amount %></span>
+                  </div>
+                  <div class="mile clearfix">
+                    <span class="skin-color">Spending Requirements:</span>
+                    <span class="mileage pull-right"><%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %></span>
+                  </div>
+                  <div class="mile clearfix">
+                    <span class="skin-color">Length of Time:</span>
+                    <span class="mileage pull-right"><%= pluralize(@card.rewards.first.length_of_time, "Month") %></span>
+                  </div>
+                  <span class="price clearfix">
+                    <small class="pull-left">Rating</small>
+                    <span class="pull-right">TBD</span>
+                  </span>
+                <% else %>
+                  <h6 class="box-title"><a href="/categories/brets-favorite-cards">See Bret's Favorite Cards</a></h6>
+                <% end %>
+              </div>
               <a class="button yellow full-width uppercase btn-small" href="#">add to favorites</a>
           </div>
         </article>

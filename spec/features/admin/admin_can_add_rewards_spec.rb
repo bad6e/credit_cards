@@ -68,6 +68,16 @@ feature "admin" do
       expect(page).to_not have_content("$3,000")
       expect(page).to_not have_content("3 Months")
     end
+
+    within(".bonus-information-side") do
+      expect(page).to have_content("60000")
+      expect(page).to have_content("$4,000")
+      expect(page).to have_content("4 Months")
+
+      expect(page).to_not have_content("50000")
+      expect(page).to_not have_content("$3,000")
+      expect(page).to_not have_content("3 Months")
+    end
   end
 
   scenario "rewards will not show up on card show page if the cards is not in the category 'Bret's Favortie Cards'" do
@@ -79,7 +89,7 @@ feature "admin" do
     visit card_path(card_one)
 
     within(".bonus-information") do
-      expect(page).to have_content("See Bret's Favorite Cards for Premium Bonus Information")
+      expect(page).to have_content("See Bret's Favorite Cards")
     end
   end
 end
