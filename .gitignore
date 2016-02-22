@@ -18,3 +18,13 @@
 
 # Ignore application configuration
 /config/application.yml
+
+#Ignore SimpleCov
+coverage/
+test/coverage/
+
+#Ignore Brakeman Output
+output.html
+output_file
+
+
