@@ -29,10 +29,6 @@ class Card < ActiveRecord::Base
     end
   end
 
-  def convert_form_information(params)
-    binding.pry
-  end
-
   def self.search(params)
     where("name LIKE ?", "%#{params}%")
   end
