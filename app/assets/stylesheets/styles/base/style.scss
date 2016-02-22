@@ -533,8 +533,11 @@ blockquote {
 
 /* 2.2.9. Social icons */
 .social-icons {
+  margin:auto;
+  display: table;
+
   li {
-    float: left; text-align: center;
+    float: center; text-align: center; display: inline-block;
     a {
       width: 32px; margin-right: 4px; height: 32px; display: inline-block; background: #d9d9d9; color: #fff; line-height: 32px; font-size: 1.3333em; @include transition(opacity, 0.3s, ease-in);
       &:hover { background: $skin-active-color; }
@@ -4165,12 +4168,14 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
 
 /* 8. Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 #footer {
+  p {text-align: center; font-size: 15px;}
+  h5 {text-align: center; font-family: inherit}
   .footer-wrapper {
-    padding: 80px 0;
+    padding-top: 10px;
     > .container > .row > div { margin-top: 20px; }
   }
-  .discover li { line-height: 2.6667em; font-size: 1.0833em; }
-  h2 { margin-bottom: 20px; }
+  .discover li { line-height: 2.0em; font-size: 1.0833em; }
+  h2 { margin-bottom: 20px; text-align: center;}
   .travel-news {
     li {
       margin-bottom: 30px;
@@ -4197,7 +4202,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
   }
 
   &.style1 {
-    background: url("../images/themes/footer/style01/sand.png") no-repeat center top; padding-top: 132px; margin-top: 40px;
+    background: url("/assets/images/footer/sky.png") no-repeat center top; padding-top: 132px; margin-top: 40px;
     .footer-wrapper { background: #f5e1ba; padding-top: 0; }
     p, span, input, li, .travel-news li .date { color: #c29f5a; }
 
@@ -4293,11 +4298,11 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
 
   &.style4 {
     > .footer-wrapper {
-      background: url("../images/themes/footer/style04/sky.png") no-repeat center bottom; padding-bottom: 0;
+      background: url(image_path('footer/sky.png')) no-repeat center bottom; padding-bottom: 0;
       > .container:first-child {
         position: relative; padding-bottom: 180px;
         &:before, &:after { content: ""; display: block; position: absolute; background-repeat: no-repeat; }
-        &:before { width: 267px; height: 166px; bottom: 20px; left: -30px; background-image: url("http://placehold.it/267x166"); }
+        &:before { width: 267px; height: 166px; bottom: 20px; left: -30px;}
         &:after { width: 1171px; height: 158px; bottom: 0; right: 0; background-image: url("http://placehold.it/1171x158"); }
       }
     }
@@ -4319,7 +4324,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
 
   &.style6 {
     > .footer-wrapper {
-      background: url("../images/themes/footer/style06/sky.png") no-repeat center bottom; padding-bottom: 0;
+      background: url(image_path('footer/sky.png')) no-repeat center bottom; padding-bottom: 0;
       > .container:first-child {
         position: relative; padding-bottom: 180px;
         &:before, &:after { content: ""; display: block; position: absolute; background-repeat: no-repeat; }
