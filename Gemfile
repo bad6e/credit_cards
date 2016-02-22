@@ -18,6 +18,7 @@ gem 'jquery-ui-rails'
 gem 'friendly_id'
 gem "will_paginate"
 gem "bootstrap-will_paginate"
+gem "font-awesome-rails"
 
 group :development do
   gem 'web-console', '~> 2.0'

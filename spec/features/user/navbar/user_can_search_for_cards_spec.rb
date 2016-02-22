@@ -15,9 +15,9 @@ feature "navbar" do
       find('#search-button').click
     end
 
-    expect(page).to have_content("Your Search Results Returned 2 Cards")
+    expect(page).to have_content("2 Cards found")
 
-    within(".search-results") do
+    within(".flight-list") do
       expect(page).to have_content("Southwest Airlines Premier")
       expect(page).to have_content("Southwest Airlines Plus")
     end
