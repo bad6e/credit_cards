@@ -1,69 +1,151 @@
-<!-- Page Content -->
+<div class="page-title-container">
   <div class="container">
-    <!-- Page Heading -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header"><%= @card.card_name.name %>
-          <small><%= @card.card_name.annual_fee %></small></h1>
-        <ol class="breadcrumb">
-          <li>Category</li>
-          <% @card.category_list.each do |category| %>
-            <li class="active"><%= link_to category.parse_category_name, category_path(category) %></li>
-            <% end %>
-        </ol>
-      </div>
+    <div class="page-title pull-left">
+      <h2 class="entry-title"><%= @card.card_name.name %></h2>
     </div>
-    <!-- /.row -->
-    <!-- Portfolio Item Row -->
-    <div class="row card-row well">
-      <div class="col-md-3">
-        <img class="img-responsive" src=<%= @card.card_name.image_link %> alt="">
-        <h3>Card Details</h3>
-        <h5>Intro Rate: <%= @card.card_name.intro_rate %></h5>
-        <h5>APR: <%= @card.card_name.apr %></h5>
-        <h5>Annual Fee: <%= @card.card_name.annual_fee %></h5>
-        <h3>Bonus Information</h3>
-        <div class="bonus-information">
-          <% if @card.brets_favorite? %>
-            <h5>Sign Up Bonus: <%= @card.rewards.first.amount %></h5>
-            <h5>Spending Requirements: <%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %></h5>
-            <h5>Length of Time: <%= @card.rewards.first.length_of_time %> Months</h5>
-          <% else %>
-          <p>See <a href="/categories/brets-favorite-cards">Bret's Favorite Cards</a> for Premium Bonus Information</p>
-          <% end %>
+    <ul class="breadcrumbs pull-right">
+      <li><a href="/">HOME</a></li>
+      <li><%= link_to "CARDS", cards_path, class: "active" %></li>
+    </ul>
+  </div>
+</div>
+
+<section id="content" class="gray-area">
+  <div class="container car-detail-page">
+    <div class="row">
+      <div id="main" class="col-md-9">
+        <div class="featured-image box">
+          <img src="http://placehold.it/870x496.png" alt="" />
+        </div>
+        <div class="tab-container">
+          <ul class="tabs">
+            <li class="active">
+              <a href="#car-details" data-toggle="tab">Card Details</a>
+            </li>
+            <li>
+              <a href="#car-upgrade" data-toggle="tab">Bonus Graph</a>
+            </li>
+          </ul>
+          <div class="tab-content card-description">
+            <div class="tab-pane fade in active" id="car-details">
+            <h2>Card Information</h2>
+            <ul>
+            <% n = 1 %>
+            <% @card.card_name.information.each do |info| %>
+              <li id="information-<%= n %>"><%= info %></li>
+              <% n += 1 %>
+              <% end %>
+            </ul>
+            <br />
+            <h2>Card Categories</h2>
+              <div class="car-features box">
+                <div class="row add-clearfix">
+                  <% @card.category_list.each do |category| %>
+                    <div class="col-sms-6 col-sm-6 col-md-4">
+                      <span class="icon-box style2">
+                      <i class="soap-icon-fmstereo circle"></i><%= link_to category.parse_category_name, category_path(category) %>
+                      </span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <% if @card.brets_favorite? %>
+                <h2>Bret's Special Sauce</h2>
+                <div class="car-features box bonus-information-side">
+                  <div class="row add-clearfix">
+                    <div class="col-sms-6 col-sm-6 col-md-4">
+                      <span class="icon-box style2">
+                        <i class="soap-icon-user circle"></i>Reward: <%= @card.rewards.first.amount %> Miles
+                      </span>
+                    </div>
+                    <div class="col-sms-6 col-sm-6 col-md-4">
+                      <span class="icon-box style2">
+                        <i class="soap-icon-suitcase circle"></i><%= pluralize(@card.rewards.first.length_of_time, "Month") %>
+                      </span>
+                    </div>
+                    <div class="col-sms-6 col-sm-6 col-md-4">
+                      <span class="icon-box style2">
+                        <i class="soap-icon-aircon circle"></i>Spending Requirement: <%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class='col-md-12 apply-here'>
+                  <%= button_to "Apply Here", @card.rewards.first.apply_link, :method => "get", class: "btn btn-success btn-lg btn-block"  %>
+                </div>
+              <% end %>
+            </div>
+            <div class="tab-pane fade in" id="car-upgrade">
+              <h2>Upgrade Your Car Experience</h2>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-9 well card-description">
-        <h3>Card Description</h3>
-        <ul>
-          <% n = 1 %>
-          <% @card.card_name.information.each do |info| %>
-          <li id="information-<%= n %>"><%= info %></li>
-          <% n += 1 %>
-          <% end %>
-        </ul>
+      <div class="sidebar col-md-3">
+        <article class="detailed-logo">
+          <figure>
+            <%= image_tag(@card.card_name.image_link) %>
+          </figure>
+          <div class="details">
+            <h2 class="box-title"><%= @card.card_name.name %><small></small></h2>
+              <div class="mile clearfix">
+                <span class="skin-color">Annual Fee:</span>
+                <span class="mileage pull-right"><%= @card.card_name.annual_fee %></span>
+              </div>
+               <div class="mile clearfix">
+                <span class="skin-color">Intro Rate:</span>
+                <span class="mileage pull-right"><%= @card.card_name.intro_rate %></span>
+              </div>
+              <div class="mile clearfix">
+                <span class="skin-color">APR:</span>
+                <span class="mileage pull-right"><%= @card.card_name.apr %></span>
+              </div>
+              <h3 class="box-title">Bonus Information<small>Available for Bret's Favorite Cards</small></h3>
+              <div class="bonus-information">
+                <% if @card.brets_favorite? %>
+                  <div class="mile clearfix">
+                    <span class="skin-color">Sign Up Bonus:</span>
+                    <span class="mileage pull-right"><%= @card.rewards.first.amount %></span>
+                  </div>
+                  <div class="mile clearfix">
+                    <span class="skin-color">Spending Requirements:</span>
+                    <span class="mileage pull-right"><%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %></span>
+                  </div>
+                  <div class="mile clearfix">
+                    <span class="skin-color">Length of Time:</span>
+                    <span class="mileage pull-right"><%= pluralize(@card.rewards.first.length_of_time, "Month") %></span>
+                  </div>
+                  <span class="price clearfix">
+                    <small class="pull-left">Rating</small>
+                    <span class="pull-right">TBD</span>
+                  </span>
+                <% else %>
+                  <h6 class="box-title"><a href="/categories/brets-favorite-cards">See Bret's Favorite Cards</a></h6>
+                <% end %>
+              </div>
+              <a class="button yellow full-width uppercase btn-small" href="#">add to favorites</a>
+          </div>
+        </article>
       </div>
-      <% if @card.brets_favorite? %>
-        <div class='col-md-3 col-md-offset-3 apply-here'>
-          <%= button_to "Apply Here", @card.rewards.first.apply_link, :method => "get", class: "btn btn-success btn-lg btn-block"  %>
-        </div>
-      <% end %>
     </div>
-    <!-- /.row -->
-    <!-- Related Cards Row -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h3 class="page-header related-card-header">Related <%= @card.featured_cards_category_name %> Cards</h3>
-      </div>
-      <% @card.featured_cards.each do |card| %>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="page-header related-card-header">Related <%= @card.featured_cards_category_name %> Cards</h3>
+    </div>
+
+    <% @card.featured_cards.each do |card| %>
       <div class="related-cards">
         <div class="col-sm-3 col-xs-6">
           <img class="img-responsive img-hover img-related" src=<%= card.image_link %> alt="">
           <p class="related-card-name"><%= link_to card.name, card_path(card) %></p>
         </div>
       </div>
-      <% end %>
-    </div>
-    <hr>
-    <!-- /.row -->
+    <% end %>
+  </div>
+</div>
+<hr>
