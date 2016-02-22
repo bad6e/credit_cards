@@ -4973,5 +4973,13 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
   }
 }
 
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
 /* revolution slider fix */
 .tp-simpleresponsive .slotholder, .tp-simpleresponsive .slotholder img { /*-webkit-backface-visibility: visible !important;-webkit-transform:none !important;*/ }

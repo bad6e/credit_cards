@@ -1,346 +1,146 @@
 <div class="page-title-container">
-            <div class="container">
-                <div class="page-title pull-left">
-                    <h2 class="entry-title"><%= @card.card_name.name %></h2>
-                </div>
-                <ul class="breadcrumbs pull-right">
-                    <li><a href="/">HOME</a></li>
-                    <li><%= link_to "CARDS", cards_path, class: "active" %></li>
-                </ul>
-            </div>
-        </div>
-        <section id="content" class="gray-area">
-            <div class="container car-detail-page">
-                <div class="row">
-                    <div id="main" class="col-md-9">
-                        <div class="featured-image box">
-                            <img src="http://placehold.it/870x496.png" alt="" />
-                        </div>
-                        <div class="tab-container">
-                            <ul class="tabs">
-                                <li class="active">
-                                    <a href="#car-details" data-toggle="tab">Card Details</a>
-                                </li>
-                                <li>
-                                    <a href="#car-upgrade" data-toggle="tab">Bonus Graph</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active" id="car-details">
-                                    <h2>Card Information</h2>
-                                    <ul>
-                                    <% n = 1 %>
-                                    <% @card.card_name.information.each do |info| %>
-                                      <li id="information-<%= n %>"><%= info %></li>
-                                      <% n += 1 %>
-                                      <% end %>
-                                    </ul>
+  <div class="container">
+    <div class="page-title pull-left">
+      <h2 class="entry-title"><%= @card.card_name.name %></h2>
+    </div>
+    <ul class="breadcrumbs pull-right">
+      <li><a href="/">HOME</a></li>
+      <li><%= link_to "CARDS", cards_path, class: "active" %></li>
+    </ul>
+  </div>
+</div>
 
-                                    <br />
-                                    <div class="car-features box">
-                                        <div class="row add-clearfix">
-                                            <div class="col-sms-6 col-sm-6 col-md-4">
-                                                <span class="icon-box style2">
-                                                    <i class="soap-icon-user circle"></i>4 Passengers
-                                                </span>
-                                            </div>
-                                            <div class="col-sms-6 col-sm-6 col-md-4">
-                                                <span class="icon-box style2">
-                                                    <i class="soap-icon-suitcase circle"></i>2 Bags
-                                                </span>
-                                            </div>
-                                            <div class="col-sms-6 col-sm-6 col-md-4">
-                                                <span class="icon-box style2">
-                                                    <i class="soap-icon-aircon circle"></i>air conditioning
-                                                </span>
-                                            </div>
-                                            <div class="col-sms-6 col-sm-6 col-md-4">
-                                                <span class="icon-box style2">
-                                                    <i class="soap-icon-fmstereo circle"></i>Satellite Navigation
-                                                </span>
-                                            </div>
-                                            <div class="col-sms-6 col-sm-6 col-md-4">
-                                                <span class="icon-box style2">
-                                                    <i class="soap-icon-fueltank circle"></i>Disel Vehicle
-                                                </span>
-                                            </div>
-                                            <div class="col-sms-6 col-sm-6 col-md-4">
-                                                <span class="icon-box style2">
-                                                    <i class="soap-icon-automatic-transmission circle"></i>Automatic transmission
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="tab-pane fade in" id="car-upgrade">
-                                    <h2>Upgrade Your Car Experience</h2>
-                                    <p>Sed aliquam nunc eget velit imperdiet, in rutrum mauris malesuada. Quisque ullamcorper vulputate nisi, et fringilla ante convallis quis. Nullam vel tellus non elit suscipit volutpat. Integer id felis et nibh rutrum dignissim ut non risus. In tincidunt urna quis sem luctus, sed accumsan magna pellentesque. Donec et iaculis tellus. Vestibulum ut iaculis justo, auctor sodales lectus. </p>
-                                    <div class="car-list listing-style3 car">
-                                        <article class="box">
-                                            <figure class="col-xs-3">
-                                                <span><img alt="" src="http://placehold.it/270x160"></span>
-                                            </figure>
-                                            <div class="details col-xs-9 clearfix">
-                                                <div class="col-sm-8">
-                                                    <div class="clearfix">
-                                                        <h4 class="box-title">Economy Car<small>bmw mini</small></h4>
-                                                        <div class="logo">
-                                                            <img src="http://placehold.it/110x25" alt="" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="amenities">
-                                                        <ul>
-                                                            <li><i class="soap-icon-user circle"></i>4</li>
-                                                            <li><i class="soap-icon-suitcase circle"></i>3</li>
-                                                            <li><i class="soap-icon-aircon circle"></i>AC</li>
-                                                            <li><i class="soap-icon-fueltank circle"></i>12</li>
-                                                            <li><i class="soap-icon-fmstereo circle"></i>YES</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-sm-2 character">
-                                                    <dl class="">
-                                                        <dt class="skin-color">mileage</dt><dd>3000 miles</dd>
-                                                        <dt class="skin-color">Pickup Time</dt><dd>5:45 pm</dd>
-                                                        <dt class="skin-color">Location</dt><dd>London city</dd>
-                                                    </dl>
-                                                </div>
-                                                <div class="action col-xs-6 col-sm-2">
-                                                    <span class="price"><small>per day</small>$45.39</span>
-                                                    <a href="car-booking.html" class="button btn-small full-width">select</a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article class="box">
-                                            <figure class="col-xs-3">
-                                                <span><img alt="" src="http://placehold.it/270x160"></span>
-                                            </figure>
-                                            <div class="details col-xs-9 clearfix">
-                                                <div class="col-sm-8">
-                                                    <div class="clearfix">
-                                                        <h4 class="box-title">Full Size<small>Holden sv6</small></h4>
-                                                        <div class="logo">
-                                                            <img src="http://placehold.it/110x25" alt="" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="amenities">
-                                                        <ul>
-                                                            <li><i class="soap-icon-user circle"></i>4</li>
-                                                            <li><i class="soap-icon-suitcase circle"></i>3</li>
-                                                            <li><i class="soap-icon-aircon circle"></i>AC</li>
-                                                            <li><i class="soap-icon-fueltank circle"></i>12</li>
-                                                            <li><i class="soap-icon-fmstereo circle"></i>YES</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-sm-2 character">
-                                                    <dl class="">
-                                                        <dt class="skin-color">mileage</dt><dd>3000 miles</dd>
-                                                        <dt class="skin-color">Pickup Time</dt><dd>5:45 pm</dd>
-                                                        <dt class="skin-color">Location</dt><dd>London city</dd>
-                                                    </dl>
-                                                </div>
-                                                <div class="action col-xs-6 col-sm-2">
-                                                    <span class="price"><small>per day</small>$100</span>
-                                                    <a href="car-booking.html" class="button btn-small full-width">select</a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article class="box">
-                                            <figure class="col-xs-3">
-                                                <span><img alt="" src="http://placehold.it/270x160"></span>
-                                            </figure>
-                                            <div class="details col-xs-9 clearfix">
-                                                <div class="col-sm-8">
-                                                    <div class="clearfix">
-                                                        <h4 class="box-title">Luxury Elite<small>bmw 5 series</small></h4>
-                                                        <div class="logo">
-                                                            <img src="http://placehold.it/110x25" alt="" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="amenities">
-                                                        <ul>
-                                                            <li><i class="soap-icon-user circle"></i>4</li>
-                                                            <li><i class="soap-icon-suitcase circle"></i>3</li>
-                                                            <li><i class="soap-icon-aircon circle"></i>AC</li>
-                                                            <li><i class="soap-icon-fueltank circle"></i>12</li>
-                                                            <li><i class="soap-icon-fmstereo circle"></i>YES</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-sm-2 character">
-                                                    <dl>
-                                                        <dt class="skin-color">mileage</dt><dd>3000 miles</dd>
-                                                        <dt class="skin-color">Pickup Time</dt><dd>5:45 pm</dd>
-                                                        <dt class="skin-color">Location</dt><dd>London city</dd>
-                                                    </dl>
-                                                </div>
-                                                <div class="action col-xs-6 col-sm-2">
-                                                    <span class="price"><small>per day</small>$79.39</span>
-                                                    <a href="car-booking.html" class="button btn-small full-width">select</a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article class="box">
-                                            <figure class="col-xs-3">
-                                                <span><img alt="" src="http://placehold.it/270x160"></span>
-                                            </figure>
-                                            <div class="details col-xs-9 clearfix">
-                                                <div class="col-sm-8">
-                                                    <div class="clearfix">
-                                                        <h4 class="box-title">Mini Car<small>Fiat 500</small></h4>
-                                                        <div class="logo">
-                                                            <img src="http://placehold.it/110x25" alt="" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="amenities">
-                                                        <ul>
-                                                            <li><i class="soap-icon-user circle"></i>4</li>
-                                                            <li><i class="soap-icon-suitcase circle"></i>3</li>
-                                                            <li><i class="soap-icon-aircon circle"></i>AC</li>
-                                                            <li><i class="soap-icon-fueltank circle"></i>12</li>
-                                                            <li><i class="soap-icon-fmstereo circle"></i>YES</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-sm-2 character">
-                                                    <dl>
-                                                        <dt class="skin-color">mileage</dt><dd>Unlimited</dd>
-                                                        <dt class="skin-color">Pickup Time</dt><dd>5:45 pm</dd>
-                                                        <dt class="skin-color">Location</dt><dd>London city</dd>
-                                                    </dl>
-                                                </div>
-                                                <div class="action col-xs-6 col-sm-2">
-                                                    <span class="price"><small>per day</small>$15.39</span>
-                                                    <a href="car-booking.html" class="button btn-small full-width">select</a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <article class="box">
-                                            <figure class="col-xs-3">
-                                                <span><img alt="" src="http://placehold.it/270x160"></span>
-                                            </figure>
-                                            <div class="details col-xs-9 clearfix">
-                                                <div class="col-sm-8">
-                                                    <div class="clearfix">
-                                                        <h4 class="box-title">Intermediate<small>Renault grand scenic</small></h4>
-                                                        <div class="logo">
-                                                            <img src="http://placehold.it/110x25" alt="" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="amenities">
-                                                        <ul>
-                                                            <li><i class="soap-icon-user circle"></i>4</li>
-                                                            <li><i class="soap-icon-suitcase circle"></i>3</li>
-                                                            <li><i class="soap-icon-aircon circle"></i>AC</li>
-                                                            <li><i class="soap-icon-fueltank circle"></i>12</li>
-                                                            <li><i class="soap-icon-fmstereo circle"></i>YES</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-sm-2 character">
-                                                    <dl>
-                                                        <dt class="skin-color">mileage</dt><dd>Unlimited</dd>
-                                                        <dt class="skin-color">Pickup Time</dt><dd>5:45 pm</dd>
-                                                        <dt class="skin-color">Location</dt><dd>London city</dd>
-                                                    </dl>
-                                                </div>
-                                                <div class="action col-xs-6 col-sm-2">
-                                                    <span class="price"><small>per day</small>$30.21</span>
-                                                    <a href="car-booking.html" class="button btn-small full-width">select</a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <a href="#" class="button btn-large full-width">LOAD MORE CARS</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sidebar col-md-3">
-                        <article class="detailed-logo">
-                            <figure>
-                                <%= image_tag(@card.card_name.image_link) %>
-                            </figure>
-                            <div class="details">
-                                <h2 class="box-title"><%= @card.card_name.name %><small></small></h2>
-                                 <div class="mile clearfix">
-                                    <span class="skin-color">Annual Fee:</span>
-                                    <span class="mileage pull-right"><%= @card.card_name.annual_fee %></span>
-                                </div>
-
-                                 <div class="mile clearfix">
-                                    <span class="skin-color">Intro Rate:</span>
-                                    <span class="mileage pull-right"><%= @card.card_name.intro_rate %></span>
-                                </div>
-                                <div class="mile clearfix">
-                                    <span class="skin-color">APR:</span>
-                                    <span class="mileage pull-right"><%= @card.card_name.apr %></span>
-                                </div>
-                                <span class="price clearfix">
-                                  <small class="pull-left">Rating</small>
-                                  <span class="pull-right">TBD</span>
-                                </span>
-                                <a class="button yellow full-width uppercase btn-small" href="#">add to favorites</a>
-                            </div>
-                        </article>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- /.row -->
-    <!-- Related Cards Row -->
+<section id="content" class="gray-area">
+  <div class="container car-detail-page">
     <div class="row">
-      <div class="col-lg-12">
-        <h3 class="page-header related-card-header">Related <%= @card.featured_cards_category_name %> Cards</h3>
+      <div id="main" class="col-md-9">
+        <div class="featured-image box">
+          <img src="http://placehold.it/870x496.png" alt="" />
+        </div>
+        <div class="tab-container">
+          <ul class="tabs">
+            <li class="active">
+              <a href="#car-details" data-toggle="tab">Card Details</a>
+            </li>
+            <li>
+              <a href="#car-upgrade" data-toggle="tab">Bonus Graph</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="car-details">
+            <h2>Card Information</h2>
+            <ul>
+            <% n = 1 %>
+            <% @card.card_name.information.each do |info| %>
+              <li id="information-<%= n %>"><%= info %></li>
+              <% n += 1 %>
+              <% end %>
+            </ul>
+            <br />
+            <h2>Card Categories</h2>
+              <div class="car-features box">
+                <div class="row add-clearfix">
+                  <% @card.category_list.each do |category| %>
+                    <div class="col-sms-6 col-sm-6 col-md-4">
+                      <span class="icon-box style2">
+                      <i class="soap-icon-fmstereo circle"></i><%= link_to category.parse_category_name, category_path(category) %>
+                      </span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <% if @card.brets_favorite? %>
+                <h2>Bret's Special Sauce</h2>
+                <div class="car-features box">
+                  <div class="row add-clearfix">
+                    <div class="col-sms-6 col-sm-6 col-md-4">
+                      <span class="icon-box style2">
+                        <i class="soap-icon-user circle"></i>Reward: 50000 Miles
+                      </span>
+                    </div>
+                    <div class="col-sms-6 col-sm-6 col-md-4">
+                      <span class="icon-box style2">
+                        <i class="soap-icon-suitcase circle"></i>Time: 3 Months
+                      </span>
+                    </div>
+                    <div class="col-sms-6 col-sm-6 col-md-4">
+                      <span class="icon-box style2">
+                        <i class="soap-icon-aircon circle"></i>Spending Requirement: $2000
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="tab-pane fade in" id="car-upgrade">
+              <h2>Upgrade Your Car Experience</h2>
+            </div>
+          </div>
+        </div>
       </div>
-      <% @card.featured_cards.each do |card| %>
+
+      <div class="sidebar col-md-3">
+        <article class="detailed-logo">
+          <figure>
+            <%= image_tag(@card.card_name.image_link) %>
+          </figure>
+          <div class="details">
+            <h2 class="box-title"><%= @card.card_name.name %><small></small></h2>
+              <div class="mile clearfix">
+                <span class="skin-color">Annual Fee:</span>
+                <span class="mileage pull-right"><%= @card.card_name.annual_fee %></span>
+              </div>
+               <div class="mile clearfix">
+                <span class="skin-color">Intro Rate:</span>
+                <span class="mileage pull-right"><%= @card.card_name.intro_rate %></span>
+              </div>
+              <div class="mile clearfix">
+                <span class="skin-color">APR:</span>
+                <span class="mileage pull-right"><%= @card.card_name.apr %></span>
+              </div>
+              <h3 class="box-title">Bonus Information<small>Available for Bret's Favorite Cards</small></h3>
+              <% if @card.brets_favorite? %>
+                <div class="mile clearfix">
+                  <span class="skin-color">Sign Up Bonus:</span>
+                  <span class="mileage pull-right"><%= @card.rewards.first.amount %></span>
+                </div>
+                <div class="mile clearfix">
+                  <span class="skin-color">Spending Requirements:</span>
+                  <span class="mileage pull-right"><%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %></span>
+                </div>
+                <div class="mile clearfix">
+                  <span class="skin-color">Length of Time:</span>
+                  <span class="mileage pull-right"><%= @card.rewards.first.length_of_time %> </span>
+                </div>
+                <span class="price clearfix">
+                  <small class="pull-left">Rating</small>
+                  <span class="pull-right">TBD</span>
+                </span>
+              <% else %>
+                <h6 class="box-title"><a href="/categories/brets-favorite-cards">See Bret's Favorite Cards</a></h6>
+              <% end %>
+              <a class="button yellow full-width uppercase btn-small" href="#">add to favorites</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="page-header related-card-header">Related <%= @card.featured_cards_category_name %> Cards</h3>
+    </div>
+
+    <% @card.featured_cards.each do |card| %>
       <div class="related-cards">
         <div class="col-sm-3 col-xs-6">
           <img class="img-responsive img-hover img-related" src=<%= card.image_link %> alt="">
           <p class="related-card-name"><%= link_to card.name, card_path(card) %></p>
         </div>
       </div>
-      <% end %>
-    </div>
-    <hr>
-    <!-- /.row -->
+    <% end %>
+  </div>
+</div>
+<hr>
