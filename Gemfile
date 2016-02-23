@@ -20,6 +20,7 @@ gem "will_paginate"
 gem "bootstrap-will_paginate"
 gem "font-awesome-rails"
 gem 'react-rails'
+gem 'd3_rails'
 
 group :development do
   gem 'web-console', '~> 2.0'
