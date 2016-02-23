@@ -72,6 +72,7 @@ GEM
       slim (>= 1.3.6, < 4.0)
       terminal-table (~> 1.4)
     builder (3.2.2)
+    c3-rails (0.4.10)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -271,6 +272,7 @@ DEPENDENCIES
   bootstrap_form
   bootswatch-rails
   brakeman
+  c3-rails
   capybara
   coffee-rails (~> 4.1.0)
   d3_rails
