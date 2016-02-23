@@ -14,5 +14,10 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap-sprockets
-
+//= require lodash
+//= require react
+//= require react_ujs
+//= require components
+//= require d3
+//= require c3
 //= require_tree .

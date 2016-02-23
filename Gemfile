@@ -19,6 +19,11 @@ gem 'friendly_id'
 gem "will_paginate"
 gem "bootstrap-will_paginate"
 gem "font-awesome-rails"
+gem "active_model_serializers", github: "rails-api/active_model_serializers"
+gem 'lodash-rails'
+gem 'react-rails'
+gem 'd3_rails'
+gem 'c3-rails'
 
 group :development do
   gem 'web-console', '~> 2.0'
