@@ -1,6 +1,6 @@
 ## Too Many Miles - Set Up Information
 
-In order to get this repo working follow these steps:
+#### In order to get this repo working follow these steps:
 
     Clone Repo
     $ cd credit_cards
