@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1, defaults: {format: :json} do
       get "/search", to: 'auto_complete#search'
+      resources :rewards, only: [:show]
     end
   end
 end
