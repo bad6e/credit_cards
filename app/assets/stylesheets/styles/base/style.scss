@@ -135,11 +135,11 @@
 /* font */
 @font-face {
   font-family: 'NexaBlack';
-  src: url('fonts/NexaBlack.eot?') format('eot'),
-       url('fonts/NexaBlack.otf')  format('opentype'),
-       url('fonts/NexaBlack.woff') format('woff'),
-       url('fonts/NexaBlack.ttf')  format('truetype'),
-       url('fonts/NexaBlack.svg#NexaBlack') format('svg');
+  src: font-url('NexaBlack.eot?') format('eot'),
+       font-url('NexaBlack.otf')  format('opentype'),
+       font-url('NexaBlack.woff') format('woff'),
+       font-url('NexaBlack.ttf')  format('truetype'),
+       font-url('NexaBlack.svg#NexaBlack') format('svg');
 }
 
 /* 1.2. Layout ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
