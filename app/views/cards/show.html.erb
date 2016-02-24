@@ -53,17 +53,17 @@
                   <div class="row add-clearfix">
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-user circle"></i>Reward: <%= @card.rewards.first.amount %> Miles
+                        <i class="soap-icon-beach circle"></i>Reward: <%= @card.rewards.first.amount %> Miles
                       </span>
                     </div>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-suitcase circle"></i><%= pluralize(@card.rewards.first.length_of_time, "Month") %>
+                        <i class="soap-icon-calendar circle"></i><%= pluralize(@card.rewards.first.length_of_time, "Month") %>
                       </span>
                     </div>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-aircon circle"></i>Spending Requirement: <%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %>
+                        <i class="soap-icon-savings circle"></i>Spending Requirement: <%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %>
                       </span>
                     </div>
                   </div>
