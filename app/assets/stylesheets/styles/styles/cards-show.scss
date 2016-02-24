@@ -47,6 +47,37 @@ $black          : #000;
   margin-right: auto;
 }
 
+.reward-graph-container {
+  background: #f5f5f5;
+  padding: 20px 20px 50px 20px;
+}
+
+.sign-up-bonus-title {
+  font-family: 'Raleway', sans-serif;
+}
+
+.sign-up-bonus-h1-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  color: #01b7f2;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  margin-top: 100px;
+  width: 100%;
+  z-index: 1;
+  a:hover {
+    color: #2d3e52;
+  }
+}
+
+#reward-chart {
+  opacity: 1.0;
+}
+
+.sign-up-bonus-title {
+  text-align: center;
+}
 
 .img-portfolio {
     margin-bottom: 30px;
@@ -55,6 +86,8 @@ $black          : #000;
 .img-hover:hover {
     opacity: 0.8;
 }
+
+
 
 h3 {
   font-family: 'Raleway', sans-serif;

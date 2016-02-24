@@ -416,6 +416,10 @@
     max-width: 60px;
     height: auto;
   }
+
+  .bret-favorite-link {
+    font-size: 15px;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -457,6 +461,12 @@
       ul.tabs { width: 25%; }
       .tab-content { width: 75%; }
     }
+
+    .jumbotron {
+      h1 {
+      font-size: 18px;
+    }
+  }
   }
 
   [class^="col-sm-"], [class*=" col-sm-"] {
@@ -589,6 +599,10 @@
     font-size: 1.4em;
   }
 
+  h1.sign-up-bonus-h1-title {
+    font-size: 18px;
+  }
+
   #content.tour .slideshow-bg { min-height: 800px; }
 }
 
@@ -657,6 +671,10 @@
     }
   }
 
+  #sign-up-bonus-h1-title {
+    font-size: 15px;
+  }
+
   /* Tour page */
   #tour-details .price-section {
     .details { float: none !important; }
@@ -667,12 +685,20 @@
     max-width: 60px;
     height: auto;
   }
+
+  h1.sign-up-bonus-h1-title {
+    font-size: 12px;
+  }
 }
 
 /* 9. Styles for devices(<=320px ) */
 @media (max-width: 320px) {
   .entry-title {
     font-size: 1em;
+  }
+
+  h1.sign-up-bonus-h1-title {
+    font-size: 12px;
   }
 
   .listing-style3.flight figure span img {

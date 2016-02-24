@@ -8,14 +8,16 @@ function grabCardId() {
 }
 
 function getRewardData(id) {
-
   $.ajax({
     type: 'GET',
     url: '/api/v1/rewards/' + id,
     success: function(response){
-      //Call Function that draws graph and passs in response
+      if (response.length === 0) {
+        grayOutReward(response);
+      } else {
+        showReward(response);
+      }
     }
-      //Need Error for Non-Favorite Cards
-  })
+  });
 }
 

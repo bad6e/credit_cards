@@ -136,13 +136,16 @@
 </section><br>
 
 <!-- Reward Graph -->
-<% if @card.brets_favorite? %>
-  <div class="container">
-    <div class="jumbotron">
-      <svg id="visualisation" width="1000" height="500"></svg>
-    </div>
+
+  <div class="container reward-graph-container">
+    <!-- <div class="row"> -->
+      <h2 class="sign-up-bonus-title">Sign Up Bonus Overtime</h2>
+        <h1 class="sign-up-bonus-h1-title"><a href="/categories/brets-favorite-cards">See Bret's Favorite Cards for Bonus Information</a></h1>
+        <div id="reward-chart" style="height: 300px;">
+        </div>
+      <!-- </div> -->
   </div>
-<% end %>
+
 <!-- End - Reward Graph -->
 
 <!-- Related Cards -->
