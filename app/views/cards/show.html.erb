@@ -41,7 +41,7 @@
                   <% @card.category_list.each do |category| %>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                      <i class="soap-icon-fmstereo circle"></i><%= link_to category.parse_category_name, category_path(category) %>
+                      <i class="soap-icon-plane-right circle"></i><%= link_to category.parse_category_name, category_path(category) %>
                       </span>
                     </div>
                   <% end %>
@@ -74,7 +74,7 @@
               <% end %>
             </div>
             <div class="tab-pane fade in" id="car-upgrade">
-              <h2>Upgrade Your Car Experience</h2>
+              <h2>More Information To Come</h2>
               <%= react_component 'Main' %>
             </div>
           </div>
