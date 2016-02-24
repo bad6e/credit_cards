@@ -16,4 +16,7 @@
 //= require bootstrap-sprockets
 //= require lodash
 //= require chartkick
+
+//VENDOR FILES
+//= require chartkick
 //= require_tree .

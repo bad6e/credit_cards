@@ -14,11 +14,10 @@ gem 'rails_12factor'
 gem 'responders'
 gem 'jquery-ui-rails'
 gem 'friendly_id'
-gem "will_paginate"
-gem "font-awesome-rails"
-gem "active_model_serializers", github: "rails-api/active_model_serializers"
+gem 'will_paginate'
+gem 'font-awesome-rails'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'lodash-rails'
-gem 'chartkick'
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -27,16 +26,16 @@ group :development do
 end
 
 group :development, :test do
-  gem "rspec-rails"
-  gem "database_cleaner"
-  gem "capybara"
-  gem "launchy"
-  gem "pry"
-  gem "shoulda-matchers"
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'pry'
+  gem 'shoulda-matchers'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
-  gem "nokogiri"
+  gem 'nokogiri'
 end
 

@@ -79,7 +79,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    chartkick (1.4.1)
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
@@ -263,7 +262,6 @@ DEPENDENCIES
   bootstrap_form
   brakeman
   capybara
-  chartkick
   coffee-rails (~> 4.1.0)
   database_cleaner
   font-awesome-rails
