@@ -585,6 +585,10 @@
     .price-section { border-left: none; width: auto; text-align: left; float: left !important; padding-left: 20px; }
   }
 
+  .entry-title {
+    font-size: 1.4em;
+  }
+
   #content.tour .slideshow-bg { min-height: 800px; }
 }
 
@@ -631,6 +635,10 @@
     }
   }
 
+  .entry-title {
+    font-size: 1em;
+  }
+
   .coming-soon-page {
     .clock li span { font-size: 3em; }
     .clock li label { font-size: 1em; letter-spacing: 0.04em; }
@@ -663,7 +671,9 @@
 
 /* 9. Styles for devices(<=320px ) */
 @media (max-width: 320px) {
-
+  .entry-title {
+    font-size: 1em;
+  }
 
   .listing-style3.flight figure span img {
     max-width: 60px;
