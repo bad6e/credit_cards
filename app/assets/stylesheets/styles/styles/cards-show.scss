@@ -47,6 +47,25 @@ $black          : #000;
   margin-right: auto;
 }
 
+#reward-chart {
+  opacity: 1.0;
+}
+
+#sign-up-bonus-title {
+  text-align: center;
+}
+
+#sign-up-bonus-h1-title {
+  font-family: inherit;
+  font-size: 30px;
+  color: #01b7f2;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  margin-top: 100px;
+  width: 100%;
+  z-index: 1;
+}
 
 .img-portfolio {
     margin-bottom: 30px;
@@ -55,6 +74,8 @@ $black          : #000;
 .img-hover:hover {
     opacity: 0.8;
 }
+
+
 
 h3 {
   font-family: 'Raleway', sans-serif;
