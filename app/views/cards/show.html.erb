@@ -13,7 +13,6 @@
   <div class="container car-detail-page">
     <div class="row">
       <div id="main" class="col-md-9">
-
         <div class="tab-container">
           <ul class="tabs">
             <li class="active">
@@ -94,15 +93,15 @@
             <h2 class="box-title"><%= @card.card_name.name %><small></small></h2>
               <div class="mile clearfix">
                 <span class="skin-color">Annual Fee:</span>
-                <span class="mileage pull-right"><%= @card.card_name.annual_fee %></span>
+                <div class="mileage pull-center"><%= @card.card_name.annual_fee %></div>
               </div>
                <div class="mile clearfix">
                 <span class="skin-color">Intro Rate:</span>
-                <span class="mileage pull-right"><%= @card.card_name.intro_rate %></span>
+                <div class="mileage pull-center"><%= @card.card_name.intro_rate %></div>
               </div>
               <div class="mile clearfix">
                 <span class="skin-color">APR:</span>
-                <span class="mileage pull-right"><%= @card.card_name.apr %></span>
+                <div class="mileage pull-center"><%= @card.card_name.apr %></div>
               </div>
               <h3 class="box-title">Bonus Information<small>Available for Bret's Favorite Cards</small></h3>
               <div class="bonus-information">
