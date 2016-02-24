@@ -157,7 +157,7 @@
     <% @card.featured_cards.each do |card| %>
       <div class="related-cards">
         <div class="col-sm-3 col-xs-6">
-          <img class="img-responsive img-hover img-related" src=<%= card.image_link %> alt="">
+          <%= link_to image_tag(card.image_link, class:"img-responsive img-hover img-related"), card_path(card) %>
           <p class="related-card-name"><%= link_to card.name, card_path(card) %></p>
         </div>
       </div>
