@@ -11,12 +11,12 @@ function drawGraph(result) {
 }
 
 function grayOutReward(response) {
-  $('#sign-up-bonus-title').hide();
-  $('#reward-chart').css("opacity", 0.4);
+  $('.sign-up-bonus-title').hide();
+  $('#reward-chart').css("opacity", 0.3);
   mergeObjects(response);
 }
 
 function showReward(response) {
-  $("#sign-up-bonus-h1-title").hide();
+  $(".sign-up-bonus-h1-title").hide();
   mergeObjects(response);
 }
