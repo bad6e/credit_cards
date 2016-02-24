@@ -89,7 +89,7 @@ feature "admin" do
     visit card_path(card_one)
 
     within(".bonus-information") do
-      expect(page).to have_content("See Bret's Favorite Cards")
+      expect(page).to have_content("Click Here for Bret's Favorite Cards")
     end
   end
 end
