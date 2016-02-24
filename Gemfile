@@ -9,20 +9,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.5'
-gem 'bootswatch-rails'
 gem 'bootstrap_form'
-gem "figaro"
 gem 'rails_12factor'
 gem 'responders'
 gem 'jquery-ui-rails'
 gem 'friendly_id'
-gem "will_paginate"
-gem "bootstrap-will_paginate"
-gem "font-awesome-rails"
-gem "active_model_serializers", github: "rails-api/active_model_serializers"
+gem 'will_paginate'
+gem 'font-awesome-rails'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'lodash-rails'
-gem 'react-rails'
-gem 'chartkick'
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -31,16 +26,16 @@ group :development do
 end
 
 group :development, :test do
-  gem "rspec-rails"
-  gem "database_cleaner"
-  gem "capybara"
-  gem "launchy"
-  gem "pry"
-  gem "shoulda-matchers"
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'pry'
+  gem 'shoulda-matchers'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
-  gem "nokogiri"
+  gem 'nokogiri'
 end
 

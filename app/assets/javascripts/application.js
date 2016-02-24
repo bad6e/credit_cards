@@ -15,8 +15,8 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require lodash
-//= require react
-//= require react_ujs
-//= require components
+//= require chartkick
+
+//VENDOR FILES
 //= require chartkick
 //= require_tree .
