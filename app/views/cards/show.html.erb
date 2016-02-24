@@ -13,9 +13,6 @@
   <div class="container car-detail-page">
     <div class="row">
       <div id="main" class="col-md-9">
-        <div class="featured-image box">
-          <img src="http://placehold.it/870x496.png" alt="" />
-        </div>
         <div class="tab-container">
           <ul class="tabs">
             <li class="active">
@@ -44,7 +41,7 @@
                   <% @card.category_list.each do |category| %>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                      <i class="soap-icon-fmstereo circle"></i><%= link_to category.parse_category_name, category_path(category) %>
+                      <i class="soap-icon-plane-right circle"></i><%= link_to category.parse_category_name, category_path(category) %>
                       </span>
                     </div>
                   <% end %>
@@ -77,7 +74,7 @@
               <% end %>
             </div>
             <div class="tab-pane fade in" id="car-upgrade">
-              <h2>Upgrade Your Car Experience</h2>
+              <h2>More Information To Come</h2>
               <%= react_component 'Main' %>
             </div>
           </div>
@@ -96,15 +93,15 @@
             <h2 class="box-title"><%= @card.card_name.name %><small></small></h2>
               <div class="mile clearfix">
                 <span class="skin-color">Annual Fee:</span>
-                <span class="mileage pull-right"><%= @card.card_name.annual_fee %></span>
+                <div class="mileage pull-center"><%= @card.card_name.annual_fee %></div>
               </div>
                <div class="mile clearfix">
                 <span class="skin-color">Intro Rate:</span>
-                <span class="mileage pull-right"><%= @card.card_name.intro_rate %></span>
+                <div class="mileage pull-center"><%= @card.card_name.intro_rate %></div>
               </div>
               <div class="mile clearfix">
                 <span class="skin-color">APR:</span>
-                <span class="mileage pull-right"><%= @card.card_name.apr %></span>
+                <div class="mileage pull-center"><%= @card.card_name.apr %></div>
               </div>
               <h3 class="box-title">Bonus Information<small>Available for Bret's Favorite Cards</small></h3>
               <div class="bonus-information">
@@ -126,7 +123,7 @@
                     <span class="pull-right">TBD</span>
                   </span>
                 <% else %>
-                  <h6 class="box-title"><a href="/categories/brets-favorite-cards">See Bret's Favorite Cards</a></h6>
+                  <h6 class="box-title" id="click-here-favorite"><a href="/categories/brets-favorite-cards">Click Here for Bret's Favorite Cards</a></h6>
                 <% end %>
               </div>
               <a class="button yellow full-width uppercase btn-small" href="#">add to favorites</a>
@@ -157,7 +154,7 @@
     <% @card.featured_cards.each do |card| %>
       <div class="related-cards">
         <div class="col-sm-3 col-xs-6">
-          <img class="img-responsive img-hover img-related" src=<%= card.image_link %> alt="">
+          <%= link_to image_tag(card.image_link, class:"img-responsive img-hover img-related related-card-image"), card_path(card) %>
           <p class="related-card-name"><%= link_to card.name, card_path(card) %></p>
         </div>
       </div>

@@ -7,10 +7,6 @@ $skyblue        : #0e95e0;
 $lighterskyblue : #269fe3;
 $black          : #000;
 
-.picture-row {
-
-}
-
 .page-header {
   font-family: 'Raleway', sans-serif;
 }
@@ -23,7 +19,10 @@ $black          : #000;
   padding-top: 20px;
 }
 
-
+.related-cards {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 .related-card-header {
   padding-top: 0px;
@@ -32,7 +31,29 @@ $black          : #000;
 .related-card-name {
   padding-top: 10px;
   font-family: 'Raleway', sans-serif;
-  text-align: left;
+  text-align: center;
+
+}
+
+.related-cards {
+  .row{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.related-card-image {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
 }
 
 h3 {

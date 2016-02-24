@@ -3217,7 +3217,7 @@ ul.search-tabs {
   }
   .box-title, .price, .feedback { border-bottom: 1px solid #f5f5f5; }
   .box-title {
-    margin-top: 15px; padding-bottom: 10px; letter-spacing: normal;
+    margin-top: 15px; padding-bottom: 10px; letter-spacing: normal; text-align: center;
     > small {
       line-height: 1.5em; letter-spacing: 0.04em; font-size: 10px;
       > i { font-size: 1.5em; display: block; float: left; margin-right: 3px; }
@@ -4973,20 +4973,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
   }
 }
 
-.related-cards {
-  .row{
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-}
 
-.img-portfolio {
-    margin-bottom: 30px;
-}
-
-.img-hover:hover {
-    opacity: 0.8;
-}
 
 /* revolution slider fix */
 .tp-simpleresponsive .slotholder, .tp-simpleresponsive .slotholder img { /*-webkit-backface-visibility: visible !important;-webkit-transform:none !important;*/ }

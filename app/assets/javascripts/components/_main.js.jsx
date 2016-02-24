@@ -2,7 +2,7 @@ var Main = React.createClass({
   render() {
     return (
       <div>
-        <h1>Hello, Creact!</h1>
+        <h1>Stay Tuned!</h1>
       </div>
     )
   }
