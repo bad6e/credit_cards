@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user" do
+feature "user - card show page" do
   include_context "features"
   before(:each) do
 
