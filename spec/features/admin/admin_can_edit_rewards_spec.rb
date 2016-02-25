@@ -23,7 +23,7 @@ feature "admin" do
 
     fill_in "reward[amount]", with: 45000
     fill_in "reward[apply_link]", with: "www.test1.com"
-    click_on "Add New Reward"
+    click_on "Submit Reward Information"
 
     within(".table") do
       expect(page).to have_content("45000")
