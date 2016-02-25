@@ -10,6 +10,7 @@ feature "user" do
 
     card_one.categories << Category.find(category_five.id)
     visit card_path(card_one)
+    expect(page).to have_title "Southwest Airlines Premier | Too Many Miles"
 
     within(".apply-here") do
       expect(page).to have_button('Apply Here')
