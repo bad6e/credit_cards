@@ -76,6 +76,7 @@ shared_context "features" do
   def set_card_categories
     c1 = Card.find(card_one.id)
     c1.categories << Category.find(category_one.id)
+    c1.categories << Category.find(category_two.id)
 
     c2 = Card.find(card_two.id)
     c2.categories << Category.find(category_one.id)
