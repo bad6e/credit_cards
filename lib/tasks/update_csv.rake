@@ -91,7 +91,6 @@ task :update_csv => :environment do
       "Expedia+" => "Expedia®+ Card from Citi",
       "Expedia+ Voyager" => "Expedia®+ Voyager Card from Citi",
       "Hilton Visa" => "Citi® Hilton HHonorsTM Visa Signature® Card",
-      "Hilton Reserve" => "Citi® Hilton HHonorsTM Reserve Card",
       "ThankYou Preferred" => "Citi ThankYou® Preferred Card — Earn 20,000 Bonus Points",
       "ThankYou Preferred Student" => "Citi ThankYou® Preferred Card for College Students",
       "Prestige" => "Citi Prestige® Card",
