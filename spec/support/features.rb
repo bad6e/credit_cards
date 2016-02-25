@@ -124,6 +124,6 @@ shared_context "features" do
     fill_in "reward[record_date]", with: "2016-02-18"
     fill_in "reward[length_of_time]", with: 3
     fill_in "reward[apply_link]", with: "www.test.com"
-    click_on "Add New Reward"
+    click_on "Submit Reward Information"
   end
 end

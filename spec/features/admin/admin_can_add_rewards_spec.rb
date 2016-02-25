@@ -16,7 +16,7 @@ feature "admin" do
     fill_in "reward[record_date]", with: "2016-02-18"
     fill_in "reward[length_of_time]", with: 3
     fill_in "reward[apply_link]", with: "www.test.com"
-    click_on "Add New Reward"
+    click_on "Submit Reward Information"
 
     expect(current_path).to eq(edit_admin_card_path(card_one))
 
@@ -47,7 +47,7 @@ feature "admin" do
     fill_in "reward[record_date]", with: "2016-02-19"
     fill_in "reward[length_of_time]", with: 4
     fill_in "reward[apply_link]", with: "www.test1.com"
-    click_on "Add New Reward"
+    click_on "Submit Reward Information"
 
     within(".table") do
       expect(page).to have_content("60000")
