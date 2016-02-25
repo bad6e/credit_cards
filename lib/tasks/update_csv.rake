@@ -96,7 +96,7 @@ task :update_csv => :environment do
       "ThankYou Preferred Student" => "Citi ThankYou® Preferred Card for College Students",
       "Prestige" => "Citi Prestige® Card",
       "Virgin America" => "Virgin America Visa Signature® Card",
-      "Aeroplan" => "TD Aeroplan™ Visa Signature® Credit Card",
+      "Aeroplan" => "TD Aeroplan™ Visa Signature® Credit Card ",
       "FlexPerks Travel Rewards (Visa)" => "U.S. Bank FlexPerks® Travel Rewards Visa Signature® Card"}
     end
   end
