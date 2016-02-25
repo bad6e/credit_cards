@@ -1,8 +1,7 @@
-
 function grayOutReward(response) {
   $('.sign-up-bonus-title').hide();
-  $('#reward-chart').css("opacity", 0.3);
-  mergeObjects(response);
+  $('#reward-chart').css("opacity", 0.12);
+  drawGraph(response);
 }
 
 function showReward(response) {
@@ -11,7 +10,6 @@ function showReward(response) {
 }
 
 function drawGraph(response) {
-  
   //chart can be used later to do dynamic things to the chart
   var chart = c3.generate({
     bindto: '#reward-chart',
@@ -36,7 +34,7 @@ function drawGraph(response) {
       right: 50
     }
   });
-  
+
   //remove the axes, leave the ticks
   $('#reward-chart').find('.domain').remove()
 }
@@ -44,15 +42,19 @@ function drawGraph(response) {
 function axis() {
   return {
     x: {
+      label : {
+        text: 'Time',
+        position: 'outer-center'
+      },
       type : 'timeseries',
       tick: {
         format: '%b %e, %Y',
         count: 2
-      }
+      },
     },
     y: {
       label: {
-        text: 'points',
+        text: 'Reward (Points/Miles)',
         position: 'outer-middle'
       }
     }
