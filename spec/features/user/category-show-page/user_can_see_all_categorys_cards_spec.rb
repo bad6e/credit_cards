@@ -18,12 +18,4 @@ feature "user - category show page" do
 
     expect(page).to have_content "Southwest Airlines Premier"
   end
-
-  # scenario "user can NOT see apply here button for card NOT in 'Bret's Favorite Cards" do
-  #   set_card_categories
-  #   admin_edit
-
-  #   visit card_path(card_one)
-  #   expect(page).to_not have_button('Apply Here')
-  # end
 end
