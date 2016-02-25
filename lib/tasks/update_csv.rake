@@ -1,8 +1,6 @@
 desc "Update csv"
 task :update_csv => :environment do
-
-  require 'CSV'
-  require 'pry'
+  require 'csv'
 
   class Parser
     def parse_csv(filename)
