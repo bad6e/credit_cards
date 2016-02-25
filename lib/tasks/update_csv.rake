@@ -97,7 +97,7 @@ task :update_csv => :environment do
       "Prestige" => "Citi Prestige® Card",
       "Virgin America" => "Virgin America Visa Signature® Card",
       "Aeroplan" => "TD Aeroplan™ Visa Signature® Credit Card ",
-      "FlexPerks Travel Rewards (Visa)" => "U.S. Bank FlexPerks® Travel Rewards Visa Signature® Card"}
+      "FlexPerks Travel Rewards (Visa)" => "U.S. Bank FlexPerks® Travel Rewards Visa Signature® Card "}
     end
   end
   Parser.new.parse_csv("./lib/assets/card.csv",)
