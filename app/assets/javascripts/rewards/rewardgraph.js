@@ -1,5 +1,5 @@
 function grayOutReward(response) {
-  $('.sign-up-bonus-title').hide();
+  $('.sign-up-bonus-title').css("opacity", 0.12);
   $('#reward-chart').css("opacity", 0.12);
   drawGraph(response);
 }
