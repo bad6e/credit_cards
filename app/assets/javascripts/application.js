@@ -16,8 +16,6 @@
 //= require bootstrap-sprockets
 //= require lodash
 //= require chartkick
-//= require d3
-//= require c3
 
 //VENDOR FILES
 //= require chartkick
