@@ -21,10 +21,10 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h3>Import a CSV File</h3>
+      <h3>Import a CSV File from Reddit</h3>
       <%= form_tag import_admin_imports_path, multipart: true do %>
         <%= file_field_tag :file %>
-        <%= date_field(:date, :file) %>
+        <%= date_field_tag :date %>
         <%= submit_tag "Import CSV" %>
       <% end %>
     </div>
