@@ -112,7 +112,7 @@
             <% end %>
           </div>
           <!-- End Card Listings -->
-           <%= will_paginate %>
+           <%= will_paginate @cards, renderer: BootstrapPagination::Rails %>
         </div>
       </div>
     </div>

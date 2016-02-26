@@ -8,14 +8,14 @@ feature "user - category show page" do
 
     visit category_path(category_one)
 
-    expect(page).to have_content "Southwest Airlines Premier"
-    expect(page).to have_content "Southwest Airlines Plus"
-    expect(page).to have_content "Citi Thank You"
-    expect(page).to have_content "Chase Preferred"
-    expect(page).to have_content "Barclays World Travel"
+    expect(page).to have_content "Southwest Airlines Rapid Rewards® Premier Credit Card"
+    expect(page).to have_content "Southwest Rapid Rewards® Plus Credit Card"
+    expect(page).to have_content "Capital One® Venture® Rewards Credit Card"
+    expect(page).to have_content "Chase Sapphire Preferred® Card"
+    expect(page).to have_content "Barclaycard Arrival Plus™ World Elite MasterCard®"
 
     visit category_path(category_two)
 
-    expect(page).to have_content "Southwest Airlines Premier"
+    expect(page).to have_content "Southwest Airlines Rapid Rewards® Premier Credit Card"
   end
 end

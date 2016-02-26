@@ -18,8 +18,8 @@ feature "navbar" do
     expect(page).to have_content("2 Cards found")
 
     within(".flight-list") do
-      expect(page).to have_content("Southwest Airlines Premier")
-      expect(page).to have_content("Southwest Airlines Plus")
+      expect(page).to have_content("Southwest Airlines Rapid Rewards® Premier Credit Card")
+      expect(page).to have_content("Southwest Rapid Rewards® Plus Credit Card")
     end
 
   end
@@ -37,8 +37,8 @@ feature "navbar" do
     end
 
     within(".ui-autocomplete") do
-      expect(page).to have_content("Southwest Airlines Premier")
-      expect(page).to have_content("Southwest Airlines Plus")
+      expect(page).to have_content("Southwest Airlines Rapid Rewards® Premier Credit Card")
+      expect(page).to have_content("Southwest Rapid Rewards® Plus Credit Card")
     end
   end
 end

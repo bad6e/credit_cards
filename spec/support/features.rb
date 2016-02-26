@@ -28,7 +28,7 @@ shared_context "features" do
   }
 
   let!(:card_one) {
-    Card.create(name: "Southwest Airlines Premier",
+    Card.create(name: "Southwest Airlines Rapid Rewards® Premier Credit Card",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
@@ -37,7 +37,7 @@ shared_context "features" do
   }
 
   let!(:card_two) {
-    Card.create(name: "Southwest Airlines Plus",
+    Card.create(name: "Southwest Rapid Rewards® Plus Credit Card",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
@@ -45,9 +45,8 @@ shared_context "features" do
                 image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
-
   let!(:card_three) {
-    Card.create(name: "Chase Preferred",
+    Card.create(name: "Chase Sapphire Preferred® Card",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
@@ -56,7 +55,7 @@ shared_context "features" do
   }
 
   let!(:card_four) {
-    Card.create(name: "Citi Thank You",
+    Card.create(name: "Capital One® Venture® Rewards Credit Card",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
@@ -65,7 +64,7 @@ shared_context "features" do
   }
 
   let!(:card_five) {
-    Card.create(name: "Barclays World Travel",
+    Card.create(name: "Barclaycard Arrival Plus™ World Elite MasterCard®",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
@@ -77,6 +76,7 @@ shared_context "features" do
     c1 = Card.find(card_one.id)
     c1.categories << Category.find(category_one.id)
     c1.categories << Category.find(category_two.id)
+
 
     c2 = Card.find(card_two.id)
     c2.categories << Category.find(category_one.id)

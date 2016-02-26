@@ -40,19 +40,6 @@ task :update_csv => :environment do
       end
     end
 
-    # Uncomment this for testing purposes
-    # def cards
-    #   {"Gold Delta Business" => "Gold Delta SkyMiles® Business Credit Card from American Express",
-    #   "Starwood Preferred Guest (SPG)" => "Starwood Preferred Guest® Credit Card from American Express",
-    #   "Arrival +" => "Barclaycard Arrival Plus™ World Elite MasterCard®",
-    #   "QuicksilverOne Rewards" => "Capital One® QuicksilverOne® Cash Rewards Credit Card",
-    #   "Freedom" => "Chase Freedom®",
-    #   "Sapphire Preferred" => "Chase Sapphire Preferred® Card",
-    #   "Marriott" => "Marriott Rewards® Premier Credit Card",
-    #   "Southwest Premier" => "Southwest Airlines Rapid Rewards® Premier Credit Card",
-    #   "Aeroplan" => "TD Aeroplan™ Visa Signature® Credit Card"}
-    # end
-
     def cards
       {"Gold Delta" => "Gold Delta SkyMiles® Credit Card from American Express",
       "Gold Delta Business" => "Gold Delta SkyMiles® Business Credit Card from American Express",
