@@ -19,11 +19,9 @@ feature "user - card show page" do
                    card_id: card_one.id)
   end
 
-  scenario "user can see apply here button for card in 'Bret's Favorite Cards" do
+  scenario "user can see apply here button for cards with rewards" do
     set_card_categories
-    admin_edit
 
-    card_one.categories << Category.find(category_five.id)
     visit card_path(card_one)
     expect(page).to have_title "Southwest Airlines Rapid Rewards® Premier Credit Card | Too Many Miles"
 
@@ -32,11 +30,9 @@ feature "user - card show page" do
     end
   end
 
-  scenario "user can NOT see apply here button for card NOT in 'Bret's Favorite Cards" do
+  scenario "user can NOT see apply here button for cards with no rewards" do
     set_card_categories
-    admin_edit
-
-    visit card_path(card_one)
+    visit card_path(card_two)
     expect(page).to_not have_button('Apply Here')
   end
 end

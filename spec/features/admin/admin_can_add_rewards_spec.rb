@@ -29,7 +29,7 @@ feature "admin" do
     end
   end
 
-  scenario "rewards will show up on card show page if the card is in the category 'Bret's Favortie Cards'" do
+  scenario "rewards will show up on card show page if the card is has rewards regardless of category" do
     set_card_categories
     admin_edit
     fill_in_reward_information
@@ -80,16 +80,14 @@ feature "admin" do
     end
   end
 
-  scenario "rewards will not show up on card show page if the cards is not in the category 'Bret's Favortie Cards'" do
+  scenario "rewards will not show up on card show page if the card has no rewards" do
     set_card_categories
-    admin_edit
-    fill_in_reward_information
-    expect(current_path).to eq(edit_admin_card_path(card_one))
-
     visit card_path(card_one)
 
     within(".bonus-information") do
-      expect(page).to have_content("Click Here for Bret's Favorite Cards")
+      expect(page).to have_content("This card does not have bonus information.")
+      click_on "This card does not have bonus information."
+      expect(current_path).to eq("/categories/brets-favorite-cards")
     end
   end
 end

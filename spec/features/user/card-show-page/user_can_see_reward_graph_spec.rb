@@ -19,20 +19,19 @@ feature "user - card show page" do
                    card_id: card_one.id)
   end
 
-  scenario "user can see reward graph for card in Bret's Favorite Cards" do
+  scenario "user can see reward graph for cards with rewards", js: true do
     set_card_categories
-    admin_edit
-
-    card_one.categories << Category.find(category_five.id)
     visit card_path(card_one)
     expect(page).to have_content "Sign Up Bonus Overtime"
+    expect(page).to_not have_content("No Bonus Information for This Card")
+    expect(page).to_not have_content("But Here are Some Cards That Do!")
   end
 
-  scenario "user can NOT see reward graph for card NOT in 'Bret's Favorite Cards" do
+  scenario "user can NOT see reward graph for cards with no rewards", js: true do
     set_card_categories
-    admin_edit
-
-    visit card_path(card_one)
-    expect(page).to_not have_button('Sign Up Bonus Overtime')
+    visit card_path(card_two)
+    expect(page).to_not have_content('Sign Up Bonus Overtime')
+    expect(page).to have_content("No Bonus Information for This Card")
+    expect(page).to have_content("But Here are Some Cards That Do!")
   end
 end
