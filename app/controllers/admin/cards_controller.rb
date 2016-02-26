@@ -89,6 +89,8 @@ class Admin::CardsController < Admin::BaseController
                                    :apr,
                                    :intro_rate,
                                    :image_link,
+                                   :best_offer,
+                                   :flyer_talk_link,
                                    :categories => [],
                                    :information => [])
     end
