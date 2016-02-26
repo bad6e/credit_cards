@@ -31,7 +31,7 @@ task :update_csv => :environment do
     def update_card_rewards(card_id, row)
       if (row[:current_bonus] != "" and row[:current_bonus] != "0")
         Reward.create(amount: row[:current_bonus].gsub(",",""),
-                      record_date: "2015-05-16",
+                      record_date: "2016-02-16",
                       spending_amount: row[:minimum_spend].gsub(",","").gsub("$",""),
                       length_of_time: row[:months_to_min_spend],
                       apply_link: row[:offer_link],
@@ -56,11 +56,8 @@ task :update_csv => :environment do
     def cards
       {"Gold Delta" => "Gold Delta SkyMiles® Credit Card from American Express",
       "Gold Delta Business" => "Gold Delta SkyMiles® Business Credit Card from American Express",
-      "Blue Cash Everyday" => "Blue Cash Everyday® Card from American Express",
-      "Blue Cash Preferred" => "Blue Cash Preferred® Card from American Express",
       "Everyday" => "The Amex EveryDay® Credit Card from American Express",
       "Everyday Preferred" => "The Amex EveryDay® Preferred Credit Card from American Express",
-      "Premier Rewards Gold (PRG)" => "Premier Rewards Gold Card from American Express ",
       "Business Rewards Gold (BRG)" => "The Business Gold Rewards Card from American Express OPEN",
       "Platinum" => "The Platinum Card® from American Express",
       "Platinum Business" => "The Business Platinum Card® from American Express OPEN",
@@ -68,7 +65,6 @@ task :update_csv => :environment do
       "Starwood (SPG) Business" => "Starwood Preferred Guest® Business Credit Card from American Express",
       "HHonors" => "Hilton HHonors™ Card from American Express",
       "Alaska" => "Alaska Airlines Visa Signature® Credit Card",
-      "Bank Americard Cash Rewards" => "BankAmericard Cash Rewards™ Credit Card",
       "Arrival" => "Barclaycard Arrival™ World MasterCard®",
       "Arrival +" => "Barclaycard Arrival Plus™ World Elite MasterCard®",
       "Venture One Rewards" => "Capital One® VentureOne® Rewards Credit Card",
