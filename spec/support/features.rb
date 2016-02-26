@@ -51,7 +51,7 @@ shared_context "features" do
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
                 intro_rate: "N/A",
-                image_link: "www.test-chase.com")
+                image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
   let!(:card_four) {
@@ -60,7 +60,7 @@ shared_context "features" do
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
                 intro_rate: "N/A",
-                image_link: "www.test-thankyou.com")
+                image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
   let!(:card_five) {
@@ -69,7 +69,7 @@ shared_context "features" do
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
                 intro_rate: "N/A",
-                image_link: "www.test-barclaystravel.com")
+                image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
   def set_card_categories

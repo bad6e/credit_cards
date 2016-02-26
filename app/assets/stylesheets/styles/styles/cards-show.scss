@@ -32,7 +32,13 @@ $black          : #000;
   padding-top: 10px;
   font-family: 'Raleway', sans-serif;
   text-align: center;
+}
 
+.related-card-bonus-amount {
+  font-family: 'Raleway', sans-serif;
+  color: #01b7f2;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 .related-cards {
@@ -47,9 +53,16 @@ $black          : #000;
   margin-right: auto;
 }
 
+#bonus-cards {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 110px;
+}
+
 .reward-graph-container {
   background: #f5f5f5;
   padding: 30px 20px 20px 20px;
+  box-shadow: 5px 5px 20px #888888;
 }
 
 .sign-up-bonus-title {
@@ -59,11 +72,12 @@ $black          : #000;
 .sign-up-bonus-h1-title {
   font-family: 'Raleway', sans-serif;
   font-size: 30px;
+  font-weight: 500;
   color: #01b7f2;
   left: 0;
   position: absolute;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 0px;
   width: 100%;
   z-index: 1;
   a:hover {
@@ -71,8 +85,29 @@ $black          : #000;
   }
 }
 
+.sign-up-bonus-h1-subtitle {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: #01b7f2;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
+  z-index: 1;
+  a:hover {
+    color: #2d3e52;
+  }
+}
+
+.cards-with-bonuses {
+  position: relative;
+  z-index: 1;
+}
+
 #reward-chart {
   opacity: 1.0;
+  z-index: 0;
 }
 
 .sign-up-bonus-title {
@@ -86,8 +121,6 @@ $black          : #000;
 .img-hover:hover {
     opacity: 0.8;
 }
-
-
 
 h3 {
   font-family: 'Raleway', sans-serif;

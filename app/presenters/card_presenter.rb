@@ -18,6 +18,10 @@ class CardPresenter
     category_list.first.cards.limit(4).where.not(name: card_name.name).order("RANDOM()")
   end
 
+  def bonus_cards
+    Category.find_by(name: "bret's-favorite-cards").cards.limit(2).where.not(name: card_name.name).order("RANDOM()")
+  end
+
   def featured_cards_category_name
     category_list.first.parse_category_name
   end
@@ -26,8 +30,8 @@ class CardPresenter
     card_name.rewards.order(record_date: :desc)
   end
 
-  def brets_favorite?
-    card_name.categories.include?(Category.find_by(name: "bret's-favorite-cards"))
+  def card_has_bonus?
+    return true if card_name.rewards != []
   end
 
   def category_list

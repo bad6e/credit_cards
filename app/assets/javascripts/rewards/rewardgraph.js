@@ -1,11 +1,11 @@
 function grayOutReward(response) {
-  $('.sign-up-bonus-title').css("opacity", 0.12);
-  $('#reward-chart').css("opacity", 0.12);
-  drawGraph(response);
+  $('.sign-up-bonus-title').hide();
+  $('#reward-chart').css("opacity", 0.0);
 }
 
 function showReward(response) {
   $(".sign-up-bonus-h1-title").hide();
+  $(".sign-up-bonus-h1-subtitle").hide();
   drawGraph(response);
 }
 

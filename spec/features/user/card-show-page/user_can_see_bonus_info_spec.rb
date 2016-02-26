@@ -19,11 +19,8 @@ feature "user - card show page" do
                    card_id: card_one.id)
   end
 
-  scenario "user can see bonus info for card in Bret's Favorite Cards" do
+  scenario "user can see bonus info for cards with bonuses" do
     set_card_categories
-    admin_edit
-
-    card_one.categories << Category.find(category_five.id)
     visit card_path(card_one)
 
     within(".bonus-information") do
@@ -33,10 +30,9 @@ feature "user - card show page" do
     end
   end
 
-  scenario "user can NOT see bonus info for card NOT in 'Bret's Favorite Cards" do
+  scenario "user can NOT see bonus for cards with no bonuses" do
     set_card_categories
-    admin_edit
-    visit card_path(card_one)
+    visit card_path(card_two)
 
     within(".bonus-information") do
       expect(page).to_not have_content "50000"
