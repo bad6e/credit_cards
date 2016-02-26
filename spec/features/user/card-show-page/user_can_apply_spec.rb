@@ -25,7 +25,7 @@ feature "user - card show page" do
 
     card_one.categories << Category.find(category_five.id)
     visit card_path(card_one)
-    expect(page).to have_title "Southwest Airlines Premier | Too Many Miles"
+    expect(page).to have_title "Southwest Airlines Rapid Rewards® Premier Credit Card | Too Many Miles"
 
     within(".apply-here") do
       expect(page).to have_button('Apply Here')

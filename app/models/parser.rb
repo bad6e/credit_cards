@@ -10,7 +10,7 @@ class Parser
   def self.check_if_card_exists(row, date)
     if cards.has_key?(row[:name_of_credit_card])
       specific_card = Card.find_by(name: find_card_name(row))
-      update_card_attributes(specific_card , row)
+      update_card_attributes(specific_card, row)
       update_card_rewards(specific_card, row, date)
     end
   end
@@ -20,7 +20,7 @@ class Parser
   end
 
   def self.update_card_attributes(card, row)
-    card.update(annual_fee: row[:af],
+    card.update!(annual_fee: row[:af],
                 best_offer: row[:best_offer],
                 flyer_talk_link: row[:flyertalk_link])
 
@@ -38,18 +38,30 @@ class Parser
     end
   end
 
+  #FOR TESTING
   def self.cards
-    {"Gold Delta Business" => "Gold Delta SkyMiles® Business Credit Card from American Express",
-    "Starwood Preferred Guest (SPG)" => "Starwood Preferred Guest® Credit Card from American Express",
-    "Arrival +" => "Barclaycard Arrival Plus™ World Elite MasterCard®",
-    "QuicksilverOne Rewards" => "Capital One® QuicksilverOne® Cash Rewards Credit Card",
-    "Freedom" => "Chase Freedom®",
+    {"Arrival +" => "Barclaycard Arrival Plus™ World Elite MasterCard®",
+    "Venture Rewards" => "Capital One® Venture® Rewards Credit Card",
     "Sapphire Preferred" => "Chase Sapphire Preferred® Card",
-    "Marriott" => "Marriott Rewards® Premier Credit Card",
     "Southwest Premier" => "Southwest Airlines Rapid Rewards® Premier Credit Card",
-    "Aeroplan" => "TD Aeroplan™ Visa Signature® Credit Card"}
+    "Southwest Plus" => "Southwest Rapid Rewards® Plus Credit Card"}
   end
 
+
+  # FOR DEVELOPMENT
+  # def self.cards
+  #   {"Gold Delta Business" => "Gold Delta SkyMiles® Business Credit Card from American Express",
+  #   "Starwood Preferred Guest (SPG)" => "Starwood Preferred Guest® Credit Card from American Express",
+  #   "Arrival +" => "Barclaycard Arrival Plus™ World Elite MasterCard®",
+  #   "QuicksilverOne Rewards" => "Capital One® QuicksilverOne® Cash Rewards Credit Card",
+  #   "Freedom" => "Chase Freedom®",
+  #   "Sapphire Preferred" => "Chase Sapphire Preferred® Card",
+  #   "Marriott" => "Marriott Rewards® Premier Credit Card",
+  #   "Southwest Premier" => "Southwest Airlines Rapid Rewards® Premier Credit Card",
+  #   "Aeroplan" => "TD Aeroplan™ Visa Signature® Credit Card"}
+  # end
+
+  #FOR PRODUCTION
   # def self.cards
   #   {"Gold Delta" => "Gold Delta SkyMiles® Credit Card from American Express",
   #   "Gold Delta Business" => "Gold Delta SkyMiles® Business Credit Card from American Express",

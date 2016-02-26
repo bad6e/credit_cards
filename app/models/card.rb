@@ -1,6 +1,4 @@
 class Card < ActiveRecord::Base
-  # attr_accessor :name
-
   has_many :rewards, dependent: :destroy
 
   has_many :categorizings
