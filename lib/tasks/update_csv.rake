@@ -31,7 +31,7 @@ task :update_csv => :environment do
     def update_card_rewards(card_id, row)
       if (row[:current_bonus] != "" and row[:current_bonus] != "0")
         Reward.create(amount: row[:current_bonus].gsub(",",""),
-                      record_date: "2015-09-16",
+                      record_date: "2015-08-16",
                       spending_amount: row[:minimum_spend].gsub(",","").gsub("$",""),
                       length_of_time: row[:months_to_min_spend],
                       apply_link: row[:offer_link],
