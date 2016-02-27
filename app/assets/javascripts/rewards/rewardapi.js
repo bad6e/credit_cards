@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  $( "#loaderImg" ).fadeIn(700)
+  $(".sign-up-bonus-h1-title").hide();
+  $(".sign-up-bonus-h1-subtitle").hide();
   grabCardId();
 })
 
@@ -26,8 +29,11 @@ function getRewardData(id) {
     url: '/api/v1/rewards/' + id,
     success: function(response){
       if (response.length === 0) {
+        $('.sign-up-bonus-title').hide();
+        $( "#loaderImg" ).hide();
         grayOutReward(dummyData);
       } else {
+        $( "#loaderImg" ).hide();
         showReward(response);
       }
     }

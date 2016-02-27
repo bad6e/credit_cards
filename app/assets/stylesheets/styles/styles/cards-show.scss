@@ -101,6 +101,7 @@ $black          : #000;
 }
 
 .cards-with-bonuses {
+  display: none;
   position: relative;
   z-index: 1;
 }
@@ -111,6 +112,12 @@ $black          : #000;
 }
 
 .sign-up-bonus-title {
+  text-align: center;
+}
+
+#loaderImg {
+  padding-top: 50px;
+  display: none;
   text-align: center;
 }
 
