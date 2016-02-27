@@ -43,13 +43,13 @@ function axis() {
   return {
     x: {
       label : {
-        text: 'Time',
+        text: 'date',
         position: 'outer-center'
       },
       type : 'timeseries',
       tick: {
         format: '%b %e, %Y',
-        count: 2
+        count: 3
       },
     },
     y: {
