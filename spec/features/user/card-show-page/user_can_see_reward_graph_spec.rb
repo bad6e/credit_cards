@@ -22,7 +22,7 @@ feature "user - card show page" do
   scenario "user can see reward graph for cards with rewards", js: true do
     set_card_categories
     visit card_path(card_one)
-    expect(page).to have_content "Sign Up Bonus Overtime"
+    expect(page).to have_content "Sign Up Bonus Over Time"
     expect(page).to_not have_content("No Bonus Information for This Card")
     expect(page).to_not have_content("But Here are Some Cards That Do!")
   end
@@ -30,7 +30,7 @@ feature "user - card show page" do
   scenario "user can NOT see reward graph for cards with no rewards", js: true do
     set_card_categories
     visit card_path(card_two)
-    expect(page).to_not have_content('Sign Up Bonus Overtime')
+    expect(page).to_not have_content('Sign Up Bonus Over Time')
     expect(page).to have_content("No Bonus Information for This Card")
     expect(page).to have_content("But Here are Some Cards That Do!")
   end
