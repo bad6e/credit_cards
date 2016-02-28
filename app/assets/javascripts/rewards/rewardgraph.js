@@ -1,6 +1,8 @@
 function grayOutReward(response) {
-  $('.sign-up-bonus-title').hide();
   $('#reward-chart').css("opacity", 0.0);
+  $(".sign-up-bonus-h1-title").fadeIn(700);
+  $(".sign-up-bonus-h1-subtitle").fadeIn(700);
+  $(".cards-with-bonuses").fadeIn(700);
 }
 
 function showReward(response) {

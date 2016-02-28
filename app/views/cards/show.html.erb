@@ -144,6 +144,9 @@
       <% if !@card.card_has_bonus? %>
         <%= render partial: "cards_with_bonuses" %>
       <% end %>
+      <div id='loaderImg'>
+        <%= image_tag("loader.gif") %>
+      </div>
       <!-- End Cards With Bonuses  -->
 
       <div id="reward-chart" style="height: 300px;">
