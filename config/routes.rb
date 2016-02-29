@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'blog', to: 'blog#index'
 
   resources :cards, only: [:index, :show]
-  resources :categories, only: [:index, :show]
+  resources :categories, path: "", only: [:index, :show]
 
   get '/admin-login', to: 'sessions#new'
   post '/admin-login', to: 'sessions#create'
