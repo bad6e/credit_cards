@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     get 'imports/import'
   end
 
+  get '/sitemap.xml.gz', to: redirect("https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com/sitemaps/sitemap.xml.gz"), as: :sitemap
+
   root "welcome#index"
   get 'about', to: 'about#index'
   get 'blog', to: 'blog#index'

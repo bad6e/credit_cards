@@ -5,7 +5,7 @@
     bucket = s3.bucket(ENV['S3_BUCKET_NAME'])
     Dir.entries(File.join(Rails.root, 'tmp', 'sitemaps')).each do |file_name|
       next if %w(. .. .DS_Store).include? file_name
-      path = "sitemap/#{file_name}"
+      path = "sitemaps/#{file_name}"
       file = File.join(Rails.root, 'tmp', 'sitemaps', file_name)
       object = bucket.object(path)
       object.upload_file(file)
