@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'imports/index'
-  end
 
   namespace :admin do
     get 'imports/import'
@@ -10,18 +7,18 @@ Rails.application.routes.draw do
   root "welcome#index"
   get 'about', to: 'about#index'
   get 'blog', to: 'blog#index'
+  get '/admin-login', to: 'sessions#new'
+  post '/admin-login', to: 'sessions#create'
+  get '/admin-logout', to: 'sessions#delete'
+  delete "/admin-logout", to: "sessions#destroy"
 
   resources :cards, only: [:index, :show]
 
   resources :categories, only: [:index]
   resources :categories, path: "", only: [:show]
 
-  get '/admin-login', to: 'sessions#new'
-  post '/admin-login', to: 'sessions#create'
-  get '/admin-logout', to: 'sessions#delete'
-  delete "/admin-logout", to: "sessions#destroy"
-
-  namespace "admin" do
+  namespace :admin do
+    get 'imports/index'
     resources :cards, only: [:new, :create, :edit, :update, :index]
     resources :rewards, only: [:new, :create, :edit, :update, :index, :destroy]
     resources :imports do

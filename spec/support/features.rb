@@ -16,7 +16,8 @@ shared_context "features" do
   }
 
   let!(:category_five) {
-    Category.create(name: "best-credit-card-offers")
+    Category.create(name: "best-credit-card-offers",
+                    slug: "best-credit-card-offers")
   }
 
   let!(:admin_one) {
