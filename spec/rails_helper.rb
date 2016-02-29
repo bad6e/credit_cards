@@ -35,6 +35,7 @@ RSpec.configure do |config|
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.mock_with :mocha
 
   config.infer_spec_type_from_file_location!
 end

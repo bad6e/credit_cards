@@ -31,7 +31,7 @@ class Parser
     if card_table.has_key?(row[:name_of_credit_card])
       specific_card = Card.find_by(name: find_card_name(row, card_table))
       update_card_attributes(specific_card, row)
-      update_card_rewards(specific_card, row, date)
+      create_card_rewards(specific_card, row, date)
     end
   end
 
@@ -46,14 +46,15 @@ class Parser
 
   end
 
-  def update_card_rewards(card_id, row, date)
+  def create_card_rewards(card, row, date)
+    # binding.pry
     if (row[:current_bonus] != "" and row[:current_bonus] != "0")
       Reward.create!(amount: row[:current_bonus].gsub(",",""),
                      record_date: date,
                      spending_amount: row[:minimum_spend].gsub(",","").gsub("$",""),
                      length_of_time: row[:months_to_min_spend],
                      apply_link: row[:offer_link],
-                     card_id: card_id.id )
+                     card_id: card.id )
 
     end
   end
