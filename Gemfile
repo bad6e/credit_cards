@@ -22,7 +22,7 @@ gem 'font-awesome-rails'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'lodash-rails'
 gem 'sitemap_generator'
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk'
 gem 'figaro'
 
 group :development do
