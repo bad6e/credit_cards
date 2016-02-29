@@ -4,7 +4,7 @@ category_three = Category.create(name: 'business-rewards', slug: 'business-rewar
 category_four  = Category.create(name: 'hotel', slug: 'hotel-credit-cards')
 category_five  = Category.create(name: 'cash-back', slug: 'cash-back-credit-cards')
 category_six   = Category.create(name: 'other', slug: 'other-credit-cards')
-category_seven = Category.create(name: "favorite-travel", slug: "favorite-travel-credit-cards")
+category_seven = Category.create(name: "best-card-offers", slug: "best-card-offers")
 
 User.create(first_name: "Bret",
             last_name: "Doucette",

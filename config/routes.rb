@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   namespace :admin do
-  get 'imports/index'
+    get 'imports/index'
   end
 
   namespace :admin do
-  get 'imports/import'
+    get 'imports/import'
   end
 
   root "welcome#index"
