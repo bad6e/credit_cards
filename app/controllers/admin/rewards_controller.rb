@@ -1,5 +1,6 @@
 class Admin::RewardsController < ApplicationController
   before_action :load_reward, only: [:edit, :update, :destroy]
+  before_action :no_index_no_follow, only: [:new, :edit]
 
   def new
     @reward         = Reward.new

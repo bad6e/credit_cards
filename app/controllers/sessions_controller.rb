@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :no_index_no_follow, only: [:new]
+
   def new
   end
 

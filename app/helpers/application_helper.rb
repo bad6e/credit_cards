@@ -25,6 +25,13 @@ module ApplicationHelper
     end
   end
 
+  def no_follow_description(full_no_follow_description)
+    if full_meta_description.empty?
+    else
+      full_meta_description
+    end
+  end
+
   def bootstrap_class_for flash_type
     { success: "alert-success", errors: "alert-danger", alert: "alert-warning", notice: "alert-info" }[flash_type.to_sym] || flash_type.to_s
   end

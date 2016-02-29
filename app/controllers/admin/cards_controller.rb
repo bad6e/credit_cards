@@ -2,8 +2,10 @@ class Admin::CardsController < Admin::BaseController
   before_action :load_card, only: [:show, :edit, :update, :destroy]
   before_action :load_presenter, only: [:edit, :update]
   before_filter :format_card_information, only: [:create, :update]
+  before_action :no_index_no_follow, only: [:index, :new, :edit]
 
   def index
+    no_index_no_follow
     @cards = Card.all
   end
 
