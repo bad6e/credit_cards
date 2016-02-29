@@ -19,7 +19,7 @@ class CardPresenter
   end
 
   def bonus_cards
-    Category.find_by(name: "bret's-favorite-cards").cards.limit(2).where.not(name: card_name.name).order("RANDOM()")
+    Category.find_by(name: "best-credit-card-offers").cards.limit(2).where.not(name: card_name.name).order("RANDOM()")
   end
 
   def featured_cards_category_name
