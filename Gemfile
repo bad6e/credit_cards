@@ -21,6 +21,7 @@ gem 'will_paginate-bootstrap'
 gem 'font-awesome-rails'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'lodash-rails'
+gem 'sitemap_generator'
 
 group :development do
   gem 'web-console', '~> 2.0'
