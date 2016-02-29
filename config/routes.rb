@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :cards, only: [:index, :show]
 
   resources :categories, only: [:index]
+  get "categories/:id", to: redirect("/%{id}")
   resources :categories, path: "", only: [:show]
 
   namespace :admin do

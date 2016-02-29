@@ -1,18 +1,22 @@
 shared_context "features" do
   let!(:category_one) {
-    Category.create(name: "airline")
+    Category.create(name: "airline",
+                    slug: "airline-credit-cards")
   }
 
   let!(:category_two) {
-    Category.create(name: "hotel")
+    Category.create(name: "hotel",
+                    slug: "hotel-credit-cards")
   }
 
   let!(:category_three) {
-    Category.create(name: "cash-back")
+    Category.create(name: "cash-back",
+                    slug: "cash-back-credit-cards")
   }
 
   let!(:category_four) {
-    Category.create(name: "travel")
+    Category.create(name: "travel",
+                    slug: "travel-credit-cards")
   }
 
   let!(:category_five) {
