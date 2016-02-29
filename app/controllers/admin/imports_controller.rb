@@ -1,7 +1,7 @@
 class Admin::ImportsController < ApplicationController
   def import
     begin
-      Parser.parse_csv(params[:file], params[:date])
+      Parser.new.parse_csv(params[:file], params[:date])
       flash[:success] = "CSV successfully imported!"
       redirect_to admin_cards_path
     rescue
