@@ -1,4 +1,4 @@
-<% provide(:title, @card.card_name.name) %>
+<%= render partial: "show_header" %>
 <div class="page-title-container">
   <div class="container">
     <div class="page-title pull-left">
@@ -121,7 +121,7 @@
                     <span class="pull-right">TBD</span>
                   </span>
                 <% else %>
-                  <h6 class="box-title" id="click-here-favorite"><a href="/categories/brets-favorite-cards">This card does not have bonus information.</a></h6>
+                  <h6 class="box-title" id="click-here-favorite"><a href="/best-credit-card-offers">This card does not have bonus information.</a></h6>
                 <% end %>
               </div>
               <a class="button yellow full-width uppercase btn-small" href="#">add to favorites</a>

@@ -38,11 +38,13 @@ feature "admin" do
 
   scenario "admin can add new card and upon saving - card infromation displays correctly" do
     admin_login
+    set_card_categories
     click_on "Add New Card"
     fill_in_card_information
     card = Card.last
 
     expect(current_path).to eq(admin_cards_path)
+
     expect(page).to have_content("Test Name1")
 
     visit card_path(card)

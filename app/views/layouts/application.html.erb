@@ -5,8 +5,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="More Miles -- More Vacations">
+  <meta name="description" content="<%= meta_description(yield(:meta_description)) %>">
   <meta name="author" content="Too Many Miles">
+  <!-- Optional Robot Instructions can be set up in controllers -->
+  <% if @meta_robots_instructions %>
+    <meta name="robots" content="<%= @meta_robots_instructions %>">
+  <% end %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'http://www.google.com/jsapi','application'%>

@@ -1,10 +1,10 @@
-category_one   = Category.create(name: 'airline', slug: 'airline')
-category_two   = Category.create(name: 'travel', slug: 'travel')
-category_three = Category.create(name: 'business-rewards', slug: 'business-rewards')
-category_four  = Category.create(name: 'hotel', slug: 'hotel')
-category_five  = Category.create(name: 'cash-back', slug: 'cash-back')
-category_six   = Category.create(name: 'other', slug: 'other')
-category_seven = Category.create(name: "bret's-favorite-cards", slug: "brets-favorite-cards")
+category_one   = Category.create(name: 'airline', slug: 'airline-credit-cards')
+category_two   = Category.create(name: 'travel', slug: 'travel-credit-cards')
+category_three = Category.create(name: 'business-rewards', slug: 'business-rewards-credit-cards')
+category_four  = Category.create(name: 'hotel', slug: 'hotel-credit-cards')
+category_five  = Category.create(name: 'cash-back', slug: 'cash-back-credit-cards')
+category_six   = Category.create(name: 'other', slug: 'other-credit-cards')
+category_seven = Category.create(name: 'best-credit-card-offers', slug: 'best-credit-card-offers')
 
 User.create(first_name: "Bret",
             last_name: "Doucette",
