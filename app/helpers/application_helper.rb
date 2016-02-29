@@ -16,6 +16,15 @@ module ApplicationHelper
     end
   end
 
+  def meta_description(full_meta_description)
+    base_description = "More Miles -- More Vacations"
+    if full_meta_description.empty?
+      base_description
+    else
+      full_meta_description
+    end
+  end
+
   def bootstrap_class_for flash_type
     { success: "alert-success", errors: "alert-danger", alert: "alert-warning", notice: "alert-info" }[flash_type.to_sym] || flash_type.to_s
   end
