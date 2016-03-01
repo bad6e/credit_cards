@@ -85,8 +85,8 @@ feature "admin" do
     visit card_path(card_one)
 
     within(".bonus-information") do
-      expect(page).to have_content("This card does not have bonus information.")
-      click_on "This card does not have bonus information."
+      expect(page).to have_content("No Bonus Information")
+      click_on "Click Here for Cards with Bonus Information!"
       expect(current_path).to eq("/best-credit-card-offers")
     end
   end
