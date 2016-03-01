@@ -44,7 +44,7 @@ class CardPresenter
     cards = rewards.map do |id|
       Card.find(id.card_id)
     end
-    cards.uniq
+    cards.uniq[0..1]
   end
 
   #Logic for displaying the most recent rewards
