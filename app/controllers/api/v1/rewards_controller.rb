@@ -3,6 +3,6 @@ class Api::V1::RewardsController < ApplicationController
 
   def show
     sleep(1.2)
-     respond_with Reward.where(card_id: params[:id])
+    respond_with Reward.where(card_id: params[:id])
   end
 end

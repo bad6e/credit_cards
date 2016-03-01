@@ -39,7 +39,7 @@ feature "user - card show page" do
     visit card_path(card_six)
     expect(page).to_not have_content('Sign Up Bonus Over Time')
     expect(page).to have_content("No Bonus Information for This Card")
-    expect(page).to have_content("But Here are Some Cash Back Credit Cards That Do!")
+    expect(page).to have_content("But Here are some Cash Back Credit Cards with Bonuses!")
     expect(page).to have_content("Chase Cash Back")
     expect(page).to have_content("50000 Points")
   end
