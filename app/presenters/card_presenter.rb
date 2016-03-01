@@ -6,7 +6,7 @@ class CardPresenter
     @card_id = card_id
   end
 
-  def card_name
+  def card
     Card.find(card_id)
   end
 
@@ -15,11 +15,11 @@ class CardPresenter
   end
 
   def featured_cards
-    category_list.first.cards.limit(4).where.not(name: card_name.name).order("RANDOM()")
+    category_list.first.cards.limit(4).where.not(name: card.name).order("RANDOM()")
   end
 
   def bonus_cards
-    Category.find_by(name: "best-credit-card-offers").cards.limit(2).where.not(name: card_name.name).order("RANDOM()")
+    Category.find_by(name: "best-credit-card-offers").cards.limit(2).where.not(name: card.name).order("RANDOM()")
   end
 
   def featured_cards_category_name
@@ -27,11 +27,11 @@ class CardPresenter
   end
 
   def rewards
-    card_name.rewards.order(record_date: :desc)
+    card.rewards.order(record_date: :desc)
   end
 
   def card_has_bonus?
-    return true if card_name.rewards != []
+    return true if card.rewards != []
   end
 
   def category_list

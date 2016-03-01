@@ -2,7 +2,7 @@
 <div class="page-title-container">
   <div class="container">
     <div class="page-title pull-left">
-      <h2 class="entry-title" id="<%= @card.card_name.id%>"><%= @card.card_name.name %></h2>
+      <h2 class="entry-title" id="<%= @card_presenter.card.id%>"><%= @card_presenter.card.name %></h2>
     </div>
     <ul class="breadcrumbs pull-right">
       <li><a href="/">HOME</a></li>
@@ -27,7 +27,7 @@
             <h2>Card Information</h2>
             <ul>
             <% n = 1 %>
-            <% @card.card_name.information.each do |info| %>
+            <% @card_presenter.card.information.each do |info| %>
               <li id="information-<%= n %>"><%= info %></li>
               <% n += 1 %>
               <% end %>
@@ -36,7 +36,7 @@
             <h2>Card Categories</h2>
               <div class="car-features box">
                 <div class="row add-clearfix">
-                  <% @card.category_list.each do |category| %>
+                  <% @card_presenter.category_list.each do |category| %>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
                       <i class="soap-icon-plane-right circle"></i><%= link_to category.parse_category_name, category_path(category) %>
@@ -45,29 +45,29 @@
                   <% end %>
                 </div>
               </div>
-              <% if @card.card_has_bonus? %>
-                <h2>Bret's Special Sauce</h2>
+              <% if @card_presenter.card_has_bonus? %>
+                <h2>Bonus Information</h2>
                 <div class="car-features box bonus-information-side">
                   <div class="row add-clearfix">
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-beach circle"></i>Sign Up Bonus: <%= @card.rewards.first.amount %> Miles
+                        <i class="soap-icon-beach circle"></i>Sign Up Bonus: <%= @card_presenter.rewards.first.amount %> Miles
                       </span>
                     </div>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-savings circle"></i>Spending Requirement: <%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %>
+                        <i class="soap-icon-savings circle"></i>Spending Requirement: <%= number_to_currency(@card_presenter.rewards.first.spending_amount, precision: 0) %>
                       </span>
                     </div>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-calendar circle"></i>Length of Time: <%= pluralize(@card.rewards.first.length_of_time, "Month") %>
+                        <i class="soap-icon-calendar circle"></i>Length of Time: <%= pluralize(@card_presenter.rewards.first.length_of_time, "Month") %>
                       </span>
                     </div>
                   </div>
                 </div>
                 <div class='col-md-12 apply-here'>
-                  <%= button_to "Apply Here", @card.rewards.first.apply_link, :method => "get", class: "btn btn-success btn-lg btn-block"  %>
+                  <%= button_to "Apply Here", @card_presenter.rewards.first.apply_link, :method => "get", class: "btn btn-success btn-lg btn-block"  %>
                 </div>
               <% end %>
             </div>
@@ -83,38 +83,38 @@
       <div class="sidebar col-md-3">
         <article class="detailed-logo">
           <figure>
-            <%= image_tag(@card.card_name.image_link) %>
+            <%= image_tag(@card_presenter.card.image_link) %>
           </figure>
           <div class="details">
-            <h2 class="box-title"><%= @card.card_name.name %><small></small></h2>
+            <h2 class="box-title"><%= @card_presenter.card.name %><small></small></h2>
             <div class="card-info-box">
                 <div class="mile clearfix">
                   <span class="skin-color">Annual Fee:</span>
-                  <div class="mileage pull-center"><%= @card.card_name.annual_fee %></div>
+                  <div class="mileage pull-center"><%= @card_presenter.card.annual_fee %></div>
                 </div>
                  <div class="mile clearfix">
                   <span class="skin-color">Intro Rate:</span>
-                  <div class="mileage pull-center"><%= @card.card_name.intro_rate %></div>
+                  <div class="mileage pull-center"><%= @card_presenter.card.intro_rate %></div>
                 </div>
                 <div class="mile clearfix">
                   <span class="skin-color">APR:</span>
-                  <div class="mileage pull-center"><%= @card.card_name.apr %></div>
+                  <div class="mileage pull-center"><%= @card_presenter.card.apr %></div>
                 </div>
               </div>
               <h3 class="box-title">Bonus Information</h3>
               <div class="bonus-information">
-                <% if @card.card_has_bonus? %>
+                <% if @card_presenter.card_has_bonus? %>
                   <div class="mile clearfix">
                     <span class="skin-color">Sign Up Bonus:</span>
-                    <span class="mileage pull-right"><%= @card.rewards.first.amount %></span>
+                    <span class="mileage pull-right"><%= @card_presenter.rewards.first.amount %></span>
                   </div>
                   <div class="mile clearfix">
                     <span class="skin-color">Spending Requirements:</span>
-                    <span class="mileage pull-right"><%= number_to_currency(@card.rewards.first.spending_amount, precision: 0) %></span>
+                    <span class="mileage pull-right"><%= number_to_currency(@card_presenter.rewards.first.spending_amount, precision: 0) %></span>
                   </div>
                   <div class="mile clearfix">
                     <span class="skin-color">Length of Time:</span>
-                    <span class="mileage pull-right"><%= pluralize(@card.rewards.first.length_of_time, "Month") %></span>
+                    <span class="mileage pull-right"><%= pluralize(@card_presenter.rewards.first.length_of_time, "Month") %></span>
                   </div>
                   <span class="price clearfix">
                     <small class="pull-left">Good Time to Apply:</small>
@@ -141,7 +141,7 @@
       <h1 class="sign-up-bonus-h1-subtitle">But Here are Some Cards That Do!</a></h1>
 
       <!-- Cards With Bonuses Partial  -->
-      <% if !@card.card_has_bonus? %>
+      <% if !@card_presenter.card_has_bonus? %>
         <%= render partial: "cards_with_bonuses" %>
       <% end %>
       <div id='loaderImg'>
@@ -159,9 +159,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3 class="page-header related-card-header">Related <%= @card.featured_cards_category_name %> Cards</h3>
+      <h3 class="page-header related-card-header">Related <%= @card_presenter.featured_cards_category_name %> Cards</h3>
     </div>
-    <% @card.featured_cards.each do |card| %>
+    <% @card_presenter.featured_cards.each do |card| %>
       <div class="related-cards">
         <div class="col-sm-3 col-xs-6">
           <%= link_to image_tag(card.image_link, class:"img-responsive img-hover img-related related-card-image"), card_path(card) %>
