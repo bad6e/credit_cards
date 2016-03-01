@@ -1,21 +1,21 @@
 shared_context "features" do
   let!(:category_one) {
-    Category.create(name: "airline",
+    Category.create(name: "airline-credit-cards",
                     slug: "airline-credit-cards")
   }
 
   let!(:category_two) {
-    Category.create(name: "hotel",
+    Category.create(name: "hotel-credit-cards",
                     slug: "hotel-credit-cards")
   }
 
   let!(:category_three) {
-    Category.create(name: "cash-back",
+    Category.create(name: "cash-back-credit-cards",
                     slug: "cash-back-credit-cards")
   }
 
   let!(:category_four) {
-    Category.create(name: "travel",
+    Category.create(name: "travel-credit-cards",
                     slug: "travel-credit-cards")
   }
 
@@ -77,11 +77,29 @@ shared_context "features" do
                 image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
+
+  let!(:card_six) {
+    Card.create(name: "Starwood Card",
+                annual_fee: "$99",
+                information: ["Bullet A", "Bullet B"],
+                apr: "12%",
+                intro_rate: "N/A",
+                image_link: "https://www.google.com/?gws_rd=ssl")
+  }
+
+  let!(:card_seven) {
+    Card.create(name: "Chase Cash Back",
+                annual_fee: "$99",
+                information: ["Bullet A", "Bullet B"],
+                apr: "12%",
+                intro_rate: "N/A",
+                image_link: "https://www.google.com/?gws_rd=ssl")
+  }
+
   def set_card_categories
     c1 = Card.find(card_one.id)
     c1.categories << Category.find(category_one.id)
     c1.categories << Category.find(category_two.id)
-
 
     c2 = Card.find(card_two.id)
     c2.categories << Category.find(category_one.id)
@@ -94,6 +112,12 @@ shared_context "features" do
 
     c5 = Card.find(card_five.id)
     c5.categories << Category.find(category_one.id)
+
+    c6 = Card.find(card_six.id)
+    c6.categories << Category.find(category_three.id)
+
+    c7 = Card.find(card_seven.id)
+    c7.categories << Category.find(category_three.id)
   end
 
   def admin_login
@@ -117,9 +141,9 @@ shared_context "features" do
     fill_in "card[intro_rate]", with: "N/A"
     fill_in "card[image_link]", with: "www.test.com"
     fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
-    select "airline", :from => "card[categories][]"
-    select "travel", :from => "card[categories][]"
-    select "cash-back", :from => "card[categories][]"
+    select category_one.name, :from => "card[categories][]"
+    select category_four.name, :from => "card[categories][]"
+    select category_three.name, :from => "card[categories][]"
     click_on "Submit Information"
   end
 

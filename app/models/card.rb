@@ -21,7 +21,7 @@ class Card < ActiveRecord::Base
 
   self.per_page = 10
 
-  def parse_card_categories_names
+  def parse_card_categories_name
     name = self.categories.map do |category|
       category.name.gsub("-", " ").titleize
     end

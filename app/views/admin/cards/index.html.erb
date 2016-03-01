@@ -9,7 +9,7 @@
     <div class="col-md-7 card-list">
       <% @cards.each do |card| %>
       <div id="card-<%= card.id %>">
-        <%= card.name %> | <%= link_to 'Edit', edit_admin_card_path(card) %> | <%= link_to 'Show', card_path(card) %> | <%= card.parse_card_categories_names %>
+        <%= card.name %> | <%= link_to 'Edit', edit_admin_card_path(card) %> | <%= link_to 'Show', card_path(card) %> | <%= card.parse_card_categories_name %>
         <hr>
       </div>
       <% end %>

@@ -19,13 +19,25 @@ RSpec.describe Card, type: :model do
                 image_link: "www.test-plus.com")
   }
 
-  let(:category_one) {
-    Category.create(name: "cash-back")
+  let(:card_three) {
+    Card.create(name: "Barclays Arrival +",
+                annual_fee: "$59",
+                information: ["Bullet C", "Bullet D"],
+                apr: "12%",
+                intro_rate: "N/A",
+                image_link: "www.test-plus.com")
   }
 
-  def set_category
-    c = Card.find(card_one.id)
-    c.categories << Category.find(category_one.id)
+
+
+  let(:category_one) {
+    Category.create(name: "cash-back-credit-cards",
+                    slug: "cash-back-credit-cards")
+  }
+
+  def add_card_to_category
+    card = Card.find(card_one.id)
+    card.categories << Category.find(category_one.id)
   end
 
   it "is valid" do
@@ -58,7 +70,23 @@ RSpec.describe Card, type: :model do
   end
 
   it "should parse the cards category name correctly and return it in array" do
-    set_category
-    expect(card_one.parse_card_categories_names).to eq(["Cash Back"])
+    add_card_to_category
+    expect(card_one.parse_card_categories_name).to eq(["Cash Back Credit Cards"])
+  end
+
+  it "should search and return all cards for a given search feature" do
+    card_one
+    card_two
+    card_three
+    search = Card.search("South")
+    expect(search.count).to eq(2)
+  end
+
+  it "should search and return zero cards for a search for a card that doesn't exist" do
+    card_one
+    card_two
+    card_three
+    search = Card.search("Hi Mom")
+    expect(search.count).to eq(0)
   end
 end
