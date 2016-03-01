@@ -69,13 +69,16 @@ RSpec.describe Card, type: :model do
     c5.categories << Category.find(category_one.id)
   end
 
-  it "returns the card" do
+  it "returns a card object" do
     expect(CardPresenter.new(card_one.id).card.name).to eq("Southwest Airlines Premier")
+    expect(CardPresenter.new(card_one.id).card).to be_a(Card)
   end
 
-  it "returns four featured cards" do
+  it "returns four featured cards belonging to a specific category" do
     set_category
     expect(CardPresenter.new(card_one.id).featured_cards.count).to eq(4)
+    expect(CardPresenter.new(card_one.id).featured_cards.first.categories.first.name).to eq("airline-credit-cards")
+    expect(CardPresenter.new(card_one.id).featured_cards.first.categories.last.name).to eq("airline-credit-cards")
   end
 
   it "returns four featured cards and excludes the card searched" do
@@ -85,13 +88,57 @@ RSpec.describe Card, type: :model do
     expect(card_list.include?(card_one.name)).to eq(false)
   end
 
-  it "returns the rewards associated with a specific card" do
-     Reward.create(amount: 50000,
+  it "returns the 'parsed category name' after receiving an 'unparsed category name" do
+    category_name = CardPresenter.new(card_one.id).parse_category_name("airline-credit-cards")
+    expect(category_name).to eq("Airline Credit Cards")
+  end
+
+  # This is where the bonus cards test will go
+
+  it "returns the rewards associated with a specific card ordered by 'record date'" do
+      Reward.create(amount: 50000,
                    spending_amount: 3000,
                    record_date: "2016-02-18",
                    length_of_time: 3,
                    card_id: card_one.id)
 
-    expect(CardPresenter.new(card_one.id).rewards.count).to eq(1)
+      Reward.create(amount: 40000,
+                   spending_amount: 3000,
+                   record_date: "2016-02-11",
+                   length_of_time: 3,
+                   card_id: card_one.id)
+
+      Reward.create(amount: 30000,
+                   spending_amount: 3000,
+                   record_date: "2016-02-4",
+                   length_of_time: 3,
+                   card_id: card_one.id)
+
+    expect(CardPresenter.new(card_one.id).rewards.count).to eq(3)
+    expect(CardPresenter.new(card_one.id).rewards.first.amount).to eq(50000)
+    expect(CardPresenter.new(card_one.id).rewards.last.amount).to eq(30000)
+  end
+
+  it "should reward TRUE if the card has a rewards associated with it" do
+    Reward.create(amount: 50000,
+                   spending_amount: 3000,
+                   record_date: "2016-02-18",
+                   length_of_time: 3,
+                   card_id: card_one.id)
+
+    expect(CardPresenter.new(card_one.id).card_has_bonus?).to eq(true)
+  end
+
+
+
+  it "should reward NIL if the card has a rewards associated with it" do
+    expect(CardPresenter.new(card_one.id).card_has_bonus?).to eq(nil)
+  end
+
+  it "should return an array of all the categories for a specific card" do
+    set_category
+    expect(CardPresenter.new(card_one.id).category_list.class).to eq(Category::ActiveRecord_Associations_CollectionProxy)
+    expect(CardPresenter.new(card_one.id).category_list.count).to eq(1)
+    expect(CardPresenter.new(card_one.id).category_list.first.name).to eq("airline-credit-cards")
   end
 end

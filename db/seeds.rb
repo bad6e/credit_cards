@@ -283,6 +283,7 @@ card_four  = Card.create(name: "Denver Broncos Extra Points Credit Card",
 
 c4 = Card.find(card_four.id)
 c4.categories << Category.find(category_six.id)
+c4.categories << Category.find(category_one.id)
 
 card_five  = Card.create(name: "Starwood Preferred Guest® Credit Card from American Express",
                          annual_fee: "$0 Annual Intro Fee for the first year, then $95",

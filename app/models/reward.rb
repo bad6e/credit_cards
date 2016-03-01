@@ -12,4 +12,5 @@ class Reward < ActiveRecord::Base
 
   validates :length_of_time,
     presence: true
+
 end

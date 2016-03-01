@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   let(:category_one) {
-    Category.create(name: "airline-credit-cards")
+    Category.create(name: "airline-credit-cards",
+                    slug: "airline-credit-cards")
   }
 
   it "is valid" do

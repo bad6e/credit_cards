@@ -77,11 +77,29 @@ shared_context "features" do
                 image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
+
+  let!(:card_six) {
+    Card.create(name: "Starwood Card",
+                annual_fee: "$99",
+                information: ["Bullet A", "Bullet B"],
+                apr: "12%",
+                intro_rate: "N/A",
+                image_link: "https://www.google.com/?gws_rd=ssl")
+  }
+
+  let!(:card_seven) {
+    Card.create(name: "Chase Cash Back",
+                annual_fee: "$99",
+                information: ["Bullet A", "Bullet B"],
+                apr: "12%",
+                intro_rate: "N/A",
+                image_link: "https://www.google.com/?gws_rd=ssl")
+  }
+
   def set_card_categories
     c1 = Card.find(card_one.id)
     c1.categories << Category.find(category_one.id)
     c1.categories << Category.find(category_two.id)
-
 
     c2 = Card.find(card_two.id)
     c2.categories << Category.find(category_one.id)
@@ -94,6 +112,12 @@ shared_context "features" do
 
     c5 = Card.find(card_five.id)
     c5.categories << Category.find(category_one.id)
+
+    c6 = Card.find(card_six.id)
+    c6.categories << Category.find(category_three.id)
+
+    c7 = Card.find(card_seven.id)
+    c7.categories << Category.find(category_three.id)
   end
 
   def admin_login
