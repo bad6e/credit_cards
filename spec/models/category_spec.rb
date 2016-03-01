@@ -13,4 +13,9 @@ RSpec.describe Category, type: :model do
     category_one.name = nil
     expect(category_one).to be_invalid
   end
+
+  it "parses the category name correctly" do
+    name = category_one.parse_category_name
+    expect(name).to eq("Airline Credit Cards")
+  end
 end
