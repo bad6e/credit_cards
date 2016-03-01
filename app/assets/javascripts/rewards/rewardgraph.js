@@ -1,4 +1,4 @@
-function grayOutReward(response) {
+function grayOutReward() {
   $('#reward-chart').css("opacity", 0.0);
   $(".sign-up-bonus-h1-title").fadeIn(700);
   $(".sign-up-bonus-h1-subtitle").fadeIn(700);
