@@ -80,7 +80,6 @@ RSpec.describe Card, type: :model do
     card_three
     search = Card.search("South")
     expect(search.count).to eq(2)
-
   end
 
   it "should search and return zero cards for a search for a card that doesn't exist" do
