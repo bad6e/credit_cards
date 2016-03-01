@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Card, type: :model do
   let(:category_one) {
-    Category.create(name: "airline")
+    Category.create(name: "airline-credit-cards",
+                    slug: "airline-credit-cards")
   }
 
   let(:card_one) {
@@ -70,11 +71,6 @@ RSpec.describe Card, type: :model do
 
   it "returns the card" do
     expect(CardPresenter.new(card_one.id).card.name).to eq("Southwest Airlines Premier")
-  end
-
-  it "returns the parsed category names in an array" do
-    set_category
-    expect(CardPresenter.new(card_one.id).parsed_category_names).to eq(["Airline"])
   end
 
   it "returns four featured cards" do

@@ -10,10 +10,6 @@ class CardPresenter
     Card.find(card_id)
   end
 
-  def parsed_category_names
-    Card.find(card_id).parse_card_categories_names
-  end
-
   def featured_cards
     category_list.first.cards.limit(4).where.not(name: card.name).order("RANDOM()")
   end
