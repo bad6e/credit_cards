@@ -23,16 +23,14 @@ feature "admin" do
 
     card = Card.last
 
-    expect(card.categories.first.name).to eq("airline")
-    expect(card.categories.second.name).to eq("cash-back")
-    expect(card.categories.third.name).to eq("travel")
+    expect(card.categories.first.name).to eq(category_one.name)
+    expect(card.categories.second.name).to eq(category_three.name)
+    expect(card.categories.third.name).to eq(category_four.name)
 
-    category_first = Category.find_by(name: 'cash-back')
-    visit category_path(category_first)
+    visit category_path(category_three)
     expect(page).to have_content("Test Name1")
 
-    category_second = Category.find_by(name: 'airline')
-    visit category_path(category_second)
+    visit category_path(category_one)
     expect(page).to have_content("Test Name1")
   end
 

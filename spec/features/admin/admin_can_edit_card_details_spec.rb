@@ -24,9 +24,9 @@ feature "admin" do
     fill_in "card[intro_rate]", with: "N/A"
     fill_in "card[image_link]", with: "www.test.com"
     fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
-    select "airline", :from => "card[categories][]"
-    select "travel", :from => "card[categories][]"
-    select "cash-back", :from => "card[categories][]"
+    select category_one.name, :from => "card[categories][]"
+    select category_four.name, :from => "card[categories][]"
+    select category_three.name, :from => "card[categories][]"
     click_on "Submit Information"
 
     expect(current_path).to eq(admin_cards_path)
@@ -64,16 +64,14 @@ feature "admin" do
 
     expect(current_path).to eq(admin_cards_path)
 
-    expect(card_one.categories.first.name).to eq("airline")
-    expect(card_one.categories.second.name).to eq("cash-back")
-    expect(card_one.categories.third.name).to eq("travel")
+    expect(card_one.categories.first.name).to eq(category_one.name)
+    expect(card_one.categories.second.name).to eq(category_three.name)
+    expect(card_one.categories.third.name).to eq(category_four.name)
 
-    category_first = Category.find_by(name: 'cash-back')
-    visit category_path(category_first)
+    visit category_path(category_three)
     expect(page).to have_content("Test Name1")
 
-    category_second = Category.find_by(name: 'airline')
-    visit category_path(category_second)
+    visit category_path(category_one)
     expect(page).to have_content("Test Name1")
   end
 
@@ -83,9 +81,9 @@ feature "admin" do
 
     expect(current_path).to eq(admin_cards_path)
 
-    expect(card_one.categories.first.name).to eq("airline")
-    expect(card_one.categories.second.name).to eq("cash-back")
-    expect(card_one.categories.third.name).to eq("travel")
+    expect(card_one.categories.first.name).to eq(category_one.name)
+    expect(card_one.categories.second.name).to eq(category_three.name)
+    expect(card_one.categories.third.name).to eq(category_four.name)
     expect(card_one.categories.count).to eq(3)
 
     visit admin_cards_path
@@ -99,17 +97,17 @@ feature "admin" do
     fill_in "card[intro_rate]", with: "N/A"
     fill_in "card[image_link]", with: "www.test.com"
     fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
-    select "airline", :from => "card[categories][]"
-    select "travel", :from => "card[categories][]"
-    select "cash-back", :from => "card[categories][]"
-    select "hotel", :from => "card[categories][]"
+    select category_one.name, :from => "card[categories][]"
+    select category_four.name, :from => "card[categories][]"
+    select category_three.name, :from => "card[categories][]"
+    select category_two.name, :from => "card[categories][]"
     click_on "Submit Information"
 
     expect(card_one.categories.count).to eq(4)
-    expect(card_one.categories.include?(Category.find_by(name: "airline"))).to eq(true)
-    expect(card_one.categories.include?(Category.find_by(name: "cash-back"))).to eq(true)
-    expect(card_one.categories.include?(Category.find_by(name: "travel"))).to eq(true)
-    expect(card_one.categories.include?(Category.find_by(name: "hotel"))).to eq(true)
+    expect(card_one.categories.include?(category_one)).to eq(true)
+    expect(card_one.categories.include?(category_three)).to eq(true)
+    expect(card_one.categories.include?(category_four)).to eq(true)
+    expect(card_one.categories.include?(category_two)).to eq(true)
   end
 
   scenario "admin can edit card information and have the information formatted correctly" do
@@ -121,9 +119,9 @@ feature "admin" do
     fill_in "card[intro_rate]", with: "N/A"
     fill_in "card[image_link]", with: "www.test.com"
     fill_in "card[information]", with: "This card has 16.24%. The price on this card is 3.00. I like this card."
-    select "airline", :from => "card[categories][]"
-    select "travel", :from => "card[categories][]"
-    select "cash-back", :from => "card[categories][]"
+    select category_one.name, :from => "card[categories][]"
+    select category_four.name, :from => "card[categories][]"
+    select category_three.name, :from => "card[categories][]"
     click_on "Submit Information"
 
     expect(current_path).to eq(admin_cards_path)

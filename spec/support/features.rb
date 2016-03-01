@@ -1,21 +1,21 @@
 shared_context "features" do
   let!(:category_one) {
-    Category.create(name: "airline",
+    Category.create(name: "airline-credit-cards",
                     slug: "airline-credit-cards")
   }
 
   let!(:category_two) {
-    Category.create(name: "hotel",
+    Category.create(name: "hotel-credit-cards",
                     slug: "hotel-credit-cards")
   }
 
   let!(:category_three) {
-    Category.create(name: "cash-back",
+    Category.create(name: "cash-back-credit-cards",
                     slug: "cash-back-credit-cards")
   }
 
   let!(:category_four) {
-    Category.create(name: "travel",
+    Category.create(name: "travel-credit-cards",
                     slug: "travel-credit-cards")
   }
 
@@ -117,9 +117,9 @@ shared_context "features" do
     fill_in "card[intro_rate]", with: "N/A"
     fill_in "card[image_link]", with: "www.test.com"
     fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
-    select "airline", :from => "card[categories][]"
-    select "travel", :from => "card[categories][]"
-    select "cash-back", :from => "card[categories][]"
+    select category_one.name, :from => "card[categories][]"
+    select category_four.name, :from => "card[categories][]"
+    select category_three.name, :from => "card[categories][]"
     click_on "Submit Information"
   end
 
