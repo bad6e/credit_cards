@@ -139,7 +139,7 @@
       <h2 class="sign-up-bonus-title">Sign Up Bonus Over Time</h2>
       <h1 class="sign-up-bonus-h1-title">No Bonus Information for This Card</a></h1>
       <% category_name = @card_presenter.card.categories.sample.name %>
-      <h1 class="sign-up-bonus-h1-subtitle">But Here are Some <%= @card_presenter.parse_category_name(category_name) %> That Do!</a></h1>
+      <h1 class="sign-up-bonus-h1-subtitle">But Here are some <strong><%= @card_presenter.parse_category_name(category_name) %> with Bonuses!</strong></a></h1>
 
       <!-- Cards With Bonuses Partial  -->
       <% if !@card_presenter.card_has_bonus? %>
