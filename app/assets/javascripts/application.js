@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require lodash
 //= require chartkick
+//= require rewards/rewardapi
 
 //VENDOR FILES
 //= require chartkick
