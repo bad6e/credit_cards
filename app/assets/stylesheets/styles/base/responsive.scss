@@ -284,6 +284,8 @@
   .row.add-clearfix > .col-lg-6 {
     &:nth-child(2n+1) { clear: both; }
   }
+
+  .top-image { display: none;}
 }
 
 /* 3. Styles for devices(>=992px and <=1199px) */
