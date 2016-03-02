@@ -13,7 +13,8 @@ task best_offer: :environment do
     def set_best_offer_cards(cards_with_enough_rewards)
       card_list = cards_with_enough_rewards.map do |card|
         if (current_reward(card) >= highest_reward(card)) and (card_not_already_assigned(card.id) == false)
-          card.update!(best_offer: "yes")
+          card.update(best_offer: "yes")
+
           Card.find(card.id).categories << best_card_category
         end
       end
@@ -29,7 +30,7 @@ task best_offer: :environment do
 
     def remove_old_categories_and_best_offers
       best_card_category.cards.each do |card|
-        card.update!(best_offer: nil)
+        card.update(best_offer: nil)
         card.categories.delete(best_card_category)
       end
     end
