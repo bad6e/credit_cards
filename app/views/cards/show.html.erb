@@ -14,12 +14,23 @@
   <div class="container car-detail-page">
     <div class="row">
       <div id="main" class="col-md-9">
+
+       <div class="sidebar col-md-3 top-image">
+          <article class="detailed-logo">
+            <figure>
+                <%= image_tag(@card_presenter.card.image_link) %>
+              </figure>
+            </article>
+        </div>
+
         <div class="tab-container">
           <ul class="tabs">
             <li class="active">
               <a href="#car-details" data-toggle="tab">Card Details</a>
             </li>
           </ul>
+
+
 
           <!-- Main Card Description -->
           <div class="tab-content card-description">
@@ -46,7 +57,7 @@
                 </div>
               </div>
               <% if @card_presenter.card_has_bonus? %>
-                <h2>Bonus Information</h2>
+                <h2><strong>Bonus Information</strong></h2>
                 <div class="car-features box bonus-information-side">
                   <div class="row add-clearfix">
                     <div class="col-sms-6 col-sm-6 col-md-4">
@@ -80,7 +91,7 @@
       </div>
 
       <!-- Side Panel - Card Info -->
-      <div class="sidebar col-md-3">
+      <div class="sidebar col-md-3 sidebar-panel">
         <article class="detailed-logo">
           <figure>
             <%= image_tag(@card_presenter.card.image_link) %>
@@ -118,6 +129,7 @@
                   </div>
                   <span class="price clearfix">
                     <small class="pull-left">Good Time to Apply:</small>
+                    <span class="pull-right" id="good-time-spinner"><%= image_tag("loader_small.gif") %></span>
                     <span class="pull-right" id="good-time"></span>
                   </span>
                 <% else %>
@@ -132,7 +144,12 @@
       <!-- End Side Panel - Card Info -->
     </div>
   </div>
-</section><br><br>
+</section><br><br><br>
+
+<div class="container apply-center-container">
+  <h2 class="time-to-apply-title"></h2>
+  <h3 class="title-to-apply-subtitle"></h3>
+</div><br><br>
 
 <!-- Reward Graph -->
   <div class="container reward-graph-container">
@@ -156,6 +173,8 @@
     </div>
   </div>
 <!-- End - Reward Graph -->
+
+
 
 <!-- Related Cards -->
 <div class="container">
