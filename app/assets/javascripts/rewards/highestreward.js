@@ -47,7 +47,7 @@ function badTimeToApply(percentage) {
 
 function notEnoughInformation() {
   $('#good-time').replaceWith("N/A");
-  $('.time-to-apply-title').text("Good Time To Apply: N/A").css({ 'color': 'yellow'});
+  $('.time-to-apply-title').text("Good Time To Apply: N/A");
   $('.title-to-apply-subtitle').text("Not Enough Historical Information");
 }
 
