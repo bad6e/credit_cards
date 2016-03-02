@@ -47,7 +47,6 @@ class Parser
   end
 
   def create_card_rewards(card, row, date)
-    # binding.pry
     if (row[:current_bonus] != "" and row[:current_bonus] != "0")
       Reward.create!(amount: row[:current_bonus].gsub(",",""),
                      record_date: date,

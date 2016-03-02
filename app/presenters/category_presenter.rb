@@ -7,7 +7,7 @@ class CategoryPresenter
   end
 
   def category
-    Category.friendly.find(category_id)
+    Category.friendly.find(@category_id)
   end
 
   def category_name

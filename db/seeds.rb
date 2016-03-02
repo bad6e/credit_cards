@@ -22,7 +22,7 @@ card_one   = Card.create(name: "Southwest Airlines Rapid Rewards® Premier Credi
 c1 = Card.find(card_one.id)
 c1.categories << Category.find(category_one.id)
 c1.categories << Category.find(category_two.id)
-c1.categories << Category.find(category_seven.id)
+
 
 Reward.create(amount: 50000,
               length_of_time: 2,
@@ -157,7 +157,7 @@ card_three = Card.create(name: "Chase Sapphire Preferred® Card",
 c3 = Card.find(card_three.id)
 c3.categories << Category.find(category_two.id)
 c3.categories << Category.find(category_four.id)
-c3.categories << Category.find(category_seven.id)
+
 
 Reward.create(amount: 50000,
               length_of_time: 2,
@@ -295,7 +295,7 @@ card_five  = Card.create(name: "Starwood Preferred Guest® Credit Card from Amer
 c5 = Card.find(card_five.id)
 c5.categories << Category.find(category_two.id)
 c5.categories << Category.find(category_four.id)
-c5.categories << Category.find(category_seven.id)
+
 
 Reward.create(amount: 25000,
               length_of_time: 3,
@@ -441,7 +441,7 @@ card_eight = Card.create(name: "Barclaycard Arrival Plus™ World Elite MasterCa
 
 c8 = Card.find(card_eight.id)
 c8.categories << Category.find(category_two.id)
-c8.categories << Category.find(category_seven.id)
+
 
 Reward.create(amount: 45000,
               length_of_time: 3,
