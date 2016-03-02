@@ -1,3 +1,8 @@
+$(document).ready(function(){
+  formatColors();
+})
+
+
 function formatColors() {
   $( ".best-offer-color" ).each(function( index, element ) {
     if ($(element).text() === "n/a") {

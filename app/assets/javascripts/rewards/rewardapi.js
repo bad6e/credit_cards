@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  formatColors();
   $( "#loaderImg" ).fadeIn(700)
   $(".sign-up-bonus-h1-title").hide();
   $(".sign-up-bonus-h1-subtitle").hide();
