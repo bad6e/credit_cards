@@ -5,18 +5,25 @@ task best_offer: :environment do
 
     def initialize
       remove_old_categories_and_best_offers
-      cards = select_cards_with_rewards
-      set_best_offer_cards(cards)
+      set_best_offer_cards(select_cards_with_rewards)
       set_not_best_offer_cards
     end
 
     def set_best_offer_cards(cards_with_enough_rewards)
       card_list = cards_with_enough_rewards.map do |card|
         if (current_reward(card) >= highest_reward(card)) and (card_not_already_assigned(card.id) == false)
-          card.update(best_offer: "yes")
-          Card.find(card.id).categories << best_card_category
+          update_best_offer_to_yes(card)
+          assign_category_to_best_card_category(card)
         end
       end
+    end
+
+    def update_best_offer_to_yes(card)
+      card.update(best_offer: "yes")
+    end
+
+    def assign_category_to_best_card_category(card)
+      Card.find(card.id).categories << best_card_category
     end
 
     def current_reward(card)
@@ -28,8 +35,8 @@ task best_offer: :environment do
     end
 
     def remove_old_categories_and_best_offers
+      Card.update_all(best_offer: nil)
       best_card_category.cards.each do |card|
-        card.update(best_offer: nil)
         card.categories.delete(best_card_category)
       end
     end
@@ -48,10 +55,6 @@ task best_offer: :environment do
 
 
     def set_not_best_offer_cards
-
-      cards = Card.joins(:rewards).where(best_offer: 'no')
-      cards.update_all(best_offer: 'no')
-
       cards = Card.joins(:rewards).where(best_offer: nil)
       cards.update_all(best_offer: 'no')
 
