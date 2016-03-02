@@ -1,5 +1,6 @@
 function formatColors() {
   $( ".best-offer-color" ).each(function( index, element ) {
+    console.log("HI Momo")
     if ($(element).text() === "n/a") {
       $( ".loader-small-category" ).fadeOut(700)
       $(element).show();
