@@ -14,7 +14,6 @@ task best_offer: :environment do
       card_list = cards_with_enough_rewards.map do |card|
         if (current_reward(card) >= highest_reward(card)) and (card_not_already_assigned(card.id) == false)
           card.update(best_offer: "yes")
-
           Card.find(card.id).categories << best_card_category
         end
       end
@@ -44,11 +43,12 @@ task best_offer: :environment do
     end
 
     def select_cards_with_rewards
-      card_list = Card.select("cards.*").joins(:rewards).group("cards.id").having("count(rewards.id) > ?", 6)
+      Card.select("cards.*").joins(:rewards).group("cards.id").having("count(rewards.id) > ?", 6)
     end
 
 
     def set_not_best_offer_cards
+
       cards = Card.joins(:rewards).where(best_offer: 'no')
       cards.update_all(best_offer: 'no')
 
