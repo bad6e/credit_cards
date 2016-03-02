@@ -21,7 +21,7 @@ function getRewardData(id) {
         grayOutReward();
       } else {
         $( "#loaderImg" ).hide();
-        checkIfCardHasRewards(response);
+        checkIfCardHasEnoughRewards(response);
         showReward(response);
       }
     }

@@ -289,7 +289,11 @@
 /* 3. Styles for devices(>=992px and <=1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
   .container { padding-left: 0; padding-right: 0; }
+  .top-image { display: none;}
 }
+
+
+
 
 /* 4. Styles for devices(<=1199px) */
 @media (max-width: 1199px) {
@@ -326,6 +330,11 @@
       #header .logo img { @include opacity(1, true); }
     }
   }
+
+  .sidebar-panel {
+    display: none;
+  }
+
 
   .search-tabs { display: none !important; }
   .visible-mobile .search-tabs { display: block !important; }
@@ -694,7 +703,7 @@
 /* 9. Styles for devices(<=320px ) */
 @media (max-width: 320px) {
   .entry-title {
-    font-size: 1em;
+    font-size: .9em;
   }
 
   h1.sign-up-bonus-h1-title {
