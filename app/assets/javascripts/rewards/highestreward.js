@@ -3,7 +3,7 @@ function checkIfCardHasEnoughRewards(response) {
     calculateHighestReward(response);
   } else {
     hideSpinner();
-    $('#good-time').replaceWith("N/A");
+    notEnoughInformation();
   }
 }
 
