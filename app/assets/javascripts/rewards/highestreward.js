@@ -46,8 +46,8 @@ function badTimeToApply(percentage) {
 }
 
 function notEnoughInformation() {
-  $('#good-time').replaceWith("N/A");
+  $('#good-time').text("N/A").css({'color' : '#2d3e52'});
   $('.time-to-apply-title').text("Good Time To Apply: N/A");
-  $('.title-to-apply-subtitle').text("Not Enough Historical Information");
+  $('.title-to-apply-subtitle').text("Sorry we are still accumulating data for this card - check back soon!");
 }
 
