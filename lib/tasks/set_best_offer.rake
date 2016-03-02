@@ -1,5 +1,5 @@
 desc 'Create the sitemap, then upload it to S3 and ping the search engines'
-task best_offer: :environment do
+task set_best_offer: :environment do
   puts "To Infinity and Beyond!"
   class BestCards
 
@@ -53,13 +53,17 @@ task best_offer: :environment do
       Card.select("cards.*").joins(:rewards).group("cards.id").having("count(rewards.id) > ?", 6)
     end
 
-
     def set_not_best_offer_cards
-      cards = Card.joins(:rewards).where(best_offer: nil)
-      cards.update_all(best_offer: 'no')
+      update_cards_with_rewards_with_not_the_best_offer
+      update_cards_with_no_rewards
+    end
 
-      cards = Card.where.not(:id => Reward.select(:card_id).uniq)
-      cards.update_all(best_offer: 'n/a')
+    def update_cards_with_rewards_with_not_the_best_offer
+      Card.joins(:rewards).where(best_offer: nil).update_all(best_offer: 'no')
+    end
+
+    def update_cards_with_no_rewards
+      Card.where.not(:id => Reward.select(:card_id).uniq).update_all(best_offer: 'n/a')
     end
   end
   BestCards.new
