@@ -1,6 +1,7 @@
 function formatColors() {
   $( ".best-offer-color" ).each(function( index, element ) {
     console.log("HI Momo")
+    console.log(element)
     if ($(element).text() === "n/a") {
       console.log(element)
       $(element).show();
