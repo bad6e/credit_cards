@@ -41,7 +41,6 @@ class Parser
 
   def update_card_attributes(card, row)
     card.update!(annual_fee: row[:af],
-                 best_offer: row[:best_offer],
                  flyer_talk_link: row[:flyertalk_link])
 
   end
