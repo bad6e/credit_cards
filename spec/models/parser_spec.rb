@@ -50,10 +50,10 @@ RSpec.describe Reward, type: :model do
     expect(response).to eq("The card must exist - the 'find by name' was called")
   end
 
-  it "updates the cards attributes - specfically the flyer talk link and the best offer" do
+  it "updates the cards attributes - specfically the flyer talk link and leaves best offer nil" do
     parser = Parser.new
     parser.update_card_attributes(card_five, row)
-    expect(card_five.best_offer).to eq("Yes")
+    expect(card_five.best_offer).to eq(nil)
     expect(card_five.flyer_talk_link).to eq("http://www.flyertalk.com/forum/credit-card-programs/1577043-barclays-arrival-arrival-cards-1-1-2-2-travel-credits.html")
   end
 
