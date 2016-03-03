@@ -50,22 +50,3 @@ feature "admin-csv" do
     end
   end
 end
-
-
-
-
-#   xscenario "user uploads improperly formatted file" do
-#     enter_password
-#     visit upload_path
-#     within("#upload") do
-#       attach_file('file', Rails.root.to_s + '/spec/fixtures/incorrect_format.csv')
-#       click_on("Upload File")
-#     end
-# ​
-#     expect(current_path).to eq(upload_path)
-#     within("#flash-message") do
-#       expect(page).to have_content("There was a problem with: Question 3. Student 2.")
-#     end
-#   end
-#
-# end

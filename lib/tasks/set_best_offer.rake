@@ -5,7 +5,7 @@ task set_best_offer: :environment do
 
     def initialize
       remove_old_categories_and_best_offers
-      set_best_offer_cards(select_cards_with_rewards)
+      set_best_offer_cards(select_cards_with_more_than_six_rewards)
       set_not_best_offer_cards
     end
 
@@ -49,20 +49,30 @@ task set_best_offer: :environment do
       Card.find(id).categories.include?(best_card_category)
     end
 
-    def select_cards_with_rewards
+    def select_cards_with_more_than_six_rewards
       Card.select("cards.*").joins(:rewards).group("cards.id").having("count(rewards.id) > ?", 6)
     end
 
-    def set_not_best_offer_cards
-      update_cards_with_rewards_with_not_the_best_offer
-      update_cards_with_no_rewards
+    def select_cards_with_less_than_or_eqaul_to_six_rewards
+      Card.select("cards.*").joins(:rewards).group("cards.id").having("count(rewards.id) <= ?", 6)
     end
 
-    def update_cards_with_rewards_with_not_the_best_offer
+    def set_not_best_offer_cards
+      update_cards_with_less_than_six_rewards_to_na
+      update_cards_with_more_than_six_rewards_to_no
+      update_cards_with_no_rewards_to_na
+    end
+
+    def update_cards_with_less_than_six_rewards_to_na
+      cards_with_less_rewards = select_cards_with_less_than_or_eqaul_to_six_rewards
+      cards_with_less_rewards.joins(:rewards).where(best_offer: nil).update_all(best_offer: 'n/a')
+    end
+
+    def update_cards_with_more_than_six_rewards_to_no
       Card.joins(:rewards).where(best_offer: nil).update_all(best_offer: 'no')
     end
 
-    def update_cards_with_no_rewards
+    def update_cards_with_no_rewards_to_na
       Card.where.not(:id => Reward.select(:card_id).uniq).update_all(best_offer: 'n/a')
     end
   end
