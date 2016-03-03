@@ -20,7 +20,6 @@ class CardPresenter
     category_list.first.cards.limit(4).where.not(name: card.name).order("RANDOM()")
   end
 
-
   #Cards With Bonuses Dispplay Logic
   def parse_category_name(unparsed_category_name)
     unparsed_category_name.gsub("-", " ").titleize

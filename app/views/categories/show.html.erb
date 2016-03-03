@@ -70,11 +70,10 @@
                       <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
                       <a class="button btn-mini stop">Favorite</a>
                       <div class="amenities">
-
                       </div>
                     </div>
                     <div>
-                      <span class="price"><small>Apply Now:</small><div class= 'best-offer-color'><%= card.best_offer %></div></span>
+                      <span class="price"><small>Apply Now?</small><div class= 'best-offer-color'><%= card.best_offer %></div></span>
                     </div>
                   </div>
 
@@ -93,10 +92,19 @@
                             </div>
                           </div>
                         <div class="total-time col-sm-4">
+
+                        <% if card.rewards.any? %>
+                        <div class="icon"><i class="soap-icon-party yellow-color"></i></div>
+                          <div>
+                            <span class="skin-color">Bonus</span><br /><%= card.rewards.first.amount %>
+                          </div>
+                        <% else %>
                         <div class="icon"><i class="soap-icon-clock yellow-color"></i></div>
-                        <div>
-                          <span class="skin-color">Intro Rate</span><br /><%= card.intro_rate %>
-                        </div>
+                          <div>
+                            <span class="skin-color">Intro Rate</span><br /><%= card.intro_rate %>
+                          </div>
+                        <% end %>
+
                       </div>
                     </div>
                     <div class="action">
