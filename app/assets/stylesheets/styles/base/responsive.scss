@@ -618,7 +618,15 @@
     font-size: 18px;
   }
 
+
+
   #content.tour .slideshow-bg { min-height: 800px; }
+}
+
+@media (max-width: 536px) {
+  .entry-title {
+    font-size: 1.2em;
+  }
 }
 
 /* 8. Styles for devices(<=480px ) */
@@ -665,7 +673,7 @@
   }
 
   .entry-title {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   .coming-soon-page {
@@ -710,10 +718,28 @@
   }
 }
 
+@media (max-width: 428px) {
+  .entry-title {
+    font-size: 1.0em;
+  }
+}
+
+@media (max-width: 392px) {
+  .entry-title {
+    font-size: .95em;
+  }
+}
+
+@media (max-width: 373px) {
+  .entry-title {
+    font-size: .85em;
+  }
+}
+
 /* 9. Styles for devices(<=320px ) */
 @media (max-width: 320px) {
   .entry-title {
-    font-size: .9em;
+    font-size: .78em;
   }
 
   h1.sign-up-bonus-h1-title {
