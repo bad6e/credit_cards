@@ -440,6 +440,10 @@
 /* 7. Styles for devices(<=767px ) */
 @media (max-width: 767px) {
 
+  .navbar-form .input-group > .form-control {
+    width: 100% !important;
+  }
+
   /* remove chaser in mobile */
   .chaser { display: none !important; }
 
@@ -476,8 +480,8 @@
     .jumbotron {
       h1 {
       font-size: 18px;
+      }
     }
-  }
   }
 
   [class^="col-sm-"], [class*=" col-sm-"] {
@@ -697,6 +701,10 @@
     height: auto;
   }
 
+  .navbar-form .input-group > .form-control {
+    width: 100% !important;
+  }
+
   h1.sign-up-bonus-h1-title {
     font-size: 18px;
   }
@@ -715,6 +723,10 @@
   .listing-style3.flight figure span img {
     max-width: 60px;
     height: auto;
+  }
+
+  .navbar-form .input-group > .form-control {
+    width: 100% !important;
   }
 
    .container { width: 314px; }
