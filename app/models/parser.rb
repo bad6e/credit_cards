@@ -1,5 +1,8 @@
 require 'csv'
 require 'cardlist'
+require 'rake'
+Rake::Task.clear
+CreditCards::Application.load_tasks
 
 class Parser
 
@@ -18,6 +21,7 @@ class Parser
       @row  = row
       @date = date
       environment_list[@environment].call
+      Rake::Task["set_best_offer"].invoke
     end
   end
 
