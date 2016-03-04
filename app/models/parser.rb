@@ -21,7 +21,7 @@ class Parser
       @row  = row
       @date = date
       environment_list[@environment].call
-      Rake::Task["set_best_offer"].invoke
+      Rake::Task["set_best_offer"].execute
     end
   end
 
