@@ -30,8 +30,6 @@
             </li>
           </ul>
 
-
-
           <!-- Main Card Description -->
           <div class="tab-content card-description">
             <div class="tab-pane fade in active" id="car-details">
@@ -174,24 +172,10 @@
   </div>
 <!-- End - Reward Graph -->
 
-
-
 <!-- Related Cards -->
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-    <% related_category_name = @featured_card_presenter.card.categories.sample.name %>
-      <h3 class="page-header related-card-header">Related <%= @featured_card_presenter.featured_category_name(related_category_name) %></h3>
-    </div>
-
-    <% @featured_card_presenter.featured_cards_sorter(related_category_name).each do |card| %>
-      <div class="related-cards">
-        <div class="col-sm-3 col-xs-6">
-          <%= link_to image_tag(card.image_link, class:"img-responsive img-hover img-related related-card-image"), card_path(card) %>
-          <p class="related-card-name"><%= link_to card.name, card_path(card) %></p>
-        </div>
-      </div>
-    <% end %>
+    <%= render partial: "related_cards" %>
   </div>
 </div>
 <hr>
