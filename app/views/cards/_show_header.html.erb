@@ -1,2 +1,3 @@
 <% provide(:title, @card_presenter.card.name) %>
-<% provide(:meta_description, @card_presenter.card.name + " -- Current Sign Up Bonus Deal: Great!") %>
+<% provide(:meta_description, @card_presenter.card.name + ": " + @card_presenter.card.information[0]) %>
+

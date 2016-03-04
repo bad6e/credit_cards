@@ -22,8 +22,8 @@ function getRewardData(id) {
         grayOutReward();
       } else {
         $( "#loaderImg" ).hide();
-        checkIfCardHasEnoughRewards(response);
         showReward(response);
+        checkIfCardHasEnoughRewards(response);
       }
     }
   });
