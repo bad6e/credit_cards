@@ -180,9 +180,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3 class="page-header related-card-header">Related <%= @card_presenter.featured_cards_category_name %></h3>
+    <% related_category_name = @featured_card_presenter.card.categories.sample.name %>
+      <h3 class="page-header related-card-header">Related <%= @featured_card_presenter.featured_category_name(related_category_name) %></h3>
     </div>
-    <% @card_presenter.featured_cards.each do |card| %>
+
+    <% @featured_card_presenter.featured_cards_sorter(related_category_name).each do |card| %>
       <div class="related-cards">
         <div class="col-sm-3 col-xs-6">
           <%= link_to image_tag(card.image_link, class:"img-responsive img-hover img-related related-card-image"), card_path(card) %>

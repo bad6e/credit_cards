@@ -283,7 +283,6 @@ card_four  = Card.create(name: "Denver Broncos Extra Points Credit Card",
 
 c4 = Card.find(card_four.id)
 c4.categories << Category.find(category_six.id)
-c4.categories << Category.find(category_one.id)
 
 card_five  = Card.create(name: "Starwood Preferred Guest® Credit Card from American Express",
                          annual_fee: "$0 Annual Intro Fee for the first year, then $95",
@@ -575,6 +574,120 @@ card_ten   = Card.create(name: "Gold Delta SkyMiles® Business Credit Card from 
                          intro_rate: "N/A",
                          image_link: "http://media.linkoffers.com/110x70/gold-delta-skymiles-business-021015.png")
 
+Reward.create(amount: 45000,
+              length_of_time: 3,
+              record_date: "2016-02-18",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+Reward.create(amount: 45000,
+              length_of_time: 3,
+              record_date: "2016-02-11",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2016-02-04",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2016-01-28",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2016-01-21",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2016-01-14",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2016-01-07",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2015-12-31",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2015-12-24",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2015-12-17",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2015-12-10",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2015-12-03",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2015-11-26",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2015-11-19",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+
+Reward.create(amount: 40000,
+              length_of_time: 3,
+              record_date: "2015-11-12",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_ten.id)
+
+
 c10 = Card.find(card_ten.id)
 c10.categories << Category.find(category_one.id)
 c10.categories << Category.find(category_three.id)
@@ -624,8 +737,6 @@ Reward.create(amount: 2500,
 
 c11 = Card.find(card_eleven.id)
 c11.categories << Category.find(category_five.id)
-c11.categories << Category.find(category_six.id)
-
 
 card_twelve   = Card.create(name: "Citi Prestige® Card",
                             annual_fee: "$450",
@@ -672,7 +783,7 @@ Reward.create(amount: 25000,
 
 Reward.create(amount: 30000,
               length_of_time: 3,
-              record_date: "2016-01-21",
+              record_date: "2016-01-14",
               spending_amount: 3000,
               apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
               card_id:  card_twelve.id)
@@ -680,12 +791,96 @@ Reward.create(amount: 30000,
 c12 = Card.find(card_twelve.id)
 c12.categories << Category.find(category_two.id)
 
+card_thirteen   = Card.create(name: "The Blue for Business® Credit Card from American Express",
+                              annual_fee: "$0",
+                              information: ["Limited Time Offer: get up to 20,000 Membership Rewards® points", "Earn 3x points on Air Travel and Hotels."],
+                              apr: "14.24% - 24.24%* (VARIABLE)",
+                              intro_rate: "N/A",
+                              image_link: "http://media.linkoffers.com/110x70/the-blue-for-business-credit-card-from-american-express-open-022715.png")
+
+Reward.create(amount: 50000,
+              length_of_time: 3,
+              record_date: "2016-02-18",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_thirteen.id)
+
+Reward.create(amount: 25000,
+              length_of_time: 3,
+              record_date: "2016-02-11",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_thirteen.id)
+
+Reward.create(amount: 25000,
+              length_of_time: 3,
+              record_date: "2016-02-04",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_thirteen.id)
+
+Reward.create(amount: 25000,
+              length_of_time: 3,
+              record_date: "2016-01-28",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_thirteen.id)
+
+Reward.create(amount: 25000,
+              length_of_time: 3,
+              record_date: "2016-01-21",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_thirteen.id)
+
+Reward.create(amount: 30000,
+              length_of_time: 3,
+              record_date: "2016-01-14",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_thirteen.id)
+
+Reward.create(amount: 30000,
+              length_of_time: 3,
+              record_date: "2016-01-07",
+              spending_amount: 3000,
+              apply_link: "https://home.barclaycardus.com/cards/barclaycard-arrival-plus-world-elite-mastercard.html?",
+              card_id:  card_thirteen.id)
+
+c13 = Card.find(card_thirteen.id)
+c13.categories << Category.find(category_three.id)
 
 
+card_fourteen   = Card.create(name: "CitiBusiness® / AAdvantage® Platinum Select® World MasterCard®",
+                              annual_fee: "$99",
+                              information: ["Pay no foreign transaction fees when you spend overseas.", "I like airplanes."],
+                              apr: "12%",
+                              intro_rate: "N/A",
+                              image_link: "http://media.linkoffers.com/110x70/citibusiness-aadvantage-platinum-select-world-mastercard-111314.png")
+
+c14 = Card.find(card_fourteen.id)
+c14.categories << Category.find(category_one.id)
+c14.categories << Category.find(category_three.id)
+
+card_fifteen   = Card.create(name: "Business Green Rewards Card from American Express OPEN",
+                             annual_fee: "$99",
+                             information: ["Pay no foreign transaction fees when you spend overseas.", "I like airplanes."],
+                             apr: "12%",
+                             intro_rate: "N/A",
+                             image_link: "http://media.linkoffers.com/110x70/business-green-rewards-card-from-american-express-open-022715.png")
+
+c15 = Card.find(card_fifteen.id)
+c15.categories << Category.find(category_three.id)
 
 
-
-
+card_sixteen   = Card.create(name: "Expedia®+ Voyager Card from Citi",
+                             annual_fee: "$99",
+                             information: ["Pay no foreign transaction fees when you spend overseas.", "I like airplanes."],
+                             apr: "12%",
+                             intro_rate: "N/A",
+                             image_link: "http://media.linkoffers.com/110x70/expedia-voyager-card-from-citi.png")
+c16 = Card.find(card_sixteen.id)
+c16.categories << Category.find(category_two.id)
 
 
 
