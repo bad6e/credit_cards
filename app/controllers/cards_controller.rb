@@ -10,6 +10,7 @@ class CardsController < ApplicationController
   end
 
   def show
-    @card_presenter = CardPresenter.new(params[:id])
+    @card_presenter          = CardPresenter.new(params[:id])
+    @featured_card_presenter = FeaturedCardPresenter.new(params[:id])
   end
 end

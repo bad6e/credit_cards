@@ -21,6 +21,17 @@ class Card < ActiveRecord::Base
 
   self.per_page = 10
 
+  scope :find_cards_that_are_in_multiple_categories, ->(category_names) { where(id: Card.cards_with_multiple_categories(category_names)) }
+
+  def self.cards_with_multiple_categories(category_names)
+    select(:id)
+    .distinct
+    .joins(:categories)
+    .where('categories.name' => category_names)
+    .group(:id)
+    .having('count(categories.name) = ?', category_names.length)
+  end
+
   def parse_card_categories_name
     name = self.categories.map do |category|
       category.name.gsub("-", " ").titleize
