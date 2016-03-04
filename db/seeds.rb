@@ -24,7 +24,7 @@ c1.categories << Category.find(category_one.id)
 c1.categories << Category.find(category_two.id)
 
 
-Reward.create(amount: 50000,
+Reward.create(amount: 48000,
               length_of_time: 2,
               record_date: "2016-02-18",
               spending_amount: 2000,
@@ -442,7 +442,7 @@ c8 = Card.find(card_eight.id)
 c8.categories << Category.find(category_two.id)
 
 
-Reward.create(amount: 45000,
+Reward.create(amount: 50000,
               length_of_time: 3,
               record_date: "2016-02-18",
               spending_amount: 3000,
