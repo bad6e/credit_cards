@@ -526,7 +526,6 @@ function displayImageCarousel($item) {
                     }
                 });
             } else {
-                debugger
                 $(slider).find(".middle-block img, .middle-block .middle-item").each(function() {
                     if($(this).width() < 1) {
                         $(this).load(function() {
