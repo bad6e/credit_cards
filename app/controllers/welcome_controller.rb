@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @cards = Card.all
+    @welcome_presenter = WelcomePresenter.new
   end
 end

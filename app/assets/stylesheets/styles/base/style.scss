@@ -1043,7 +1043,7 @@ ol {  }
 
 /* 2.11. Photo Gallery ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-.flexslider .slides > li { display: none; }
+.flexslider .slides > li {display: none;}
 
 .photo-gallery:not(.flex-direction-style), .image-carousel.style2 {
   .flex-direction-nav {
@@ -1092,7 +1092,7 @@ ol {  }
   }
   &.style4 { // show only control nav (blog post slideshow)
     .flex-control-nav { right: 25px; bottom: 25px; top: auto; }
-    .flex-direction-nav { display: none; }
+    .flex-direction-nav { display: none }
   }
 }
 
@@ -1215,7 +1215,7 @@ ol {  }
 /* 2.13. Image Box Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .image-box {
   .box, &.box {
-    text-align: left; background: #fff; margin-bottom: 30px;
+    text-align: left; background: #fff; margin-bottom: 30px; max-height: 250px; min-height: 250px;
     img { width: 100%; height: auto; }
     > .details {
       padding: 12px 15px;
@@ -2078,7 +2078,7 @@ ol {  }
 }
 
 /* 2.22. Animated effect ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-.animated { visibility: hidden; }
+.animated { visibility: visible; }
 .no-cssanimations .animated, body.is-mobile .animated { visibility: visible; }
 
 /* 2.23. Parallax ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <title><%= full_title(yield(:title)) %></title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="55MLBOoSZvq6YxQikipb2_VO96wJ8EwhDlKkXT0bqzI" />
   <meta name="msvalidate.01" content="C36156ADD172439BA028DE70EDE2FE34" />
-  <meta name="description" content="<%= meta_description(yield(:meta_description)) %>">
+  <meta name="description" content="<%= meta_description(yield(:meta_description)) %>" >
   <meta name="author" content="Too Many Miles">
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' %>
   <!-- Optional Robot Instructions can be set up in controllers -->
   <% if @meta_robots_instructions %>
     <meta name="robots" content="<%= @meta_robots_instructions %>">
@@ -17,12 +18,12 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body >
   <%= render partial: 'layouts/navbar' %>
   <%= render partial: 'layouts/flashes' %>
   <%= yield %>
   <%= render partial: 'layouts/footer' %>
   <%= render partial: 'layouts/google_analytics' %>
 </body>
-  <%= javascript_include_tag 'http://www.google.com/jsapi','application'%>
+  <%= javascript_include_tag 'http://www.google.com/jsapi','application' %>
 </html>
