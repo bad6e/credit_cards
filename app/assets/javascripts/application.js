@@ -19,4 +19,7 @@
 
 //VENDOR FILES
 //= require chartkick
+//= require jquery.themepunch.revolution.min
+//= require jquery.themepunch.plugins.min
+//= require theme-scripts
 //= require_tree .
