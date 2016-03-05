@@ -2652,6 +2652,7 @@ ul.menu.mini {
       > a { text-transform: uppercase; font-weight: bold; }
       &.menu-item-has-children {
         position: relative;
+
         &.open { background: $skin-mobile-menu-color; }
         & > .dropdown-toggle {
           position: absolute; right: 1px; top: 7px; height: 34px; line-height: 34px; padding: 0 15px; background: none; display: inline-block; font-family: FontAwesome; font-size: 1.3333em; font-weight: normal; @include opacity(0.7);
@@ -2664,6 +2665,7 @@ ul.menu.mini {
           > .dropdown-toggle { @include opacity(1); }
         }
         &:hover {
+          > a:active {color: #fdb714;}
           > a, > .dropdown-toggle { @include opacity(1); }
         }
         > ul { border-top: 1px solid $skin-bg-color; }
