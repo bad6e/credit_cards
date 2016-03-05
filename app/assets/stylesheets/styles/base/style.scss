@@ -2134,7 +2134,7 @@ body.pace-running {  }
 
   /* 3.1.1. Mobile navigation */
   .mobile-menu-toggle {
-    background: url(../images/icon/mobile-menu.png) no-repeat center center $skin-bg-color; padding: 0; margin: 0; height: 66px; width: 66px; padding: 22px; position: absolute; right: 0; top: 0; bottom: 0; text-indent: -9999px; display: none;
+    background: url(image_path('icon/mobile-menu.png')) no-repeat center center $skin-bg-color; padding: 0; margin: 0; height: 66px; width: 66px; padding: 22px; position: absolute; right: 0; top: 0; bottom: 0; text-indent: -9999px; display: none;
     .icon-bar { background: white; }
   }
 
@@ -2253,7 +2253,7 @@ body.pace-running {  }
     .logo { margin: 0; margin-bottom: 16px; }
     .quick-search {
       display: inline-block;
-      .input-text { width: 250px; }
+      .input-text { width: 350px; }
     }
     button { padding: 0 15px; }
 
@@ -2384,7 +2384,7 @@ body.pace-running {  }
 #header, #footer, .chaser {
   .logo {
     a { background: url($skin-logo) no-repeat 0 0; display: block; }
-    img { @include opacity(0); }
+    img { @include opacity(1); }
   }
 }
 

@@ -320,7 +320,7 @@
       float: none !important; position: static !important; padding-top: 19px; height: 66px; margin: 0 !important; display: block;
       a:after { display: none !important; }
       a { background-size: auto 30px; }
-      img { height: 30px; width: auto; @include opacity(0, true); }
+      img { height: 30px; width: auto; @include opacity(1, true); }
     }
     .main-navigation { background: #fff; }
     .mobile-menu-toggle { display: block; }

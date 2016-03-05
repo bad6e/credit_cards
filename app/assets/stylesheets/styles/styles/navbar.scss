@@ -5,87 +5,87 @@ $colHighlight   : #0e95e0;
 $white          : #FFF;
 $black          : #000;
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:500);
+// @import url(https://fonts.googleapis.com/css?family=Raleway:500);
 
-.navbar {
-  margin-bottom: 0px;
-   border-bottom: 2px solid $white;
-}
+// .navbar {
+//   margin-bottom: 0px;
+//    border-bottom: 2px solid $white;
+// }
 
-.navbar-default {
-  background-color: $bgDefault;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  .navbar-brand {
-    color: $colDefault;
-    &:hover, &:focus {
-      color: $colHighlight; }
-    }
-  .navbar-text {
-    color: $colDefault; }
-  .navbar-nav {
-    > li {
-      > a {
-        color: $colDefault;
-        font-family: 'Raleway', sans-serif;
-        font-size: 15px;
-        &:hover,  &:focus {
-          color: $colHighlight; }
-        }
-      }
-    > .active {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        }
-      }
-    > .open {
-      > a, > a:hover, > a:focus {
-        background-color: white;
-       }
-      }
-    }
-  .navbar-toggle {
-    &:hover, &:focus {
-     }
-    .icon-bar {
-      background-color: $colDefault;
-      }
-  }
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $colDefault; }
-  .dropdown-menu {
-    background-color: $colHighlight;
-    > li > a {
-      color: $white;
-      font-family: 'Raleway', sans-serif;
-      font-size: 15px;
-    }
-    a:hover {
-      color: $black;
-      background-color: $colHighlight;
-    }
-  }
-  .navbar-link {
-    color: $colDefault;
-    &:hover {
-    color: $colHighlight; }
-    }
-  }
+// .navbar-default {
+//   background-color: $bgDefault;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   .navbar-brand {
+//     color: $colDefault;
+//     &:hover, &:focus {
+//       color: $colHighlight; }
+//     }
+//   .navbar-text {
+//     color: $colDefault; }
+//   .navbar-nav {
+//     > li {
+//       > a {
+//         color: $colDefault;
+//         font-family: 'Raleway', sans-serif;
+//         font-size: 15px;
+//         &:hover,  &:focus {
+//           color: $colHighlight; }
+//         }
+//       }
+//     > .active {
+//       > a, > a:hover, > a:focus {
+//         color: $colHighlight;
+//         }
+//       }
+//     > .open {
+//       > a, > a:hover, > a:focus {
+//         background-color: white;
+//        }
+//       }
+//     }
+//   .navbar-toggle {
+//     &:hover, &:focus {
+//      }
+//     .icon-bar {
+//       background-color: $colDefault;
+//       }
+//   }
+//   .navbar-collapse,
+//   .navbar-form {
+//     border-color: $colDefault; }
+//   .dropdown-menu {
+//     background-color: $colHighlight;
+//     > li > a {
+//       color: $white;
+//       font-family: 'Raleway', sans-serif;
+//       font-size: 15px;
+//     }
+//     a:hover {
+//       color: $black;
+//       background-color: $colHighlight;
+//     }
+//   }
+//   .navbar-link {
+//     color: $colDefault;
+//     &:hover {
+//     color: $colHighlight; }
+//     }
+//   }
 
-  .navbar-form .form-control {
-    display: inline-block;
-    width: auto;
-    vertical-align: middle;
-  }
+//   .navbar-form .form-control {
+//     display: inline-block;
+//     width: auto;
+//     vertical-align: middle;
+//   }
 
-  .search-input {
-    font-family: 'Raleway', sans-serif;
-  }
+//   .search-input {
+//     font-family: 'Raleway', sans-serif;
+//   }
 
-  .navbar-form .input-group > .form-control {
-    width: 325px;
-  }
+//   .navbar-form .input-group > .form-control {
+//     width: 325px;
+//   }
 
   .ui-menu-item {
     max-width: auto;
@@ -124,10 +124,10 @@ $black          : #000;
     *border-bottom-width: 2px;
 }
 
-#search-button {
-  padding: 7px 7px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-family: 'Raleway', sans-serif;
-}
+// #search-button {
+//   padding: 7px 7px;
+//   font-weight: 700;
+//   letter-spacing: 1px;
+//   text-transform: uppercase;
+//   font-family: 'Raleway', sans-serif;
+// }
