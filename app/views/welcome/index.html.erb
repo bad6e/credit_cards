@@ -54,15 +54,15 @@
       <li>
         <article class="box">
           <figure>
-              <a href="#" title=""><img src=<%= card.image_link %> alt=""></a>
+            <%= link_to image_tag(card.image_link), card_path(card) %>
           </figure>
           <div class="details">
 
-              <h4 class="box-title"><%= card.name %></h4>
-              <p class="mile"><span class="skin-color"><strong>BONUS:</span> 10000</strong></p>
+              <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
+              <p class="mile"><span class="skin-color"><strong>BONUS: </span><%= card.rewards.first.amount %></strong></p>
               <p class="mile"><span class="skin-color">Good Time to Apply?</span> Yes</p>
               <div class="action">
-                  <a href="car-detailed.html" class="button btn-small full-width">SEE MORE</a>
+                <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
               </div>
           </div>
         </article>
