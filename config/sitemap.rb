@@ -2,6 +2,7 @@ SitemapGenerator::Sitemap.default_host = "http://www.toomanymiles.com"
 SitemapGenerator::Sitemap.public_path = 'tmp/sitemaps/'
 
 SitemapGenerator::Sitemap.create do
+  add root_path
   add cards_path, changefreq: 'monthly'
   add categories_path
 
