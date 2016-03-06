@@ -8,6 +8,9 @@ $(document).ready(function(){
 
 function grabCardId() {
   var id = $(".entry-title").attr('id')
+  if (id === undefined) {
+    var id = $(".top-title").attr('id')
+  }
   getRewardData(id);
 }
 
@@ -28,7 +31,3 @@ function getRewardData(id) {
     }
   });
 }
-
-$(document).ready(function() {
-
-        });
