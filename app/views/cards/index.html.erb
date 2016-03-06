@@ -96,10 +96,17 @@
                             </div>
                           </div>
                         <div class="total-time col-sm-4">
-                        <div class="icon"><i class="soap-icon-clock yellow-color"></i></div>
-                        <div>
-                          <span class="skin-color">Intro Rate</span><br /><%= card.intro_rate %>
-                        </div>
+                        <% if card.rewards.any? %>
+                          <div class="icon"><i class="soap-icon-party yellow-color"></i></div>
+                            <div>
+                              <span class="skin-color">Bonus</span><br /><%= card.rewards.first.amount %>
+                            </div>
+                        <% else %>
+                          <div class="icon"><i class="soap-icon-clock yellow-color"></i></div>
+                            <div>
+                              <span class="skin-color">Intro Rate</span><br /><%= card.intro_rate %>
+                          </div>
+                        <% end %>
                       </div>
                     </div>
                     <div class="action">

@@ -19,4 +19,6 @@
 
 //VENDOR FILES
 //= require chartkick
+//= require jquery.flexslider-min
+//= require theme-scripts
 //= require_tree .

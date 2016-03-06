@@ -1043,7 +1043,7 @@ ol {  }
 
 /* 2.11. Photo Gallery ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-.flexslider .slides > li { display: none; }
+.flexslider .slides > li {display: none;}
 
 .photo-gallery:not(.flex-direction-style), .image-carousel.style2 {
   .flex-direction-nav {
@@ -1092,7 +1092,7 @@ ol {  }
   }
   &.style4 { // show only control nav (blog post slideshow)
     .flex-control-nav { right: 25px; bottom: 25px; top: auto; }
-    .flex-direction-nav { display: none; }
+    .flex-direction-nav { display: none }
   }
 }
 
@@ -1215,7 +1215,7 @@ ol {  }
 /* 2.13. Image Box Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .image-box {
   .box, &.box {
-    text-align: left; background: #fff; margin-bottom: 30px;
+    text-align: left; background: #fff; margin-bottom: 30px; box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
     img { width: 100%; height: auto; }
     > .details {
       padding: 12px 15px;
@@ -1250,8 +1250,8 @@ ol {  }
 
   &.style4 {
     .details {
-      .box-title { float: left; margin: 0; }
-      .goto-detail { float: right; color: $green-theme-color; font-weight: bold; font-size: 16px; }
+      .box-title { float: left; margin: 0; font-family: 'Raleway', sans-serif; }
+      .goto-detail { float: right; color: $green-theme-color; font-weight: bold; font-size: 16px; font-family: 'Raleway', sans-serif;}
       &:after { content: ""; display: table; clear: both; }
     }
   }
@@ -1509,7 +1509,7 @@ ol {  }
   }
   &.flight, &.car {
     .details {
-      .box-title { text-transform: none; &:after { display: table; content: ""; clear: both; } }
+      .box-title { text-transform: none; text-align: center; min-height: 75px; &:after { display: table; content: ""; clear: both; } }
       padding: 15px 0 0 !important; text-transform: uppercase;
     }
     .action .button { text-align: center; }
@@ -1554,7 +1554,7 @@ ol {  }
 }
 .listing-style1, .listing-style2 {
   &.flight, &.car {
-    .box, &.box { padding: 15px; }
+    .box, &.box { padding: 15px; background: #F5F5F5; box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17); }
     figure {
       background: #f5f5f5; display: table; /*height: 140px;*/ width: 100%; table-layout: fixed;
       > a, > span { display: table-cell; vertical-align: middle; text-align: center; }
@@ -2078,7 +2078,7 @@ ol {  }
 }
 
 /* 2.22. Animated effect ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-.animated { visibility: hidden; }
+.animated { visibility: visible; }
 .no-cssanimations .animated, body.is-mobile .animated { visibility: visible; }
 
 /* 2.23. Parallax ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -2134,7 +2134,7 @@ body.pace-running {  }
 
   /* 3.1.1. Mobile navigation */
   .mobile-menu-toggle {
-    background: url(../images/icon/mobile-menu.png) no-repeat center center $skin-bg-color; padding: 0; margin: 0; height: 66px; width: 66px; padding: 22px; position: absolute; right: 0; top: 0; bottom: 0; text-indent: -9999px; display: none;
+    background: url(image_path('icon/mobile-menu.png')) no-repeat center center $skin-bg-color; padding: 0; margin: 0; height: 66px; width: 66px; padding: 22px; position: absolute; right: 0; top: 0; bottom: 0; text-indent: -9999px; display: none;
     .icon-bar { background: white; }
   }
 
@@ -2253,7 +2253,7 @@ body.pace-running {  }
     .logo { margin: 0; margin-bottom: 16px; }
     .quick-search {
       display: inline-block;
-      .input-text { width: 250px; }
+      .input-text { width: 350px; }
     }
     button { padding: 0 15px; }
 
@@ -2383,8 +2383,8 @@ body.pace-running {  }
 
 #header, #footer, .chaser {
   .logo {
-    a { background: url($skin-logo) no-repeat 0 0; display: block; }
-    img { @include opacity(0); }
+    a { background: url(../images/logo.png) no-repeat 0 0; display: block; }
+    img { @include opacity(1); }
   }
 }
 
@@ -2652,6 +2652,7 @@ ul.menu.mini {
       > a { text-transform: uppercase; font-weight: bold; }
       &.menu-item-has-children {
         position: relative;
+
         &.open { background: $skin-mobile-menu-color; }
         & > .dropdown-toggle {
           position: absolute; right: 1px; top: 7px; height: 34px; line-height: 34px; padding: 0 15px; background: none; display: inline-block; font-family: FontAwesome; font-size: 1.3333em; font-weight: normal; @include opacity(0.7);
@@ -2664,6 +2665,7 @@ ul.menu.mini {
           > .dropdown-toggle { @include opacity(1); }
         }
         &:hover {
+          > a:active {color: #fdb714;}
           > a, > .dropdown-toggle { @include opacity(1); }
         }
         > ul { border-top: 1px solid $skin-bg-color; }

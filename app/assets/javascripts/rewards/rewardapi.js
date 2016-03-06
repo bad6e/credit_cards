@@ -29,3 +29,6 @@ function getRewardData(id) {
   });
 }
 
+$(document).ready(function() {
+
+        });

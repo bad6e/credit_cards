@@ -1,47 +1,91 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Too Many Miles", root_path, class: "navbar-brand" %>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse menu-item" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Credit Cards<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/airline-credit-cards">Airline Cards</a></li>
-            <li><a href="/hotel-credit-cards">Hotel Cards</a></li>
-            <li><a href="/business-rewards-credit-cards">Business Rewards Cards</a></li>
-            <li><a href="/cash-back-credit-cards">Cash Back Cards</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/travel-credit-cards">All Travel Cards</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/best-credit-card-offers">BEST CURRENT OFFERS</a></li>
-          </ul>
-        </li>
-      </ul>
+<!-- Regular Nav -->
+<div id="page-wrapper">
+  <header id="header" class="navbar-static-top style4">
+    <div class="container">
+      <h1 class="logo navbar-brand">
+        <a href="/" title="Too Many Miles - Home">
+          <%= image_tag("logo.png") %>
+        </a>
+      </h1>
 
-      <div class='search-area'>
-        <form class="navbar-form navbar-right" id="search-form" role="search" action="/cards" accept-charset="UTF-8" method="get">
-          <div class="form-group">
-            <div class="input-group">
-              <input type="text" name="search" class="form-control search-input" id="select_origin" placeholder="Search for Credit Cards">
-              <span class="input-group-btn">
-                <button class="btn btn-sml" id="search-button" type="button submit">Go!</button>
-              </span>
-              <!-- <input type="submit" name="commit" value="Search"> -->
-            </div>
+      <div class="pull-right hidden-mobile search-area">
+        <form method="get" accept-charset="UTF-8" id="search-form" role="search" action="/cards" class="quick-search">
+          <div class="with-icon">
+            <input type="text" name="search" class="input-text search-input" id="select_origin" placeholder="Search for Credit Cards" />
+            <button class="icon" id="search-button" type="button submit"><i class="soap-icon-search"></i></button>
           </div>
         </form>
+        <!-- Sign Up Buttons Will Go Here!! -->
       </div>
 
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    </div>
+    <a href="#mobile-menu-01" data-toggle="collapse" class="mobile-menu-toggle">Mobile Menu Toggle</a>
+    <div class="main-navigation">
+      <div class="container">
+        <nav id="main-menu" role="navigation">
+          <ul class="menu">
+            <li class="menu-item-has-children">
+              <a href="/">Home</a>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="/best-credit-card-offers">BEST OFFERS NOW</a>
+            </li>
+            <li class="menu-item-has-children">
+             <a href="/airline-credit-cards">Airline Cards</a>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="/hotel-credit-cards">Hotel Cards</a>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="/business-rewards-credit-cards">Business Cards</a>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="/cash-back-credit-cards">Cash Back Cards</a>
+            </li>
+            <li class="menu-item-has-children">
+              <a href="/travel-credit-cards">All Travel Cards</a>
+            </li>
+          </ul>
+        </nav>
+          <div class="topnav">
+            <ul class="quick-menu pull-right clearfix">
+              <!-- <li><a href="#">ACCOUNT</a></li> -->
+            </ul>
+          </div>
+      </div>
+    </div>
+    <!-- End Regular Nav -->
+
+    <!-- Mobile Nav -->
+    <nav id="mobile-menu-01" class="mobile-menu collapse">
+      <ul id="mobile-primary-menu" class="menu">
+        <li class="menu-item-has-children">
+          <a href="/">Home</a>
+          <a href="/best-credit-card-offers">BEST OFFERS NOW</a>
+          <a href="/airline-credit-cards">Airline Cards</a>
+          <a href="/hotel-credit-cards">Hotel Cards</a>
+          <a href="/business-rewards-credit-cards">Business Cards</a>
+          <a href="/cash-back-credit-cards">Cash Back Cards</a>
+          <a href="/best-credit-card-offers">All Travel Cards</a>
+        </li>
+      </ul>
+      <ul class="mobile-topnav container">
+       <!-- Account Info Will Go Here -->
+       <!-- <li><a href="#">MY ACCOUNT</a></li> -->
+       <!--  <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
+        <li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li> -->
+      </ul>
+    </nav>
+    <!-- End Mobile Nav -->
+  </header>
+</div>
+
+
+
+
+
+
+
+
+
+
