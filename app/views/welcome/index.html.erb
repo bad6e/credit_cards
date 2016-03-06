@@ -1,18 +1,6 @@
 <%= render partial: "index_header" %>
 <br><br><br>
-<h1 class="top-title" id="40">Always Apply at the Right Time</h1><br>
-<div class="container apply-center-container">
-  <h2 class="time-to-apply-title"></h2>
-  <h3 class="title-to-apply-subtitle"></h3>
-  <h4 class="graph-detail">ex. Starwood Preferred Guest® Credit Card</h4>
-</div><br><br>
-
-<!-- Top Image -->
-<div class="container reward-graph-container">
-   <div id="reward-chart" style="height: 300px;"></div></div><br><br>
-   <h4 class="graph-detail">Southwest Premier's Sign Up Bonus Over Time</h4>
-<br><br><br>
-<!-- End Top Image -->
+<h1 class="top-title" id="1">Always Apply at the Right Time</h1><br><br><br>
 <section class= "container how">
   <h1>How does it work?</h1><br><br>
     <div class="container">
@@ -43,10 +31,24 @@
         </div>
     </div>
   </div>
-</section>
+</section><br><br>
+
+<div class="container apply-center-container">
+  <h3 class="graph-detail">Example. Starwood Preferred Guest® Credit Card</h3>
+  <h2 class="time-to-apply-title"></h2>
+  <h3 class="title-to-apply-subtitle"></h3>
+
+</div><br><br>
+
+<!-- Top Image -->
+<div class="container reward-graph-container">
+   <div id="reward-chart" style="height: 300px;"></div></div><br><br>
+   <h4 class="graph-detail">Starwood's Sign Up Bonus Over Time</h4>
+<br>
+<!-- End Top Image -->
 
 <div class="container section">
-  <h2>Here are Some of the Best Deals Now!</h2>
+  <h2>Some of the Best Deals!</h2>
   <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
     <ul class="slides image-box car listing-style1">
       <% @welcome_presenter.best_cards.each do |card| %>
