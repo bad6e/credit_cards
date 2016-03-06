@@ -449,6 +449,10 @@
   /* remove chaser in mobile */
   .chaser { display: none !important; }
 
+.top-title {
+  font-size: 30px !important;
+}
+
   .tab-container {
     ul.tabs {
       li {
@@ -638,6 +642,10 @@
     .tab-content { width: 70%; }
   }
 
+  .top-title {
+    font-size: 25px !important;
+  }
+
   .image-box-style.style2 {
     figure { width: 100%; float: none; }
     .details { padding: 20px; }
@@ -746,6 +754,10 @@
 
   h1.sign-up-bonus-h1-title {
     font-size: 12px;
+  }
+
+  .top-title {
+    font-size: 20px !important;
   }
 
   .listing-style3.flight figure span img {
