@@ -652,6 +652,8 @@ $(window).load(function() {
         $(".chaser").css("visibility", "visible");
     }
 
+
+
     // accordion & toggles
     $(".toggle-container .panel-collapse").each(function() {
         if (!$(this).hasClass("in")) {
