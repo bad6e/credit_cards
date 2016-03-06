@@ -1250,7 +1250,7 @@ ol {  }
 
   &.style4 {
     .details {
-      .box-title { float: left; margin: 0; }
+      .box-title { float: left; margin: 0; font-family: 'Raleway', sans-serif; }
       .goto-detail { float: right; color: $green-theme-color; font-weight: bold; font-size: 16px; font-family: 'Raleway', sans-serif;}
       &:after { content: ""; display: table; clear: both; }
     }
