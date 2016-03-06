@@ -1449,7 +1449,7 @@ ol {  }
     }
   }
   &.style8, &.style9 {
-    i { font-size: 2.6666em; background: $yellow-theme-color; color: #fff; width: 1.5em; height: 1.5em; line-height: 1.5em; display: block; margin-left: auto; margin-right: auto; }
+    i { font-size: 2.6666em; background: $yellow-theme-color; color: #fff; width: 1.5em; height: 1.5em; line-height: 1.5em; display: block; margin-left: auto; margin-right: auto;}
   }
   &.style9 {
     display: inline-block;
@@ -1457,7 +1457,7 @@ ol {  }
     > i { background: $blue-theme-color; @include border-radius(50%, 50%, 50%, 50%); width: 2em; height: 2em; line-height: 2em; margin-bottom: 15px; }
   }
   &.style10 {
-    border: 1px solid $yellow-theme-color; margin-top: 20px; padding: 45px 20px 20px; position: relative; color: $light-blue-theme-color; text-align: center;
+    border: 1px solid $yellow-theme-color; margin-top: 20px; padding: 45px 20px 20px; position: relative; color: $light-blue-theme-color; text-align: center; min-height: 195px;
     .box-title { color: #fff; margin-bottom: 15px; }
     > i { position: absolute; width: 72px; height: 72px; top: -36px; left: 50%; margin-left: -36px; font-size: 3em; color: #fff; background: $yellow-theme-color; line-height: 72px; @include border-radius(50%, 50%, 50%, 50%); }
     .description { text-transform: none; }

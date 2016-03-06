@@ -72,6 +72,7 @@ function hideSpinner(){
 
 function greatTimeToApply(dateDifference) {
   $('#good-time').text("Hell Yes");
+  $('.graph-detail').show();
   $('.time-to-apply-title').text("Good Time To Apply: Hell Yes").css({ 'color': 'green'});
   $('.title-to-apply-subtitle').text("This is the Highest Bonus in the Last "
                                      + dateDifference
@@ -80,12 +81,14 @@ function greatTimeToApply(dateDifference) {
 
 function goodTimeToApply() {
   $('#good-time').text("Yes");
+  $('.graph-detail').show();
   $('.time-to-apply-title').text("Good Time To Apply: Yes").css({ 'color': 'green'});
   $('.title-to-apply-subtitle').text("The Current Bonus is EQUAL to its Highest Historical Value");
 }
 
 function okTimeToApply(percentage) {
   $('#good-time').text("Sort Of").css({ 'color': '#BB9D40'});
+  $('.graph-detail').show();
   $('.time-to-apply-title').text("Good Time To Apply: Sort Of").css({ 'color': '#BB9D40'});
   $('.title-to-apply-subtitle').text("The Current Bonus is only..."
                                       + percentage
@@ -94,6 +97,7 @@ function okTimeToApply(percentage) {
 
 function badTimeToApply(percentage) {
   $('#good-time').text("No").css({ 'color': 'red'});
+  $('.graph-detail').show();
   $('.time-to-apply-title').text("Good Time To Apply: No").css({ 'color': 'red'});
   $('.title-to-apply-subtitle').text("The Current Bonus is "
                                       + percentage
