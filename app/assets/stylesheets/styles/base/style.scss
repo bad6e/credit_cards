@@ -1215,7 +1215,7 @@ ol {  }
 /* 2.13. Image Box Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .image-box {
   .box, &.box {
-    text-align: left; background: #fff; margin-bottom: 30px; max-height: 250px; min-height: 250px;
+    text-align: left; background: #fff; margin-bottom: 30px; box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
     img { width: 100%; height: auto; }
     > .details {
       padding: 12px 15px;
@@ -1251,7 +1251,7 @@ ol {  }
   &.style4 {
     .details {
       .box-title { float: left; margin: 0; }
-      .goto-detail { float: right; color: $green-theme-color; font-weight: bold; font-size: 16px; }
+      .goto-detail { float: right; color: $green-theme-color; font-weight: bold; font-size: 16px; font-family: 'Raleway', sans-serif;}
       &:after { content: ""; display: table; clear: both; }
     }
   }
@@ -1509,7 +1509,7 @@ ol {  }
   }
   &.flight, &.car {
     .details {
-      .box-title { text-transform: none; &:after { display: table; content: ""; clear: both; } }
+      .box-title { text-transform: none; text-align: center; min-height: 75px; &:after { display: table; content: ""; clear: both; } }
       padding: 15px 0 0 !important; text-transform: uppercase;
     }
     .action .button { text-align: center; }
@@ -1554,7 +1554,7 @@ ol {  }
 }
 .listing-style1, .listing-style2 {
   &.flight, &.car {
-    .box, &.box { padding: 15px; }
+    .box, &.box { padding: 15px; background: #F5F5F5; box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17); }
     figure {
       background: #f5f5f5; display: table; /*height: 140px;*/ width: 100%; table-layout: fixed;
       > a, > span { display: table-cell; vertical-align: middle; text-align: center; }

@@ -41,7 +41,7 @@ p { font-size: 1.0833em; line-height: 1.6666; margin-bottom: 15px; }
 dt { font-weight: normal; }
 
 span.active, a.active, h2.active, h3.active, h4.active, h5.active, h6.active { color: $skin-active-color; }
-.info-primary, .info-success { color: #fff; padding: 2px 5px; line-height: 1em; } 
+.info-primary, .info-success { color: #fff; padding: 2px 5px; line-height: 1em; }
 .info-success { background: $green-theme-color; }
 .info-primary { background: $heading-color; }
 
@@ -50,7 +50,7 @@ span.active, a.active, h2.active, h3.active, h4.active, h5.active, h6.active { c
 /* 2) Heading */
 h1, h2, h3, h4, h5, h6 { margin:0 0 15px; font-weight:normal; color: $heading-color; }
 h1 { font-size: 2em; line-height:1.25em; /*24px, 30px*/ }
-h2 { font-size: 1.6667em;      line-height:1.25em; /*20px, 35px*/ }
+h2 { font-size: 1.6667em;      line-height:1.25em; /*20px, 35px*/ font-family: 'Raleway', sans-serif;}
 h3 { font-size: 1.5em; line-height:1.2222em; /*18px, 22px*/ }
 h4 { font-size: 1.3333em; line-height:1.25em; /*16px, 20px*/ }
 h5 { font-size: 1.1666em; line-height:1.1428em; /*14px, 16px*/ }
