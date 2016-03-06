@@ -2383,7 +2383,7 @@ body.pace-running {  }
 
 #header, #footer, .chaser {
   .logo {
-    a { background: url($skin-logo) no-repeat 0 0; display: block; }
+    a { background: url(../images/logo.png) no-repeat 0 0; display: block; }
     img { @include opacity(1); }
   }
 }

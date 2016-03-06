@@ -9,7 +9,6 @@
   <meta name="msvalidate.01" content="C36156ADD172439BA028DE70EDE2FE34" />
   <meta name="description" content="<%= meta_description(yield(:meta_description)) %>" >
   <meta name="author" content="Too Many Miles">
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' %>
   <!-- Optional Robot Instructions can be set up in controllers -->
   <% if @meta_robots_instructions %>
     <meta name="robots" content="<%= @meta_robots_instructions %>">
@@ -25,5 +24,5 @@
   <%= render partial: 'layouts/footer' %>
   <%= render partial: 'layouts/google_analytics' %>
 </body>
-  <%= javascript_include_tag 'http://www.google.com/jsapi','application' %>
+  <%= javascript_include_tag 'application' %>
 </html>
