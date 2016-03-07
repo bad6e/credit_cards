@@ -95,15 +95,15 @@ task :update_cards => :environment do
       scrape_data
       organize_data
       @data.each do |data|
-        Card.find_or_create_by(name: data[0]) do |card|
-          card.annual_fee  = data[1]
-          card.apr         = data[2]
-          card.intro_rate  = data[3]
-          card.image_link  = data[4]
-          card.information = data[5]
-        end
-      assign_category(data)
-      puts "Updated the Card Database"
+        card = Card.find_or_create_by(name: data[0])
+        card.update(annual_fee: data[1],
+                    apr: data[2],
+                    intro_rate: data[3],
+                    image_link: data[4],
+                    information: data[5])
+
+        assign_category(data)
+        puts "Updated the Card Database"
       end
     end
 
@@ -116,7 +116,6 @@ task :update_cards => :environment do
       "other" => "other-credit-cards"}
     end
 
-    #NEED TO WORK ON THIS
     def assign_category(data)
       c = Card.find_by(name: data[0])
       if c.categories == []
