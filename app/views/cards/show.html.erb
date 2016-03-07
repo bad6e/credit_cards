@@ -34,9 +34,6 @@
           <div class="tab-content card-description">
             <div class="tab-pane fade in active" id="car-details">
             <h2>Card Information</h2>
-            <% if @card_presenter.card_has_bonus? %>
-              <p><strong>Earn <%= @card_presenter.rewards.first.amount %> bonus points after you use your Card to make <%= number_to_currency(@card_presenter.rewards.first.spending_amount, precision: 0) %> in purchases within the first <%= pluralize(@card_presenter.rewards.first.length_of_time, "Month") %>.</strong></p>
-            <% end %>
             <ul>
             <% n = 1 %>
             <% @card_presenter.card.information.each do |info| %>
