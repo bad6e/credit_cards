@@ -23,7 +23,7 @@ task :update_cards => :environment do
     end
 
     def url_list
-      ["airline","business-rewards", "hotel", "cash-back", "other"]
+      ["airline","business-rewards", "hotel", "cash-back"]
     end
 
     def card_name
@@ -102,15 +102,25 @@ task :update_cards => :environment do
           card.image_link  = data[4]
           card.information = data[5]
         end
-        assign_category(data)
+      assign_category(data)
       puts "Updated the Card Database"
       end
     end
 
+    def url_key
+      {"airline" => "airline-credit-cards",
+      "travel" => "travel-credit-cards",
+      "hotel" => "hotel-credit-cards",
+      "business-rewards" => "business-rewards-credit-cards",
+      "cash-back" => "cash-back-credit-cards",
+      "other" => "other-credit-cards"}
+    end
+
+    #NEED TO WORK ON THIS
     def assign_category(data)
       c = Card.find_by(name: data[0])
       if c.categories == []
-        c.categories << Category.find_by(name: @url)
+        c.categories << Category.find_by(name: url_key[@url])
       end
     end
   end
