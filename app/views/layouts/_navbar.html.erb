@@ -8,6 +8,7 @@
         </a>
       </h1>
 
+      <!-- Search Bar - Non Mobile -->
       <div class="pull-right hidden-mobile search-area">
         <form method="get" accept-charset="UTF-8" id="search-form" role="search" action="/cards" class="quick-search">
           <div class="with-icon">
@@ -17,6 +18,7 @@
         </form>
         <!-- Sign Up Buttons Will Go Here!! -->
       </div>
+      <!-- End Search Bar - Non Mobile -->
 
     </div>
     <a href="#mobile-menu-01" data-toggle="collapse" class="mobile-menu-toggle">Mobile Menu Toggle</a>
@@ -67,13 +69,24 @@
           <a href="/business-rewards-credit-cards">Business Cards</a>
           <a href="/cash-back-credit-cards">Cash Back Cards</a>
           <a href="/best-credit-card-offers">All Travel Cards</a>
-        </li>
+          </li>
+          <!-- Search Bar - Mobile -->
+          <li class="menu-item-has-children">
+            <form method="get" accept-charset="UTF-8" id="search-form" role="search" action="/cards" class="quick-search">
+              <div class="with-icon">
+                <input type="text" name="search" class="input-text search-input" id="select_origin_mobile" placeholder="Search for Credit Cards" />
+                <button class="icon" id="search-button" type="button submit"><i class="soap-icon-search"></i></button>
+              </div>
+            </form>
+          </li>
+          <!-- Search Bar - Mobile -->
+          <!-- Sign Up Buttons Will Go Here!! -->
       </ul>
       <ul class="mobile-topnav container">
        <!-- Account Info Will Go Here -->
        <!-- <li><a href="#">MY ACCOUNT</a></li> -->
-       <!--  <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
-        <li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li> -->
+       <!-- <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
+      <li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li> -->
       </ul>
     </nav>
     <!-- End Mobile Nav -->
