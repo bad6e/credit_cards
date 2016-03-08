@@ -2652,6 +2652,7 @@ ul.menu.mini {
       > a { text-transform: uppercase; font-weight: bold; }
       &.menu-item-has-children {
         position: relative;
+        padding-bottom: 9px;
 
         &.open { background: $skin-mobile-menu-color; }
         & > .dropdown-toggle {
