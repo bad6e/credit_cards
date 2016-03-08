@@ -5,121 +5,39 @@ $colHighlight   : #0e95e0;
 $white          : #FFF;
 $black          : #000;
 
-// @import url(https://fonts.googleapis.com/css?family=Raleway:500);
+.ui-menu-item {
+  max-width: auto;
+  font-family: 'Raleway', sans-serif;
+  padding: 8px 5px;
+  color: $white;
+  background-color: $colHighlight;
+}
 
-// .navbar {
-//   margin-bottom: 0px;
-//    border-bottom: 2px solid $white;
-// }
-
-// .navbar-default {
-//   background-color: $bgDefault;
-//   padding-top: 10px;
-//   padding-bottom: 10px;
-//   .navbar-brand {
-//     color: $colDefault;
-//     &:hover, &:focus {
-//       color: $colHighlight; }
-//     }
-//   .navbar-text {
-//     color: $colDefault; }
-//   .navbar-nav {
-//     > li {
-//       > a {
-//         color: $colDefault;
-//         font-family: 'Raleway', sans-serif;
-//         font-size: 15px;
-//         &:hover,  &:focus {
-//           color: $colHighlight; }
-//         }
-//       }
-//     > .active {
-//       > a, > a:hover, > a:focus {
-//         color: $colHighlight;
-//         }
-//       }
-//     > .open {
-//       > a, > a:hover, > a:focus {
-//         background-color: white;
-//        }
-//       }
-//     }
-//   .navbar-toggle {
-//     &:hover, &:focus {
-//      }
-//     .icon-bar {
-//       background-color: $colDefault;
-//       }
-//   }
-//   .navbar-collapse,
-//   .navbar-form {
-//     border-color: $colDefault; }
-//   .dropdown-menu {
-//     background-color: $colHighlight;
-//     > li > a {
-//       color: $white;
-//       font-family: 'Raleway', sans-serif;
-//       font-size: 15px;
-//     }
-//     a:hover {
-//       color: $black;
-//       background-color: $colHighlight;
-//     }
-//   }
-//   .navbar-link {
-//     color: $colDefault;
-//     &:hover {
-//     color: $colHighlight; }
-//     }
-//   }
-
-//   .navbar-form .form-control {
-//     display: inline-block;
-//     width: auto;
-//     vertical-align: middle;
-//   }
-
-//   .search-input {
-//     font-family: 'Raleway', sans-serif;
-//   }
-
-//   .navbar-form .input-group > .form-control {
-//     width: 325px;
-//   }
-
-  .ui-menu-item {
-    max-width: auto;
-    font-family: 'Raleway', sans-serif;
-    padding: 6px 5px;
-    color: $white;
-    background-color: $colHighlight;
-  }
-
-  .ui-autocomplete {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    float: left;
-    display: none;
-    min-width: 160px;
-    padding: 4px 0;
-    margin: 0 0 10px 25px;
-    list-style: none;
-    background-color: #ffffff;
-    border-color: #ccc;
-    border-color: rgba(0, 0, 0, 0.2);
-    border-style: solid;
-    border-width: 1px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding;
-    background-clip: padding-box;
-    *border-right-width: 2px;
-    *border-bottom-width: 2px;
+.ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  padding: 6px 0;
+  margin: 0 0 10px 25px;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
 }
