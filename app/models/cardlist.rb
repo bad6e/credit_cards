@@ -43,7 +43,6 @@ class CardTables
       "Arrival +" => "Barclaycard Arrival Plus™ World Elite MasterCard®",
       "Venture One Rewards" => "Capital One® VentureOne® Rewards Credit Card",
       "Venture Rewards" => "Capital One® Venture® Rewards Credit Card",
-      "QuicksilverOne Rewards" => "Capital One® QuicksilverOne® Cash Rewards Credit Card",
       "Freedom" => "Chase Freedom®",
       "Sapphire Preferred" => "Chase Sapphire Preferred® Card",
       "Ink Plus" => "Ink Plus® Business Credit Card",
