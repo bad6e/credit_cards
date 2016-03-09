@@ -2,8 +2,15 @@ class CategoryPresenter
 
   attr_reader :category_id
 
-  def initialize(category_id)
-    @category_id = category_id
+  def initialize(params)
+    @category_id = params[:id]
+
+  end
+
+  def find_display_id(params)
+    if params[:category] != nil
+      @display_id  = params[:category][:category_id]
+    end
   end
 
   def category
