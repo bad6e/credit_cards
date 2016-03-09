@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def full_title(page_title = '')
-    base_title = "Too Many Miles"
+    base_title = "Too Many Miles - Always Apply at the Right Time"
     if page_title.empty?
       base_title
     else
@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def meta_description(full_meta_description)
-    base_description = "More Miles -- More Vacations"
+    base_description = "Too Many Miles - Apply at the Right Time"
     if full_meta_description.empty?
       base_description
     else
