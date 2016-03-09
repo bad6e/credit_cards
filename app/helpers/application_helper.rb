@@ -8,9 +8,10 @@ module ApplicationHelper
   end
 
   def full_title(page_title = '')
-    base_title = "Too Many Miles - Always Apply at the Right Time"
+    base_title      = "Too Many Miles"
+    extension_title = "Always Apply at the Right Time"
     if page_title.empty?
-      base_title
+      base_title + " - " + extension_title
     else
       page_title + " | " + base_title
     end
