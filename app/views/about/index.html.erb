@@ -7,35 +7,27 @@
       <h1 class="page-header">About
         <small>Too Many Miles</small>
       </h1>
-        <ol class="breadcrumb">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about" class="/about">About</a></li>
-        </ol>
     </div>
   </div>
-
 <!-- /.row -->
 
 <!-- Intro Content -->
   <div class="row">
     <div class="col-md-6">
-      <%= image_tag("about/world.png", class: "img-responsive") %>
+      <%= image_tag("about/world.png", class: "img-responsive world-map") %><br>
+      <h5 class="photo-tag"><strong>My world trip 2 years ago</strong></h5>
       <br>
     </div>
     <div class="col-md-6">
       <h2>Why Me?</h2>
 
-      <h5><strong>The image here is from my world trip from 2 years ago.</strong></h5>
-
-      <p>During this trip, I traveled completely around the world, backpacking on a 'shoestring.' In total, I took 13 flights without spending any real cash. I did this by applying for travel credit cards and using the miles earned to pay for my flights. This experience taught me a lot about travel credit cards. My hope is that our app will help share this knowledge.</p>
+      <p> <a href="http://www.sweatersaga.com/" class="active">Two years ago</a>, I traveled completely around the world. In total, I took 13 flights without spending any real cash. I did this by applying for travel credit cards and using the miles earned to pay for my flights. This experience taught me a lot about travel credit cards. Our hope is that our app will help share this knowledge.</p>
 
       <h2>Why Too Many Miles?</h2>
 
-      <h5><strong>Travel credit cards offer excellent sign up bonuses.</strong></h5>
+      <p>Travel credit cards offer excellent sign up bonuses. For example, the <%= link_to @linked_card.name, card_path(@linked_card), class: "active" %>, is currently offering <%= number_with_delimiter(@linked_card.rewards.first.amount) %> points if you spend <%= number_to_currency(@linked_card.rewards.first.spending_amount, precision: 0) %> in <%= pluralize(@linked_card.rewards.first.length_of_time, "Month") %>. These points/miles offer travelers a chance to see the world for free. In the case of Chase, this is approximately $625 in free flights!</p>
 
-      <p>For example, the <%= link_to @linked_card.name, card_path(@linked_card) %>, is currently offering <%= number_with_delimiter(@linked_card.rewards.first.amount) %> points if you spend <%= number_to_currency(@linked_card.rewards.first.spending_amount, precision: 0) %> in <%= pluralize(@linked_card.rewards.first.length_of_time, "Month") %>. These points/miles offer travelers a chance to see the world for free. In the case of Chase, this is approximately $625 in free flights!</p>
-
-      <p><strong>The problem, however, is that often these sign up bonuses change</strong> - some months the deals for the same card are better than others. My app tracks these bonuses across a variety of cards and provides recommendations based on the cards' current bonus relative to their historical bonuses. By applying at the correct time, you are able to receive the biggest bonus possible. More Miles Equals More Vacations!</p>
+      <p><strong>The problem, however, is that often these sign up bonuses change</strong> - some months the deals are better than others. Our app tracks these bonuses across a variety of cards and <%= link_to "provides recommendations", category_path(@best_cards), class: "active" %> based on the cards' current bonus relative to their historical bonuses. By applying at the correct time, you are able to receive the biggest bonus possible.</p>
     </div>
   </div>
  <!-- /.row -->
@@ -69,7 +61,7 @@
           <h3>Blake Thomas<br>
             <small>Developer &amp; Card Strategist</small>
           </h3>
-          <p><strong>"Apsiring Skier, Blitz Patzer, and Data Visualizer"</strong></p>
+          <p><strong>"Snow Skier, Blitz Patzer, and Data Visualizer"</strong></p>
           <p> Blake graduated from the University of Virginia in 2010 and immediately worked in Charlottesville, Virginia as a brain neurological researcher. Currently he resides in Washington, D.C. and works as a consultant; writing JavaScript to create complex data visualizations for the policy industry. A passionate credit card enthusiast, Blake uses his knowledge to provide content and information for our (soon to be) blogs and codes reward graphs; helping users visualize the best deals!</p>
           <ul class="list-inline">
             <li><a href="https://www.facebook.com/profile.php?id=1526013"><i class="soap-icon-facebook"></i></a></li>
