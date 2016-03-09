@@ -27,13 +27,13 @@
 
       <h5><strong>The image here is from my world trip from 2 years ago.</strong></h5>
 
-      <p>I went completely around the world backpacking on a 'shoestring.' In total, I took 13 flights without spending any real cash. I did this by applying for credit cards and using the miles earned to pay for my flights. During my travels, I learned a lot about travel credit cards and am currently in the process of building an app to help share that knowledge.</p>
+      <p>During this trip, I traveled completely around the world, backpacking on a 'shoestring.' In total, I took 13 flights without spending any real cash. I did this by applying for travel credit cards and using the miles earned to pay for my flights. This experience taught me a lot about travel credit cards. My hope is that our app will help share this knowledge.</p>
 
       <h2>Why Too Many Miles?</h2>
 
       <h5><strong>Travel credit cards offer excellent sign up bonuses.</strong></h5>
 
-      <p>For example, the <a href="/cards/39">Chase Sapphire Preferred Card</a>, is currently offering 50,000 points if you spend $4,000 in 3 months. These points/miles offer travelers a chance to see the world for free. In the case of Chase, this is approximately $625 in free flights!</p>
+      <p>For example, the <%= link_to @linked_card.name, card_path(@linked_card) %>, is currently offering <%= number_with_delimiter(@linked_card.rewards.first.amount) %> points if you spend <%= number_to_currency(@linked_card.rewards.first.spending_amount, precision: 0) %> in <%= pluralize(@linked_card.rewards.first.length_of_time, "Month") %>. These points/miles offer travelers a chance to see the world for free. In the case of Chase, this is approximately $625 in free flights!</p>
 
       <p><strong>The problem, however, is that often these sign up bonuses change</strong> - some months the deals for the same card are better than others. My app tracks these bonuses across a variety of cards and provides recommendations based on the cards' current bonus relative to their historical bonuses. By applying at the correct time, you are able to receive the biggest bonus possible. More Miles Equals More Vacations!</p>
     </div>
