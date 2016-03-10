@@ -4,7 +4,6 @@ $(document).ready(function(){
 });
 
 function auto(div) {
-
   $('#' + div).autocomplete({
     minLength: 2,
     source: '/api/v1/search',
