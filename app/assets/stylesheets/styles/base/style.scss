@@ -385,7 +385,7 @@ button, input[type="button"].button, a.button {
   &:hover:after { background-color: $green-theme-color; }
 }
 .with-icon {
-  position: relative; padding: 0 !important; display: inline-block;
+  position: relative; padding: 0 !important; display: inline-block; line-height: 58px;
   .icon { position: absolute; right: 0; top: 50%; margin: -17px 0 0 !important; width: 30px; font-size: 18px; color: #a4a4a4; background: none; padding: 0 !important; height: auto; }
   .input-text { padding-right: 40px !important; }
   &.input-large {
@@ -2249,14 +2249,8 @@ body.pace-running {  }
   }
 
   &.style4 {
-    padding-top: 30px;
-    .logo { margin: 0; margin-bottom: 16px; font-family: "Lato", Arial, Helvetica, sans-serif;;
-      font-size: 25px;
-      padding-bottom: 7px;
-      padding-top: 5px;
-      letter-spacing: 1.5px;
-      color: #fdb714;
-      text-shadow: 1px 2px 3px rgba(150, 150, 149, 0.69)}
+    padding-top: 20px;
+    .logo { margin: 0; margin-bottom: 16px; }
     .quick-search {
       display: inline-block;
       .input-text { width: 350px; }
@@ -2390,7 +2384,7 @@ body.pace-running {  }
 #header, #footer, .chaser {
   .logo {
     a { background: url(../images/logo.png) no-repeat 0 0; display: block; }
-    img { @include opacity(1); }
+    img { @include opacity(1); max-width: 250px;}
   }
 }
 
@@ -2794,7 +2788,7 @@ ul.menu.mini {
   background: rgba(255, 255, 255, 0.95); position: fixed; right: 0; top: 0; width: 100%; z-index: 999; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); -webkit-backface-visibility: hidden;
   ul.menu {
     > li {
-      > a { line-height: 48px; height: 48px; }
+      > a { line-height: 55px; height: 48px; }
       &:hover > ul, &:hover > .megamenu-wrapper { top: 46px !important; }
     }
   }

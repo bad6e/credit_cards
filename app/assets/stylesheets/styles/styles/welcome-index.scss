@@ -1,7 +1,5 @@
-.logo-title {
-  font-size: 25px;
-  padding-bottom: 5px;
-}
+$lightBlue : #01b7f2;
+$lightGray : #838383;
 
 .fullwidthbanner-container {
     max-height: 425px;
@@ -18,7 +16,7 @@
 
  .top-title {
   padding-top: 40px;
-  color: #269fe3;
+  color: $lightBlue;
   font-size: 40px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
@@ -29,8 +27,9 @@
   text-align: center;
 }
 
-.how {
+#how {
+  color: $lightGray !important;
   text-align: center;
-  font-size: 15px;
+  font-size: 29px;
 }
 
