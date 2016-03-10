@@ -621,7 +621,7 @@ $(window).load(function() {
     if (enableChaser == 1 && $('#content').length > 0 && $('#main-menu ul.menu').length > 0) {
         var forchBottom;
         var chaser = $('#main-menu ul.menu').clone().hide().appendTo(document.body).wrap("<div class='chaser hidden-mobile'><div class='container'></div></div>");
-        $('<h1 class="logo navbar-brand"><a title="Too Many Miles - Home" href="/"><img alt="Too Many Miles Logo" src="/assets/navbar/logo_medium.png"></a></h1>').insertBefore('.chaser .menu');
+        $('<h1 class="logo navbar-brand"><a title="Too Many Miles - Home" href="/"><img alt="Too Many Miles Logo" src="/assets/logo_medium.png"></a></h1>').insertBefore('.chaser .menu');
         var forch = $('#content').first();
         forchBottom = forch.offset().top + 2;
         $(window).on('scroll', function () {
