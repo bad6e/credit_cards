@@ -51,8 +51,10 @@
           <!-- End - Sort By Result Box -->
 
           <!-- Card Listings -->
-          <%= react_component 'Main' %>
+
           <div class="flight-list listing-style3 flight">
+           <%= react_component 'Main' %>
+
             <% @category.categories_cards.each do |card| %>
             <article class="box">
               <figure class="col-xs-3 col-sm-2">
@@ -64,8 +66,7 @@
                     <div>
                       <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
                       <a class="button btn-mini stop">Favorite</a>
-                      <div class="amenities">
-                      </div>
+                      <div class="amenities"></div>
                     </div>
                     <div>
                       <span class="price"><small>Apply Now?</small><div class= 'best-offer-color'><%= card.best_offer %></div></span>
