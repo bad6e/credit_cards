@@ -1,2 +1,6 @@
-<% provide(:title, @category.category_name + " - Credit Cards") %>
-<% provide(:meta_description, "Find " + @category.category_name + " Credit Cards with the best sign up bonus deals!") %>
+<% provide(:title, @category.category_name) %>
+<% if @category.category_name == "Best Credit Card Offers" %>
+  <% provide(:meta_description, "Find the " + @category.category_name + " with the Best Sign Up Bonus Deals!") %>
+<% else %>
+  <% provide(:meta_description, "Find " + @category.category_name + " with the Best Sign Up Bonus Deals!") %>
+<% end %>
