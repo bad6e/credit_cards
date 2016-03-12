@@ -53,64 +53,8 @@
           <!-- Card Listings -->
 
           <div class="flight-list listing-style3 flight">
-           <%= react_component 'Main' %>
+          <%= react_component('Cards', id: 7) %>
 
-            <% @category.categories_cards.each do |card| %>
-            <article class="box">
-              <figure class="col-xs-3 col-sm-2">
-                <span><%= link_to image_tag(card.image_link), card_path(card) %></span>
-              </figure>
-              <div class="details col-xs-9 col-sm-10">
-                <div class="details-wrapper">
-                  <div class="first-row">
-                    <div>
-                      <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
-                      <a class="button btn-mini stop">Favorite</a>
-                      <div class="amenities"></div>
-                    </div>
-                    <div>
-                      <span class="price"><small>Apply Now?</small><div class= 'best-offer-color'><%= card.best_offer %></div></span>
-                    </div>
-                  </div>
-
-                  <div class="second-row">
-                    <div class="time">
-                      <div class="take-off col-sm-4">
-                        <div class="icon"><i class="soap-icon-card yellow-color"></i></div>
-                          <div>
-                            <span class="skin-color">Annual Fee</span><br /><%= card.annual_fee %>
-                          </div>
-                        </div>
-                        <div class="landing col-sm-4">
-                          <div class="icon"><i class="soap-icon-savings yellow-color"></i></div>
-                            <div>
-                              <span class="skin-color">APR</span><br /><%= card.apr %>
-                            </div>
-                          </div>
-                        <div class="total-time col-sm-4">
-
-                        <% if card.rewards.any? %>
-                        <div class="icon"><i class="soap-icon-party yellow-color"></i></div>
-                          <div>
-                            <span class="skin-color">Bonus</span><br /><%= card.rewards.first.amount %>
-                          </div>
-                        <% else %>
-                        <div class="icon"><i class="soap-icon-clock yellow-color"></i></div>
-                          <div>
-                            <span class="skin-color">Intro Rate</span><br /><%= card.intro_rate %>
-                          </div>
-                        <% end %>
-
-                      </div>
-                    </div>
-                    <div class="action">
-                      <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <% end %>
           </div>
           <!-- End Card Listings -->
         </div>
@@ -118,4 +62,3 @@
     </div>
   </div>
 </section>
-

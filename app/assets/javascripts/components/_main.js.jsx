@@ -1,68 +1,59 @@
 var Card = React.createClass({
   render : function () {
     return (
-      <div>
       <article className="box">
-        <figure className="col-xs-3 col-sm-2">
-          <span><img src={this.props.imageLink} alt="Card Image" /></span>
-        </figure>
-        <div className="details col-xs-9 col-sm-10">
+        <div className="details col-xs-12">
+          <a href={'/cards/' + this.props.route}><img className="card-image-cat" src={this.props.imageLink} alt={this.props.name}/></a>
           <div className="details-wrapper">
             <div className="first-row">
-              <div>
-                <h4 className="box-title">{this.props.name}</h4>
-                <a className="button btn-mini stop">Favorite</a>
-                <div className="amenities"></div>
-              </div>
-              <div>
-                <span className="price"><small>Apply Now?</small>
-                  <div className= 'best-offer-color'>
-                    Yes
-                  </div>
-                </span>
-              </div>
+              <h4 id="cat-card-title">{this.props.name}</h4>
+            </div>
+            <div>
+              <span className="price" id="apply-now-color">
+                <h6 id="apply-now-title">Apply Now?</h6>
+                <div>{this.props.bestOffer}<br/></div>
+              </span>
             </div>
 
             <div className="second-row">
-              <div className="time">
-                <div className="take-off col-sm-4">
-                  <div className="icon"><i className="soap-icon-card yellow-color"></i></div>
-                    <div>
-                      <span className="skin-color">Annual Fee</span><br />1
-                    </div>
-                </div>
-                <div className="landing col-sm-4">
-                  <div className="icon"><i className="soap-icon-savings yellow-color"></i></div>
-                    <div>
-                      <span className="skin-color">APR</span><br />1
-                    </div>
-                </div>
-                <div className="total-time col-sm-4">
-
-                <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
-                  <div>
-                    <span className="skin-color">Bonus</span><br />1
-                  </div>
-
-                  <div className="icon"><i className="soap-icon-clock yellow-color"></i></div>
-                    <div>
-                      <span className="skin-color">Intro Rate</span><br />1
-                    </div>
-                  </div>
-                </div>
-
-                <div className="action">
-                  1
-                </div>
+              <div className="action">
+                <a className="button btn-small active">Favorite Card</a><hr/>
               </div>
             </div>
+
+            <div className="third-row">
+              <div className="time">
+
+                <div className="take-off col-sm-4">
+                  <div className="icon"><i className="soap-icon-card yellow-color"></i></div>
+                  <div>
+                    <span className="skin-color">Annual Fee</span><br/>{this.props.annualFee}
+                  </div>
+                </div>
+
+                <div className="landing col-sm-4">
+                  <div className="icon"><i className="soap-icon-savings yellow-color"></i></div>
+                  <div>
+                    <span className="skin-color">APR</span><br/>{this.props.apr}
+                  </div>
+                </div>
+
+                <div className="total-time col-sm-4">
+                  <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
+                  <div>
+                    <span className="skin-color">Current Bonus</span><br/>{this.props.rewards}
+                  </div>
+                </div>
+
+              </div>
+              <div className="action">
+                <a className="button btn-small full-width see-more-button" href="/cards/10">SEE MORE INFORMATION</a>
+              </div>
+
+            </div>
           </div>
-        </article>
-      </div>
-
-
-
-
+        </div>
+      </article>
     );
   }
 });
@@ -71,9 +62,20 @@ var CardList = React.createClass({
   render : function() {
     var cardNodes = this.props.cards.map(function (card, index) {
       return (
-        <Card name={ card.name } imageLink= {card.image_link} key={index} />
+        <Card name = {card.name}
+              route = {card.id}
+              imageLink = {card.image_link}
+              bestOffer = {card.best_offer}
+              annualFee = {card.annual_fee}
+              apr = {card.apr}
+              rewards = {card.rewards.map(function(one_reward, index) {
+                one_reward
+              })}
+              key ={index} />
       );
     });
+
+
 
     return (
       <div className="cardList">
@@ -94,7 +96,7 @@ var CardBox = React.createClass({
 
   loadCommentsFromServer: function () {
     $.ajax({
-      url: this.props.url,
+      url: "api/v1/categories/" + this.props.id,
       dataType: 'json',
       success: function (cards) {
         this.setState({cards : cards});
@@ -104,8 +106,6 @@ var CardBox = React.createClass({
       }.bind(this)
     });
   },
-
-
 
   render : function () {
     return (
@@ -117,46 +117,15 @@ var CardBox = React.createClass({
   }
 });
 
+var Cards = React.createClass({
 
-var Main = React.createClass({
   render : function() {
     return (
       <div>
-        <CardBox url="/api/v1/categories/3" />
+        <CardBox id={this.props.id} />
       </div>
       )
   }
 });
-//   React.renderComponent(
-//     <Card name="Barclays Card" />,
-//   );
-// };
 
 
-
-// var CardList = React.createClass({
-//   render: function () {
-//     var cardNodes = this.props.comments.map(function (card, index) {
-//       return (
-//         <Comment name={card.name} key={index} />
-//         );
-//     });
-
-//     return (
-//       <div className="cardList">
-//         {cardNodes}
-//       </div>
-//       );
-//   }
-// });
-
-
-// var Main = React.createClass({
-//   render() {
-//     return (
-//       <div>
-//         <h1>Hello, Creact!</h1>
-//       </div>
-//     )
-//   }
-// });
