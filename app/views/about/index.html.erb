@@ -21,13 +21,13 @@
     <div class="col-md-6">
       <h2>Why Me?</h2>
 
-      <p> <a href="http://www.sweatersaga.com/" class="active">Two years ago</a>, I traveled completely around the world. In total, I took 13 flights without spending any real cash. I did this by applying for travel credit cards and using the miles earned to pay for my flights. This experience taught me a lot about travel credit cards. Our hope is that our app will help share this knowledge.</p>
+      <p> <a href="http://www.sweatersaga.com/" class="active">Two years ago</a>, I traveled completely around the world for free. How? By strategically applying for travel credit cards and using the points I earned to pay for flights.  In total, I took 13 flights without spending any real cash.  I want to share what I learned, so that you, too, can explore the world without breaking the bank.</p>
 
       <h2>Why Too Many Miles?</h2>
 
-      <p>Travel credit cards offer excellent sign up bonuses. For example, the <%= link_to @linked_card.name, card_path(@linked_card), class: "active" %>, is currently offering <%= number_with_delimiter(@linked_card.rewards.first.amount) %> points if you spend <%= number_to_currency(@linked_card.rewards.first.spending_amount, precision: 0) %> in <%= pluralize(@linked_card.rewards.first.length_of_time, "Month") %>. These points/miles offer travelers a chance to see the world for free. In the case of Chase, this is approximately $625 in free flights!</p>
+      <p>Travel credit cards offer excellent sign up bonuses. For example, the <%= link_to @linked_card.name, card_path(@linked_card), class: "active" %>, is currently offering <%= number_with_delimiter(@linked_card.rewards.first.amount) %> points if you spend <%= number_to_currency(@linked_card.rewards.first.spending_amount, precision: 0) %> in <%= pluralize(@linked_card.rewards.first.length_of_time, "month") %>. These points can be converted to airline miles and offer you a chance to see the world for free. In this case, Chase is giving away approximately $625 in flights!</p>
 
-      <p><strong>The problem, however, is that often these sign up bonuses change</strong> - some months the deals are better than others. Our app tracks these bonuses across a variety of cards and <%= link_to "provides recommendations", category_path(@best_cards), class: "active" %> based on the cards' current bonus relative to their historical bonuses. By applying at the correct time, you are able to receive the biggest bonus possible.</p>
+      <p><strong>The problem? These sign up bonuses are fleeting.</strong> Some months, the deals are better than others, and the best deals can disappear quickly. Our app tracks bonuses across a variety of cards and <%= link_to "provides recommendations", category_path(@best_cards), class: "active" %> based on the cards' current offers relative to their historical offers. We will coach you to apply at the correct time, and receive the largest bonus possible!</p>
     </div>
   </div>
  <!-- /.row -->
@@ -45,7 +45,7 @@
             <small>Founder &amp; Developer</small>
           </h3>
           <p><strong>"Travel Addict, Lord of the Rings Enthusiast, and Web Developer."</strong></p>
-          <p> Bret graduated from the University of Virginia in 2010, attended business school at Wake Forrest, and worked in finance in Washington D.C. Realizing this wasn't the correct career choice, Bret quit his job to travel the world for 4 months. During this trip he acquired his knowledge of the credit card game. Currently Bret lives in Denver, CO and spends his days working in software consulting. His nights are spent working on Too Many Miles and hopes to share his credit card knowledge with others so people can travel more for less!</p>
+          <p>Bret graduated from the University of Virginia in 2010, attended business school at Wake Forrest, and worked in finance in Washington D.C. until realizing his heart wasn’t in it. Bret quit his job in 2014 to travel the world for 4 months.  Among many valuable life lessons, Bret acquired a vast knowledge of the credit card game during his trip. Currently Bret lives in Denver, CO and spends his days working in software consulting. His nights are spent working on Too Many Miles where he hopes to share what he learned so you can travel more for less!</p>
             <ul class="list-inline">
               <li><a href="https://www.facebook.com/profile.php?id=1526930"><i class="soap-icon-facebook"></i></a></li>
               <li><a href="https://www.linkedin.com/in/bretdoucette"><i class="soap-icon-linkedin"></i></a></li>
@@ -62,7 +62,7 @@
             <small>Developer &amp; Card Strategist</small>
           </h3>
           <p><strong>"Snow Skier, Blitz Patzer, and Data Visualizer"</strong></p>
-          <p> Blake graduated from the University of Virginia in 2010 and immediately worked in Charlottesville, Virginia as a biological neural networks researcher. Currently he resides in Washington, D.C. and works as a consultant; writing JavaScript to create complex data visualizations for the energy policy industry. A passionate credit card enthusiast, Blake uses his knowledge to provide content and information for our (soon to be) blogs and codes reward graphs; helping users visualize the best deals!</p>
+          <p>Following his graduation from the University of Virginia in 2010, Blake worked in Charlottesville, Virginia as a neurological researcher. He currently resides in Washington, D.C. and works as a consultant, writing JavaScript to create complex data visualizations for the policy industry. A passionate credit card enthusiast, Blake uses his knowledge to provide content and information for our (soon to be) blogs and codes graphs to help you visualize the best deals!</p>
           <ul class="list-inline">
             <li><a href="https://www.facebook.com/profile.php?id=1526013"><i class="soap-icon-facebook"></i></a></li>
             <li><a href="https://www.linkedin.com/in/blake-thomas-63177987"><i class="soap-icon-linkedin"></i></a></li>
