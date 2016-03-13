@@ -47,7 +47,7 @@ var Card = React.createClass({
 
               </div>
               <div className="action">
-                <a className="button btn-small full-width see-more-button" href="/cards/10">SEE MORE INFORMATION</a>
+                <a className="button btn-small full-width see-more-button" href={'/cards/' + this.props.route}>SEE MORE INFORMATION</a>
               </div>
 
             </div>
@@ -74,8 +74,6 @@ var CardList = React.createClass({
               key ={index} />
       );
     });
-
-
 
     return (
       <div className="cardList">
@@ -110,7 +108,6 @@ var CardBox = React.createClass({
   render : function () {
     return (
       <div className="cardBox">
-        <h1>Cards</h1>
         <CardList cards={this.state.cards} />
       </div>
       );

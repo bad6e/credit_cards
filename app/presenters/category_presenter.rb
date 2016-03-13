@@ -17,6 +17,10 @@ class CategoryPresenter
     Category.friendly.find(@category_id)
   end
 
+  def category_id
+    category.id
+  end
+
   def category_name
     category.parse_category_name
   end
