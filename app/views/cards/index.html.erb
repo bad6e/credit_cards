@@ -26,20 +26,16 @@
               </h4>
                 <div id="modify-search-panel" class="panel-collapse collapse">
                   <div class="panel-content">
-                    <form method="post">
-                      <div class="form-group">
-                        <label>Card Name</label>
-                        <input type="text" class="input-text full-width" placeholder="" value="ex. Chase Sapphire Preferred" />
-                      </div>
-                      <div class="form-group">
-                        <label>Category</label>
-                        <div>
-                          <input type="text" name="date_from" class="input-text full-width" placeholder="ex. Airline" />
-                        </div>
-                      </div>
-                      <br />
-                      <button class="btn-medium icon-check uppercase full-width">search again</button>
-                    </form>
+
+                    <div class="form-group">
+                      <label>Card Name</label>
+                       <form method="get" accept-charset="UTF-8" id="search-form" role="search" action="/cards" class="quick-search">
+                          <input type="text" class="input-text full-width" name="search" class="input-text search-input" placeholder="ex. Chase Sapphire Preferred" />
+                       </form>
+                    </div>
+
+                     <br><button type="submit"  class="btn-medium uppercase full-width">Search</button>
+                    <br />
                   </div>
                 </div>
             </div>
@@ -50,39 +46,31 @@
         <div class="col-sm-8 col-md-9">
 
           <!-- Sort By Result Box -->
-          <div class="sort-by-section clearfix box">
-            <h4 class="sort-by-title block-sm">Sort results by:</h4>
-            <ul class="sort-bar clearfix block-sm">
-              <li class="sort-by-name"><a class="sort-by-container" href="#"><span>name</span></a></li>
-              <li class="sort-by-price active"><a class="sort-by-container" href="#"><span>annual fee</span></a></li>
-            </ul>
-          </div>
+          <!-- This will be added later -->
           <!-- End - Sort By Result Box -->
 
           <!-- Card Listings -->
           <div class="flight-list listing-style3 flight">
-            <% @cards.each do |card| %>
+          <% @cards.each do |card| %>
             <article class="box">
-              <figure class="col-xs-3 col-sm-2">
-                <span><%= link_to image_tag(card.image_link), card_path(card) %></span>
-              </figure>
-              <div class="details col-xs-9 col-sm-10">
+              <div class="details col-xs-12">
+              <%= link_to image_tag(card.image_link, class: 'card-image-cat') , card_path(card) %>
                 <div class="details-wrapper">
                   <div class="first-row">
-                    <div>
-                      <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
-                      <a class="button btn-mini stop">Favorite</a>
-                      <div class="amenities">
-
-                      </div>
-                    </div>
-                    <div>
-                      <span class="price"><small>Apply Now:</small><div class= 'best-offer-color'><%= card.best_offer %></div></span>
+                    <h4 id="cat-card-title"><%= card.name %></h4>
+                  </div>
+                   <div>
+                    <span class="price" id="apply-now-color"><h6 id="apply-now-title">Apply Now?</h6><div class= 'best-offer-color'><br><%= card.best_offer %></div></span>
+                  </div>
+                  <div class="second-row">
+                    <div class="action">
+                      <a class="button btn-small active">Favorite Card</a><hr>
                     </div>
                   </div>
 
-                  <div class="second-row">
+                  <div class="third-row">
                     <div class="time">
+
                       <div class="take-off col-sm-4">
                         <div class="icon"><i class="soap-icon-card yellow-color"></i></div>
                           <div>
@@ -96,21 +84,23 @@
                             </div>
                           </div>
                         <div class="total-time col-sm-4">
-                        <% if card.rewards.any? %>
+
+                          <% if card.rewards.any? %>
                           <div class="icon"><i class="soap-icon-party yellow-color"></i></div>
                             <div>
-                              <span class="skin-color">Bonus</span><br /><%= card.rewards.first.amount %>
+                              <span class="skin-color">Current Bonus</span><br /><%= card.rewards.last.amount %>
                             </div>
-                        <% else %>
+                          <% else %>
                           <div class="icon"><i class="soap-icon-clock yellow-color"></i></div>
                             <div>
                               <span class="skin-color">Intro Rate</span><br /><%= card.intro_rate %>
-                          </div>
-                        <% end %>
-                      </div>
+                            </div><
+                          <% end %>
+
+                        </div>
                     </div>
                     <div class="action">
-                      <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
+                      <%= link_to "SEE MORE INFORMATION", card_path(card), class: "button btn-small full-width see-more-button" %>
                     </div>
                   </div>
                 </div>

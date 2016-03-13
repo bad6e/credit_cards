@@ -24,6 +24,7 @@ gem 'lodash-rails'
 gem 'sitemap_generator'
 gem 'aws-sdk'
 gem 'figaro'
+gem 'react-rails', '~> 1.6.0'
 
 group :development do
   gem 'web-console', '~> 2.0'

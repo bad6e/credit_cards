@@ -1,5 +1,6 @@
 function formatColors() {
   $( ".best-offer-color" ).each(function( index, element ) {
+
     $(element).show();
     if ($(element).text() === "n/a") {
       setColor(element, 'black');
