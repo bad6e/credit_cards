@@ -1,5 +1,16 @@
 var Card = React.createClass({
+
+  determineRewards : function(rewards) {
+    if (rewards === undefined) {
+      return "No Rewards for this Card"
+    } else {
+      return rewards
+    }
+  },
+
   render : function () {
+    var rewards = this.props.rewards[0]
+
     return (
       <article className="box">
         <div className="details col-xs-12">
@@ -11,7 +22,7 @@ var Card = React.createClass({
             <div>
               <span className="price" id="apply-now-color">
                 <h6 id="apply-now-title">Apply Now?</h6>
-                <div>{this.props.bestOffer}<br/></div>
+                <div className="best-offer-color">{this.props.bestOffer}<br/></div>
               </span>
             </div>
 
@@ -41,10 +52,9 @@ var Card = React.createClass({
                 <div className="total-time col-sm-4">
                   <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
                   <div>
-                    <span className="skin-color">Current Bonus</span><br/>{this.props.rewards}
+                    <span className="skin-color">Current Bonus</span><br/>{this.determineRewards(rewards)}
                   </div>
                 </div>
-
               </div>
               <div className="action">
                 <a className="button btn-small full-width see-more-button" href={'/cards/' + this.props.route}>SEE MORE INFORMATION</a>
@@ -69,7 +79,10 @@ var CardList = React.createClass({
               annualFee = {card.annual_fee}
               apr = {card.apr}
               rewards = {card.rewards.map(function(one_reward, index) {
-                one_reward
+                return (
+
+                  one_reward.amount
+                  )
               })}
               key ={index} />
       );
@@ -124,5 +137,7 @@ var Cards = React.createClass({
       )
   }
 });
+
+
 
 
