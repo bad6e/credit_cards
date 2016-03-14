@@ -23,10 +23,10 @@
           <div class="toggle-container filters-container">
             <div class="panel style1 arrow-right">
               <h4 class="panel-title">
-                <a data-toggle="collapse" href="#modify-search-panel" class="collapsed">Pick Another Category</a>
+                <a data-toggle="collapse" href="#modify-search-panel" class="collapsed" id="cat-panel">Pick Another Category</a>
               </h4>
                 <div id="modify-search-panel" class="panel-collapse collapse">
-                  <div class="panel-content">
+                  <div class="panel-content" id="cat-panel">
                     <%= form_tag({controller: "categories", action: "show"}, method: "get") do %>
                        <%= select(:category, :category_id, Category.all.collect {|c| [ c.parse_category_name, c.id ] }) %></br>
                        <br><button type="submit"  class="btn-medium uppercase full-width">Search</button>
@@ -52,7 +52,7 @@
 
           <!-- Card Listings -->
           <div class="flight-list listing-style3 flight">
-            <%= react_component('Cards', id: @category.category_id) %>
+            <%= react_component('CategoryCards', id: @category.category_id) %>
           </div>
           <!-- End Card Listings -->
         </div>

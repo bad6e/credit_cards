@@ -1,28 +1,24 @@
 var Card = React.createClass({
-
-  determineRewards : function(rewards) {
-    if (rewards === undefined) {
-      return "No Rewards for this Card"
-    } else {
-      return rewards
-    }
+  determineRewardStatus : function(reward) {
+    return (reward === undefined ? "No Info for this Card" : reward)
   },
 
   render : function () {
-    var rewards = this.props.rewards[0]
+    var details = this.props.details
+    var currentReward = this.props.reward[0]
 
     return (
       <article className="box">
         <div className="details col-xs-12">
-          <a href={'/cards/' + this.props.route}><img className="card-image-cat" src={this.props.imageLink} alt={this.props.name}/></a>
+          <a href={'/cards/' + details.id}><img className="card-image-cat" src={details.image_link} alt={details.name}/></a>
           <div className="details-wrapper">
             <div className="first-row">
-              <h4 id="cat-card-title">{this.props.name}</h4>
+              <h4 id="cat-card-title">{details.name}</h4>
             </div>
             <div>
               <span className="price" id="apply-now-color">
                 <h6 id="apply-now-title">Apply Now?</h6>
-                <div className="best-offer-color">{this.props.bestOffer}<br/></div>
+                <div className="best-offer-color">{details.best_offer}<br/></div>
               </span>
             </div>
 
@@ -38,26 +34,26 @@ var Card = React.createClass({
                 <div className="take-off col-sm-4">
                   <div className="icon"><i className="soap-icon-card yellow-color"></i></div>
                   <div>
-                    <span className="skin-color">Annual Fee</span><br/>{this.props.annualFee}
+                    <span className="skin-color">Annual Fee</span><br/>{details.annual_fee}
                   </div>
                 </div>
 
                 <div className="landing col-sm-4">
                   <div className="icon"><i className="soap-icon-savings yellow-color"></i></div>
                   <div>
-                    <span className="skin-color">APR</span><br/>{this.props.apr}
+                    <span className="skin-color">APR</span><br/>{details.apr}
                   </div>
                 </div>
 
                 <div className="total-time col-sm-4">
                   <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
                   <div>
-                    <span className="skin-color">Current Bonus</span><br/>{this.determineRewards(rewards)}
+                    <span className="skin-color">Current Bonus</span><br/>{this.determineRewardStatus(currentReward)}
                   </div>
                 </div>
               </div>
               <div className="action">
-                <a className="button btn-small full-width see-more-button" href={'/cards/' + this.props.route}>SEE MORE INFORMATION</a>
+                <a className="button btn-small full-width see-more-button" href={'/cards/' + details.id}>SEE MORE INFORMATION</a>
               </div>
 
             </div>
@@ -68,44 +64,39 @@ var Card = React.createClass({
   }
 });
 
-var CardList = React.createClass({
+var CardAttributes = React.createClass({
   render : function() {
-    var cardNodes = this.props.cards.map(function (card, index) {
+    var card = this.props.cards.map(function (card, index) {
       return (
-        <Card name = {card.name}
-              route = {card.id}
-              imageLink = {card.image_link}
-              bestOffer = {card.best_offer}
-              annualFee = {card.annual_fee}
-              apr = {card.apr}
-              rewards = {card.rewards.map(function(one_reward, index) {
+        <Card key = {index}
+              details = {card}
+              reward = {card.rewards.map(function(reward, index) {
                 return (
-
-                  one_reward.amount
-                  )
+                  reward.amount
+                )
               })}
-              key ={index} />
-      );
+        />
+      )
     });
 
     return (
-      <div className="cardList">
-        {cardNodes}
+      <div>
+        {card}
       </div>
-      );
+    );
   }
 });
 
-var CardBox = React.createClass({
+var LoadCards = React.createClass({
   getInitialState : function () {
     return { cards: [] };
   },
 
   componentDidMount: function () {
-    this.loadCommentsFromServer();
+    this.loadCardsFromAPI();
   },
 
-  loadCommentsFromServer: function () {
+  loadCardsFromAPI: function () {
     $.ajax({
       url: "api/v1/categories/" + this.props.id,
       dataType: 'json',
@@ -120,24 +111,17 @@ var CardBox = React.createClass({
 
   render : function () {
     return (
-      <div className="cardBox">
-        <CardList cards={this.state.cards} />
-      </div>
-      );
+      <CardAttributes cards={this.state.cards} />
+    );
   }
 });
 
-var Cards = React.createClass({
-
+var CategoryCards = React.createClass({
   render : function() {
     return (
       <div>
-        <CardBox id={this.props.id} />
+        <LoadCards id={this.props.id} />
       </div>
       )
   }
 });
-
-
-
-
