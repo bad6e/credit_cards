@@ -24,12 +24,10 @@ class Card < ActiveRecord::Base
   scope :find_cards_that_are_in_multiple_categories, ->(category_names) { where(id: Card.cards_with_multiple_categories(category_names)) }
 
   def self.cards_with_multiple_categories(category_names)
-    select(:id)
-    .distinct
-    .joins(:categories)
+    joins(:categories)
     .where('categories.name' => category_names)
     .group(:id)
-    .having('count(categories.name) = ?', category_names.length)
+    .having('count(categories.name) >= ?', category_names.length)
   end
 
   def parse_card_categories_name

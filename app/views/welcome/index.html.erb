@@ -51,11 +51,12 @@
 </div><hr>
 </a>
 
+<h2 id="how">Check Out Our Favorite Cards</h2><br>
+
 <div class="container section front-page-deals">
-  <h2>Best Airline Cards</h2>
   <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
     <ul class="slides image-box car listing-style1">
-      <% @welcome_presenter.best_airline_cards.each do |card| %>
+      <% @welcome_presenter.our_favorite_cards.each do |card| %>
       <li>
         <article class="box">
           <figure>
@@ -64,7 +65,7 @@
           <div class="details">
             <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
             <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %></strong></p>
-            <p class="mile"><span class="skin-color">Apply Now?</span><div id="yes"> Yes</div></p>
+            <p class="mile"><span class="skin-color">Apply Now?</span><div class="best-offer-color" id="yes-or-no"> <%=card.best_offer %></div></p>
             <div class="action">
             <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
           </div>
@@ -76,33 +77,10 @@
   </div>
 </div>
 
-<div class="container section front-page-deals">
-  <h2>Best Hotel Cards</h2>
-  <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
-    <ul class="slides image-box car listing-style1">
-      <% @welcome_presenter.best_hotel_cards.each do |card| %>
-      <li>
-        <article class="box">
-          <figure>
-            <%= link_to image_tag(card.image_link), card_path(card) %>
-          </figure>
-          <div class="details">
-            <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
-            <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %></strong></p>
-            <p class="mile"><span class="skin-color">Apply Now?</span><div id="yes"> Yes</div></p>
-            <div class="action">
-            <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
-          </div>
-          </div>
-        </article>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<h2 id="how">Hot Deals NOW</h2>
 
 <div class="container section front-page-deals">
-  <h2>All the Best Deals</h2>
+  <h2>Travel Credit Cards</h2>
   <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
     <ul class="slides image-box car listing-style1">
       <% @welcome_presenter.best_cards.each do |card| %>
@@ -114,7 +92,7 @@
           <div class="details">
             <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
             <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %></strong></p>
-            <p class="mile"><span class="skin-color">Apply Now?</span><div id="yes"> Yes</div></p>
+            <p class="mile"><span class="skin-color">Apply Now?</span><div class="best-offer-color" id="yes-or-no"> <%=card.best_offer %></div></p>
             <div class="action">
             <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
           </div>

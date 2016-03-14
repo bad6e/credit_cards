@@ -2,15 +2,11 @@ class WelcomePresenter
    attr_reader :category_id
 
   def best_cards
-    Category.find_by(name: "best-credit-card-offers").cards
+    Card.cards_with_multiple_categories(["travel-credit-cards", "best-credit-card-offers"])
   end
 
-  def best_airline_cards
-    Category.find_by(name: "airline-credit-cards").cards.where(best_offer: "yes")
-  end
-
-  def best_hotel_cards
-    Category.find_by(name: "hotel-credit-cards").cards.where(best_offer: "yes")
+  def our_favorite_cards
+    Category.find_by(name: "our-favorite-credit-cards").cards
   end
 
   def featured_card
