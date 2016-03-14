@@ -15,13 +15,11 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require lodash
-//= require chartkick
 //= require react
 //= require react_ujs
 //= require components
 
 //VENDOR FILES
-//= require chartkick
 //= require jquery.flexslider-min
 //= require theme-scripts
 //= require react
