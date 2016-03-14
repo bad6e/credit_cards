@@ -60,23 +60,23 @@
                   <div class="row add-clearfix">
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-beach circle"></i>Sign Up Bonus: <%= @card_presenter.rewards.first.amount %> Miles
+                        <i class="soap-icon-beach circle"></i>Sign Up Bonus: <%= @card_presenter.rewards.last.amount %> Miles
                       </span>
                     </div>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-savings circle"></i>Spending Requirement: <%= number_to_currency(@card_presenter.rewards.first.spending_amount, precision: 0) %>
+                        <i class="soap-icon-savings circle"></i>Spending Requirement: <%= number_to_currency(@card_presenter.rewards.last.spending_amount, precision: 0) %>
                       </span>
                     </div>
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-calendar circle"></i>Length of Time: <%= pluralize(@card_presenter.rewards.first.length_of_time, "Month") %>
+                        <i class="soap-icon-calendar circle"></i>Length of Time: <%= pluralize(@card_presenter.rewards.last.length_of_time, "Month") %>
                       </span>
                     </div>
                   </div>
                 </div>
                 <div class='col-md-12 apply-here'>
-                  <%= button_to "Apply Here", @card_presenter.rewards.first.apply_link, :method => "get", class: "btn btn-success btn-lg btn-block"  %>
+                  <%= link_to "Apply Here", @card_presenter.rewards.last.apply_link, class: "btn btn-success btn-lg btn-block" %>
                 </div>
               <% end %>
             </div>
@@ -115,15 +115,15 @@
                 <% if @card_presenter.card_has_bonus? %>
                   <div class="mile clearfix">
                     <span class="skin-color">Sign Up Bonus:</span>
-                    <span class="mileage pull-right"><%= @card_presenter.rewards.first.amount %></span>
+                    <span class="mileage pull-right"><%= @card_presenter.rewards.last.amount %></span>
                   </div>
                   <div class="mile clearfix">
                     <span class="skin-color">Spending Requirements:</span>
-                    <span class="mileage pull-right"><%= number_to_currency(@card_presenter.rewards.first.spending_amount, precision: 0) %></span>
+                    <span class="mileage pull-right"><%= number_to_currency(@card_presenter.rewards.last.spending_amount, precision: 0) %></span>
                   </div>
                   <div class="mile clearfix">
                     <span class="skin-color">Length of Time:</span>
-                    <span class="mileage pull-right"><%= pluralize(@card_presenter.rewards.first.length_of_time, "Month") %></span>
+                    <span class="mileage pull-right"><%= pluralize(@card_presenter.rewards.last.length_of_time, "Month") %></span>
                   </div>
                   <span class="price clearfix">
                     <small class="pull-left">Good Time to Apply:</small>

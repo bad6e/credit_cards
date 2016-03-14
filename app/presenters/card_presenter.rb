@@ -48,7 +48,7 @@ class CardPresenter
 
   #Logic for displaying the most recent rewards
   def rewards
-    card.rewards.order(record_date: :desc)
+    card.rewards.order(record_date: :asc)
   end
 
   def card_has_bonus?
