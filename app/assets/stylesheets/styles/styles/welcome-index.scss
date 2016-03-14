@@ -22,14 +22,86 @@ $lightGray : #838383;
   font-family: 'Raleway', sans-serif;
  }
 
+ //Graph CSS
+
 .graph-detail {
   display: none;
   text-align: center;
+}
+
+.subtitles {
+  text-align: center;
+}
+
+
+.front-page-deals {
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #how {
   color: $lightGray !important;
   text-align: center;
   font-size: 29px;
+}
+
+
+
+
+//Step Boxes
+.how {
+  padding-bottom: 50px;
+}
+
+.steps-box {
+  font-family: 'Raleway', sans-serif;
+}
+
+.how-desc {
+  font-size: 1.4em;
+  color: #838383;
+}
+
+.steps {
+  color: $lightBlue;
+}
+
+//Example Title
+.example {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: $lightGray !important;
+}
+
+#how {
+  padding-bottom: 10px;
+  font-size: 29px;
+}
+
+//Reward Box
+.reward-graph-box {
+  padding-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+#yes {
+  text-align: center;
+  color: green !important;
+}
+
+.card-name {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.apply-info {
+  padding: 30px 20px 20px 20px;
+  text-align: center;
 }
 

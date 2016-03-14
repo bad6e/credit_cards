@@ -3,52 +3,106 @@
 <h1 class="top-title" id="40">Always Apply at the Right Time</h1><br><br><br>
 <section class= "container how">
   <h2 id="how">How does it work?</h2><br><br>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="icon-box style10">
-            <i class="soap-icon-search"></i>
-            <small><strong>Step 1</strong></small>
-            <h4 class="box-title">100% Original Theme</h4>
-            <p class="description">Search for a specific credit card or card category.</p>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="icon-box style10 steps-box">
+          <i class="soap-icon-search"></i>
+          <small class="steps"><strong>Step 1</strong></small>
+          <h4 class="box-title">100% Original Theme</h4>
+          <p class="description how-desc">Search for a specific credit card or card category.</p>
         </div>
-        <div class="col-sm-4">
-            <div class="icon-box style10">
-                <i class="soap-icon-insurance"></i>
-                <small><strong>Step 2</strong></small>
-                <h4 class="box-title">Custom Travel Icons Pack</h4>
-                <p class="description">Check the credit card's reward graph to see if the current bonus is a good deal.</p>
-            </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="icon-box style10 steps-box">
+          <i class="soap-icon-insurance"></i>
+          <small class="steps"><strong>Step 2</strong></small>
+          <h4 class="box-title">Custom Travel Icons Pack</h4>
+          <p class="description how-desc">Check the credit card's <a href="#step2" class="active">historical reward graph.</a></p>
         </div>
-        <div class="col-sm-4">
-            <div class="icon-box style10">
-                <i class="soap-icon-plane-right"></i>
-                <small><strong>Step 3</strong></small>
-                <h4 class="box-title">Dashboard Included</h4>
-                <p class="description">If the deal is great -- apply for the credit card and start using your points!</p>
-            </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="icon-box style10 steps-box">
+          <i class="soap-icon-plane-right"></i>
+          <small class="steps"><strong>Step 3</strong></small>
+          <h4 class="box-title">Dashboard Included</h4>
+          <p class="description how-desc"><a href="#step3" class="active">If the deal is great</a> -- apply and start using your points!</p>
         </div>
+      </div>
     </div>
   </div>
-</section><br><br>
+</section><hr>
 
-<div class="container apply-center-container">
-  <h3 class="graph-detail">Example. Starwood Preferred Guest® Credit Card</h3>
-  <h2 class="time-to-apply-title"></h2>
-  <h3 class="title-to-apply-subtitle"></h3>
+<a name="step2">
+<div class="example">
+  <h2 id="how">An Example</h2>
+  <%= link_to image_tag(@welcome_presenter.featured_card.image_link, class: 'card-image-cat') , card_path(@welcome_presenter.featured_card) %><br>
+  <h4><%= link_to "Starwood's Sign Up Bonus Over Time", card_path(@welcome_presenter.featured_card), class: "active" %></h4>
+</div>
 
-</div><br><br>
+<div class="reward-graph-box subtitles">
+  <div class="container reward-graph-container">
+    <a name="step3">
+      <div id="reward-chart" style="height: 300px;"></div>
+      <h3 class="title-to-apply-subtitle"></h3>
+      <h2 class="time-to-apply-title"></h2>
+    </a>
+  </div>
+</div><hr>
+</a>
 
-<!-- Top Image -->
-<div class="container reward-graph-container">
-   <div id="reward-chart" style="height: 300px;"></div></div><br><br>
-   <h4 class="graph-detail">Starwood's Sign Up Bonus Over Time</h4>
-<br>
-<!-- End Top Image -->
+<div class="container section front-page-deals">
+  <h2>Best Airline Cards</h2>
+  <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
+    <ul class="slides image-box car listing-style1">
+      <% @welcome_presenter.best_airline_cards.each do |card| %>
+      <li>
+        <article class="box">
+          <figure>
+            <%= link_to image_tag(card.image_link), card_path(card) %>
+          </figure>
+          <div class="details">
+            <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
+            <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %></strong></p>
+            <p class="mile"><span class="skin-color">Apply Now?</span><div id="yes"> Yes</div></p>
+            <div class="action">
+            <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
+          </div>
+          </div>
+        </article>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<div class="container section">
-  <h2>Some of the Best Deals!</h2>
+<div class="container section front-page-deals">
+  <h2>Best Hotel Cards</h2>
+  <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
+    <ul class="slides image-box car listing-style1">
+      <% @welcome_presenter.best_hotel_cards.each do |card| %>
+      <li>
+        <article class="box">
+          <figure>
+            <%= link_to image_tag(card.image_link), card_path(card) %>
+          </figure>
+          <div class="details">
+            <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
+            <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %></strong></p>
+            <p class="mile"><span class="skin-color">Apply Now?</span><div id="yes"> Yes</div></p>
+            <div class="action">
+            <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
+          </div>
+          </div>
+        </article>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="container section front-page-deals">
+  <h2>All the Best Deals</h2>
   <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
     <ul class="slides image-box car listing-style1">
       <% @welcome_presenter.best_cards.each do |card| %>
@@ -58,13 +112,12 @@
             <%= link_to image_tag(card.image_link), card_path(card) %>
           </figure>
           <div class="details">
-
-              <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
-              <p class="mile"><span class="skin-color"><strong>BONUS: </span><%= card.rewards.first.amount %></strong></p>
-              <p class="mile"><span class="skin-color">Good Time to Apply?</span> Yes</p>
-              <div class="action">
-                <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
-              </div>
+            <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
+            <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %></strong></p>
+            <p class="mile"><span class="skin-color">Apply Now?</span><div id="yes"> Yes</div></p>
+            <div class="action">
+            <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
+          </div>
           </div>
         </article>
       </li>
