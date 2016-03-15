@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/admin-logout', to: 'sessions#delete'
   delete "/admin-logout", to: "sessions#destroy"
 
+  get '/learn-about-credit-cards', to: ''
+
   resources :about, only: [:index]
 
   resources :cards, only: [:index, :show]
