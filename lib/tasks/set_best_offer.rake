@@ -14,7 +14,7 @@ task set_best_offer: :environment do
         if (current_reward(card) >= highest_reward(card)) and (card_not_already_assigned(card.id) == false)
           update_best_offer_to_yes(card)
           assign_category_to_best_card_category(card)
-        elsif percentage_change(card) < 15
+        elsif percentage_change(card) <= 20
           update_best_offer_to_ok(card)
         end
       end

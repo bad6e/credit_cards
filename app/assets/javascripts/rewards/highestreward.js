@@ -54,7 +54,7 @@ function measureDate(currentDate, firstDate) {
 
 function determineHowBad(currentBonus, maxReward) {
   var percentage = calculatePercentageChange(currentBonus, maxReward);
-  if (percentage <= 15) {
+  if (percentage <= 20) {
     okTimeToApply(percentage);
   } else {
     badTimeToApply(percentage);
