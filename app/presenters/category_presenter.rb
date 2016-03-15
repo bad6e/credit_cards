@@ -4,7 +4,6 @@ class CategoryPresenter
 
   def initialize(params)
     @category_id = params[:id]
-
   end
 
   def find_display_id(params)
