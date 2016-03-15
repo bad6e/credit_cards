@@ -23,7 +23,7 @@ task :update_cards => :environment do
     end
 
     def url_list
-      ["airline","business-rewards", "hotel", "cash-back", "other"]
+      [""]
     end
 
     def card_name
@@ -57,6 +57,7 @@ task :update_cards => :environment do
       @grouped_details = []
       n = 1
       @links.each do |link|
+        sleep(rand(1..5))
         user_agent = @user_agent.sample[0]
         @new_page = Nokogiri::HTML(open("http://thepointsguy.com/#{link}", "User-Agent" => user_agent))
         stuff = @new_page.css(".card-right").css("ul").children.each do |r|
@@ -118,7 +119,9 @@ task :update_cards => :environment do
 
     def assign_category(data)
       c = Card.find_by(name: data[0])
-      if c.categories == []
+      if c.categories == [] and @url == ""
+        c.categories << Category.find_by(name: "other-credit-cards")
+      elsif c.categories == []
         c.categories << Category.find_by(name: url_key[@url])
       end
     end
