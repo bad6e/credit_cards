@@ -3,7 +3,7 @@ require "rails_helper"
 feature "user - category show page - redirect" do
   include_context "features"
 
-  scenario "user will be redirected when to correct category page when using /categories in url" do
+  scenario "user will be redirected when to correct category page when using /categories in url", js: true do
     set_card_categories
 
     visit "/categories/airline-credit-cards"
