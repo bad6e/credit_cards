@@ -1,9 +1,22 @@
+var SortByName = React.createClass({
+  render : function() {
+    return (
+      <div className="sort-by-section clearfix box" id="sorter-box">
+        <h4 className="sort-by-title block-sm">Sort Results By:</h4>
+        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByName}>Name</button>
+        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByBestOffer}>Best Offer</button>
+        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByAmount}>Reward Amount</button>
+      </div>
+    )
+  }
+})
+
 var Card = React.createClass({
   determineRewardStatus : function(reward) {
     return (reward === undefined ? "No Info for this Card" : reward)
   },
 
-  render : function () {
+  render : function() {
     var details = this.props.details
     var currentReward = this.props.reward[0]
 
@@ -109,9 +122,35 @@ var LoadCards = React.createClass({
     });
   },
 
+  sortCardsByName : function() {
+   var sortedCardsByName = _.sortBy(this.state.cards, function(o) { return o.name; })
+   this.setState({ cards: sortedCardsByName })
+  },
+
+  sortCardsByBestOffer : function() {
+    var sortedCardsByOffer =  _.orderBy(this.state.cards, ['best_offer'], ['desc']);
+    this.setState({ cards: sortedCardsByOffer })
+  },
+
+  sortCardsByAmount : function() {
+    var sortedCardsByAmount = _.sortBy(this.state.cards, function(o) {
+      if (o.rewards.length > 0) {
+        return o.rewards[0].amount;
+      } else if (o.rewards.length === 0) {
+        return -1
+      }
+    })
+    this.setState({ cards: sortedCardsByAmount.reverse() })
+  },
+
   render : function () {
     return (
-      <CardAttributes cards={this.state.cards} />
+      <div>
+        <SortByName sortCardsByName = {this.sortCardsByName}
+                    sortCardsByBestOffer = {this.sortCardsByBestOffer}
+                    sortCardsByAmount = {this.sortCardsByAmount}/>
+        <CardAttributes cards={this.state.cards} />
+      </div>
     );
   }
 });
