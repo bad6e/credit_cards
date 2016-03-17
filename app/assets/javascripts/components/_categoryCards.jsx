@@ -16,6 +16,16 @@ var Card = React.createClass({
     return (reward === undefined ? "No Info for this Card" : reward)
   },
 
+  determineBestOfferColor : function(bestOffer) {
+    if (bestOffer === "yes") {
+      return {color: 'green'}
+    } else if (bestOffer === "no") {
+      return {color: 'red'}
+    } else {
+      return {color: '#BB9D40'}
+    }
+  },
+
   render : function() {
     var details = this.props.details
     var currentReward = this.props.reward[0]
@@ -31,7 +41,7 @@ var Card = React.createClass({
             <div>
               <span className="price" id="apply-now-color">
                 <h6 id="apply-now-title">Apply Now?</h6>
-                <div className="best-offer-color">{details.best_offer}<br/></div>
+                <div className="best-offer-color" style={this.determineBestOfferColor(details.best_offer)}>{details.best_offer}<br/></div>
               </span>
             </div>
 
