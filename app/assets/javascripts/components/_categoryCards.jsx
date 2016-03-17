@@ -1,76 +1,77 @@
+var SortByName = React.createClass({
+  render : function() {
+    return (
+      <div className="sort-by-section clearfix box" id="sorter-box">
+        <h4 className="sort-by-title block-sm">Sort Results By:</h4>
+        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByName}>Name</button>
+        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByName}>Bonus Amount</button>
+      </div>
+    )
+  }
+})
+
 var Card = React.createClass({
   determineRewardStatus : function(reward) {
     return (reward === undefined ? "No Info for this Card" : reward)
   },
 
-  render : function () {
+  render : function() {
     var details = this.props.details
     var currentReward = this.props.reward[0]
 
     return (
-      <div>
-        <div className="sort-by-section clearfix box">
-          <h4 className="sort-by-title block-sm">Sort results by:</h4>
-          <ul className="sort-bar clearfix block-sm">
-            <li className="sort-by-name"><a className="sort-by-container" href="#"><span>name</span></a></li>
-          </ul>
-        </div>
+      <article className="box">
+        <div className="details col-xs-12">
+          <a href={'/cards/' + details.id}><img className="card-image-cat" src={details.image_link} alt={details.name}/></a>
+          <div className="details-wrapper">
+            <div className="first-row">
+              <h4 id="cat-card-title">{details.name}</h4>
+            </div>
+            <div>
+              <span className="price" id="apply-now-color">
+                <h6 id="apply-now-title">Apply Now?</h6>
+                <div className="best-offer-color">{details.best_offer}<br/></div>
+              </span>
+            </div>
 
-        <div className="flight-list listing-style3 flight">
-          <article className="box">
-            <div className="details col-xs-12">
-              <a href={'/cards/' + details.id}><img className="card-image-cat" src={details.image_link} alt={details.name}/></a>
-              <div className="details-wrapper">
-                <div className="first-row">
-                  <h4 id="cat-card-title">{details.name}</h4>
-                </div>
-                <div>
-                  <span className="price" id="apply-now-color">
-                    <h6 id="apply-now-title">Apply Now?</h6>
-                    <div className="best-offer-color">{details.best_offer}<br/></div>
-                  </span>
-                </div>
-
-                <div className="second-row">
-                  <div className="action">
-                    <a className="button btn-small active">Favorite Card</a><hr/>
-                  </div>
-                </div>
-
-                <div className="third-row">
-                  <div className="time">
-
-                    <div className="take-off col-sm-4">
-                      <div className="icon"><i className="soap-icon-card yellow-color"></i></div>
-                      <div>
-                        <span className="skin-color">Annual Fee</span><br/>{details.annual_fee}
-                      </div>
-                    </div>
-
-                    <div className="landing col-sm-4">
-                      <div className="icon"><i className="soap-icon-savings yellow-color"></i></div>
-                      <div>
-                        <span className="skin-color">APR</span><br/>{details.apr}
-                      </div>
-                    </div>
-
-                    <div className="total-time col-sm-4">
-                      <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
-                      <div>
-                        <span className="skin-color">Current Bonus</span><br/>{this.determineRewardStatus(currentReward)}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="action">
-                    <a className="button btn-small full-width see-more-button" href={'/cards/' + details.id}>SEE MORE INFORMATION</a>
-                  </div>
-
-                </div>
+            <div className="second-row">
+              <div className="action">
+                <a className="button btn-small active">Favorite Card</a><hr/>
               </div>
             </div>
-          </article>
+
+            <div className="third-row">
+              <div className="time">
+
+                <div className="take-off col-sm-4">
+                  <div className="icon"><i className="soap-icon-card yellow-color"></i></div>
+                  <div>
+                    <span className="skin-color">Annual Fee</span><br/>{details.annual_fee}
+                  </div>
+                </div>
+
+                <div className="landing col-sm-4">
+                  <div className="icon"><i className="soap-icon-savings yellow-color"></i></div>
+                  <div>
+                    <span className="skin-color">APR</span><br/>{details.apr}
+                  </div>
+                </div>
+
+                <div className="total-time col-sm-4">
+                  <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
+                  <div>
+                    <span className="skin-color">Current Bonus</span><br/>{this.determineRewardStatus(currentReward)}
+                  </div>
+                </div>
+              </div>
+              <div className="action">
+                <a className="button btn-small full-width see-more-button" href={'/cards/' + details.id}>SEE MORE INFORMATION</a>
+              </div>
+
+            </div>
+          </div>
         </div>
-      </div>
+      </article>
     );
   }
 });
@@ -120,9 +121,17 @@ var LoadCards = React.createClass({
     });
   },
 
+  sortCardsByName : function() {
+   var sortedCards = _.sortBy(this.state.cards, function(o) { return o.name; })
+   this.setState({ cards: sortedCards })
+  },
+
   render : function () {
     return (
-      <CardAttributes cards={this.state.cards} />
+      <div>
+        <SortByName sortCardsByName={this.sortCardsByName}/>
+        <CardAttributes cards={this.state.cards} />
+      </div>
     );
   }
 });
