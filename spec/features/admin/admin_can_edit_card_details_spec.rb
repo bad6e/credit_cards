@@ -58,7 +58,7 @@ feature "admin" do
     end
   end
 
-  scenario "admin can edit card categories and see updated card on category page" do
+  scenario "admin can edit card categories" do
     admin_edit
     fill_in_card_information
 
@@ -67,12 +67,6 @@ feature "admin" do
     expect(card_one.categories.first.name).to eq(category_one.name)
     expect(card_one.categories.second.name).to eq(category_three.name)
     expect(card_one.categories.third.name).to eq(category_four.name)
-
-    visit category_path(category_three)
-    expect(page).to have_content("Test Name1")
-
-    visit category_path(category_one)
-    expect(page).to have_content("Test Name1")
   end
 
   scenario "admin can't add the same category to the same card twice" do
