@@ -95,7 +95,7 @@ shared_context "features" do
 
 
   let!(:card_six) {
-    Card.create(name: "Starwood Card",
+    Card.create(name: "Starwood Preferred Guest® Credit Card from American Express",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
