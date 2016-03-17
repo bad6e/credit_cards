@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     if show_category_page_request(params)
-      @category = CategoryPresenter.new(params)
+      @category_presenter = CategoryPresenter.new(params)
     else
       redirect_to category_path(find_category(params))
     end
