@@ -35,9 +35,26 @@ RSpec.describe Card, type: :model do
                     slug: "cash-back-credit-cards")
   }
 
+  let(:category_two) {
+    Category.create(name: "airline-credit-cards",
+                    slug: "airline-credit-cards")
+  }
+
+  let(:category_three) {
+    Category.create(name: "travel-credit-cards",
+                    slug: "travel-credit-cards")
+  }
+
+
   def add_card_to_category
     card = Card.find(card_one.id)
     card.categories << Category.find(category_one.id)
+    card.categories << Category.find(category_two.id)
+    card.categories << Category.find(category_three.id)
+
+    card = Card.find(card_two.id)
+    card.categories << Category.find(category_one.id)
+    card.categories << Category.find(category_two.id)
   end
 
   it "is valid" do
@@ -69,9 +86,27 @@ RSpec.describe Card, type: :model do
     expect(card_one).to be_invalid
   end
 
+  it "should return cards that belong to at least two specific categories" do
+    add_card_to_category
+    cards = Card.find_cards_that_are_in_multiple_categories(["airline-credit-cards", "cash-back-credit-cards"])
+    expect(cards.count).to eq(2)
+  end
+
+  it "should return cards that belong to at least three specific categories - 3 categories" do
+    add_card_to_category
+    cards = Card.find_cards_that_are_in_multiple_categories(["airline-credit-cards", "cash-back-credit-cards", "travel-credit-cards"])
+    expect(cards.count).to eq(1)
+  end
+
+   it "should return cards that belong to at least one specific categories" do
+    add_card_to_category
+    cards = Card.find_cards_that_are_in_multiple_categories(["airline-credit-cards"])
+    expect(cards.count).to eq(2)
+  end
+
   it "should parse the cards category name correctly and return it in array" do
     add_card_to_category
-    expect(card_one.parse_card_categories_name).to eq(["Cash Back Credit Cards"])
+    expect(card_one.parse_card_categories_name).to eq(["Travel Credit Cards", "Airline Credit Cards", "Cash Back Credit Cards"])
   end
 
   it "should search and return all cards for a given search feature" do
