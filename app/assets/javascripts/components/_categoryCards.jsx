@@ -21,8 +21,10 @@ var Card = React.createClass({
       return {color: 'green'}
     } else if (bestOffer === "no") {
       return {color: 'red'}
-    } else {
+    } else if (bestOffer === "ok") {
       return {color: '#BB9D40'}
+    } else {
+      return {color: 'black'}
     }
   },
 
