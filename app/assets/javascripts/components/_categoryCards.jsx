@@ -33,7 +33,7 @@ var Card = React.createClass({
     var currentReward = this.props.reward[0]
 
     return (
-      <article className="box">
+      <article className="box" id={'card-' + details.id}>
         <div className="details col-xs-12">
           <a href={'/cards/' + details.id}><img className="card-image-cat" src={details.image_link} alt={details.name}/></a>
           <div className="details-wrapper">
