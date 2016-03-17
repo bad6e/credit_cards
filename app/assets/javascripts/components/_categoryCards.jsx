@@ -4,7 +4,7 @@ var SortByName = React.createClass({
       <div className="sort-by-section clearfix box" id="sorter-box">
         <h4 className="sort-by-title block-sm">Sort Results By:</h4>
         <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByName}>Name</button>
-        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByBestOffer}>Best Offer</button>
+        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByBestOffer}>Apply Now?</button>
         <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByAmount}>Current Bonus</button>
       </div>
     )
@@ -56,6 +56,13 @@ var Card = React.createClass({
             <div className="third-row">
               <div className="time">
 
+                <div className="total-time col-sm-4">
+                  <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
+                  <div>
+                    <span className="skin-color">Current Bonus</span><br/><strong>{this.determineRewardStatus(currentReward)}</strong>
+                  </div>
+                </div>
+
                 <div className="take-off col-sm-4">
                   <div className="icon"><i className="soap-icon-card yellow-color"></i></div>
                   <div>
@@ -70,12 +77,6 @@ var Card = React.createClass({
                   </div>
                 </div>
 
-                <div className="total-time col-sm-4">
-                  <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
-                  <div>
-                    <span className="skin-color">Current Bonus</span><br/>{this.determineRewardStatus(currentReward)}
-                  </div>
-                </div>
               </div>
               <div className="action">
                 <a className="button btn-small full-width see-more-button" href={'/cards/' + details.id}>SEE MORE INFORMATION</a>
