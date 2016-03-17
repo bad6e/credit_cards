@@ -3,7 +3,7 @@ require "rails_helper"
 feature "user - category show page" do
   include_context "features"
 
-  scenario "user can all the cards for a specific category" do
+  scenario "user can all the cards for a specific category", js: true do
     set_card_categories
 
     visit category_path(category_one)
