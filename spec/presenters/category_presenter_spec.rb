@@ -70,21 +70,21 @@ RSpec.describe Category, type: :model do
   end
 
   it "returns the category" do
-    expect(CategoryPresenter.new(category_one.id).category.name).to eq("airline")
+    expect(CategoryPresenter.new(category_one).category.name).to eq("airline")
   end
 
   it "returns the category's name parsed correctly" do
-    expect(CategoryPresenter.new(category_one.id).category_name).to eq("Airline")
+    expect(CategoryPresenter.new(category_one).category_name).to eq("Airline")
   end
 
   it "returns the number of cards per category" do
     set_category
-    expect(CategoryPresenter.new(category_one.id).number_of_cards_per_category).to eq(5)
+    expect(CategoryPresenter.new(category_one).number_of_cards_per_category).to eq(5)
   end
 
   it "returns all the cards associated with a category" do
     set_category
-    expect(CategoryPresenter.new(category_one.id).categories_cards.count).to eq(5)
-    expect(CategoryPresenter.new(category_one.id).categories_cards.first.name).to eq("Southwest Airlines Premier")
+    expect(CategoryPresenter.new(category_one).categories_cards.count).to eq(5)
+    expect(CategoryPresenter.new(category_one).categories_cards.first.name).to eq("Southwest Airlines Premier")
   end
 end
