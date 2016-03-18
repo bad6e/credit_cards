@@ -1,12 +1,14 @@
 language: ruby
 rvm:
 - 2.3.0
+env:
+- TESTFOLDER=models/
+- TESTFOLDER=presenters/
+- TESTFOLDER=controllers/
 script:
 - bundle install
 - bundle exec rake db:create db:schema:load
-- bundle exec rspec/models/
-- bundle exec rspec/controllers/
-- bundle exec rspec/presenters/
+- bundle exec rspec $TESTFOLDER
 deploy:
   provider: heroku
   api_key:
