@@ -2,9 +2,9 @@ language: ruby
 rvm:
 - 2.3.0
 env:
-- TESTFOLDER=models/
-- TESTFOLDER=presenters/
-- TESTFOLDER=controllers/
+- TESTFOLDER=spec/models/
+- TESTFOLDER=spec/presenters/
+- TESTFOLDER=spec/controllers/
 script:
 - bundle install
 - bundle exec rake db:create db:schema:load
