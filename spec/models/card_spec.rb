@@ -106,7 +106,9 @@ RSpec.describe Card, type: :model do
 
   it "should parse the cards category name correctly and return it in array" do
     add_card_to_category
-    expect(card_one.parse_card_categories_name).to eq(["Travel Credit Cards", "Airline Credit Cards", "Cash Back Credit Cards"])
+    expect(card_one.parse_card_categories_name.include?("Cash Back Credit Cards")).to eq(true)
+    expect(card_one.parse_card_categories_name.include?("Airline Credit Cards")).to eq(true)
+    expect(card_one.parse_card_categories_name.include?("Travel Credit Cards")).to eq(true)
   end
 
   it "should search and return all cards for a given search feature" do
