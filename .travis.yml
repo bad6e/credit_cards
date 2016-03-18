@@ -3,8 +3,10 @@ rvm:
 - 2.3.0
 script:
 - bundle install
-- bundle exec rake db:create db:schema:load --exclude-pattern "spec/features/"
-- bundle exec rspec
+- bundle exec rake db:create db:schema:load
+- bundle exec rspec/models/
+- bundle exec rspec/controllers/
+- bundle exec rspec/presenters/
 deploy:
   provider: heroku
   api_key:
