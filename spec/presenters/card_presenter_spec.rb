@@ -93,7 +93,23 @@ RSpec.describe Card, type: :model do
     expect(category_name).to eq("Airline Credit Cards")
   end
 
-  # This is where the bonus cards test will go
+  it "should return 2 random cards with the same category that have a reward associated with them - number of rewards do not matter" do
+    set_category
+    Reward.create(amount: 50000,
+                  spending_amount: 3000,
+                  record_date: "2016-02-18",
+                  length_of_time: 3,
+                  card_id: card_one.id)
+
+    Reward.create(amount: 40000,
+                  spending_amount: 3000,
+                  record_date: "2016-02-11",
+                  length_of_time: 3,
+                  card_id: card_two.id)
+
+    cards = CardPresenter.new(card_one.id).bonus_cards("airline-credit-cards")
+    expect(cards.length).to eq(2)
+  end
 
   it "returns the rewards associated with a specific card ordered by 'record date'" do
       Reward.create(amount: 50000,
@@ -128,8 +144,6 @@ RSpec.describe Card, type: :model do
 
     expect(CardPresenter.new(card_one.id).card_has_bonus?).to eq(true)
   end
-
-
 
   it "should reward NIL if the card has a rewards associated with it" do
     expect(CardPresenter.new(card_one.id).card_has_bonus?).to eq(nil)
