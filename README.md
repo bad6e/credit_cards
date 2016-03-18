@@ -19,5 +19,3 @@
 **DO NOT** run the follwoing rake commands ever on development:
 
     $ rake update_cards
-
-
