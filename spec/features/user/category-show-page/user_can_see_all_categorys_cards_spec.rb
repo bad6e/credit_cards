@@ -26,7 +26,7 @@ feature "user - category show page" do
     end
   end
 
-  scenario "user can see rating of N/A cards on category show page ", js: true do
+  scenario "user can see rating of N/A cards on category show page", js: true do
     set_card_categories
 
     Reward.create(amount: 55000,
@@ -53,7 +53,7 @@ feature "user - category show page" do
     end
   end
 
-  scenario "user can see rating of YES cards on category show page ", js: true do
+  scenario "user can see rating of YES cards on category show page", js: true do
     set_card_categories
 
     Reward.create(amount: 50000,
@@ -116,7 +116,7 @@ feature "user - category show page" do
     end
   end
 
-  scenario "user can see rating of NO cards on category show page ", js: true do
+  scenario "user can see rating of NO cards on category show page", js: true do
     set_card_categories
 
     Reward.create(amount: 35000,
@@ -178,7 +178,7 @@ feature "user - category show page" do
     end
   end
 
-  scenario "user can see rating of OK cards on category show page ", js: true do
+  scenario "user can see rating of OK cards on category show page", js: true do
     set_card_categories
 
     Reward.create(amount: 47000,
@@ -239,5 +239,17 @@ feature "user - category show page" do
       expect(page).to have_content "47000"
       expect(page).to_not have_content "48000"
     end
+  end
+
+  scenario "user can search for a new category " do
+    set_card_categories
+    visit category_path(category_one)
+
+    within("#modify-search-panel") do
+      select "Travel Credit Cards", :from => "category[category_id]"
+    end
+
+    click_on("Search")
+    expect(current_path).to eq(category_path(category_four))
   end
 end
