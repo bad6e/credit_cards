@@ -4,18 +4,18 @@ feature "user - card show page" do
   include_context "features"
   before(:each) do
 
-     Reward.create(amount: 50000,
+     Reward.create!(amount: 50000,
                    length_of_time: 2,
                    record_date: "2016-02-18",
                    spending_amount: 2000,
-                   apply_link: "https://creditcards.chase.com/a1/southwest/2rtfosam1?",
+                   apply_link: "https://www.google.com/?gws_rd=ssl",
                    card_id: card_one.id)
 
-     Reward.create(amount: 40000,
+     Reward.create!(amount: 40000,
                    length_of_time: 2,
                    record_date: "2016-02-11",
                    spending_amount: 2000,
-                   apply_link: "https://creditcards.chase.com/a1/southwest/2rtfosam1?",
+                   apply_link: "https://www.google.com/?gws_rd=ssl",
                    card_id: card_one.id)
   end
 
@@ -23,10 +23,10 @@ feature "user - card show page" do
     set_card_categories
 
     visit card_path(card_one)
+    expect(page).to have_content "Southwest Airlines Rapid Rewards® Premier Credit Card"
     expect(page).to have_title "Southwest Airlines Rapid Rewards® Premier Credit Card | Too Many Miles"
-
     within(".apply-here") do
-      expect(page).to have_button('Apply Here')
+      expect(page).to have_link('Apply Here')
     end
   end
 

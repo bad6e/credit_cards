@@ -24,6 +24,22 @@ shared_context "features" do
                     slug: "best-credit-card-offers")
   }
 
+  let!(:category_six) {
+    Category.create(name: "other-credit-cards",
+                    slug: "other-credit-cards")
+  }
+
+  let!(:category_seven) {
+    Category.create(name: "business-rewards-credit-cards",
+                    slug: "business-rewards-credit-cards")
+  }
+
+ let!(:category_eight ) {
+    Category.create(name: "our-favorite-credit-cards",
+                    slug: "our-favorite-credit-cards")
+  }
+
+
   let!(:admin_one) {
     User.create(first_name: "Bret",
                 last_name: "Doucette",
@@ -79,7 +95,7 @@ shared_context "features" do
 
 
   let!(:card_six) {
-    Card.create(name: "Starwood Card",
+    Card.create(name: "Starwood Preferred Guest® Credit Card from American Express",
                 annual_fee: "$99",
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",

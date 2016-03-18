@@ -10,6 +10,6 @@ class WelcomePresenter
   end
 
   def featured_card
-    Card.find(40)
+    Card.find_by(name: "Starwood Preferred Guest® Credit Card from American Express")
   end
 end

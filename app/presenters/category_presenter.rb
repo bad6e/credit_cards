@@ -6,18 +6,8 @@ class CategoryPresenter
     @category_id = params[:id]
   end
 
-  def find_display_id(params)
-    if params[:category] != nil
-      @display_id  = params[:category][:category_id]
-    end
-  end
-
   def category
     Category.friendly.find(@category_id)
-  end
-
-  def category_id
-    category.id
   end
 
   def category_name

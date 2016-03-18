@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   let(:category_one) {
-    Category.create(name: "airline",
-                    slug: "airline")
+    Category.create(name: "airline-credit-cards",
+                    slug: "airline-credit-cards")
   }
 
   let(:card_one) {
@@ -69,22 +69,22 @@ RSpec.describe Category, type: :model do
     c5.categories << Category.find(category_one.id)
   end
 
-  it "returns the category" do
-    expect(CategoryPresenter.new(category_one.id).category.name).to eq("airline")
+  it "returns the category object" do
+    expect(CategoryPresenter.new(category_one).category.name).to eq("airline-credit-cards")
   end
 
   it "returns the category's name parsed correctly" do
-    expect(CategoryPresenter.new(category_one.id).category_name).to eq("Airline")
+    expect(CategoryPresenter.new(category_one).category_name).to eq("Airline Credit Cards")
   end
 
   it "returns the number of cards per category" do
     set_category
-    expect(CategoryPresenter.new(category_one.id).number_of_cards_per_category).to eq(5)
+    expect(CategoryPresenter.new(category_one).number_of_cards_per_category).to eq(5)
   end
 
   it "returns all the cards associated with a category" do
     set_category
-    expect(CategoryPresenter.new(category_one.id).categories_cards.count).to eq(5)
-    expect(CategoryPresenter.new(category_one.id).categories_cards.first.name).to eq("Southwest Airlines Premier")
+    expect(CategoryPresenter.new(category_one).categories_cards.count).to eq(5)
+    expect(CategoryPresenter.new(category_one).categories_cards.first.name).to eq("Southwest Airlines Premier")
   end
 end

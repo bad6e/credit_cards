@@ -36,10 +36,6 @@ class Card < ActiveRecord::Base
     end
   end
 
-  def meta_description
-    self.best_offer.capitalize
-  end
-
   def self.search(params)
     where("name LIKE ?", "%#{params}%")
   end

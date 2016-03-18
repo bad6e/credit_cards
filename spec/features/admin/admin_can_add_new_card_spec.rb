@@ -14,11 +14,11 @@ feature "admin" do
     fill_in "card[annual_fee]", with: "$99"
     fill_in "card[apr]", with: "12.99%"
     fill_in "card[intro_rate]", with: "N/A"
-    fill_in "card[image_link]", with: "www.test.com"
+    fill_in "card[image_link]", with: "http://www.cnn.com/"
     fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
-    select "airline", :from => "card[categories][]"
-    select "travel", :from => "card[categories][]"
-    select "cash-back", :from => "card[categories][]"
+    select category_one.name, :from => "card[categories][]"
+    select category_four.name, :from => "card[categories][]"
+    select category_three.name, :from => "card[categories][]"
     click_on "Submit Information"
 
     card = Card.last
@@ -27,10 +27,7 @@ feature "admin" do
     expect(card.categories.second.name).to eq(category_three.name)
     expect(card.categories.third.name).to eq(category_four.name)
 
-    visit category_path(category_three)
-    expect(page).to have_content("Test Name1")
-
-    visit category_path(category_one)
+    visit card_path(card)
     expect(page).to have_content("Test Name1")
   end
 

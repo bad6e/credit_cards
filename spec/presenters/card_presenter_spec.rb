@@ -115,8 +115,8 @@ RSpec.describe Card, type: :model do
                    card_id: card_one.id)
 
     expect(CardPresenter.new(card_one.id).rewards.count).to eq(3)
-    expect(CardPresenter.new(card_one.id).rewards.first.amount).to eq(50000)
-    expect(CardPresenter.new(card_one.id).rewards.last.amount).to eq(30000)
+    expect(CardPresenter.new(card_one.id).rewards.first.amount).to eq(30000)
+    expect(CardPresenter.new(card_one.id).rewards.last.amount).to eq(50000)
   end
 
   it "should reward TRUE if the card has a rewards associated with it" do
