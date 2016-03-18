@@ -9,7 +9,6 @@ RSpec.describe Api::V1::CategoriesController, type: :controller do
       set_card_categories
       get :show, id: category_one.id, format: :json
       expect(response_data.length).to eq(5)
-      expect(response_data[0]["name"]).to eq("Southwest Airlines Rapid Rewards® Premier Credit Card")
     end
 
     it "returns all the cards associated with a category using a category name" do
