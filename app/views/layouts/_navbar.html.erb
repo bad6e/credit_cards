@@ -16,6 +16,13 @@
             <button class="icon" id="search-button" type="button submit"><i class="soap-icon-search"></i></button>
           </div>
         </form>
+        <% if current_user %>
+          <button style="display:none" class="btn-medium blue-bg soap-popupbox" data-target="#travelo-signup">SIGNUP</button>
+          <a rel="nofollow" data-method="delete" href="/logout"> <button class="btn-medium">LOG OUT</button></a>
+        <% else %>
+          <button class="btn-medium blue-bg soap-popupbox" data-target="#travelo-signup">SIGNUP</button>
+          <button class="btn-medium soap-popupbox" data-target="#travelo-login">LOGIN</button>
+        <% end %>
         <!-- Sign Up Buttons Will Go Here!! -->
       </div>
       <!-- End Search Bar - Non Mobile -->
@@ -59,7 +66,9 @@
         </nav>
           <div class="topnav">
             <ul class="quick-menu pull-right clearfix">
-              <!-- <li><a href="#">ACCOUNT</a></li> -->
+            <% if current_user %>
+              <li><a href="#">ACCOUNT</a></li>
+            <% end %>
             </ul>
           </div>
       </div>
@@ -97,26 +106,19 @@
               </div>
             </form>
           </li>
-          <!-- Search Bar - Mobile -->
-          <!-- Sign Up Buttons Will Go Here!! -->
       </ul>
       <ul class="mobile-topnav container">
-       <!-- Account Info Will Go Here -->
-       <!-- <li><a href="#">MY ACCOUNT</a></li> -->
-       <!-- <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
-      <li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li> -->
+        <ul class="mobile-topnav container">
+          <% if current_user %>
+            <li><a href="/">MY ACCOUNT</a></li>
+            <li><%= link_to "LOGOUT", logout_path, method: :delete %></a></li>
+          <% else %>
+            <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
+            <li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li>
+          <% end %>
+        </ul>
       </ul>
     </nav>
     <!-- End Mobile Nav -->
   </header>
 </div>
-
-
-
-
-
-
-
-
-
-
