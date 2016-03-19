@@ -26,7 +26,7 @@ OmniAuth.config.test_mode = true
                      "name"=>"Bret Doucette",
                      "link"=>"https://www.facebook.com/app_scoped_user_id/10102534528384326/"}}}
 
-OmniAuth.config.add_mock(:facebook, omniauth_hash)
+OmniAuth.config.add_mock(:provider, omniauth_hash)
 
 ActiveRecord::Migration.maintain_test_schema!
 

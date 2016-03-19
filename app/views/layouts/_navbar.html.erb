@@ -1,7 +1,7 @@
 <!-- Regular Nav -->
 <div id="page-wrapper">
   <header id="header" class="navbar-static-top style4">
-    <div class="container">
+    <div class="container" id="login-navbar">
       <h1 class="logo navbar-brand">
         <a href="/" title="Too Many Miles - Home">
           <%= image_tag("navbar/logo_big.png") %>
@@ -16,11 +16,12 @@
             <button class="icon" id="search-button" type="button submit"><i class="soap-icon-search"></i></button>
           </div>
         </form>
+
         <% if current_user %>
-          <button style="display:none" class="btn-medium blue-bg soap-popupbox" data-target="#travelo-signup">SIGNUP</button>
-          <a rel="nofollow" data-method="delete" href="/logout"> <button class="btn-medium">LOG OUT</button></a>
+          <button style="display:none" class="btn-medium blue-bg soap-popupbox" data-target="#travelo-signup">SIGN UP</button>
+          <a rel="nofollow" data-method="delete" href="/logout" id="logout-link"> <button class="btn-medium">LOGOUT</button></a>
         <% else %>
-          <button class="btn-medium blue-bg soap-popupbox" data-target="#travelo-signup">SIGNUP</button>
+          <button class="btn-medium blue-bg soap-popupbox" data-target="#travelo-signup">SIGN UP</button>
           <button class="btn-medium soap-popupbox" data-target="#travelo-login">LOGIN</button>
         <% end %>
         <!-- Sign Up Buttons Will Go Here!! -->
@@ -114,7 +115,7 @@
             <li><%= link_to "LOGOUT", logout_path, method: :delete %></a></li>
           <% else %>
             <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
-            <li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li>
+            <li><a href="#travelo-signup" class="soap-popupbox">SIGN UP</a></li>
           <% end %>
         </ul>
       </ul>
