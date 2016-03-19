@@ -4,8 +4,7 @@ var SortByName = React.createClass({
       <div className="sort-by-section clearfix box" id="sorter-box">
         <h4 className="sort-by-title block-sm">Sort Results By:</h4>
         <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByName}>Card Name</button>
-        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByBestOffer}>Apply Now?</button>
-        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByAmount}>Current Bonus</button>
+        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByAmount}>Current Bonus - Points</button>
       </div>
     )
   }
@@ -131,11 +130,6 @@ var LoadCards = React.createClass({
    this.setState({ cards: sortedCardsByName })
   },
 
-  sortCardsByBestOffer : function() {
-    var sortedCardsByOffer =  _.orderBy(this.state.cards, ['best_offer'], ['desc']);
-    this.setState({ cards: sortedCardsByOffer })
-  },
-
   sortCardsByAmount : function() {
     var sortedCardsByAmount = _.sortBy(this.state.cards, function(o) {
       if (o.rewards.length > 0) {
@@ -151,7 +145,6 @@ var LoadCards = React.createClass({
     return (
       <div>
         <SortByName sortCardsByName = {this.sortCardsByName}
-                    sortCardsByBestOffer = {this.sortCardsByBestOffer}
                     sortCardsByAmount = {this.sortCardsByAmount}/>
         <CardList cards={this.state.cards} />
       </div>
