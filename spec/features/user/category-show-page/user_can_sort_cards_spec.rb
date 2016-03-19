@@ -11,8 +11,6 @@ feature "user - category show page - sorting" do
     Rake::Task["set_best_offer"].execute
 
     visit category_path(category_one)
-    expect(page.first(:css, '#cat-card-title').text).to eq(("Southwest Airlines Rapid Rewards® Premier Credit Card"))
-
     within(".sort-by-section") do
       click_on "Card Name"
     end
@@ -68,7 +66,7 @@ feature "user - category show page - sorting" do
     Rake::Task["set_best_offer"].execute
     visit category_path(category_one)
 
-    expect(page.first(:css, '#cat-card-title').text).to eq(("Southwest Airlines Rapid Rewards® Premier Credit Card"))
+    # expect(page.first(:css, '#cat-card-title').text).to eq(("Southwest Airlines Rapid Rewards® Premier Credit Card"))
 
     within(".sort-by-section") do
       click_on "Current Bonus - Points"
