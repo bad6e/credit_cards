@@ -12,8 +12,9 @@ var SortByName = React.createClass({
 })
 
 var Card = React.createClass({
-  determineRewardStatus : function(reward) {
-    return (reward === undefined ? "No Info for this Card" : reward)
+  determineRewardStatus : function(details) {
+    return  details && details.rewards && details.rewards.length
+                        ? details.rewards[0].amount : "NO INFO FOR THIS CARD"
   },
 
   determineBestOfferColor : function(bestOffer) {
@@ -30,7 +31,6 @@ var Card = React.createClass({
 
   render : function() {
     var details = this.props.details
-    var currentReward = this.props.reward[0]
 
     return (
       <article className="box" id={'card-' + details.id}>
@@ -59,7 +59,7 @@ var Card = React.createClass({
                 <div className="total-time col-sm-4">
                   <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
                   <div>
-                    <span className="skin-color">Current Bonus</span><br/><strong>{this.determineRewardStatus(currentReward)}</strong>
+                    <span className="skin-color">Current Bonus</span><br/><strong>{this.determineRewardStatus(details)}</strong>
                   </div>
                 </div>
 
@@ -90,24 +90,15 @@ var Card = React.createClass({
   }
 });
 
-var CardAttributes = React.createClass({
+var CardList = React.createClass({
   render : function() {
-    var card = this.props.cards.map(function (card, index) {
-      return (
-        <Card key = {index}
-              details = {card}
-              reward = {card.rewards.map(function(reward, index) {
-                return (
-                  reward.amount
-                )
-              })}
-        />
-      )
+    var cards = this.props.cards.map(function (card, index) {
+      return ( <Card key = {card.id} details = {card} />)
     });
 
     return (
       <div>
-        {card}
+        {cards}
       </div>
     );
   }
@@ -162,7 +153,7 @@ var LoadCards = React.createClass({
         <SortByName sortCardsByName = {this.sortCardsByName}
                     sortCardsByBestOffer = {this.sortCardsByBestOffer}
                     sortCardsByAmount = {this.sortCardsByAmount}/>
-        <CardAttributes cards={this.state.cards} />
+        <CardList cards={this.state.cards} />
       </div>
     );
   }

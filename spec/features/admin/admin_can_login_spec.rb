@@ -8,7 +8,10 @@ feature "admin" do
 
     fill_in "user[email]", with: admin_one.email
     fill_in "user[password]", with: admin_one.password
-    click_on "Login"
+
+    within("#login-page") do
+      click_on "Login"
+    end
 
     expect(current_path).to eq(admin_cards_path)
   end
@@ -18,7 +21,9 @@ feature "admin" do
 
     fill_in "user[email]", with: admin_one.email
     fill_in "user[password]", with: "wrong password"
-    click_on "Login"
+    within("#login-page") do
+      click_on "Login"
+    end
 
     expect(current_path).to eq(admin_login_path)
   end

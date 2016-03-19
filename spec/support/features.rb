@@ -34,7 +34,7 @@ shared_context "features" do
                     slug: "business-rewards-credit-cards")
   }
 
- let!(:category_eight ) {
+  let!(:category_eight ) {
     Category.create(name: "our-favorite-credit-cards",
                     slug: "our-favorite-credit-cards")
   }
@@ -140,7 +140,9 @@ shared_context "features" do
     visit admin_login_path
     fill_in "user[email]", with: admin_one.email
     fill_in "user[password]", with: admin_one.password
-    click_on "Login"
+    within("#login-page") do
+      click_on "Login"
+    end
   end
 
   def admin_edit
@@ -171,5 +173,16 @@ shared_context "features" do
     fill_in "reward[length_of_time]", with: 3
     fill_in "reward[apply_link]", with: "www.test.com"
     click_on "Submit Reward Information"
+  end
+
+  def login_with_facebook
+    visit root_path
+    within("#login-navbar") do
+      click_on "LOGIN"
+    end
+
+    within(".login-social") do
+      click_on "Login with Facebook"
+    end
   end
 end

@@ -8,6 +8,28 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'support/features'
 
+OmniAuth.config.test_mode = true
+  omniauth_hash = {"provider"=>"facebook",
+                   "uid"=>"10102534528384326",
+                   "info"=>
+                  {"email" => "bretisamazing@me.com",
+                   "name"=>"Bret Doucette",
+                   "image"=>"http://graph.facebook.com/10102534528384326/picture",
+                   "urls"=>{"Facebook"=>"https://www.facebook.com/app_scoped_user_id/10102534528384326/"}},
+                  "credentials"=>
+                  {"token"=>
+                    "CAAMeGgv1zny1a02i0vfZBPZBt649DwYGbYk7PRB7Cw8LnZBYNFZAliCNlD3dZBhUZCQPt6SuOPBnZCZA0DBCJSFNAAXAA7qbAcZD",
+                    "expires_at"=>1463523177,
+                    "expires"=>true},
+                  "extra"=>
+                    {"raw_info"=>
+                    {"id"=>"10102534528384326",
+                     "name"=>"Bret Doucette",
+                     "email"=> "bretisamazing@me.com",
+                     "link"=>"https://www.facebook.com/app_scoped_user_id/10102534528384326/"}}}
+
+OmniAuth.config.add_mock(:provider, omniauth_hash)
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|

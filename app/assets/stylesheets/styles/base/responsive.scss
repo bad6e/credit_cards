@@ -302,6 +302,10 @@
   [class^="col-lg-"] {
     &.pull-left, &.pull-right { float: none !important; }
   }
+  #header.style4 #main-menu > ul.menu > li > a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
   .image-carousel.style3 .flex-direction-nav li a {
     &.flex-prev { left: 10px; }
