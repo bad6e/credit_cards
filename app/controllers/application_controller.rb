@@ -6,11 +6,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   def current_user
-    if Rails.env.test?
-      return true
-    else
-      User.find(session[:user_id]) if session[:user_id]
-    end
+    User.find(session[:user_id]) if session[:user_id]
   end
 
   def no_index_no_follow
