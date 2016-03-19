@@ -1,43 +1,21 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  # validates :email,
-  #   presence: true,
-  #   uniqueness: true
+  validates :email,
+    presence: true,
+    uniqueness: true
 
   enum role: ["default", "admin"]
 
-  class << self
-    def from_omniauth(auth_hash)
-      user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
-      user.name = auth_hash['info']['name']
-      user.password_digest = SecureRandom.urlsafe_base64
-      user.location = get_social_location_for user.provider, auth_hash['info']['location']
-      user.image_url = auth_hash['info']['image']
-      user.url = get_social_url_for user.provider, auth_hash['info']['urls']
-      user.save!
-      user
-    end
-    private
-
-    def get_social_location_for(provider, location_hash)
-      case provider
-        when 'linkedin'
-          location_hash['name']
-        else
-          location_hash
-      end
-    end
-
-    def get_social_url_for(provider, urls_hash)
-      case provider
-        when 'linkedin'
-          urls_hash['public_profile']
-        else
-          urls_hash[provider.capitalize]
-      end
-    end
+  def self.from_omniauth(auth_hash)
+    user                 = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+    user.name            = auth_hash['info']['name']
+    user.email           = SecureRandom.urlsafe_base64
+    user.password_digest = SecureRandom.urlsafe_base64
+    user.location        = auth_hash['info']['location']
+    user.image_url       = auth_hash['info']['image']
+    user.url             = auth_hash['info']['urls']
+    user.save!
+    user
   end
-
-
 end

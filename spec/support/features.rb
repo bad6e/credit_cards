@@ -140,7 +140,9 @@ shared_context "features" do
     visit admin_login_path
     fill_in "user[email]", with: admin_one.email
     fill_in "user[password]", with: admin_one.password
-    click_on "Login"
+    within("#login-page") do
+      click_on "Login"
+    end
   end
 
   def admin_edit
