@@ -12,7 +12,8 @@ OmniAuth.config.test_mode = true
   omniauth_hash = {"provider"=>"facebook",
                    "uid"=>"10102534528384326",
                    "info"=>
-                  {"name"=>"Bret Doucette",
+                  {"email" => "bretisamazing@me.com",
+                   "name"=>"Bret Doucette",
                    "image"=>"http://graph.facebook.com/10102534528384326/picture",
                    "urls"=>{"Facebook"=>"https://www.facebook.com/app_scoped_user_id/10102534528384326/"}},
                   "credentials"=>
@@ -24,6 +25,7 @@ OmniAuth.config.test_mode = true
                     {"raw_info"=>
                     {"id"=>"10102534528384326",
                      "name"=>"Bret Doucette",
+                     "email"=> "bretisamazing@me.com",
                      "link"=>"https://www.facebook.com/app_scoped_user_id/10102534528384326/"}}}
 
 OmniAuth.config.add_mock(:provider, omniauth_hash)
