@@ -1,6 +1,6 @@
 ## Too Many Miles - Set Up Information
 
-#### In order to get this repo working follow these steps:
+#### In order to get this repository working follow these steps:
 
 ##### Note you must have access to Heroku:
 
@@ -11,12 +11,14 @@
     $ rails s puma
     Navigate to http://localhost:3000/
 
-#### To Run the Tests
+#### To Run the Tests - Initially
 
     $ rake db:create RAILS_ENV=test
     $ rspec
 
-**DO NOT** run the follwoing rake commands ever on development:
+    $ rspec - for consecutive test runs
+
+**DO NOT** run the following rake commands ever on development:
 
     $ rake update_cards
 
