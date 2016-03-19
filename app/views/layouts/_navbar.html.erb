@@ -8,8 +8,13 @@
         </a>
       </h1>
 
+
       <!-- Search Bar - Non Mobile -->
+
       <div class="pull-right hidden-mobile search-area">
+      <% if current_user %>
+        <div class="welcome-user">Welcome <%= current_user.name %>!</div>
+      <% end %>
         <form method="get" accept-charset="UTF-8" id="search-form" role="search" action="/cards" class="quick-search">
           <div class="with-icon">
             <input type="text" name="search" class="input-text search-input" id="select_origin" placeholder="Search for Credit Cards" />
