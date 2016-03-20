@@ -118,6 +118,7 @@
           <% if current_user %>
             <li><a href="/">MY ACCOUNT</a></li>
             <li><%= link_to "LOGOUT", logout_path, method: :delete %></a></li>
+            <li><a href="/">Welcome, <%= current_user.name %>!</a></li>
           <% else %>
             <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
             <li><a href="#travelo-signup" class="soap-popupbox">SIGN UP</a></li>
