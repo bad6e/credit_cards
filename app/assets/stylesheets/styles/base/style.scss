@@ -2106,11 +2106,11 @@ body.pace-running {  }
 #header {
   position: relative; z-index: 999;
   .topnav {
-    height: 30px; background: $skin-bg-color; width: 100%;
+    height: 30px !important; background: $skin-bg-color !important; width: 100%;
     ul.quick-menu > li {
       float: left; margin-left: 20px;
       &:first-child { margin-left: 0; }
-      > a { color: #fff; line-height: 30px; display: block; font-size: 0.8333em; text-transform: uppercase; }
+      > a { color: #fff !important; line-height: 30px !important; display: block; font-size: 0.8333em; text-transform: uppercase; }
     }
   }
   .ribbon {
@@ -2229,6 +2229,10 @@ body.pace-running {  }
     }
   }
 
+  #login-navbar {
+    padding-top: 10px;
+  }
+
   &.style3 {
     .inspire-btn { margin-top: 34px; }
     .logo {
@@ -2249,7 +2253,6 @@ body.pace-running {  }
   }
 
   &.style4 {
-    padding-top: 20px;
     .logo { margin: 0; margin-bottom: 16px; }
     .quick-search {
       display: inline-block;
@@ -2258,7 +2261,7 @@ body.pace-running {  }
     button { padding: 0 15px; }
 
     .topnav {
-      float: right; background: none; width: auto; height: auto;
+      background: none; width: auto; height: auto;
       ul.quick-menu {
         > li > a { line-height: 50px; height: 50px; color: inherit; }
         .ribbon {
