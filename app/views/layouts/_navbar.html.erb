@@ -4,7 +4,9 @@
     <div class="topnav hidden-xs">
       <div class="container">
         <ul class="quick-menu pull-left">
-          <li><a href="#">MY ACCOUNT</a></li>
+          <% if current_user %>
+            <li><%= link_to "MY ACCOUNT", user_path(current_user)%></li>
+          <% end %>
         </ul>
         <ul class="quick-menu pull-right">
           <li class="ribbon">

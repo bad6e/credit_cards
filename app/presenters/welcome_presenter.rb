@@ -1,5 +1,5 @@
 class WelcomePresenter
-   attr_reader :category_id
+  attr_reader :category_id
 
   def best_cards
     Card.cards_with_multiple_categories(["travel-credit-cards", "best-credit-card-offers"])
