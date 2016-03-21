@@ -1000,7 +1000,7 @@ ol {  }
           margin-bottom: 4px;
           a { border: none; margin-right: 4px; }
           &.active a {
-            margin-right: 0; border-left: 2px solid $yellow-theme-color; position: relative;
+            position: relative;
             &:after { display: block; content: ""; position: absolute; left: 0; top: 50%; margin-top: -5px; border-left: 3px solid $yellow-theme-color; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
           }
         }

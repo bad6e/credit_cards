@@ -212,6 +212,11 @@
   .row.add-clearfix > .col-sms-6 {
     &:nth-child(2n+1) { clear: both; }
   }
+
+  .tab-container.full-width-style.arrow-left ul.tabs li.active a {
+    margin-right: 0;
+    border-left: 2px solid $yellow-theme-color;
+  }
 }
 
 @media (min-width: 768px) {
@@ -662,8 +667,16 @@
 /* 8. Styles for devices(<=480px ) */
 @media (max-width: 480px) {
   .tab-container.full-width-style {
-    ul.tabs { width: 30%; }
-    .tab-content { width: 70%; }
+    ul.tabs {display: inline; width: 100%;}
+    .tab-content { width: 100%; }
+  }
+
+  .tab-container.full-width-style ul.tabs li a {
+    height: 80px;
+  }
+
+  .favorite-card-tab {
+    padding-bottom: 10px;
   }
 
   .top-title {
