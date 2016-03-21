@@ -1,0 +1,20 @@
+$white          : #fff;
+$lightgray      : #D3D3D3;
+$darkgray       : #464646;
+$skyblue        : #0e95e0;
+$lighterskyblue : #269fe3;
+$black          : #000;
+
+#message-bret {
+  padding: 5px;
+}
+
+#email-me-li {
+  display: inline;
+}
+
+.see-cards-link {
+  a:hover {
+    color: $lightgray !important;
+  }
+}

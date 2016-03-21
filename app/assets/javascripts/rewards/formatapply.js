@@ -18,3 +18,6 @@ function setColor(element, color_code) {
   $(element).css({ 'color': color_code});
 }
 
+
+
+

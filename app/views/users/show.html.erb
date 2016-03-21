@@ -1,0 +1,301 @@
+<div class="page-title-container">
+  <div class="container">
+    <div class="page-title pull-left">
+      <h2 class="entry-title">My Account</h2>
+    </div>
+    <ul class="breadcrumbs pull-right">
+      <li><a href="/">HOME</a></li>
+      <li class="active">My Account</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- Side Panel  -->
+<section id="content" class="gray-area">
+  <div class="container">
+    <div id="main">
+      <div class="tab-container full-width-style arrow-left dashboard">
+        <ul class="tabs">
+          <li class="active"><a data-toggle="tab" href="#dashboard"><i class="soap-icon-plane circle"></i>Dashboard</a></li>
+          <li class="favorite-card-tab"><a data-toggle="tab" href="#booking"><i class="soap-icon-heart circle"></i>Favorite Cards</a></li>
+        </ul>
+        <div class="tab-content">
+        <!-- End - Side Panel  -->
+
+          <!-- Dashboard Section -->
+          <div id="dashboard" class="tab-pane fade in active">
+            <h1 class="no-margin skin-color">Hi <%= current_user.name %>!</h1>
+              <p>Here you can manage your favorite cards and update your email subscriptions!</p><br />
+              <div class="row block see-cards-link">
+               <div class="col-sm-6 col-md-3">
+                  <div class="fact yellow">
+                    <div class="numbers counters-box">
+                      <dl>
+                        <dt class="display-counter" data-value="<%= @user_presenter.airline_card_number %>">0</dt>
+                        <dd>Airline Cards</dd>
+                      </dl>
+                      <i class="icon soap-icon-plane"></i>
+                    </div>
+                    <a href="/airline-credit-cards">
+                    <div class="description">
+                      <i class="icon soap-icon-longarrow-right"></i>
+                      <span>View Airline Cards</span>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <div class="fact blue">
+                    <div class="numbers counters-box">
+                      <dl>
+                        <dt class="display-counter" data-value="<%= @user_presenter.hotel_card_number %>">0</dt>
+                        <dd>Hotel Cards</dd>
+                      </dl>
+                      <i class="icon soap-icon-hotel"></i>
+                    </div>
+                    <a href="/hotel-credit-cards">
+                    <div class="description">
+                      <i class="icon soap-icon-longarrow-right"></i>
+                      <span>View Hotel Cards</span>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <div class="fact red">
+                    <div class="numbers counters-box">
+                      <dl>
+                        <dt class="display-counter" data-value="<%= @user_presenter.business_card_number %>">0</dt>
+                        <dd>Business Cards</dd>
+                      </dl>
+                      <i class="icon soap-icon-businessbag"></i>
+                    </div>
+                    <a href="/business-rewards-credit-cards">
+                    <div class="description">
+                      <i class="icon soap-icon-longarrow-right"></i>
+                      <span>View Business Cards</span>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <div class="fact green">
+                    <div class="numbers counters-box">
+                      <dl>
+                        <dt class="display-counter" data-value="<%= @user_presenter.travel_card_number %>">0</dt>
+                        <dd>Travel Cards</dd>
+                      </dl>
+                      <i class="icon soap-icon-cruise flip-effect"></i>
+                    </div>
+                    <a href="/travel-credit-cards">
+                    <div class="description">
+                      <i class="icon soap-icon-longarrow-right"></i>
+                      <span>View ALL Travel Cards</span>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="notification-area">
+                <div class="info-box block">
+                  <span class="close"></span>
+                  <p>This is your Personal Dashboard, a place to check and manage your favorite cards, update email settings, and review the most recent activity on Too Many Miles.</p>
+                  <br />
+                  <h4>Start Here for Beginners</h4>
+                  <ul class="circle">
+                    <a href="/learn-about-credit-cards"><li><span class="skin-color">Learn About Credit Cards</span></a> — Read through the Start Here Page to gain valuable information.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Notification and Activity Section -->
+              <div class="row block">
+                <div class="col-md-6 notifications">
+                  <h2>Notifications - Coming Soon!</h2>
+                    <!-- <a href="#">
+                      <div class="icon-box style1 fourty-space">
+                        <i class="soap-icon-plane-right takeoff-effect yellow-bg"></i>
+                        <span class="time pull-right">JUST NOW</span>
+                        <p class="box-title">London to Paris flight in <span class="price">$120</span></p>
+                      </div>
+                    </a>
+                    <a href="#">
+                      <div class="icon-box style1 fourty-space">
+                        <i class="soap-icon-hotel blue-bg"></i>
+                        <span class="time pull-right">10 Mins ago</span>
+                        <p class="box-title">Hilton hotel &amp; resorts in <span class="price">$247</span></p>
+                      </div>
+                    </a>
+
+                    <a href="#">
+                      <div class="load-more">. . . . . . . . . . . . . </div>
+                    </a> -->
+                </div>
+                <div class="col-md-6">
+                  <h2>Recent Activity - Coming Soon!</h2>
+                  <!-- <div class="recent-activity">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="icon soap-icon-plane-right circle takeoff-effect yellow-color"></i>
+                          <span class="price"><small>avg/person</small>$120</span>
+                          <h4 class="box-title">
+                                  Indianapolis to Paris<small>Oneway flight</small>
+                          </h4>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="icon soap-icon-car circle red-color"></i>
+                          <span class="price"><small>per day</small>$45.39</span>
+                          <h4 class="box-title">
+                              Economy Car<small>bmw mini</small>
+                          </h4>
+                        </a>
+                      </li>
+                    </ul>
+                      <a href="#" class="button green btn-small full-width">VIEW ALL ACTIVITIES</a>
+                  </div> -->
+                </div>
+              </div>
+              <!-- End - Notification and Activity Section -->
+
+
+              <!-- Email Update Section -->
+              <hr>
+              <h2>Email Settings - Coming Soon!</h2>
+              <!-- This is where change password/email will eventually go -->
+              <hr>
+              <!-- <h5 class="skin-color">Send Me Emails When</h5>
+              <form>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Travelo has periodic offers and deals on really cool destinations.
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Travelo has fun company news, as well as periodic emails.
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> I have an upcoming reservation.
+                  </label>
+                </div>
+                <button class="btn-medium uppercase">Update All Settings</button>
+              </form><br> -->
+              <!-- End - Email Update Section -->
+
+              <!-- Help Section -->
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>Benefits of an account with Too Many Miles</h4>
+                  <ul class="benefits triangle hover">
+                    <li>Receive emails alerting you of great credit card deals</li>
+                    <li>Track and organize your favorite credit cards</li>
+                    <li>Digest specialized blog content tailored to the cards you like</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h4>Need Help?</h4>
+                  <div class="contact-box">
+                    <p>We always appreciate feedback of any kind. If you have any questions or concerns please email us at the email below.</p>
+                    <address class="contact-details email-link">
+                      <span class="contact-phone"><i class="soap-icon-message" id="message-bret"></i><li class="middle_li" id="email-me-li"></li><a href="mailto:bret@toomanymiles.com" target="_blank">bret@toomanymiles.com</a></span>
+                        <br>
+                    </address>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End - Help Section -->
+
+            <!-- Favorite Card Section -->
+            <div id="booking" class="tab-pane fade">
+              <h2>Feature Coming Soon!</h2>
+              <!-- <div class="filter-section gray-area clearfix">
+              <form>
+                <label class="radio radio-inline">
+                    <input type="radio" name="filter" checked="checked" />
+                    All Types
+                </label>
+                <label class="radio radio-inline">
+                    <input type="radio" name="filter" />
+                    Hotels
+                </label>
+                <label class="radio radio-inline">
+                    <input type="radio" name="filter" />
+                    Flights
+                </label>
+                <label class="radio radio-inline">
+                    <input type="radio" name="filter" />
+                    Cars
+                </label>
+                <label class="radio radio-inline">
+                    <input type="radio" name="filter" />
+                    Cruises
+                </label>
+                <div class="pull-right col-md-6 action">
+                  <h5 class="pull-left no-margin col-md-4">Sort results by:</h5>
+                  <button class="btn-small white gray-color">UPCOMING</button>
+                  <button class="btn-small white gray-color">CANCELLED</button>
+                </div>
+              </form>
+            </div>
+            <div class="booking-history">
+              <div class="booking-info clearfix">
+                <div class="date">
+                  <label class="month">NOV</label>
+                  <label class="date">23</label>
+                  <label class="day">SAT</label>
+                    </div>
+                    <h4 class="box-title"><i class="icon soap-icon-plane-right takeoff-effect yellow-color circle"></i>Indianapolis to Paris<small>you are flying</small></h4>
+                    <dl class="info">
+                        <dt>TRIP ID</dt>
+                        <dd>5754-8dk8-8ee</dd>
+                        <dt>booked on</dt>
+                        <dd>saturday, nov 23, 2013</dd>
+                    </dl>
+                    <button class="btn-mini status">UPCOMMING</button>
+                </div>
+                <div class="booking-info clearfix">
+                    <div class="date">
+                        <label class="month">NOV</label>
+                        <label class="date">30</label>
+                        <label class="day">SAT</label>
+                    </div>
+                    <h4 class="box-title"><i class="icon soap-icon-plane-right takeoff-effect yellow-color circle"></i>England to Rome<small>you are flying</small></h4>
+                    <dl class="info">
+                        <dt>TRIP ID</dt>
+                        <dd>5754-8dk8-8ee</dd>
+                        <dt>booked on</dt>
+                        <dd>saturday, nov 30, 2013</dd>
+                    </dl>
+                    <button class="btn-mini status">UPCOMMING</button>
+                </div>
+                <div class="booking-info clearfix">
+                  <div class="date">
+                    <label class="month">DEC</label>
+                    <label class="date">11</label>
+                    <label class="day">MON</label>
+                  </div>
+                  <h4 class="box-title"><i class="icon soap-icon-hotel blue-color circle"></i>Hilton Hotel &amp; Resorts<small>2 adults staying</small></h4>
+                  <dl class="info">
+                    <dt>TRIP ID</dt>
+                    <dd>5754-8dk8-8ee</dd>
+                    <dt>booked on</dt>
+                    <dd>monday, dec 11, 2013</dd>
+                  </dl>
+                  <button class="btn-mini status">UPCOMMING</button>
+                </div> -->
+              </div>
+              <!-- End - Favorite Card Section -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
