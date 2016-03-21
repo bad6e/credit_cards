@@ -24,11 +24,10 @@
 
           <!-- Dashboard Section -->
           <div id="dashboard" class="tab-pane fade in active">
-            <h1 class="no-margin skin-color">Hi <%= current_user.name %>, Welcome to Too Many Miles!</h1>
-              <p>Here you can manage your favorite cards as well as update your email subscriptions!</p><br />
-              <div class="row block">
+            <h1 class="no-margin skin-color">Hi <%= current_user.name %>!</h1>
+              <p>Here you can manage your favorite cards and update your email subscriptions!</p><br />
+              <div class="row block see-cards-link">
                <div class="col-sm-6 col-md-3">
-                  <a href="flight-list-view.html">
                   <div class="fact yellow">
                     <div class="numbers counters-box">
                       <dl>
@@ -37,72 +36,74 @@
                       </dl>
                       <i class="icon soap-icon-plane"></i>
                     </div>
+                    <a href="/airline-credit-cards">
                     <div class="description">
                       <i class="icon soap-icon-longarrow-right"></i>
-                      <span><%= link_to "View Airline Cards", category_path(@user_presenter.airline_category) %></span>
+                      <span>View Airline Cards</span>
                     </div>
+                    </a>
                   </div>
-                  </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                  <a href="hotel-list-view.html">
-                    <div class="fact blue">
-                      <div class="numbers counters-box">
-                        <dl>
-                          <dt class="display-counter" data-value="<%= @user_presenter.hotel_card_number %>">0</dt>
-                          <dd>Hotel Cards</dd>
-                        </dl>
-                        <i class="icon soap-icon-hotel"></i>
-                      </div>
-                      <div class="description">
-                        <i class="icon soap-icon-longarrow-right"></i>
-                        <span><%= link_to "View Hotel Cards", category_path(@user_presenter.hotel_category) %></span>
-                      </div>
+                  <div class="fact blue">
+                    <div class="numbers counters-box">
+                      <dl>
+                        <dt class="display-counter" data-value="<%= @user_presenter.hotel_card_number %>">0</dt>
+                        <dd>Hotel Cards</dd>
+                      </dl>
+                      <i class="icon soap-icon-hotel"></i>
+                    </div>
+                    <a href="/hotel-credit-cards">
+                    <div class="description">
+                      <i class="icon soap-icon-longarrow-right"></i>
+                      <span>View Hotel Cards</span>
                     </div>
                     </a>
+                  </div>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                  <a href="car-list-view.html">
-                    <div class="fact red">
-                      <div class="numbers counters-box">
-                        <dl>
-                          <dt class="display-counter" data-value="<%= @user_presenter.business_card_number %>">0</dt>
-                          <dd>Business Cards</dd>
-                        </dl>
-                        <i class="icon soap-icon-car"></i>
-                      </div>
-                      <div class="description">
-                        <i class="icon soap-icon-longarrow-right"></i>
-                        <span><%= link_to "View Business Cards", category_path(@user_presenter.business_category) %></span>
-                      </div>
+                  <div class="fact red">
+                    <div class="numbers counters-box">
+                      <dl>
+                        <dt class="display-counter" data-value="<%= @user_presenter.business_card_number %>">0</dt>
+                        <dd>Business Cards</dd>
+                      </dl>
+                      <i class="icon soap-icon-businessbag"></i>
+                    </div>
+                    <a href="/business-rewards-credit-cards">
+                    <div class="description">
+                      <i class="icon soap-icon-longarrow-right"></i>
+                      <span>View Business Cards</span>
                     </div>
                     </a>
+                  </div>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                  <a href="cruise-list-view.html">
-                    <div class="fact green">
-                      <div class="numbers counters-box">
-                        <dl>
-                          <dt class="display-counter" data-value="<%= @user_presenter.travel_card_number %>">0</dt>
-                          <dd>Travel Cards</dd>
-                        </dl>
-                        <i class="icon soap-icon-cruise flip-effect"></i>
-                      </div>
-                      <div class="description">
-                        <i class="icon soap-icon-longarrow-right"></i>
-                        <span><%= link_to "View ALL Travel Cards", category_path(@user_presenter.travel_category) %></span>
-                      </div>
+                  <div class="fact green">
+                    <div class="numbers counters-box">
+                      <dl>
+                        <dt class="display-counter" data-value="<%= @user_presenter.travel_card_number %>">0</dt>
+                        <dd>Travel Cards</dd>
+                      </dl>
+                      <i class="icon soap-icon-cruise flip-effect"></i>
                     </div>
-                  </a>
+                    <a href="/travel-credit-cards">
+                    <div class="description">
+                      <i class="icon soap-icon-longarrow-right"></i>
+                      <span>View ALL Travel Cards</span>
+                    </div>
+                    </a>
+                  </div>
                 </div>
               </div>
               <div class="notification-area">
                 <div class="info-box block">
                   <span class="close"></span>
-                  <p>This is your Dashboard, the place to check your Profile, respond to Reservation Requests, view upcoming Trip Information, and much more.</p>
+                  <p>This is your Personal Dashboard, a place to check and manage your favorite cards, update email settings, and review the most recent activity on Too Many Miles.</p>
                   <br />
+                  <h4>Start Here for Beginners</h4>
                   <ul class="circle">
-                    <li><span class="skin-color">Learn About Trave Credit Cards</span> — Read through the Start Here Page to gain valuable information.</li>
+                    <a href="/learn-about-credit-cards"><li><span class="skin-color">Learn About Credit Cards</span></a> — Read through the Start Here Page to gain valuable information.</li>
                   </ul>
                 </div>
               </div>
@@ -191,16 +192,16 @@
                 <div class="col-md-6">
                   <h4>Benefits of an account with Too Many Miles</h4>
                   <ul class="benefits triangle hover">
-                    <li><a href="#">Emailed when Great Deals!</a></li>
-                    <li><a href="#">Track your Favorite Cards</a></li>
-                    <li class="#"><a href="#">Specialized Blog Content </a></li>
+                    <li>Receive emails alerting you of great credit card deals</li>
+                    <li>Track and organize your favorite credit cards</li>
+                    <li>Digest specialized blog content tailored to the cards you like</li>
                   </ul>
                 </div>
                 <div class="col-md-6">
                   <h4>Need Help?</h4>
                   <div class="contact-box">
-                    <p>We always appreciate feedback of any kind. If you have any questions or concerns please email us!</p>
-                    <address class="contact-details">
+                    <p>We always appreciate feedback of any kind. If you have any questions or concerns please email us at the email below.</p>
+                    <address class="contact-details email-link">
                       <span class="contact-phone"><i class="soap-icon-message" id="message-bret"></i><li class="middle_li" id="email-me-li"></li><a href="mailto:bret@toomanymiles.com" target="_blank">bret@toomanymiles.com</a></span>
                         <br>
                     </address>
