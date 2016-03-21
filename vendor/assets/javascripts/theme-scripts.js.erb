@@ -126,14 +126,18 @@ setInterval(function(){c+=l;k++;e(c);"function"==typeof b.onUpdate&&b.onUpdate.c
 
         },
         open: function(options, obj) {
+
             if (typeof options == "undefined") {
+
                 options = {};
             }
             var wrapObj = options.wrapId ? "#" + options.wrapId : ".opacity-overlay";
+
             if ($(wrapObj).length < 1) {
                 var idStr = options.wrapId ? " id='" + options.wrapId + "'" : "";
                 $("<div class='opacity-overlay' " + idStr + "><div class='container'><div class='popup-wrapper'><i class='fa fa-spinner fa-spin spinner'></i><div class='col-xs-12 col-sm-9 popup-content'></div></div></div></div>").appendTo("body");
             }
+
             stp.wrap = $(wrapObj);
             stp.content = stp.wrap.find(".popup-content");
             stp.spinner = stp.wrap.find(".spinner");
@@ -206,7 +210,7 @@ setInterval(function(){c+=l;k++;e(c);"function"==typeof b.onUpdate&&b.onUpdate.c
                 $("body").addClass("overlay-open");
             } else {
                 var sourceId = obj.attr("href");
-                if (typeof sourceId == "undefined") {
+                if (typeof sourceId == "undefined" || sourceId === "#") {
                     sourceId = obj.data("target");
                 }
                 stp.content.children().hide();
@@ -848,7 +852,7 @@ $(window).load(function() {
     $("body").on("click", ".soap-popupbox", function(e) {
         e.preventDefault();
         var sourceId = $(this).attr("href");
-        if (typeof sourceId == "undefined") {
+        if (typeof sourceId == "undefined" || sourceId === "#") {
             sourceId = $(this).data("target");
         }
         if (typeof sourceId == "undefined") {
@@ -857,6 +861,7 @@ $(window).load(function() {
         if ($(sourceId).length < 1) {
             return;
         }
+
         $(this).soapPopup({
             wrapId: "soap-popupbox",
         });
