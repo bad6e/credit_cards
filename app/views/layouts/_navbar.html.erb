@@ -13,8 +13,7 @@
             <% if current_user %>
               <a href="#"><%= current_user.name %></a>
               <ul class="menu mini uppercase">
-                <li><a href="dashboard1.html#dashboard" class="location-reload">Dashboard</a></li>
-                <li><a href="dashboard1.html#booking" class="location-reload">Favorite Cards</a></li>
+                <li><%= link_to "Dashboard", user_path(current_user), class: "location-reload" %></li>
                 <li><%= link_to "LOGOUT", logout_path, method: :delete %></li>
               </ul>
             <% else %>
