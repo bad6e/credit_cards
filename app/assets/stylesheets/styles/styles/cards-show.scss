@@ -63,13 +63,21 @@ $black          : #000;
   background: #f5f5f5;
   padding: 30px 20px 20px 20px;
   box-shadow: 5px 5px 20px #888888;
+  margin-bottom: 70px;
 }
 
 .sign-up-bonus-title {
   font-family: 'Raleway', sans-serif;
 }
 
-.sign-up-bonus-h1-title {
+
+//No Bonus Message Styling
+.no-bonus-info {
+  display: none;
+}
+
+
+.no-bonus-info-title-h1 {
   font-family: 'Raleway', sans-serif;
   font-size: 30px;
   font-weight: 500;
@@ -85,7 +93,7 @@ $black          : #000;
   }
 }
 
-.sign-up-bonus-h1-subtitle {
+.no-bonus-info-subtitle-h1 {
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   color: #01b7f2;
@@ -101,7 +109,6 @@ $black          : #000;
 }
 
 .cards-with-bonuses {
-  display: none;
   position: relative;
   z-index: 1;
 }
@@ -122,6 +129,7 @@ $black          : #000;
 }
 
 .apply-center-container {
+  margin-top: 50px;
   background: #f5f5f5;
   padding: 30px 20px 20px 20px;
   text-align: center;

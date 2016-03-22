@@ -1,31 +1,30 @@
-function grayOutReward() {
+function hideRewardInformation() {
+  $('.apply-center-container').hide();
+  $('.points-container').hide();
+  $('.sign-up-bonus-title').hide();
   $('#reward-chart').css("opacity", 0.0);
-  $(".sign-up-bonus-h1-title").fadeIn(700);
-  $(".sign-up-bonus-h1-subtitle").fadeIn(700);
-  $(".cards-with-bonuses").fadeIn(700);
+  $(".no-bonus-info").fadeIn(700);
 }
 
-function showReward(response) {
-  $(".sign-up-bonus-h1-title").hide();
-  $(".sign-up-bonus-h1-subtitle").hide();
-  drawGraph(response);
+function showRewardInformation(response) {
+  drawGraph(response, 'dollar_amount', 'Dollars', '#dollar-amount-chart')
+  drawGraph(response, 'amount', 'Rewards (Points/Miles)','#reward-chart');
 }
 
-function drawGraph(response) {
-  //chart can be used later to do dynamic things to the chart
+function drawGraph(response, value, axisLabel, location) {
   var chart = c3.generate({
-    bindto: '#reward-chart',
+    bindto: location,
     data: {
       json: response,
       keys: {
         x: 'record_date',
-        value: ['amount'],
+        value: [value],
       },
       types: {
         amount: 'area-spline'
       }
     },
-    axis: axis(),
+    axis: axis(axisLabel),
     area: {
       zerobased: true
     },
@@ -37,11 +36,10 @@ function drawGraph(response) {
     }
   });
 
-  //remove the axes, leave the ticks
-  $('#reward-chart').find('.domain').remove()
+  $(location).find('.domain').remove()
 }
 
-function axis() {
+function axis(axisLabel) {
   return {
     x: {
       label : {
@@ -56,9 +54,10 @@ function axis() {
     },
     y: {
       label: {
-        text: 'Reward (Points/Miles)',
+        text: axisLabel,
         position: 'outer-middle'
       }
     }
   }
 }
+
