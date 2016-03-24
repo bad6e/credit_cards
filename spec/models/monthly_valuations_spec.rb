@@ -13,7 +13,7 @@ RSpec.describe Reward, type: :model do
   end
 
   it "formats the month params correctly" do
-    expect(val.format_month_params("2016-02")).to eq(2)
+    expect(val.format_month_params("2016-02")).to eq(02)
   end
 
   it "formats the year params correctly" do

@@ -120,7 +120,7 @@ shared_context "features" do
                 apr: "12%",
                 intro_rate: "N/A",
                 image_link: "https://www.google.com/?gws_rd=ssl",
-                point_type: "AAdvantage®")
+                point_type: "AAdvantage® Miles")
   }
 
 

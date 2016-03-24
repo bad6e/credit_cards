@@ -7,17 +7,24 @@ function hideRewardInformation() {
 }
 
 function showRewardInformation(response) {
-  var centToDollars = formatCents(response);
-  debugger
-  drawMultiGraph(response, '#dollar-amount-chart','Rewards (Points/Miles)','US Dollars');
+  var centToDollars = formatCentsToDollars(response);
+  var names = formatNames(response);
+  drawMultiGraph(names, '#dollar-amount-chart','Rewards (Points/Miles)','Sign Up Bonus Valued in US Dollars');
   drawGraph(centToDollars, '#reward-chart','50000 Points in Dollars');
 }
 
-function formatCents(response) {
+function formatCentsToDollars(response) {
   var dollars = _.map(response, function(reward) {
-    return {record_date:reward.record_date, cent_value:reward.cent_value * 50000}
+    return {recordDate:reward.record_date, Dollars:reward.cent_value * 50000, centValue: reward.cent_value * 100}
   });
   return dollars
+}
+
+function formatNames(response) {
+  var names = _.map(response, function(reward) {
+    return {Bonus:reward.amount, Dollars:reward.dollar_amount, recordDate: reward.record_date}
+  });
+  return names
 }
 
 function drawMultiGraph(response, location, y1Label, y2Label) {
@@ -26,17 +33,17 @@ function drawMultiGraph(response, location, y1Label, y2Label) {
     data: {
       json: response,
       keys: {
-        x:'record_date',
-        value: ['amount','dollar_amount'],
+        x:'recordDate',
+        value: ['Bonus','Dollars'],
       },
       axes: {
-        amount: 'y',
-        dollar_amount:'y2'
+        Amount: 'y',
+        Dollars:'y2'
       },
       type: 'line',
       types: {
-        amount: 'spline',
-        dollar_amount: 'spline'
+        Bonus: 'spline',
+        Dollars: 'spline'
       }
     },
     axis: multiYAxis(y1Label, y2Label),
@@ -67,6 +74,8 @@ function multiYAxis(y1Label, y2Label) {
       },
     },
     y: {
+      min: 5000,
+      padding: {bottom: 0},
       label: {
         text: y1Label,
         position: 'outer-middle'
@@ -88,11 +97,11 @@ function drawGraph(response, location, y1Label) {
     data: {
       json: response,
       keys: {
-        x: 'record_date',
-        value: ['cent_value'],
+        x: 'recordDate',
+        value: ['Dollars'],
       },
       types: {
-        cent_value: 'area-spline'
+        Dollars: 'area-spline'
       }
     },
     axis: axis(y1Label),
@@ -114,7 +123,7 @@ function axis(y1Label) {
   return {
     x: {
       label : {
-        text: 'date',
+        text: 'Date',
         position: 'outer-center'
       },
       type : 'timeseries',
@@ -131,12 +140,3 @@ function axis(y1Label) {
     }
   }
 }
-
-// dollarValue = rewardPoints.map(xxx);
-// function xxx(reward) {
-//   return {date:reward.date, cent_value:reward.valueInPoints * centsPerPoint(reward.currency);
-//   };
-// }
-
-
-

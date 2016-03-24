@@ -25,7 +25,7 @@ class MonthlyValuations
   end
 
   def format_month_params(date)
-    date.split("-")[-1].gsub("0","").to_i
+    date.split("-")[-1].to_i
   end
 
   def format_year_params(date)
