@@ -45,6 +45,7 @@ shared_context "features" do
                 last_name: "Doucette",
                 email: "test@test.com",
                 password: "password",
+                name: "Bret Doucette",
                 role: 1)
   }
 
@@ -54,7 +55,8 @@ shared_context "features" do
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
                 intro_rate: "N/A",
-                image_link: "https://www.google.com/?gws_rd=ssl")
+                image_link: "https://www.google.com/?gws_rd=ssl",
+                point_type: "Rapid Rewards®")
   }
 
   let!(:card_two) {
@@ -111,6 +113,17 @@ shared_context "features" do
                 intro_rate: "N/A",
                 image_link: "https://www.google.com/?gws_rd=ssl")
   }
+
+   let!(:card_eight) {
+    Card.create(name: "CitiBusiness® / AAdvantage® Platinum Select® World MasterCard®",
+                annual_fee: "$99",
+                information: ["Bullet A", "Bullet B"],
+                apr: "12%",
+                intro_rate: "N/A",
+                image_link: "https://www.google.com/?gws_rd=ssl",
+                point_type: "AAdvantage® Miles")
+  }
+
 
   def set_card_categories
     c1 = Card.find(card_one.id)

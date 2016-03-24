@@ -12,7 +12,7 @@ RSpec.describe Api::V1::AutoCompleteController, type: :controller do
 
     it "returns all the cards if no search term is provided" do
       get :search, term: "", format: :json
-      expect(response_data.length).to eq(7)
+      expect(response_data.length).to eq(8)
     end
   end
 end

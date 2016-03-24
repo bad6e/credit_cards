@@ -1,8 +1,6 @@
 $(document).ready(function(){
   formatColors();
   $( "#loaderImg" ).fadeIn(700)
-  $(".sign-up-bonus-h1-title").hide();
-  $(".sign-up-bonus-h1-subtitle").hide();
   grabCardId();
 })
 
@@ -19,15 +17,29 @@ function getRewardData(id) {
     type: 'GET',
     url: '/api/v1/rewards/' + id,
     success: function(response){
-      if (response.length === 0) {
-        $('.sign-up-bonus-title').hide();
-        $( "#loaderImg" ).hide();
-        grayOutReward();
-      } else {
-        $( "#loaderImg" ).hide();
-        showReward(response);
-        checkIfCardHasEnoughRewards(response);
-      }
+      $( "#loaderImg" ).hide();
+      checkIfResponseIsEmpty(response)
     }
   });
+}
+
+function checkIfResponseIsEmpty(response)  {
+  if (response.length === 0) {
+    hideAllRewardInformation();
+  } else {
+    checkWhatTypeOfRewardsArePresent(response);
+  }
+}
+
+function checkWhatTypeOfRewardsArePresent(response) {
+   checkIfCardHasEnoughRewards(response);
+  if (allCentValuesAreNull(response)) {
+    showOnlyBonusInformation(response);
+  } else {
+    showBonusAndPointInformation(response);
+  }
+}
+
+function allCentValuesAreNull(response) {
+  return _.every(response, ['cent_value', null])
 }

@@ -1,31 +1,53 @@
-function grayOutReward() {
+function hideAllRewardInformation() {
+  $('.apply-center-container').hide();
+  $('.points-container').hide();
+  $('.sign-up-bonus-title').hide();
   $('#reward-chart').css("opacity", 0.0);
-  $(".sign-up-bonus-h1-title").fadeIn(700);
-  $(".sign-up-bonus-h1-subtitle").fadeIn(700);
-  $(".cards-with-bonuses").fadeIn(700);
+  $(".no-bonus-info").fadeIn(700);
 }
 
-function showReward(response) {
-  $(".sign-up-bonus-h1-title").hide();
-  $(".sign-up-bonus-h1-subtitle").hide();
-  drawGraph(response);
+function showOnlyBonusInformation(response) {
+  $('.points-container').hide();
+  $('.sign-up-bonus-title').text("Bonus Amount")
+  drawGraph(response, '#dollar-amount-chart', 'Rewards (Points/Miles)', 'amount', 'record_date')
 }
 
-function drawGraph(response) {
-  //chart can be used later to do dynamic things to the chart
+function showBonusAndPointInformation(response) {
+  var centToDollars = formatCents(response);
+  var names = formatNames(response);
+  drawMultiGraph(names, '#dollar-amount-chart','Rewards (Points/Miles)','Sign Up Bonus Valued in US Dollars');
+  drawGraph(centToDollars, '#reward-chart','Cents', 'Cents', 'recordDate');
+}
+
+function formatCents(response) {
+  var dollars = _.map(response, function(reward) {
+    return {recordDate:reward.record_date, Cents:Math.round(reward.cent_value * 100), centValue: reward.cent_value * 100}
+  });
+  return dollars
+}
+
+function formatNames(response) {
+  var names = _.map(response, function(reward) {
+    return {Bonus:reward.amount, Dollars:reward.dollar_amount, recordDate: reward.record_date}
+  });
+  return names
+}
+
+function drawGraph(response, location, y1Label, value, timeValue) {
   var chart = c3.generate({
-    bindto: '#reward-chart',
+    bindto: location,
     data: {
       json: response,
       keys: {
-        x: 'record_date',
-        value: ['amount'],
+        x: timeValue,
+        value: [value],
       },
       types: {
+        Cents: 'area-spline',
         amount: 'area-spline'
       }
     },
-    axis: axis(),
+    axis: axis(y1Label),
     area: {
       zerobased: true
     },
@@ -37,28 +59,89 @@ function drawGraph(response) {
     }
   });
 
-  //remove the axes, leave the ticks
-  $('#reward-chart').find('.domain').remove()
+  $(location).find('.domain').remove();
 }
 
-function axis() {
+function axis(y1Label) {
   return {
     x: {
       label : {
-        text: 'date',
+        text: 'Date',
         position: 'outer-center'
       },
       type : 'timeseries',
       tick: {
         format: '%b %e, %Y',
-        count: 3
+        count: 4
       },
     },
     y: {
       label: {
-        text: 'Reward (Points/Miles)',
+        text: y1Label,
         position: 'outer-middle'
       }
     }
   }
 }
+
+function drawMultiGraph(response, location, y1Label, y2Label) {
+  var chart = c3.generate({
+    bindto: location,
+    data: {
+      json: response,
+      keys: {
+        x:'recordDate',
+        value: ['Bonus','Dollars'],
+      },
+      axes: {
+        Amount: 'y',
+        Dollars:'y2'
+      },
+      type: 'line',
+
+    },
+    axis: multiYAxis(y1Label, y2Label),
+    area: {
+      zerobased: true
+    },
+    legend: {
+      hide: true
+    },
+    padding: {
+      right: 50
+    }
+  });
+  $(location).find('.domain').remove();
+}
+
+function multiYAxis(y1Label, y2Label) {
+  return {
+    x: {
+      label : {
+        text: 'Date',
+        position: 'outer-center'
+      },
+      type : 'timeseries',
+      tick: {
+        format: '%b %e, %Y',
+        count: 4
+      },
+    },
+    y: {
+      min: 0,
+      padding: {bottom: 0},
+      label: {
+        text: y1Label,
+        position: 'outer-middle'
+      }
+    },
+    y2: {
+      show:true,
+      label: {
+        text: y2Label,
+        position: 'outer-middle'
+      }
+    }
+  }
+}
+

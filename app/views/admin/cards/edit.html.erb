@@ -7,10 +7,11 @@
         <div class="card-details">
           <h2>Card Details</h2>
           <%= render partial: 'form' %>
-        </div>
+        </div><br>
         <h3>Card Rewards</h3>
+        <%= link_to "Add Another Reward for #{@card.name} ", {:controller => "rewards", :action => "new", :id => @card.id } %>
         <% if @card_rewards.rewards.any? %>
-          <table class='table table-bordered reward-table'id='rewards'>
+          <table class='table table-bordered reward-table' id='rewards'>
             <tr>
               <th></th>
               <th>Record Date</th>
@@ -22,7 +23,7 @@
             <tr>
             <% @card_rewards.rewards.each do |reward| %>
               <td><%= link_to "Edit", edit_admin_reward_path(reward) %> | <%= link_to "Delete", admin_reward_path(reward), method: :delete, data: {confirm: "Are you sure you want to delete this reward"} %> </td>
-              <td><%= reward.record_date %></td><br>
+              <td><%= reward.record_date %></td>
               <td><%= reward.amount %></td>
               <td><%= number_to_currency(reward.spending_amount, precision: 0) %></td>
               <td><%= reward.length_of_time %></td>
@@ -33,7 +34,6 @@
       <% else %>
         <h5>This card has no rewards!</h5>
       <% end %>
-      <%= link_to "Add Another Reward for #{@card.name} ", {:controller => "rewards", :action => "new", :id => @card.id } %>
     </div>
   </div>
 </div>
