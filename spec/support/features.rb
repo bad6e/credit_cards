@@ -45,6 +45,7 @@ shared_context "features" do
                 last_name: "Doucette",
                 email: "test@test.com",
                 password: "password",
+                name: "Bret Doucette",
                 role: 1)
   }
 
