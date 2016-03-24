@@ -18,16 +18,28 @@ function getRewardData(id) {
     url: '/api/v1/rewards/' + id,
     success: function(response){
       $( "#loaderImg" ).hide();
-      checkResponseLength(response)
+      checkIfResponseIsEmpty(response)
     }
   });
 }
 
-function checkResponseLength(response) {
+function checkIfResponseIsEmpty(response)  {
   if (response.length === 0) {
-    hideRewardInformation();
+    hideAllRewardInformation();
   } else {
-    showRewardInformation(response);
-    checkIfCardHasEnoughRewards(response);
+    checkWhatTypeOfRewardsArePresent(response);
   }
+}
+
+function checkWhatTypeOfRewardsArePresent(response) {
+   checkIfCardHasEnoughRewards(response);
+  if (allCentValuesAreNull(response)) {
+    showOnlyBonusInformation(response);
+  } else {
+    showBonusAndPointInformation(response);
+  }
+}
+
+function allCentValuesAreNull(response) {
+  return _.every(response, ['cent_value', null])
 }

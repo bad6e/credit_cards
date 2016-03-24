@@ -1,4 +1,4 @@
-function hideRewardInformation() {
+function hideAllRewardInformation() {
   $('.apply-center-container').hide();
   $('.points-container').hide();
   $('.sign-up-bonus-title').hide();
@@ -6,14 +6,20 @@ function hideRewardInformation() {
   $(".no-bonus-info").fadeIn(700);
 }
 
-function showRewardInformation(response) {
-  var centToDollars = formatCentsToDollars(response);
-  var names = formatNames(response);
-  drawMultiGraph(names, '#dollar-amount-chart','Rewards (Points/Miles)','Sign Up Bonus Valued in US Dollars');
-  drawGraph(centToDollars, '#reward-chart','Cents');
+function showOnlyBonusInformation(response) {
+  $('.points-container').hide();
+  $('.sign-up-bonus-title').text("Bonus Amount")
+  drawGraph(response, '#dollar-amount-chart', 'Rewards (Points/Miles)', 'amount', 'record_date')
 }
 
-function formatCentsToDollars(response) {
+function showBonusAndPointInformation(response) {
+  var centToDollars = formatCents(response);
+  var names = formatNames(response);
+  drawMultiGraph(names, '#dollar-amount-chart','Rewards (Points/Miles)','Sign Up Bonus Valued in US Dollars');
+  drawGraph(centToDollars, '#reward-chart','Cents', 'Cents', 'recordDate');
+}
+
+function formatCents(response) {
   var dollars = _.map(response, function(reward) {
     return {recordDate:reward.record_date, Cents:Math.round(reward.cent_value * 100), centValue: reward.cent_value * 100}
   });
@@ -25,6 +31,57 @@ function formatNames(response) {
     return {Bonus:reward.amount, Dollars:reward.dollar_amount, recordDate: reward.record_date}
   });
   return names
+}
+
+function drawGraph(response, location, y1Label, value, timeValue) {
+  var chart = c3.generate({
+    bindto: location,
+    data: {
+      json: response,
+      keys: {
+        x: timeValue,
+        value: [value],
+      },
+      types: {
+        Cents: 'area-spline',
+        amount: 'area-spline'
+      }
+    },
+    axis: axis(y1Label),
+    area: {
+      zerobased: true
+    },
+    legend: {
+      hide: true
+    },
+    padding: {
+      right: 50
+    }
+  });
+
+  $(location).find('.domain').remove();
+}
+
+function axis(y1Label) {
+  return {
+    x: {
+      label : {
+        text: 'Date',
+        position: 'outer-center'
+      },
+      type : 'timeseries',
+      tick: {
+        format: '%b %e, %Y',
+        count: 4
+      },
+    },
+    y: {
+      label: {
+        text: y1Label,
+        position: 'outer-middle'
+      }
+    }
+  }
 }
 
 function drawMultiGraph(response, location, y1Label, y2Label) {
@@ -88,52 +145,3 @@ function multiYAxis(y1Label, y2Label) {
   }
 }
 
-function drawGraph(response, location, y1Label) {
-  var chart = c3.generate({
-    bindto: location,
-    data: {
-      json: response,
-      keys: {
-        x: 'recordDate',
-        value: ['Cents'],
-      },
-      types: {
-        Cents: 'area-spline'
-      }
-    },
-    axis: axis(y1Label),
-    area: {
-      zerobased: true
-    },
-    legend: {
-      hide: true
-    },
-    padding: {
-      right: 50
-    }
-  });
-
-  $(location).find('.domain').remove();
-}
-
-function axis(y1Label) {
-  return {
-    x: {
-      label : {
-        text: 'Date',
-        position: 'outer-center'
-      },
-      type : 'timeseries',
-      tick: {
-        format: '%b %e, %Y',
-        count: 4
-      },
-    },
-    y: {
-      label: {
-        text: y1Label,
-        position: 'outer-middle'
-      }
-    }
-  }
-}
