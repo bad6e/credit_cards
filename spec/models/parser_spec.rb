@@ -34,7 +34,7 @@ RSpec.describe Reward, type: :model do
     rows[32]
   }
 
-  it "it calls the appropiate environment from the environment list" do
+  it "calls the appropiate environment from the environment list" do
     parser = Parser.new
     parser.stubs(:check_if_card_exists).returns("You called the check if card exists method")
     response = parser.environment_list[environment].call

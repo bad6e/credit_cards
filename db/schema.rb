@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322175157) do
+ActiveRecord::Schema.define(version: 20160323192622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160322175157) do
     t.string   "image_link"
     t.string   "best_offer"
     t.string   "flyer_talk_link"
+    t.string   "point_type"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -60,7 +61,7 @@ ActiveRecord::Schema.define(version: 20160322175157) do
     t.integer  "length_of_time"
     t.string   "apply_link",      default: "N/A"
     t.integer  "dollar_amount"
-    t.integer  "cent_value"
+    t.float    "cent_value"
     t.string   "reward_type"
   end
 

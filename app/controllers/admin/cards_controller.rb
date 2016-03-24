@@ -7,6 +7,7 @@ class Admin::CardsController < Admin::BaseController
   def index
     no_index_no_follow
     @cards = Card.all
+    @users = User.all
   end
 
   def show
