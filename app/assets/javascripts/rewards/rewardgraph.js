@@ -10,12 +10,12 @@ function showRewardInformation(response) {
   var centToDollars = formatCentsToDollars(response);
   var names = formatNames(response);
   drawMultiGraph(names, '#dollar-amount-chart','Rewards (Points/Miles)','Sign Up Bonus Valued in US Dollars');
-  drawGraph(centToDollars, '#reward-chart','50000 Points in Dollars');
+  drawGraph(centToDollars, '#reward-chart','Cents');
 }
 
 function formatCentsToDollars(response) {
   var dollars = _.map(response, function(reward) {
-    return {recordDate:reward.record_date, Dollars:reward.cent_value * 50000, centValue: reward.cent_value * 100}
+    return {recordDate:reward.record_date, Cents:Math.round(reward.cent_value * 100), centValue: reward.cent_value * 100}
   });
   return dollars
 }
@@ -41,10 +41,7 @@ function drawMultiGraph(response, location, y1Label, y2Label) {
         Dollars:'y2'
       },
       type: 'line',
-      types: {
-        Bonus: 'spline',
-        Dollars: 'spline'
-      }
+
     },
     axis: multiYAxis(y1Label, y2Label),
     area: {
@@ -74,7 +71,7 @@ function multiYAxis(y1Label, y2Label) {
       },
     },
     y: {
-      min: 5000,
+      min: 0,
       padding: {bottom: 0},
       label: {
         text: y1Label,
@@ -98,10 +95,10 @@ function drawGraph(response, location, y1Label) {
       json: response,
       keys: {
         x: 'recordDate',
-        value: ['Dollars'],
+        value: ['Cents'],
       },
       types: {
-        Dollars: 'area-spline'
+        Cents: 'area-spline'
       }
     },
     axis: axis(y1Label),
