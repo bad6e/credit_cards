@@ -26,13 +26,6 @@ function formatCents(response) {
   return dollars
 }
 
-// function formatNames(response) {
-//   var names = _.map(response, function(reward) {
-//     return {Bonus:reward.amount, Dollars:reward.dollar_amount, recordDate: reward.record_date}
-//   });
-//   return names
-// }
-
 function drawGraph(response, location, y1Label, value, timeValue) {
   var chart = c3.generate({
     bindto: location,
