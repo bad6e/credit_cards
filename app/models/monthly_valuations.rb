@@ -92,7 +92,7 @@ class MonthlyValuations
       "Barclaycard Arrival Miles" => "Barclaycard Arrival™ Miles",
       "Capital One" => "Capital One® Venture Miles",
       "Chase Ultimate Rewards" => "Chase Ultimate Rewards®",
-      "Citi ThankYou" => "Citi ThankYou® Rewards",
+      "Citi ThankYou" => "Citi ThankYou® Rewards",
       "Diners Club Rewards" => "Diners Club Rewards®",
       "FlexPerks" => "U.S. Bank FlexPoints",
       "Aeroplan" => "Aeroplan Miles",
