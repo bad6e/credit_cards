@@ -15,7 +15,7 @@ function showOnlyBonusInformation(response) {
 function showBonusAndPointInformation(response) {
   var centToDollars = formatCents(response);
   var names = formatNames(response);
-  drawMultiGraph(names, '#dollar-amount-chart','Rewards (Points/Miles)','Sign Up Bonus Valued in US Dollars');
+  drawMultiGraph(response, '#dollar-amount-chart','Rewards (Points/Miles)','Sign Up Bonus Valued in US Dollars');
   drawGraph(centToDollars, '#reward-chart','Cents', 'Cents', 'recordDate');
 }
 
@@ -26,12 +26,12 @@ function formatCents(response) {
   return dollars
 }
 
-function formatNames(response) {
-  var names = _.map(response, function(reward) {
-    return {Bonus:reward.amount, Dollars:reward.dollar_amount, recordDate: reward.record_date}
-  });
-  return names
-}
+// function formatNames(response) {
+//   var names = _.map(response, function(reward) {
+//     return {Bonus:reward.amount, Dollars:reward.dollar_amount, recordDate: reward.record_date}
+//   });
+//   return names
+// }
 
 function drawGraph(response, location, y1Label, value, timeValue) {
   var chart = c3.generate({
@@ -50,9 +50,6 @@ function drawGraph(response, location, y1Label, value, timeValue) {
     axis: axis(y1Label),
     area: {
       zerobased: true
-    },
-    legend: {
-      hide: true
     },
     padding: {
       right: 50
@@ -89,13 +86,18 @@ function drawMultiGraph(response, location, y1Label, y2Label) {
     bindto: location,
     data: {
       json: response,
+
       keys: {
-        x:'recordDate',
-        value: ['Bonus','Dollars'],
+        x:'record_date',
+        value: ['amount','dollar_amount'],
       },
       axes: {
-        Amount: 'y',
-        Dollars:'y2'
+        amount: 'y',
+        dollar_amount:'y2'
+      },
+      names: {
+        'amount': 'Points/Miles',
+        'dollar_amount': 'U.S. Dollars'
       },
       type: 'line',
 
@@ -103,9 +105,6 @@ function drawMultiGraph(response, location, y1Label, y2Label) {
     axis: multiYAxis(y1Label, y2Label),
     area: {
       zerobased: true
-    },
-    legend: {
-      hide: true
     },
     padding: {
       right: 50
