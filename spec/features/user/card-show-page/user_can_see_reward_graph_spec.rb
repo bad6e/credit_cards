@@ -33,7 +33,7 @@ feature "user - card show page" do
 
     set_card_categories
     visit card_path(card_one)
-    expect(page).to have_content "Bonus Amount - Dollar Amount"
+    expect(page).to have_content "Bonus Amount - Approx. Dollar Amount"
     expect(page).to have_content "Point to Dollar Ratio"
     expect(page).to_not have_content("No Bonus Information for This Card")
     expect(page).to_not have_content("But Here are Some Cards That Do!")
@@ -99,7 +99,7 @@ feature "user - card show page" do
 
     set_card_categories
     visit card_path(card_six)
-    expect(page).to_not have_content("Bonus Amount - Dollar Amount")
+    expect(page).to_not have_content("Bonus Amount - Approx. Dollar Amount")
     expect(page).to_not have_content "Point to Dollar Ratio"
     expect(page).to have_content("No Bonus Information for This Card")
     expect(page).to have_content("But Here are some Cash Back Credit Cards with Bonuses!")
