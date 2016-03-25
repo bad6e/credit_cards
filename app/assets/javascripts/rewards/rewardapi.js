@@ -32,11 +32,12 @@ function checkIfResponseIsEmpty(response)  {
 }
 
 function checkWhatTypeOfRewardsArePresent(response) {
-   checkIfCardHasEnoughRewards(response);
   if (allCentValuesAreNull(response)) {
     showOnlyBonusInformation(response);
+    checkIfCardHasEnoughRewards(response);
   } else {
     showBonusAndPointInformation(response);
+    checkIfCardHasEnoughRewards(response);
   }
 }
 
