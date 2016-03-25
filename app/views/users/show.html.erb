@@ -161,12 +161,35 @@
               </div>
               <!-- End - Notification and Activity Section -->
 
-
-              <!-- Email Update Section -->
+              <!-- Update Email Section -->
               <hr>
-              <h2>Email Settings - Coming Soon!</h2>
-              <!-- This is where change password/email will eventually go -->
+              <h2>Email Settings</h2>
+              <div class="row block">
+                <div class="col-md-12">
+                  <form class="edit-profile-form">
+                    <h3>Change Your Email Address</h3>
+                      <div class="col-sm-9 no-padding no-float">
+                        <div class="row form-group">
+                          <div class="col-sms-6 col-sm-6">
+                            <label>Email Address</label>
+                            <input type="text" class="input-text full-width" placeholder="">
+                          </div>
+                          <div class="col-sms-6 col-sm-6">
+                            <label>Verify Email Address</label>
+                            <input type="text" class="input-text full-width" placeholder="">
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="from-group update-settings">
+                          <button type="submit" class="btn-medium col-sms-6 col-sm-4" id="update-email-button">UPDATE EMAIL</button><br><br><br>
+                          <%= link_to("DELETE ACCOUNT", user_path(current_user), method: :delete, data: { confirm: "Are you sure you want to delete your account from Too Many Miles?" }) %>
+                        </div>
+                      </div>
+                  </form>
+                </div>
+              </div>
               <hr>
+              <!-- End - Update Email Section -->
               <!-- <h5 class="skin-color">Send Me Emails When</h5>
               <form>
                 <div class="checkbox">
