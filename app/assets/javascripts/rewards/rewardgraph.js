@@ -14,7 +14,6 @@ function showOnlyBonusInformation(response) {
 
 function showBonusAndPointInformation(response) {
   var centToDollars = formatCents(response);
-  var names = formatNames(response);
   drawMultiGraph(response, '#dollar-amount-chart','Rewards (Points/Miles)','Sign Up Bonus Valued in US Dollars');
   drawGraph(centToDollars, '#reward-chart','Cents', 'Cents', 'recordDate');
 }
