@@ -86,8 +86,41 @@ class MonthlyValuations
 
   def program_key
     {
-      "Southwest" => "Rapid Rewards®",
-      "American" => "AAdvantage® Miles"
+      "Southwest" => "Southwest Rapid Rewards®",
+      "American" => "American AAdvantage® Miles",
+      "American Express Membership Rewards" => "American Express Membership Rewards®",
+      "Barclaycard Arrival Miles" => "Barclaycard Arrival™ Miles",
+      "Capital One" => "Capital One® Venture Miles",
+      "Chase Ultimate Rewards" => "Chase Ultimate Rewards®",
+      "Citi ThankYou" => "Citi ThankYou® Rewards",
+      "Diners Club Rewards" => "Diners Club Rewards®",
+      "FlexPerks" => "U.S. Bank FlexPoints",
+      "Aeroplan" => "Aeroplan Miles",
+      "Alaska" => "Alaska Airlines Mileage Plan™",
+      "ANA" => "ANA Mileage Club Miles",
+      "Avianca" => "Avianca LifeMiles",
+      "British Airways" => "British Airways Avios",
+      "Delta" => "Delta SkyMiles®",
+      "Emirates" => "Emirates Skywards",
+      "Etihad" => "Etihad™ Guest Miles",
+      "Flying Blue" => "Air France Flying Blue Miles",
+      "Frontier" => "Frontier Miles",
+      "JetBlue" => "JetBlue Points",
+      "Miles & More" => "Lufthansa Miles & More®",
+      "Singapore Airlines" => "Singapore Airlines KrisFlyer Miles",
+      "United" => "United MileagePlus® Miles",
+      "Virgin America" => "Virgin America Points",
+      "Virgin Atlantic" => "Virgin Atlantic Flying Club Miles",
+      "Club Carlson" => "Club Carlson Gold Points",
+      "Choice Privileges" => "Choice Privileges®",
+      "Hilton" => "Hilton HHonors Points",
+      "Hyatt" => "Hyatt Gold Passport Points",
+      "IHG" => "IHG® Rewards Club",
+      "Marriott" => "Marriott Reward Points",
+      "Ritz-Carlton" => "The Ritz-Carlton Rewards",
+      "Starwood" => "Starwood Starpoints",
+      "Wyndham" => "Wyndham Rewards®",
+      "Amtrak" => "Amtrak Guest Rewards®"
     }
   end
 end
