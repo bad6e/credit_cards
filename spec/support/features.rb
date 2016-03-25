@@ -56,7 +56,7 @@ shared_context "features" do
                 apr: "12%",
                 intro_rate: "N/A",
                 image_link: "https://www.google.com/?gws_rd=ssl",
-                point_type: "Rapid Rewards®")
+                point_type: "Southwest Rapid Rewards®")
   }
 
   let!(:card_two) {
@@ -121,7 +121,7 @@ shared_context "features" do
                 apr: "12%",
                 intro_rate: "N/A",
                 image_link: "https://www.google.com/?gws_rd=ssl",
-                point_type: "AAdvantage® Miles")
+                point_type: "American AAdvantage® Miles")
   }
 
 
