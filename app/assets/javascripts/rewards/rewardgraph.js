@@ -101,7 +101,7 @@ function drawMultiGraph(response, location, y1Label, y2Label) {
       zerobased: true
     },
     padding: {
-      right: 100
+      right: 75
     }
   });
   // $(location).find('.domain').remove();
