@@ -131,6 +131,7 @@ function multiYAxis(y1Label, y2Label) {
     y2: {
       min: 0,
       show:true,
+      padding: {bottom: 0},
       label: {
         text: y2Label,
         position: 'outer-middle'
