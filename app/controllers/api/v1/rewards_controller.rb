@@ -3,9 +3,9 @@ class Api::V1::RewardsController < ApplicationController
 
   def show
     sleep(1)
-    records = Reward.where(card_id: params[:id]).order(record_date: 'desc')
+    rewards  = Reward.where(card_id: params[:id]).order(record_date: 'desc')
     currency = Card.find(params[:id]).point_type
-    response = {:records => records, :currency => currency}
+    response = {:rewards => rewards, :currency => currency}
     respond_with response
   end
 end

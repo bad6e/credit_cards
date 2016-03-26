@@ -24,7 +24,7 @@ function getRewardData(id) {
 }
 
 function checkIfResponseIsEmpty(response)  {
-  if (response.records.length === 0) {
+  if (response.rewards.length === 0) {
     hideAllRewardInformation();
   } else {
     checkWhatTypeOfRewardsArePresent(response);
@@ -32,12 +32,12 @@ function checkIfResponseIsEmpty(response)  {
 }
 
 function checkWhatTypeOfRewardsArePresent(response) {
-  if (allCentValuesAreNull(response.records)) {
+  if (allCentValuesAreNull(response.rewards)) {
     showOnlyBonusInformation(response);
   } else {
     showBonusAndPointInformation(response);
   }
-  checkIfCardHasEnoughRewards(response.records);
+  checkIfCardHasEnoughRewards(response.rewards);
 }
 
 function allCentValuesAreNull(response) {

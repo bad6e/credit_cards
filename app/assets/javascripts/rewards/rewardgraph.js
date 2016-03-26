@@ -9,12 +9,12 @@ function hideAllRewardInformation() {
 function showOnlyBonusInformation(response) {
   $('.points-container').hide();
   $('.sign-up-bonus-title').text("Bonus Amount")
-  drawGraph(response.records, '#dollar-amount-chart', response.currency, 'amount', 'record_date')
+  drawGraph(response.rewards, '#dollar-amount-chart', response.currency, 'amount', 'record_date')
 }
 
 function showBonusAndPointInformation(response) {
-  var centToDollars = formatCents(response.records);
-  drawMultiGraph(response.records, '#dollar-amount-chart',response.currency,'Bonus Value ($)');
+  var centToDollars = formatCents(response.rewards);
+  drawMultiGraph(response.rewards, '#dollar-amount-chart',response.currency,'Bonus Value ($)');
   drawGraph(centToDollars, '#reward-chart','cpp', 'Cents', 'recordDate');
 }
 
