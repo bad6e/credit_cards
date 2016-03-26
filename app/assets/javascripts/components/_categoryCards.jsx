@@ -5,15 +5,21 @@ var SortByName = React.createClass({
         <h4 className="sort-by-title block-sm">Sort Results By:</h4>
         <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByName}>Card Name</button>
         <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByAmount}>Current Bonus - Points</button>
+        <button className="button btn-small" id="sort-button" onClick={this.props.sortCardsByDollarAmount}>Current Bonus - Dollars</button>
       </div>
     )
   }
 })
 
 var Card = React.createClass({
-  determineRewardStatus : function(details) {
+  determinePointRewardStatus : function(details) {
     return  details && details.rewards && details.rewards.length
                         ? details.rewards[0].amount : "NO INFO FOR THIS CARD"
+  },
+
+  determineDollarRewardStatus : function(details) {
+    return  details && details.rewards && details.rewards.length && details.rewards[0].dollar_amount
+                        ? details.rewards[0].dollar_amount : "NO INFO FOR THIS CARD"
   },
 
   determineBestOfferColor : function(bestOffer) {
@@ -55,21 +61,28 @@ var Card = React.createClass({
             <div className="third-row">
               <div className="time">
 
-                <div className="total-time col-sm-4">
+                <div className="total-time col-sm-3">
                   <div className="icon"><i className="soap-icon-party yellow-color"></i></div>
                   <div>
-                    <span className="skin-color">Current Bonus</span><br/><strong>{this.determineRewardStatus(details)}</strong>
+                    <span className="skin-color">Current Bonus - Points</span><br/>{this.determinePointRewardStatus(details)}
                   </div>
                 </div>
 
-                <div className="take-off col-sm-4">
+                <div className="total-time col-sm-3">
+                  <div className="icon"><i className="soap-icon-features yellow-color"></i></div>
+                  <div>
+                    <span className="skin-color">Current Bonus - Dollars</span><br/>{this.determineDollarRewardStatus(details)}
+                  </div>
+                </div>
+
+                <div className="take-off col-sm-3">
                   <div className="icon"><i className="soap-icon-card yellow-color"></i></div>
                   <div>
                     <span className="skin-color">Annual Fee</span><br/>{details.annual_fee}
                   </div>
                 </div>
 
-                <div className="landing col-sm-4">
+                <div className="landing col-sm-3">
                   <div className="icon"><i className="soap-icon-savings yellow-color"></i></div>
                   <div>
                     <span className="skin-color">APR</span><br/>{details.apr}
@@ -141,11 +154,25 @@ var LoadCards = React.createClass({
     this.setState({ cards: sortedCardsByAmount.reverse() })
   },
 
+  sortCardsByDollarAmount : function() {
+    var sortedCardsByDollarAmount = _.sortBy(this.state.cards, function(o) {
+      if (o.rewards.length > 0  &&  o.rewards[0].dollar_amount) {
+        return o.rewards[0].dollar_amount;
+      } else if (o.rewards.length > 0 && o.rewards[0].dollar_amount === null) {
+        return -1
+      } else if (o.rewards.length === 0) {
+        return -1
+      }
+    })
+    this.setState({ cards: sortedCardsByDollarAmount.reverse() })
+  },
+
   render : function () {
     return (
       <div>
         <SortByName sortCardsByName = {this.sortCardsByName}
-                    sortCardsByAmount = {this.sortCardsByAmount}/>
+                    sortCardsByAmount = {this.sortCardsByAmount}
+                    sortCardsByDollarAmount = {this.sortCardsByDollarAmount}/>
         <CardList cards={this.state.cards} />
       </div>
     );
