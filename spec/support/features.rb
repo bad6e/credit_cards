@@ -92,6 +92,7 @@ shared_context "features" do
                 information: ["Bullet A", "Bullet B"],
                 apr: "12%",
                 intro_rate: "N/A",
+                point_type: "Barclay Miles",
                 image_link: "https://www.google.com/?gws_rd=ssl")
   }
 

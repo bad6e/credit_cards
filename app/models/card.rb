@@ -17,7 +17,7 @@ class Card < ActiveRecord::Base
   validates :intro_rate,
               presence: true
   validates :image_link,
-              presence: true
+              presence: true      
 
   self.per_page = 10
 
