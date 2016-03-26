@@ -35,9 +35,11 @@ RSpec.describe Api::V1::RewardsController, type: :controller do
 
       set_card_categories
       get :show, id: card_five.id, format: :json
-      expect(response_data.length).to eq(4)
-      expect(response_data[0]["record_date"]).to eq("2016-02-25")
-      expect(response_data[-1]['record_date']).to eq("2016-02-08")
+      expect(response_data.length).to eq(2)
+      expect(response_data['rewards'].length).to eq(4)
+      expect(response_data['currency']).to eq("Barclay Miles")
+      expect(response_data['rewards'].first["record_date"]).to eq("2016-02-25")
+      expect(response_data['rewards'].last["record_date"]).to eq("2016-02-08")
     end
   end
 end
