@@ -18,6 +18,9 @@ class Card < ActiveRecord::Base
               presence: true
   validates :image_link,
               presence: true
+  validates :reward_program,
+              presence: true
+      
 
   self.per_page = 10
 

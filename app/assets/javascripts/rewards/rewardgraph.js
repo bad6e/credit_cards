@@ -9,14 +9,13 @@ function hideAllRewardInformation() {
 function showOnlyBonusInformation(response) {
   $('.points-container').hide();
   $('.sign-up-bonus-title').text("Bonus Amount")
-  drawGraph(response, '#dollar-amount-chart', 'Rewards (Points/Miles)', 'amount', 'record_date')
+  drawGraph(response.records, '#dollar-amount-chart', response.currency, 'amount', 'record_date')
 }
 
 function showBonusAndPointInformation(response) {
-  var centToDollars = formatCents(response);
-  var names = formatNames(response);
-  drawMultiGraph(response, '#dollar-amount-chart','Rewards (Points/Miles)','Sign Up Bonus Valued in US Dollars');
-  drawGraph(centToDollars, '#reward-chart','Cents', 'Cents', 'recordDate');
+  var centToDollars = formatCents(response.records);
+  drawMultiGraph(response.records, '#dollar-amount-chart',response.currency,'Bonus Value ($)');
+  drawGraph(centToDollars, '#reward-chart','cpp', 'Cents', 'recordDate');
 }
 
 function formatCents(response) {
@@ -46,6 +45,9 @@ function drawGraph(response, location, y1Label, value, timeValue) {
     },
     padding: {
       right: 50
+    },
+    legend: {
+      show: false
     }
   });
 
@@ -62,7 +64,6 @@ function axis(y1Label) {
       type : 'timeseries',
       tick: {
         format: '%b %e, %Y',
-        count: 4
       },
     },
     y: {
@@ -89,8 +90,8 @@ function drawMultiGraph(response, location, y1Label, y2Label) {
         dollar_amount:'y2'
       },
       names: {
-        'amount': 'Points/Miles',
-        'dollar_amount': 'U.S. Dollars'
+        'amount': y1Label,
+        'dollar_amount': y2Label
       },
       type: 'line',
 
@@ -100,10 +101,10 @@ function drawMultiGraph(response, location, y1Label, y2Label) {
       zerobased: true
     },
     padding: {
-      right: 50
+      right: 100
     }
   });
-  $(location).find('.domain').remove();
+  // $(location).find('.domain').remove();
 }
 
 function multiYAxis(y1Label, y2Label) {
@@ -116,7 +117,7 @@ function multiYAxis(y1Label, y2Label) {
       type : 'timeseries',
       tick: {
         format: '%b %e, %Y',
-        count: 4
+        // count: 4
       },
     },
     y: {
@@ -128,6 +129,7 @@ function multiYAxis(y1Label, y2Label) {
       }
     },
     y2: {
+      min: 0,
       show:true,
       label: {
         text: y2Label,
@@ -136,4 +138,3 @@ function multiYAxis(y1Label, y2Label) {
     }
   }
 }
-
