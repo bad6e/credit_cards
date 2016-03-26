@@ -4,6 +4,15 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     @user_presenter = UserPresenter.new
+    @user = current_user
+  end
+
+  def edit
+
+  end
+
+  def update
+    binding.pry
   end
 
   def destroy
