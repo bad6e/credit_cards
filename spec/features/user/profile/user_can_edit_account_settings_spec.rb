@@ -18,16 +18,11 @@ feature "User Profile Page" do
     expect(User.all.count).to eq(0)
   end
 
-  scenario "user can update their email account", js: true do
+  scenario "user can see their email in the field", js: true do
     admin_login
     click_on "ACCOUNT"
     within(".edit_user") do
       expect(find_field('user[email]').value).to eq("test@test.com")
-      fill_in "user[email]", with: "bret@isthebest.com"
-      click_button "UPDATE EMAIL"
     end
-    user = User.find_by(first_name: "Bret")
-    expect(user.email).to eq("bret@isthebest.com")
-    expect(user.updated_email).to eq(true)
   end
 end
