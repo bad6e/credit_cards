@@ -16,8 +16,8 @@ class UsersController < ApplicationController
       flash[:success] = "Your email has been updated to #{@user.email}"
       redirect_to user_path(@user)
     else
-      flash.now[:errors] = @user.errors.full_messages.join(", ")
-      render user_path(@user)
+      flash[:errors] = @user.errors.full_messages.join(", ")
+      redirect_to user_path(@user)
     end
   end
 

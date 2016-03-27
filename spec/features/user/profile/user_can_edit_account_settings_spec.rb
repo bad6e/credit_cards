@@ -13,7 +13,7 @@ feature "User Profile Page" do
       click_on "DELETE ACCOUNT"
       page.driver.browser.switch_to.alert.accept
     end
-    expect(page).to have_content("We are sorry to see you go, Example User!")
+    expect(page).to have_content("We are sorry to see you go, Bret Doucette!")
     expect(current_path).to eq(root_path)
     expect(User.all.count).to eq(0)
   end
