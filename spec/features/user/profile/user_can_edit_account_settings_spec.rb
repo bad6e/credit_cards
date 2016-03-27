@@ -18,13 +18,13 @@ feature "User Profile Page" do
     expect(User.all.count).to eq(0)
   end
 
-  xscenario "user can update their email account", js: true do
+  scenario "user can update their email account", js: true do
     admin_login
     click_on "ACCOUNT"
-    within(".update-email") do
+    within(".edit_user") do
+      find_field('user[email]').value.should eq 'test@test.com'
       fill_in "user[email]", with: "bret@isthebest.com"
-      sleep(3)
-      click_on "UPDATE EMAIL"
+      click_button "UPDATE EMAIL"
     end
     user = User.find_by(first_name: "Bret")
     expect(user.email).to eq("bret@isthebest.com")

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: [:update, :destroy
-  ]
+  before_action :load_user, only: [:update, :destroy]
   def show
     if !current_user
       redirect_to root_path
@@ -12,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     if @user.update(email: user_params[:email])
       @user.update(updated_email: true)
       flash[:success] = "Your email has been updated to #{@user.email}"

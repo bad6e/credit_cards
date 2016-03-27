@@ -170,7 +170,7 @@
                   <div class="col-sm-9 no-padding no-float">
                     <div class="row form-group">
                       <div class="col-sms-12 col-sm-6 update-email">
-                        <%= form_for current_user, url: {action: "update"} do |user| %>
+                        <%= form_for current_user, url: {action: "update", method: 'patch'} do |user| %>
                           <%= user.label "Email"%>
                           <%= user.email_field :email, class: "input-text full-width" %>
                           <button class="btn-medium uppercase update-email-button">UPDATE EMAIL</button>
