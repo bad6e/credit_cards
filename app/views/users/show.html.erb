@@ -161,12 +161,31 @@
               </div>
               <!-- End - Notification and Activity Section -->
 
-
-              <!-- Email Update Section -->
+              <!-- Update Email Section -->
               <hr>
-              <h2>Email Settings - Coming Soon!</h2>
-              <!-- This is where change password/email will eventually go -->
+              <h2>Account &amp; Email Settings</h2>
+              <p>If you wish to provide a different email, please use the form below:</p>
+              <div class="row block">
+                <div class="col-md-12">
+                  <div class="col-sm-9 no-padding no-float">
+                    <div class="row form-group">
+                      <div class="col-sms-12 col-sm-6 update-email">
+                        <%= form_for current_user, url: {action: "update", method: 'patch'} do |user| %>
+                          <%= user.label "Email"%>
+                          <%= user.email_field :email, class: "input-text full-width" %>
+                          <button class="btn-medium uppercase update-email-button">UPDATE EMAIL</button>
+                        <% end %>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="from-group delete-account">
+                      <%= link_to("DELETE ACCOUNT", user_path(current_user), method: :delete, data: { confirm: "Are you sure you want to delete your account from Too Many Miles?" }) %>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <hr>
+              <!-- End - Update Email Section -->
               <!-- <h5 class="skin-color">Send Me Emails When</h5>
               <form>
                 <div class="checkbox">

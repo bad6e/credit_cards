@@ -1,0 +1,4 @@
+        <%= form_for @user, url: {controller: "users", action: "update"} do |user| %>
+                            <%= user.label "Email"%>
+                            <%= user.email_field :email, class: "input-text full-width" %>
+                            <%= user.submit %>
