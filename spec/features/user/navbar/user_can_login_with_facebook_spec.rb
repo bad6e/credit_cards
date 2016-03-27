@@ -14,7 +14,7 @@ feature "Facebook Oauth" do
       click_on "Login with Facebook"
     end
     within(".alert") do
-      expect(page).to have_content("Welcome, Example User!")
+      expect(page).to have_content("Welcome, Bret Doucette!")
     end
     expect(page).to have_content("ACCOUNT")
     expect(page).to have_content("LOGOUT")
@@ -33,7 +33,7 @@ feature "Facebook Oauth" do
       click_on "Join with Facebook"
     end
     within(".alert") do
-      expect(page).to have_content("Welcome, Example User!")
+      expect(page).to have_content("Welcome, Bret Doucette!")
     end
     expect(page).to have_content("ACCOUNT")
     expect(page).to have_content("LOGOUT")
