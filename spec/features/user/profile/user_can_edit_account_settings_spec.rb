@@ -22,7 +22,7 @@ feature "User Profile Page" do
     admin_login
     click_on "ACCOUNT"
     within(".edit_user") do
-      find_field('user[email]').value.should eq 'test@test.com'
+      expect(find_field('user[email]').value).to eq("test@test.com")
       fill_in "user[email]", with: "bret@isthebest.com"
       click_button "UPDATE EMAIL"
     end
