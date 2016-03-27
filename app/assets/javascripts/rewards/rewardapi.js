@@ -5,11 +5,23 @@ $(document).ready(function(){
 })
 
 function grabCardId() {
-  var id = $(".entry-title").attr('id')
-  if (id === undefined) {
-    var id = $(".top-title").attr('id')
+  if (window.location.pathname === "/") {
+    checkForTestEnv();
+  } else if (window.location.pathname.indexOf("/cards/") > -1) {
+    var id = $(".entry-title").attr('id');
+    getRewardData(id);
+  } else {
+    return;
   }
-  getRewardData(id);
+}
+
+function checkForTestEnv() {
+  if (window.location.hostname === "127.0.0.1") {
+    return;
+  } else {
+    var id = $(".top-title").attr('id');
+    getRewardData(id);
+  }
 }
 
 function getRewardData(id) {
