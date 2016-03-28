@@ -9,7 +9,9 @@ require 'capybara/rspec'
 require 'support/features'
 
 OmniAuth.config.test_mode = true
-  omniauth_hash = {"provider"=>"facebook",
+
+OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+                  "provider"=>"facebook",
                    "uid"=>"10102534528384326",
                    "info"=>
                   {"email" => "bretisamazing@me.com",
@@ -26,9 +28,7 @@ OmniAuth.config.test_mode = true
                     {"id"=>"10102534528384326",
                      "name"=>"Bret Doucette",
                      "email"=> "bretisamazing@me.com",
-                     "link"=>"https://www.facebook.com/app_scoped_user_id/10102534528384326/"}}}
-
-OmniAuth.config.add_mock(:provider, omniauth_hash)
+                     "link"=>"https://www.facebook.com/app_scoped_user_id/10102534528384326/"}}})
 
 ActiveRecord::Migration.maintain_test_schema!
 

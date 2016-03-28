@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/learn-about-credit-cards', to: 'start#index'
 
   resources :about, only: [:index]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :update, :edit, :destroy]
   resources :cards, only: [:index, :show]
 
   resources :categories, only: [:index]

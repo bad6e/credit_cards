@@ -59,6 +59,8 @@ shared_context "features" do
                 point_type: "Southwest Rapid Rewards®")
   }
 
+
+
   let!(:card_two) {
     Card.create(name: "Southwest Rapid Rewards® Plus Credit Card",
                 annual_fee: "$99",
@@ -96,7 +98,6 @@ shared_context "features" do
                 image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
-
   let!(:card_six) {
     Card.create(name: "Starwood Preferred Guest® Credit Card from American Express",
                 annual_fee: "$99",
@@ -124,7 +125,6 @@ shared_context "features" do
                 image_link: "https://www.google.com/?gws_rd=ssl",
                 point_type: "American AAdvantage® Miles")
   }
-
 
   def set_card_categories
     c1 = Card.find(card_one.id)

@@ -48,7 +48,7 @@ RSpec.describe Api::V1::CategoriesController, type: :controller do
 
       set_card_categories
       get :show, id: category_one.name, format: :json
-      data = response_data.select{|data| data != []}
+      data = response_data.select{|data| data['rewards'] != []}
       expect(data[0]['rewards'].length).to eq(4)
       expect(data[0]['rewards'][0]['record_date']).to eq("2016-02-25")
       expect(data[0]['rewards'][-1]['record_date']).to eq("2016-02-08")
