@@ -35,7 +35,7 @@ feature "user - card show page" do
     visit card_path(card_one)
     expect(page).to have_content "Bonus Amount & Value"
     expect(page).to have_content "Rewards Value - #{card_one.point_type}"
-    expect(page).to_not have_content("No Bonus Information for This Card")
+    expect(page).to_not have_content("No Bonus Information")
     expect(page).to_not have_content("But Here are Some Cards That Do!")
   end
 
@@ -65,7 +65,7 @@ feature "user - card show page" do
     visit card_path(card_one)
     expect(page).to have_content "Bonus Amount"
     expect(page).to_not have_content "Rewards Value - #{card_one.point_type}"
-    expect(page).to_not have_content("No Bonus Information for This Card")
+    expect(page).to_not have_content("No Bonus Information")
     expect(page).to_not have_content("But Here are Some Cards That Do!")
   end
 
@@ -101,7 +101,7 @@ feature "user - card show page" do
     visit card_path(card_six)
     expect(page).to_not have_content("Bonus Amount & Value")
     expect(page).to_not have_content "Rewards Value - #{card_six.point_type}pe}"
-    expect(page).to have_content("No Bonus Information for This Card")
+    expect(page).to have_content("No Bonus Information")
     expect(page).to have_content("But Here are some Cash Back Credit Cards with Bonuses!")
     expect(page).to have_content("Chase Cash Back")
     expect(page).to have_content("50000 Points")
