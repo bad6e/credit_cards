@@ -64,6 +64,7 @@ function axis(y1Label) {
       type : 'timeseries',
       tick: {
         format: '%b %e, %Y',
+        count: 3
       },
     },
     y: {
@@ -117,7 +118,7 @@ function multiYAxis(y1Label, y2Label) {
       type : 'timeseries',
       tick: {
         format: '%b %e, %Y',
-        // count: 4
+        count: 3
       },
     },
     y: {
