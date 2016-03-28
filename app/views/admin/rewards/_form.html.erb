@@ -1,6 +1,5 @@
 <%= bootstrap_form_for([:admin, @reward]) do |reward_form| %>
   <%= reward_form.number_field :amount, append: "Points" %>
-  <%= reward_form.number_field :cent_value, prepend: "$" %>
   <%= reward_form.number_field :spending_amount, prepend: "$" %>
   <%= reward_form.date_field :record_date %>
   <%= reward_form.number_field :length_of_time, append: "Months" %>
