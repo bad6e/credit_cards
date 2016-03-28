@@ -4,6 +4,9 @@ class Card < ActiveRecord::Base
   has_many :categorizings
   has_many :categories, through: :categorizings
 
+  has_many :favorite_cards
+  has_many :users, through: :favorite_cards
+
   accepts_nested_attributes_for :categories,
                                   reject_if: :all_blank,
                                   allow_destroy: true
@@ -17,7 +20,7 @@ class Card < ActiveRecord::Base
   validates :intro_rate,
               presence: true
   validates :image_link,
-              presence: true      
+              presence: true
 
   self.per_page = 10
 
