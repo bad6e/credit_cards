@@ -108,8 +108,41 @@ var Card = React.createClass({
 });
 
 var CardList = React.createClass({
+
+  determinePointRewardStatus : function(details) {
+    return  details && details.rewards && details.rewards.length
+                        ? details.rewards[0].amount : "NO INFO FOR THIS CARD"
+  },
+
+  determineDollarRewardStatus : function(details) {
+    return  details && details.rewards && details.rewards.length && details.rewards[0].dollar_amount
+                        ? details.rewards[0].dollar_amount : "NO INFO FOR THIS CARD"
+  },
+
+
+  determineBestOfferColor : function(bestOffer) {
+    if (bestOffer === "yes") {
+      return {color: 'green'}
+    } else if (bestOffer === "no") {
+      return {color: 'red'}
+    } else if (bestOffer === "ok") {
+      return {color: '#BB9D40'}
+    } else {
+      return {color: 'black'}
+    }
+  },
+
   renderCards: function(key) {
-    return <Card key= {this.props.cards[key].id} details= {this.props.cards[key]} postFavoriteCard={this.props.postFavoriteCard}/>
+    if (this.props.apiUrl.indexOf("/users/") > -1 == "1"){
+      return <FavoriteCard key= {this.props.cards[key].id}
+                           details= {this.props.cards[key]}
+                           postFavoriteCard={this.props.postFavoriteCard}
+                           determinePointRewardStatus={this.determinePointRewardStatus}
+                           determineDollarRewardStatus={this.determineDollarRewardStatus}
+                           determineBestOfferColor={this.determineBestOfferColor}/>
+    } else {
+      return <Card key= {this.props.cards[key].id} details= {this.props.cards[key]} postFavoriteCard={this.props.postFavoriteCard} {...this.props}/>
+    }
   },
 
   render : function() {
@@ -132,7 +165,7 @@ var LoadCards = React.createClass({
 
   loadCardsFromAPI: function () {
     $.ajax({
-      url: "api/v1/categories/" + this.props.id,
+      url: this.props.url,
       dataType: 'json',
       success: function (cards) {
         this.setState({cards : cards});
@@ -195,7 +228,8 @@ var LoadCards = React.createClass({
                     sortCardsByAmount = {this.sortCardsByAmount}
                     sortCardsByDollarAmount = {this.sortCardsByDollarAmount}/>
         <CardList cards= {this.state.cards}
-                  postFavoriteCard= {this.postFavoriteCard}/>
+                  postFavoriteCard= {this.postFavoriteCard}
+                  apiUrl = {this.props.url}/>
       </div>
     );
   }
@@ -205,7 +239,7 @@ var CategoryCards = React.createClass({
   render : function() {
     return (
       <div>
-        <LoadCards id={this.props.id} />
+        <LoadCards url={this.props.url} />
       </div>
       )
   }

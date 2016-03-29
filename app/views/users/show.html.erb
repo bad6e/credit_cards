@@ -256,23 +256,7 @@
               </form>
             </div>
             <div class="booking-history">
-              <% current_user.cards.each do |card| %>
-                <div class="booking-info clearfix">
-                  <div class="date">
-                    <%= image_tag(card.image_link) %>
-                  </div>
-                  <h4 class="box-title"><i class="icon soap-icon-plane-right takeoff-effect yellow-color circle"></i><%= card.name %></h4>
-                  <dl class="info">
-                      <dt>Apply Now?</dt>
-                      <dd><%= card.best_offer %></dd>
-                      <dt>Current Bonus</dt>
-                      <dd>1000</dd>
-                  </dl>
-
-                    <button class="btn-mini status unfavorite">Unfavorite</button>
-
-                </div>
-              <% end %>
+              <%= react_component('CategoryCards', url: "/api/v1/users/#{current_user.id}") %>
             </div>
               <!-- End - Favorite Card Section -->
           </div>

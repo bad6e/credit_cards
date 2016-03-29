@@ -45,7 +45,7 @@
         <div class="col-sm-8 col-md-9">
           <!-- Card Listings and Sort Component -->
           <div class="flight-list listing-style3 flight">
-            <%= react_component('CategoryCards', id: @category_presenter.category_id) %>
+            <%= react_component('CategoryCards', url: "/api/v1/categories/#{@category_presenter.category_id}") %>
           </div>
           <!-- End - Card Listings and Sort Component -->
         </div>

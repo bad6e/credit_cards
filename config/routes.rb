@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       resources :rewards, only: [:show]
       resources :categories, only: [:show]
       resources :cards, only: [:update]
+      resources :users, only: [:show]
     end
   end
 end

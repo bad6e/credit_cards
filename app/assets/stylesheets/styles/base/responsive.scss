@@ -677,6 +677,7 @@
 
   #booking .booking-info .box-title {
     padding-left: 0px !important;
+    padding-top: 14px;
     padding-bottom: 20px;
     text-align: center;
   }
@@ -687,6 +688,12 @@
 
   #booking .booking-info .info {
     text-align: center;
+    * {
+      padding: 5px;
+    }
+    dt {
+      font-size: 1em;
+    }
   }
 
   .unfavorite {

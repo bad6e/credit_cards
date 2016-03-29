@@ -3956,14 +3956,14 @@ ul.search-tabs {
         .day { font-size: 0.8333em; font-weight: normal; line-height: 1.25em; }
       }
     }
-    .box-title, .status { margin-top: 20px; }
+    .box-title, .status {}
     .icon { font-size: 1.0833em; float: left; margin-right: 10px; }
     .box-title {padding-left: 125px; small { padding-left: 43px; } }
-    .status { float: left; margin-right: 15px; background: $green-theme-color; }
+    .status { float: left; margin-right: 15px; margin-top: 18px; background: $green-theme-color; }
     .info {
       float: right; border-left: 1px solid #f5f5f5; text-transform: uppercase; padding-top: 2px; margin-bottom: 0; width: 140px;
-      * { font-size: 0.8333em; font-weight: normal; }
-      dt { color: #e44049; }
+      * { font-size: 0.8333em; font-weight: normal; text-align: center; padding: 2.5px; }
+      dt { color: black; }
     }
     &.cancelled {
       div.date {
