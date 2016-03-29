@@ -22,6 +22,11 @@ var Card = React.createClass({
                         ? details.rewards[0].dollar_amount : "NO INFO FOR THIS CARD"
   },
 
+  onButtonClick : function() {
+    var id = this.props.details.id
+    this.props.postFavoriteCard(id);
+  },
+
   determineBestOfferColor : function(bestOffer) {
     if (bestOffer === "yes") {
       return {color: 'green'}
@@ -36,7 +41,7 @@ var Card = React.createClass({
 
   render : function() {
     var details = this.props.details
-
+    var buttonText = "Favorite Card"
     return (
       <article className="box" id={'card-' + details.id}>
         <div className="details col-xs-12">
@@ -54,7 +59,7 @@ var Card = React.createClass({
 
             <div className="second-row">
               <div className="action">
-                <a className="button btn-small active">Favorite Card</a><hr/>
+                <a className="button btn-small active" onClick={this.onButtonClick}>{buttonText}</a><hr/>
               </div>
             </div>
 
@@ -103,14 +108,14 @@ var Card = React.createClass({
 });
 
 var CardList = React.createClass({
-  render : function() {
-    var cards = this.props.cards.map(function (card, index) {
-      return ( <Card key = {card.id} details = {card} />)
-    });
+  renderCards: function(key) {
+    return <Card key= {this.props.cards[key].id} details= {this.props.cards[key]} postFavoriteCard={this.props.postFavoriteCard}/>
+  },
 
+  render : function() {
     return (
       <div>
-        {cards}
+        {Object.keys(this.props.cards).map(this.renderCards)}
       </div>
     );
   }
@@ -167,13 +172,30 @@ var LoadCards = React.createClass({
     this.setState({ cards: sortedCardsByDollarAmount.reverse() })
   },
 
+  postFavoriteCard : function(id) {
+    $.ajax({
+      url: "api/v1/cards/" + id,
+      dataType: 'json',
+      type: 'PUT',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: id,
+      success: function(data) {
+        console.log(data);
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+
   render : function () {
     return (
       <div>
         <SortByName sortCardsByName = {this.sortCardsByName}
                     sortCardsByAmount = {this.sortCardsByAmount}
                     sortCardsByDollarAmount = {this.sortCardsByDollarAmount}/>
-        <CardList cards={this.state.cards} />
+        <CardList cards= {this.state.cards}
+                  postFavoriteCard= {this.postFavoriteCard}/>
       </div>
     );
   }
