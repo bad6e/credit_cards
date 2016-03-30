@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       get "/search", to: 'auto_complete#search'
       resources :rewards, only: [:show]
       resources :categories, only: [:show]
-      resources :cards, only: [:update]
+      resources :favorite_cards
       resources :users, only: [:show]
     end
   end

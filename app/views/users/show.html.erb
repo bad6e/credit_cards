@@ -234,29 +234,8 @@
             <!-- Favorite Card Section -->
             <div id="booking" class="tab-pane fade">
               <h2>Your Favorite Cards</h2>
-              <div class="filter-section gray-area clearfix">
-              <form>
-                <label class="radio radio-inline">
-                    <input type="radio" name="filter" checked="checked" />
-                    All Types
-                </label>
-                <label class="radio radio-inline">
-                    <input type="radio" name="filter" />
-                    Hotels
-                </label>
-                <label class="radio radio-inline">
-                    <input type="radio" name="filter" />
-                    Flights
-                </label>
-                <div class="pull-right col-md-6 action">
-                  <h5 class="pull-left no-margin col-md-4">Sort results by:</h5>
-                  <button class="btn-small white gray-color">UPCOMING</button>
-                  <button class="btn-small white gray-color">CANCELLED</button>
-                </div>
-              </form>
-            </div>
             <div class="booking-history">
-              <%= react_component('CategoryCards', url: "/api/v1/users/#{current_user.id}") %>
+              <%= react_component('CardApi', url: "/api/v1/users/#{current_user.id}") %>
             </div>
               <!-- End - Favorite Card Section -->
           </div>

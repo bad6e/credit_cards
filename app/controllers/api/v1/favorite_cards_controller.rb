@@ -1,6 +1,6 @@
-class Api::V1::CardsController < ApplicationController
+class Api::V1::FavoriteCardsController < ApplicationController
   respond_to :json
-  before_action :load_card, only: [:update]
+  before_action :load_card, only: [:update, :destroy]
 
 
   def update
@@ -10,6 +10,16 @@ class Api::V1::CardsController < ApplicationController
       render json: {
         error: "Must be logged in to favorite card",
         status: 400
+      }
+    end
+  end
+
+  def destroy
+    if current_user
+      current_user.cards.delete(@card)
+      render json: {
+        message: "Card Removed From Favorite List",
+        status: 201
       }
     end
   end
