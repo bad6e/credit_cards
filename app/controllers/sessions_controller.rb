@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
       if user.role == 'admin'
         redirect_to admin_cards_path
       else
-        redirect_to root_path
+        redirect_to request.referer
+      end
     end
-  end
 end

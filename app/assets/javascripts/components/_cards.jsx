@@ -1,13 +1,28 @@
 var Card = React.createClass({
   onButtonClick : function() {
     var id = this.props.details.id
+    document.getElementById("favorite-button-" + id).text="FAVORITED!";
     this.props.postFavoriteCard(id);
+  },
+
+  // 1. I need a function to check the card to see if it's id in in the favorite list - if yes - render 'Favorited!' else render "Favorite Card"
+
+  checkIfFavoriteCard : function() {
+    var id = this.props.details.id
+    var favoriteCardIds = this.props.details.favorite_card_ids
+    if (_.includes(favoriteCardIds, id)) {
+      return <a className="button btn-small active" id={"favorite-button-" + id} onClick={this.onButtonClick}>FAVORITED!</a>
+    } else {
+      return <a className="button btn-small active" id={"favorite-button-" + id} onClick={this.onButtonClick}>FAVORITE CARD</a>
+    }
   },
 
   render : function() {
     var details = this.props.details
     var hasCurrentUser = (this.props.currentUser != null ? true : false);
-    var buttonText = (hasCurrentUser ? 'FAVORITE CARD' : 'Login to Favorite');
+    var buttonOptions = this.checkIfFavoriteCard();
+    var buttonText = (hasCurrentUser ?  buttonOptions : <a href="#" className="button btn-small active soap-popupbox" data-target="#travelo-login">Login to Favorite</a>);
+
     return (
       <article className="box" id={'card-' + details.id}>
         <div className="details col-xs-12">
@@ -25,7 +40,7 @@ var Card = React.createClass({
 
             <div className="second-row">
               <div className="action">
-                <a className="button btn-small active" disabled={!hasCurrentUser} onClick={this.onButtonClick}>{buttonText}</a><hr/>
+              {buttonText}
               </div>
             </div>
 
