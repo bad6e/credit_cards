@@ -2,18 +2,17 @@ var Card = React.createClass({
   onButtonClick : function() {
     var id = this.props.details.id
     document.getElementById("favorite-button-" + id).text="FAVORITED!";
+    document.getElementById("favorite-button-" + id).style.backgroundColor="#e9b02b"
     this.props.postFavoriteCard(id);
   },
-
-  // 1. I need a function to check the card to see if it's id in in the favorite list - if yes - render 'Favorited!' else render "Favorite Card"
 
   checkIfFavoriteCard : function() {
     var id = this.props.details.id
     var favoriteCardIds = this.props.details.favorite_card_ids
     if (_.includes(favoriteCardIds, id)) {
-      return <a className="button btn-small active" id={"favorite-button-" + id} onClick={this.onButtonClick}>FAVORITED!</a>
+      return <a className="button btn-small yellow active" id={"favorite-button-" + id} onClick={this.onButtonClick}>FAVORITED!</a>
     } else {
-      return <a className="button btn-small active" id={"favorite-button-" + id} onClick={this.onButtonClick}>FAVORITE CARD</a>
+      return <a className="button btn-small green active" id={"favorite-button-" + id} onClick={this.onButtonClick}>FAVORITE CARD</a>
     }
   },
 

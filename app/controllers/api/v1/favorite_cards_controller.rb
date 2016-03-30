@@ -2,6 +2,16 @@ class Api::V1::FavoriteCardsController < ApplicationController
   respond_to :json
   before_action :load_card, only: [:update, :destroy]
 
+  def show
+    if current_user
+      respond_with current_user.cards.map{|card| card.id}
+    else
+      render json: {
+        error: "Must be logged in to receive ids",
+        status: 400
+      }
+    end
+  end
 
   def update
     if current_user

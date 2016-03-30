@@ -135,7 +135,7 @@
                   <h6 class="box-title" id="click-here-favorite"><a href="/best-credit-card-offers">Click Here for Cards with Bonus Information!</a></h6>
                 <% end %>
               </div>
-              <a class="button yellow full-width uppercase btn-small" href="#">add to favorites</a>
+              <%= react_component('FavoriteButton', url: "/api/v1/favorite_cards/#{@card_presenter.card.id}", currentUser: short_current_user, id: @card_presenter.card.id) %>
           </div>
         </article>
       </div>
