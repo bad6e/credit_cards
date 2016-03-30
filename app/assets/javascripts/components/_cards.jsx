@@ -6,7 +6,8 @@ var Card = React.createClass({
 
   render : function() {
     var details = this.props.details
-    var buttonText = "Favorite Card"
+    var hasCurrentUser = (this.props.currentUser != null ? true : false);
+    var buttonText = (hasCurrentUser ? 'FAVORITE CARD' : 'Login to Favorite');
     return (
       <article className="box" id={'card-' + details.id}>
         <div className="details col-xs-12">
@@ -24,7 +25,7 @@ var Card = React.createClass({
 
             <div className="second-row">
               <div className="action">
-                <a className="button btn-small active" onClick={this.onButtonClick}>{buttonText}</a><hr/>
+                <a className="button btn-small active" disabled={!hasCurrentUser} onClick={this.onButtonClick}>{buttonText}</a><hr/>
               </div>
             </div>
 

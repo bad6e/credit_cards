@@ -39,7 +39,8 @@ var CardList = React.createClass({
                    postFavoriteCard={this.props.postFavoriteCard}
                    determinePointRewardStatus={this.determinePointRewardStatus}
                    determineDollarRewardStatus={this.determineDollarRewardStatus}
-                   determineBestOfferColor={this.determineBestOfferColor}/>
+                   determineBestOfferColor={this.determineBestOfferColor}
+                   currentUser={this.props.currentUser}/>
     }
   },
 
@@ -153,7 +154,8 @@ var LoadCards = React.createClass({
                   postFavoriteCard={this.postFavoriteCard}
                   removeFavoriteCard={this.removeFavoriteCard}
                   apiUrl={this.props.url}
-                  removeFavoriteCardFromState={this.removeFavoriteCardFromState}/>
+                  removeFavoriteCardFromState={this.removeFavoriteCardFromState}
+                  currentUser={this.props.currentUser}/>
       </div>
     );
   }
@@ -163,7 +165,7 @@ var CardApi = React.createClass({
   render : function() {
     return (
       <div>
-        <LoadCards url={this.props.url} />
+        <LoadCards url={this.props.url} currentUser={this.props.currentUser} />
       </div>
       )
   }

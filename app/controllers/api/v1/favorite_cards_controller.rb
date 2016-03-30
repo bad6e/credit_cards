@@ -21,6 +21,11 @@ class Api::V1::FavoriteCardsController < ApplicationController
         message: "Card Removed From Favorite List",
         status: 201
       }
+    else
+      render json: {
+        error: "Must be logged in to unfavorite card",
+        status: 400
+      }
     end
   end
 
