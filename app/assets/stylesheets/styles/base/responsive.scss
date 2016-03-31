@@ -299,6 +299,11 @@
   .top-image { display: none;}
 }
 
+@media (min-width: 992px) and (max-width: 10000px) {
+  .FavoriteButtonMobile {
+    display: none;
+  }
+}
 
 
 

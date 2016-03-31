@@ -54,6 +54,9 @@
                   <% end %>
                 </div>
               </div>
+              <div class="FavoriteButtonMobile">
+                <%= react_component('FavoriteButton', url: "/api/v1/favorite_cards/#{@card_presenter.card.id}", currentUser: short_current_user, id: @card_presenter.card.id) %>
+              </div>
               <% if @card_presenter.card_has_bonus? %>
                 <h2><strong>Bonus Information</strong></h2>
                 <div class="car-features box bonus-information-side">
@@ -135,7 +138,9 @@
                   <h6 class="box-title" id="click-here-favorite"><a href="/best-credit-card-offers">Click Here for Cards with Bonus Information!</a></h6>
                 <% end %>
               </div>
-              <%= react_component('FavoriteButton', url: "/api/v1/favorite_cards/#{@card_presenter.card.id}", currentUser: short_current_user, id: @card_presenter.card.id) %>
+              <div class="FavoriteButton">
+                <%= react_component('FavoriteButton', url: "/api/v1/favorite_cards/#{@card_presenter.card.id}", currentUser: short_current_user, id: @card_presenter.card.id) %>
+              </div>
           </div>
         </article>
       </div>

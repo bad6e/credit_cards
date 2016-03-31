@@ -12,7 +12,7 @@ var Card = React.createClass({
     if (_.includes(favoriteCardIds, id)) {
       return <a className="button btn-small yellow active" id={"favorite-button-" + id} onClick={this.onButtonClick}>FAVORITED!</a>
     } else {
-      return <a className="button btn-small green active" id={"favorite-button-" + id} onClick={this.onButtonClick}>FAVORITE CARD</a>
+      return <a className="button btn-small green active" id={"favorite-button-" + id} onClick={this.onButtonClick} href="javaScript:void(0);">FAVORITE CARD</a>
     }
   },
 

@@ -62,8 +62,9 @@ var LoadFavoriteIds = React.createClass({
 var FavButton = React.createClass({
   onButtonClick : function() {
     var id = this.props.cardId
-    document.getElementById("favorite-button-side").text="FAVORITED!";
-    document.getElementById("favorite-button-side").style.backgroundColor="#e9b02b"
+    var elements = document.getElementsByClassName("favorite-button-side")
+    for(var i=0; i<elements.length; i++) {elements[i].text="FAVORITED!"}
+    for(var i=0; i<elements.length; i++) {elements[i].style.backgroundColor="#e9b02b"}
     this.props.postFavoriteCard(id);
   },
 
@@ -71,9 +72,9 @@ var FavButton = React.createClass({
     var id = this.props.cardId
     var favoriteCardIds = this.props.ids
     if (_.includes(favoriteCardIds, id)) {
-      return <a className="button yellow full-width uppercase btn-small" id="favorite-button-side" onClick={this.onButtonClick}>FAVORITED!</a>
+      return <a className="button yellow full-width uppercase btn-small favorite-button-side" id="favorite-button-side!" onClick={this.onButtonClick}>FAVORITED!</a>
     } else {
-      return <a className="button green full-width uppercase btn-small" id="favorite-button-side" onClick={this.onButtonClick}>FAVORITE CARD</a>
+      return <a className="button green full-width uppercase btn-small favorite-button-side" id="favorite-button-side!" onClick={this.onButtonClick}>FAVORITE CARD</a>
     }
   },
 

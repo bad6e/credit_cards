@@ -8,7 +8,7 @@ var FavoriteCard = React.createClass({
   render : function() {
     var details = this.props.details
     return (
-      <div className="booking-info clearfix">
+      <div className="booking-info clearfix" id={"unfavorite-" + details.id}>
         <div className="date">
           <a href={'/cards/' + details.id}><img src={details.image_link} alt={details.name}/></a>
         </div>
