@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
       if user.role == 'admin'
         redirect_to admin_cards_path
       else
-        redirect_to request.referer
+        redirect_to request.env['omniauth.origin']
       end
     end
 end

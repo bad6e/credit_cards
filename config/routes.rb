@@ -40,6 +40,7 @@ Rails.application.routes.draw do
       resources :categories, only: [:show]
       resources :favorite_cards
       resources :users, only: [:show]
+      resources :cards, only: [:index]
     end
   end
 end

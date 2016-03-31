@@ -20,7 +20,7 @@ var Card = React.createClass({
     var details = this.props.details
     var hasCurrentUser = (this.props.currentUser != null ? true : false);
     var buttonOptions = this.checkIfFavoriteCard();
-    var buttonText = (hasCurrentUser ?  buttonOptions : <a href="#" className="button btn-small active soap-popupbox" data-target="#travelo-login">Login to Favorite</a>);
+    var buttonText = (hasCurrentUser ?  buttonOptions : <a href="#" className="button btn-small sky-blue1 active soap-popupbox" data-target="#travelo-login">LOGIN TO FAVORITE</a>);
 
     return (
       <article className="box" id={'card-' + details.id}>
