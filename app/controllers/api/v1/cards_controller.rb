@@ -1,5 +1,6 @@
 class Api::V1::CardsController < ApplicationController
   respond_to :json
+  before_action :set_cache_headers!, only: [:index]
 
   def index
     if params[:search]

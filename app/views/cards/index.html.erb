@@ -18,7 +18,7 @@
 
         <!-- Modify Search Box -->
         <div class="col-sm-4 col-md-3">
-          <h4 class="search-results-title"><i class="soap-icon-search"></i><b>1 Card</b> found.</h4>
+          <h4 class="search-results-title"><i class="soap-icon-search"></i><b><%= pluralize(@card_count, 'Card')%></b> found.</h4>
           <div class="toggle-container filters-container">
             <div class="panel style1 arrow-right">
               <h4 class="panel-title">
