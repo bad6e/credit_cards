@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326012911) do
+ActiveRecord::Schema.define(version: 20160328201857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 20160326012911) do
 
   add_index "categorizings", ["card_id"], name: "index_categorizings_on_card_id", using: :btree
   add_index "categorizings", ["category_id"], name: "index_categorizings_on_category_id", using: :btree
+
+  create_table "favorite_cards", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorite_cards", ["card_id"], name: "index_favorite_cards_on_card_id", using: :btree
+  add_index "favorite_cards", ["user_id"], name: "index_favorite_cards_on_user_id", using: :btree
 
   create_table "rewards", force: :cascade do |t|
     t.integer  "amount"
@@ -90,5 +100,7 @@ ActiveRecord::Schema.define(version: 20160326012911) do
 
   add_foreign_key "categorizings", "cards"
   add_foreign_key "categorizings", "categories"
+  add_foreign_key "favorite_cards", "cards"
+  add_foreign_key "favorite_cards", "users"
   add_foreign_key "rewards", "cards"
 end

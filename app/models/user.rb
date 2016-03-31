@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
+
+  has_many :favorite_cards
+  has_many :cards, through: :favorite_cards
+
   enum role: ["default", "admin"]
 
   validates :name,

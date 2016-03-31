@@ -1,4 +1,5 @@
 class Api::V1::CategoriesController < ApplicationController
+  before_action :set_cache_headers!, only: [:show]
   respond_to :json
 
   def show

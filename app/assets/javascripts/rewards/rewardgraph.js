@@ -20,7 +20,7 @@ function showBonusAndPointInformation(response) {
 
 function formatCents(response) {
   var dollars = _.map(response, function(reward) {
-    return {recordDate:reward.record_date, Cents:reward.cent_value * 100, centValue: reward.cent_value * 100}
+    return {recordDate:reward.record_date, Cents: Math.round(reward.cent_value * 100 *100)/100, centValue: reward.cent_value * 100}
   });
   return dollars
 }

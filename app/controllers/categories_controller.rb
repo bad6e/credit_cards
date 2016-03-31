@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   def index
   end
 
@@ -20,4 +19,6 @@ class CategoriesController < ApplicationController
     def show_category_page_request(params)
       params[:category].nil?
     end
+
+
 end

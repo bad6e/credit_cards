@@ -18,7 +18,7 @@
 
         <!-- Modify Search Box -->
         <div class="col-sm-4 col-md-3">
-          <h4 class="search-results-title"><i class="soap-icon-search"></i><b><%= pluralize(@cards.count, "Card") %></b> found.</h4>
+          <h4 class="search-results-title"><i class="soap-icon-search"></i><b><%= pluralize(@card_count, 'Card')%></b> found.</h4>
           <div class="toggle-container filters-container">
             <div class="panel style1 arrow-right">
               <h4 class="panel-title">
@@ -51,82 +51,9 @@
 
           <!-- Card Listings -->
           <div class="flight-list listing-style3 flight">
-          <% @cards.each do |card| %>
-            <article class="box">
-              <div class="details col-xs-12">
-              <%= link_to image_tag(card.image_link, class: 'card-image-cat') , card_path(card) %>
-                <div class="details-wrapper">
-                  <div class="first-row">
-                    <h4 id="cat-card-title"><%= card.name %></h4>
-                  </div>
-                   <div>
-                    <span class="price" id="apply-now-color"><h6 id="apply-now-title">Apply Now?</h6><div class= 'best-offer-color'><br><%= card.best_offer %></div></span>
-                  </div>
-                  <div class="second-row">
-                    <div class="action">
-                      <a class="button btn-small active">Favorite Card</a><hr>
-                    </div>
-                  </div>
-
-                  <div class="third-row">
-                    <div class="time">
-
-                      <div class="total-time col-sm-3">
-
-                        <% if card.rewards.any? %>
-                          <div class="icon"><i class="soap-icon-party yellow-color"></i></div>
-                          <div>
-                            <span class="skin-color">Current Bonus - Points</span><br /><%= card.rewards.last.amount %>
-                          </div>
-                        <% else %>
-                          <div class="icon"><i class="soap-icon-clock yellow-color"></i></div>
-                          <div>
-                            <span class="skin-color">Current Bonus - Points</span><br />NO INFO FOR THIS CARD
-                          </div>
-                        <% end %>
-
-                      </div>
-
-                      <div class="take-off col-sm-3">
-
-                        <% if  card.rewards.any? && card.rewards.last.dollar_amount? %>
-                          <div class="icon"><i class="soap-icon-features yellow-color"></i></div>
-                          <div>
-                            <span class="skin-color">Current Bonus - Dollars</span><br /><%= number_to_currency(card.rewards.last.dollar_amount, precision: 0) %>
-                          </div>
-                        <% else %>
-                          <div class="icon"><i class="soap-icon-features yellow-color"></i></div>
-                          <div>
-                            <span class="skin-color">Current Bonus - Dollars</span><br/>NO INFO FOR THIS CARD
-                          </div>
-                        <% end %>
-
-                      </div>
-
-                      <div class="take-off col-sm-3">
-                        <div class="icon"><i class="soap-icon-card yellow-color"></i></div>
-                        <div>
-                          <span class="skin-color">Annual Fee</span><br /><%= card.annual_fee %>
-                        </div>
-                      </div>
-                      <div class="landing col-sm-3">
-                        <div class="icon"><i class="soap-icon-savings yellow-color"></i></div>
-                        <div>
-                          <span class="skin-color">APR</span><br /><%= card.apr %>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="action">
-                      <%= link_to "SEE MORE INFORMATION", card_path(card), class: "button btn-small full-width see-more-button" %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <% end %>
+          <%= react_component('CardApi', url: "/api/v1/cards?search#{@search_term}", currentUser: short_current_user) %>
           </div>
           <!-- End Card Listings -->
-           <%= will_paginate @cards, renderer: BootstrapPagination::Rails %>
         </div>
       </div>
     </div>

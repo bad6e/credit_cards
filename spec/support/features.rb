@@ -199,4 +199,13 @@ shared_context "features" do
       click_on "Login with Facebook"
     end
   end
+
+  def search_for_term_south
+    visit root_path
+
+    within("#search-form") do
+      fill_in "search", with: "South"
+      find('#search-button').click
+    end
+  end
 end

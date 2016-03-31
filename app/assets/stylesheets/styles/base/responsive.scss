@@ -299,6 +299,11 @@
   .top-image { display: none;}
 }
 
+@media (min-width: 992px) and (max-width: 10000px) {
+  .FavoriteButtonMobile {
+    display: none;
+  }
+}
 
 
 
@@ -629,8 +634,12 @@
   .revolution-slider .tp-caption a.link { font-size: 9px !important; line-height: 18px !important; }
 
   #booking .booking-info {
-    > .box-title { float: none; }
+    > .box-title { float: none;}
     .info { border-left: none; }
+  }
+
+  #booking .booking-info .status {
+    float: left;
   }
 
   .banner {
@@ -669,6 +678,47 @@
   .tab-container.full-width-style {
     ul.tabs {display: inline; width: 100%;}
     .tab-content { width: 100%; }
+  }
+
+  #booking .booking-info .box-title {
+    padding-left: 0px !important;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  #booking .booking-info .icon {
+    display: none;
+  }
+
+  #booking .booking-info .info {
+    text-align: center;
+    * {
+      padding: 5px;
+    }
+    dt {
+      font-size: 1em;
+    }
+  }
+
+  .unfavorite {
+    height:20px;
+    width:100px;
+    margin: -20px -50px;
+    position:relative;
+    top:50%;
+    left:50%;
+
+  }
+
+  #booking .booking-info div.date > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #booking .booking-info div.date {
+    width: auto !important;
+    background: white !important;
   }
 
   .tab-container.full-width-style ul.tabs li a {
