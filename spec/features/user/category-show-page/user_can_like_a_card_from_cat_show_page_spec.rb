@@ -3,7 +3,7 @@ require "rails_helper"
 feature "Liking Cards on Category Show Page" do
   include_context "features"
 
-  scenario "user has to be logged in to like a card", js: true do
+  scenario "user has to be logged in to like a card - cat show", js: true do
     set_card_categories
     visit category_path(category_one)
 
@@ -12,7 +12,7 @@ feature "Liking Cards on Category Show Page" do
     end
   end
 
-  scenario "user clicks login button and modal pops up and the user can login", js: true do
+  scenario "user clicks login button and modal pops up and the user can login - cat show", js: true do
     set_card_categories
     visit category_path(category_one)
 
@@ -28,7 +28,7 @@ feature "Liking Cards on Category Show Page" do
     end
   end
 
-  scenario "user can like a card and see the liked card on their profile page", js: true do
+  scenario "user can like a card and see the liked card on their profile page - cat show", js: true do
     set_card_categories
     login_with_facebook
     visit category_path(category_one)
@@ -51,7 +51,7 @@ feature "Liking Cards on Category Show Page" do
     end
   end
 
-  scenario "user can unlike a card and see it updated on the respective pages", js: true do
+  scenario "user can unlike a card and see it updated on the respective pages - cat show", js: true do
     set_card_categories
     login_with_facebook
     visit category_path(category_one)
@@ -73,7 +73,7 @@ feature "Liking Cards on Category Show Page" do
     end
 
     within(".booking-history") do
-      expect(page).to_not have_content("Southwest Airlines Rapid Rewards® Premier Credit Card")
+      expect(page).to_not have_content("Southwest Airlines Rapid Rewards® Premier Credit Card - cat show")
       expect(page).to have_content("Southwest Rapid Rewards® Plus Credit Card")
     end
 
