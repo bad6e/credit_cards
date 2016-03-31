@@ -1,23 +1,23 @@
 require "rails_helper"
 
-feature "Liking Cards on Category Show Page" do
+feature "Liking Cards on Card Show Page" do
   include_context "features"
 
   scenario "user has to be logged in to like a card", js: true do
     set_card_categories
-    visit category_path(category_one)
+    visit card_path(card_one)
 
-    within('#card-' + card_one.id.to_s) do
+    within('.FavoriteButton') do
       expect(page).to have_content("LOGIN TO FAVORITE")
     end
   end
 
   scenario "user clicks login button and modal pops up and the user can login", js: true do
     set_card_categories
-    visit category_path(category_one)
+    visit card_path(card_one)
 
-    within('#card-' + card_one.id.to_s) do
-      click_on "LOGIN TO FAVORITE"
+    within('.FavoriteButton') do
+      click_on "Login to Favorite"
     end
 
     expect(page).to have_content("Login with Facebook")
@@ -31,42 +31,49 @@ feature "Liking Cards on Category Show Page" do
   scenario "user can like a card and see the liked card on their profile page", js: true do
     set_card_categories
     login_with_facebook
-    visit category_path(category_one)
-    within('#card-' + card_one.id.to_s) do
-      click_on("FAVORITE CARD")
-    end
+    visit card_path(card_one)
 
-    within('#card-' + card_two.id.to_s) do
+    within('.FavoriteButton') do
       click_on("FAVORITE CARD")
     end
 
     current_user = User.last
     expect(current_user.cards.first.name).to eq("Southwest Airlines Rapid Rewards® Premier Credit Card")
-    expect(current_user.cards.count).to eq(2)
+    expect(current_user.cards.count).to eq(1)
+
     visit user_path(current_user)
     find('.favorite-card-tab').click
     within(".booking-history") do
       expect(page).to have_content("Southwest Airlines Rapid Rewards® Premier Credit Card")
-      expect(page).to have_content("Southwest Rapid Rewards® Plus Credit Card")
     end
   end
 
   scenario "user can unlike a card and see it updated on the respective pages", js: true do
     set_card_categories
     login_with_facebook
-    visit category_path(category_one)
-    within('#card-' + card_one.id.to_s) do
+    visit card_path(card_one)
+    within('.FavoriteButton') do
       click_on("FAVORITE CARD")
     end
 
-    within('#card-' + card_two.id.to_s) do
-      click_on("FAVORITE CARD")
+    within('.FavoriteButton') do
+      click_on("FAVORITED!")
+    end
+
+    visit category_path(category_one)
+
+    within("#card-" + card_one.id.to_s) do
+      expect(page).to have_content("FAVORITED!")
     end
 
     current_user = User.last
 
     visit user_path(current_user)
     find('.favorite-card-tab').click
+
+    within(".booking-history") do
+      expect(page).to have_content("Southwest Airlines Rapid Rewards® Premier Credit Card")
+    end
 
     within("#unfavorite-" + card_one.id.to_s) do
       click_on "Unfavorite"
@@ -74,13 +81,6 @@ feature "Liking Cards on Category Show Page" do
 
     within(".booking-history") do
       expect(page).to_not have_content("Southwest Airlines Rapid Rewards® Premier Credit Card")
-      expect(page).to have_content("Southwest Rapid Rewards® Plus Credit Card")
-    end
-
-    visit card_path(card_two)
-
-    within(".FavoriteButton") do
-      expect(page).to have_content("FAVORITED!")
     end
 
     visit card_path(card_one)
@@ -93,10 +93,6 @@ feature "Liking Cards on Category Show Page" do
 
     within("#card-" + card_one.id.to_s) do
       expect(page).to have_content("FAVORITE CARD")
-    end
-
-    within("#card-" + card_two.id.to_s) do
-      expect(page).to have_content("FAVORITED!")
     end
   end
 end
