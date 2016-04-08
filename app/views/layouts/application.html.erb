@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title><%= full_title(yield(:title)) %></title>
-  <meta name="description" content="<%= meta_description(yield(:meta_description)) %>" >
+  <meta name="description" content="<%= meta_description(yield(:meta_description)) %>" />
   <meta name="google-site-verification" content="55MLBOoSZvq6YxQikipb2_VO96wJ8EwhDlKkXT0bqzI" />
   <meta name="msvalidate.01" content="C36156ADD172439BA028DE70EDE2FE34" />
+
+  <!-- Facebook Properties -->
+  <meta property="og:url" content="http://www.toomanymiles.com/" />
+  <meta property="og:image" content="<%= image_url('logo_big_full.png') %>"/>
+  <meta property="og:description" content="Too Many Miles is a free tool to help you find the best credit card offers and maximize your credit card miles." />
+  <meta property="og:site_name" content="Too Many Miles" />
+  <meta property="og:app_id" content="458214874382899" />
+
   <!-- Optional Robot Instructions can be set up in controllers -->
   <% if @meta_robots_instructions %>
-    <meta name="robots" content="<%= @meta_robots_instructions %>">
+    <meta name="robots" content="<%= @meta_robots_instructions %>" />
   <% end %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
