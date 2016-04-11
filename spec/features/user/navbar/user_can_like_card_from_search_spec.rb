@@ -69,10 +69,12 @@ feature "Liking Cards from Navbar Search" do
       click_on("FAVORITE CARD")
     end
 
+    search_for_term_south
+
     within('#card-' + card_two.id.to_s) do
       click_on("FAVORITE CARD")
     end
-
+    binding.pry
     current_user = User.last
 
     visit user_path(current_user)
