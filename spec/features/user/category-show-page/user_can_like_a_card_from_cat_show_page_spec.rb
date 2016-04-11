@@ -32,9 +32,12 @@ feature "Liking Cards on Category Show Page" do
     set_card_categories
     login_with_facebook
     visit category_path(category_one)
+
     within('#card-' + card_one.id.to_s) do
       click_on("FAVORITE CARD")
     end
+
+    visit category_path(category_one)
 
     within('#card-' + card_two.id.to_s) do
       click_on("FAVORITE CARD")
