@@ -1,6 +1,7 @@
 class Api::V1::FavoriteCardsController < ApplicationController
   respond_to :json
   before_action :load_card, only: [:update, :destroy]
+  before_action :set_cache_headers!, only: [:show]
 
   def show
     if current_user
