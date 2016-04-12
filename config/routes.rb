@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :edit, :destroy]
   resources :cards, only: [:index, :show]
 
+  get '(*path)' => 'application#blog', constraints: { subdomain: 'blog' }
+  get '/blog' => redirect("http://www.toomanymiles.com/blog/")
+
   resources :categories, only: [:index]
   get "categories/:id", to: redirect("/%{id}")
   resources :categories, path: "", only: [:show]
