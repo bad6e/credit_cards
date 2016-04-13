@@ -15,8 +15,4 @@ class ApplicationController < ActionController::Base
   def no_index_no_follow
     @meta_robots_instructions = "noindex, nofollow"
   end
-
-  def blog
-    redirect_to "http://www.toomanymiles.com/blog#{request.fullpath.gsub('/blog','')}", :status => :moved_permanently
-  end
 end

@@ -19,14 +19,7 @@ Rails.application.routes.draw do
   resources :about, only: [:index]
   resources :users, only: [:show, :update, :edit, :destroy]
   resources :cards, only: [:index, :show]
-
-  get '(*path)' => 'application#blog', constraints: { subdomain: 'blog' }
-
-  if ENV["RAILS_ENV"] == 'production'
-    get '/blog' => redirect("http://www.toomanymiles.com/blog/")
-  else
-    get '/blog' => redirect("http://localhost:3000/blog/")
-  end
+  resources :blogs, only: [:index, :show]
 
   resources :categories, only: [:index]
   get "categories/:id", to: redirect("/%{id}")
@@ -49,6 +42,7 @@ Rails.application.routes.draw do
       resources :favorite_cards
       resources :users, only: [:show]
       resources :cards, only: [:index]
+      resources :blogs, only: [:index, :show]
     end
   end
 end

@@ -7,6 +7,9 @@ class Card < ActiveRecord::Base
   has_many :favorite_cards
   has_many :users, through: :favorite_cards
 
+  has_many :card_blogs
+  has_many :blogs, through: :card_blogs
+
   accepts_nested_attributes_for :categories,
                                   reject_if: :all_blank,
                                   allow_destroy: true
