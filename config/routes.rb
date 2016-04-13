@@ -21,7 +21,12 @@ Rails.application.routes.draw do
   resources :cards, only: [:index, :show]
 
   get '(*path)' => 'application#blog', constraints: { subdomain: 'blog' }
-  get '/blog' => redirect("http://www.toomanymiles.com/blog/")
+
+  if ENV["RAILS_ENV"] == 'production'
+    get '/blog' => redirect("http://www.toomanymiles.com/blog/")
+  else
+    get '/blog' => redirect("http://localhost:3000/blog/")
+  end
 
   resources :categories, only: [:index]
   get "categories/:id", to: redirect("/%{id}")
