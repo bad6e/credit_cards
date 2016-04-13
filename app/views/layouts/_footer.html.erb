@@ -4,13 +4,13 @@
       <div class="row">
 
         <div class="col-xs-6">
-          <h2>Words of Inspiration</h2>
+          <h2 class="active">Words of Inspiration</h2>
           <p>"Don't part with your illusions. When they are gone, you may still exist, but you have ceased to live." - Mark Twain</p>
         </div>
 
         <div class="col-xs-6">
-          <h2>About Too Many Miles</h2>
-          <p>A site dedicated to help people explore, travel far, and most importantly travel cheaply. Honest Advice on Travel Credit Cards</p>
+          <h2><%= link_to "About Too Many Miles", about_index_path, class: "active" %></h2>
+          <p><%= link_to "A site dedicated to help people explore, travel far, and most importantly travel cheaply. Honest Advice on Travel Credit Cards", about_index_path %></p>
           <br />
         </div>
         <div class="col-xs-12">
