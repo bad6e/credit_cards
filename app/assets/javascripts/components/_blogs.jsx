@@ -15,12 +15,12 @@ var Blog = React.createClass({
               </div>
               <div className="post-meta">
                 <div className="entry-date">
-                  <label className="date">29</label>
-                  <label className="month">Aug</label>
+                  <label className="date">{details.day}</label>
+                  <label className="month">{details.month}</label>
                 </div>
                 <div className="entry-author fn">
                   <i className="icon soap-icon-user"></i> Posted By:
-                  <a href="#" className="author">Jessica Browen</a>
+                  <a href="#" className="author">{details.author}</a>
                 </div>
                 <div className="entry-action">
                   <span className="entry-tags"><i className="soap-icon-features"></i><span><a href="#">Adventure</a>, <a href="#">Romance</a></span></span>

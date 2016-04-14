@@ -2,7 +2,7 @@ class Admin::BlogsController < ApplicationController
   before_action :load_blog, only: [:edit, :update, :destroy]
 
   def index
-
+    @blogs = Blog.all.order('created_at DESC')
   end
 
   def new
@@ -13,7 +13,7 @@ class Admin::BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     if @blog.save
       flash[:success] = "Blog successfully created!"
-      redirect_to edit_admin_card_path(blog_params[:card_id])
+      redirect_to admin_blogs_path
     else
       flash.now[:errors] = @blog.errors.full_messages.join(", ")
       render :new
@@ -24,7 +24,13 @@ class Admin::BlogsController < ApplicationController
   end
 
   def update
-
+    if @blog.update(blog_params)
+      flash[:success] = "Blog successfully updated!"
+      redirect_to admin_blogs_path
+    else
+      flash.now[:errors] = @blog.errors.full_messages.join(", ")
+      render :new
+    end
   end
 
   def destroy
@@ -37,4 +43,11 @@ class Admin::BlogsController < ApplicationController
       @blog = Blog.find(params[:id])
     end
 
+    def blog_params
+      params.require(:blog).permit(:meta_title,
+                                   :meta_description,
+                                   :title,
+                                   :author,
+                                   :content)
+    end
 end

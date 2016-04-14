@@ -2,6 +2,11 @@
   <div class="row">
     <div class="col-lg-12">
       <h2>Too Many Miles - Blogs</h2><br>
+      <ul>
+        <% @blogs.each do |blog| %>
+          <li><%= blog.title %> | <%= link_to "Edit", edit_admin_blog_path(blog) %></li>
+        <% end %>
+      </ul><br>
       <%= link_to "Add a New Blog", new_admin_blog_path %>
     </div>
   </div>
