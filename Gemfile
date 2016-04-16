@@ -26,7 +26,6 @@ gem 'aws-sdk'
 gem 'figaro'
 gem 'react-rails', '~> 1.6.0'
 gem 'omniauth-facebook'
-gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 
 group :development do
   gem 'web-console', '~> 2.0'

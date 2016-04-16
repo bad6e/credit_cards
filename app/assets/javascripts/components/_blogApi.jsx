@@ -2,17 +2,22 @@ var BlogList = React.createClass({
   renderBlogs : function(key) {
     return <Blog key= {this.props.blogs[key].id}
                  details= {this.props.blogs[key]}
-                 currentUser={this.props.currentUser} />
+                 currentUser={this.props.currentUser}
+            />
+  },
+
+  getShownBlogPosts : function() {
+    var number = this.props.numberOfShownBlogPosts
+    return this.props.blogs.slice(0, number)
   },
 
   render : function() {
     return (
       <div>
-        {Object.keys(this.props.blogs).map(this.renderBlogs)}
+        {Object.keys(this.getShownBlogPosts()).map(this.renderBlogs)}
       </div>
     );
   }
-
 });
 
 var BlogApi = React.createClass({
@@ -25,7 +30,10 @@ var BlogApi = React.createClass({
 
 var LoadBlogs = React.createClass({
   getInitialState : function () {
-    return { blogs: [] };
+    return {
+      blogs: [],
+      numberOfShownBlogPosts: 1
+    };
   },
 
   componentDidMount: function () {
@@ -36,8 +44,11 @@ var LoadBlogs = React.createClass({
     $.ajax({
       url: this.props.url,
       dataType: 'json',
-      success: function (blogs) {
-        this.setState({blogs : blogs});
+      success: function (data) {
+        this.setState({
+          blogs : data.blogs,
+          meta: data.meta
+        });
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -45,12 +56,30 @@ var LoadBlogs = React.createClass({
     });
   },
 
+  removeButton: function(remainingNumberOfBlogPosts) {
+    var number = this.state.numberOfShownBlogPosts
+    if (remainingNumberOfBlogPosts <= 0) {
+
+      return 'none'
+    }
+  },
+
+  loadMoreCards: function() {
+    var numberOfShownBlogPosts = this.state.numberOfShownBlogPosts
+    var remainingNumberOfBlogPosts = this.state.blogs.length - numberOfShownBlogPosts
+    this.removeButton(remainingNumberOfBlogPosts);
+    this.setState({ numberOfShownBlogPosts: numberOfShownBlogPosts + 1 })
+  },
+
   render : function () {
     return (
       <div>
-        <BlogList blogs= {this.state.blogs}
+        <BlogList blogs={this.state.blogs}
                   apiUrl={this.props.url}
-                  currentUser={this.props.currentUser}/>
+                  currentUser={this.props.currentUser}
+                  numberOfShownBlogPosts={this.state.numberOfShownBlogPosts} />
+        <LoadMoreButton loadMoreCards={this.loadMoreCards}
+                        removeButton={this.removeButton} />
       </div>
     );
   }
