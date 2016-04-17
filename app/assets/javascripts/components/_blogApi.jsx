@@ -7,8 +7,7 @@ var BlogList = React.createClass({
   },
 
   getShownBlogPosts : function() {
-    var number = this.props.numberOfShownBlogPosts
-    return this.props.blogs.slice(0, number)
+    return this.props.blogs.slice(0, this.props.numberOfShownBlogPosts)
   },
 
   render : function() {
@@ -32,7 +31,9 @@ var LoadBlogs = React.createClass({
   getInitialState : function () {
     return {
       blogs: [],
-      numberOfShownBlogPosts: 1
+      numberOfShownBlogPosts: 1,
+      showLoadMoreButton: true,
+      additionalPostsNumber: 1
     };
   },
 
@@ -46,8 +47,7 @@ var LoadBlogs = React.createClass({
       dataType: 'json',
       success: function (data) {
         this.setState({
-          blogs : data.blogs,
-          meta: data.meta
+          blogs : data
         });
       }.bind(this),
       error: function (xhr, status, err) {
@@ -56,30 +56,27 @@ var LoadBlogs = React.createClass({
     });
   },
 
-  removeButton: function(remainingNumberOfBlogPosts) {
-    var number = this.state.numberOfShownBlogPosts
-    if (remainingNumberOfBlogPosts <= 0) {
-
-      return 'none'
-    }
-  },
-
   loadMoreCards: function() {
-    var numberOfShownBlogPosts = this.state.numberOfShownBlogPosts
-    var remainingNumberOfBlogPosts = this.state.blogs.length - numberOfShownBlogPosts
-    this.removeButton(remainingNumberOfBlogPosts);
-    this.setState({ numberOfShownBlogPosts: numberOfShownBlogPosts + 1 })
+    var nextNumberOfShownBlogPosts = this.state.numberOfShownBlogPosts + this.state.additionalPostsNumber;
+    var isLoadMoreButtonShown = nextNumberOfShownBlogPosts < this.state.blogs.length;
+
+    this.setState({
+      numberOfShownBlogPosts: nextNumberOfShownBlogPosts,
+      showLoadMoreButton: isLoadMoreButtonShown
+    })
   },
 
   render : function () {
     return (
       <div>
-        <BlogList blogs={this.state.blogs}
-                  apiUrl={this.props.url}
-                  currentUser={this.props.currentUser}
-                  numberOfShownBlogPosts={this.state.numberOfShownBlogPosts} />
-        <LoadMoreButton loadMoreCards={this.loadMoreCards}
-                        removeButton={this.removeButton} />
+        <BlogList blogs = {this.state.blogs}
+                  apiUrl = {this.props.url}
+                  currentUser = {this.props.currentUser}
+                  numberOfShownBlogPosts = {this.state.numberOfShownBlogPosts} />
+        {
+          this.state.showLoadMoreButton &&
+          <LoadMoreButton loadMoreCards={this.loadMoreCards} />
+        }
       </div>
     );
   }
