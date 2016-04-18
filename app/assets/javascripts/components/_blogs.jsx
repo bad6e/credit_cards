@@ -11,7 +11,7 @@ var Blog = React.createClass({
           <div className="details">
             <h2 className="entry-title"><a href="pages-blog-read.html">{details.title}</a></h2>
               <div className="excerpt-container">
-                <p>{details.content}</p>
+                <p>{details.content}See More!</p>
               </div>
               <div className="post-meta">
                 <div className="entry-date">

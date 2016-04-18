@@ -8,5 +8,9 @@ class BlogSerializer < ActiveModel::Serializer
   def month
     object.created_at.strftime("%b")
   end
+
+  def content
+    object.content.split.slice(0, 75).push("...").join(" ")
+  end
 end
 
