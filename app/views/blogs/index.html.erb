@@ -20,7 +20,7 @@
           <span style="display:none;" class="updated">2014-06-20T13:35:34+00:00</span>
             <div class="post-content">
               <div class="blog-infinite">
-                <%= react_component('BlogApi', url: "/api/v1/blogs", currentUser: short_current_user) %>
+                <%= react_component('BlogsApi', url: "http://toomanymiles.sweatersaga.com/blog/?json=get_recent_posts&count=100", currentUser: short_current_user) %>
               </div>
             </div>
         </div>

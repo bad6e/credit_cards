@@ -1,4 +1,4 @@
-var Blog = React.createClass({
+var Blogs = React.createClass({
 
   renderHTML: function() {
     return { __html: this.truncateText(this.props.details.content)};
