@@ -43,11 +43,11 @@ var LoadBlogs = React.createClass({
 
   loadBlogsFromAPI: function () {
     $.ajax({
-      url: this.props.url,
+      url: 'http://toomanymiles.sweatersaga.com/blog/?json=get_recent_posts',
       dataType: 'json',
       success: function (data) {
         this.setState({
-          blogs : data
+          blogs : data.posts
         });
       }.bind(this),
       error: function (xhr, status, err) {
@@ -69,10 +69,10 @@ var LoadBlogs = React.createClass({
   render : function () {
     return (
       <div>
-        <BlogList blogs = {this.state.blogs}
-                  apiUrl = {this.props.url}
-                  currentUser = {this.props.currentUser}
-                  numberOfShownBlogPosts = {this.state.numberOfShownBlogPosts} />
+        <BlogList blogs= {this.state.blogs}
+                  apiUrl= {this.props.url}
+                  currentUser= {this.props.currentUser}
+                  numberOfShownBlogPosts= {this.state.numberOfShownBlogPosts} />
         {
           this.state.showLoadMoreButton &&
           <LoadMoreButton loadMoreCards={this.loadMoreCards} />

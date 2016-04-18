@@ -1,4 +1,6 @@
 class Blog < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
   has_many :card_blogs
   has_many :cards, through: :card_blogs
 

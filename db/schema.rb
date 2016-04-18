@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413165014) do
+ActiveRecord::Schema.define(version: 20160418152043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160413165014) do
     t.string   "content"
     t.string   "meta_title"
     t.string   "meta_description"
+    t.string   "slug"
   end
 
   create_table "card_blogs", force: :cascade do |t|
