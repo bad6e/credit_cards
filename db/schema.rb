@@ -11,11 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328201857) do
+ActiveRecord::Schema.define(version: 20160413155714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "citext"
+
+  create_table "blogs", force: :cascade do |t|
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "slug"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "card_blogs", force: :cascade do |t|
+    t.integer  "card_id"
+    t.integer  "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "card_blogs", ["blog_id"], name: "index_card_blogs_on_blog_id", using: :btree
+  add_index "card_blogs", ["card_id"], name: "index_card_blogs_on_card_id", using: :btree
 
   create_table "cards", force: :cascade do |t|
     t.citext   "name"
@@ -98,6 +116,8 @@ ActiveRecord::Schema.define(version: 20160328201857) do
   add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
 
+  add_foreign_key "card_blogs", "blogs"
+  add_foreign_key "card_blogs", "cards"
   add_foreign_key "categorizings", "cards"
   add_foreign_key "categorizings", "categories"
   add_foreign_key "favorite_cards", "cards"

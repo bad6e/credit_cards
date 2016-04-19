@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require lodash
+//= require moment
 //= require react
 //= require react_ujs
 //= require components

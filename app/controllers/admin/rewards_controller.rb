@@ -1,4 +1,4 @@
-class Admin::RewardsController < ApplicationController
+class Admin::RewardsController < Admin::BaseController
   before_action :load_reward, only: [:edit, :update, :destroy]
   before_action :no_index_no_follow, only: [:new, :edit]
 

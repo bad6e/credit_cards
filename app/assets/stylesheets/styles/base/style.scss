@@ -503,7 +503,7 @@ blockquote {
 /* 2.2.8. Hover effect */
 .hover-effect {
   display: block; position: relative; background: none; overflow: hidden; /*z-index: 0;*/
-  &:after { content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; visibility: hidden; @include transition(all, 0.4s, ease-out); @include transform(rotateY(180deg) scale(0.5,0.5)); background: url(../images/icon/hover-effect.png) no-repeat center; @include opacity(0); background-color: rgba(red($skin-active-color), green($skin-active-color), blue($skin-active-color), 0.6); }
+  &:after { content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; visibility: hidden; @include transition(all, 0.4s, ease-out); @include transform(rotateY(180deg) scale(0.5,0.5)); background: url(image_path('icon/hover-effect.png')) no-repeat center; @include opacity(0); background-color: rgba(red($skin-active-color), green($skin-active-color), blue($skin-active-color), 0.6); }
   img { display: block; position: relative; @include transition(all, 0.4s, ease-out); -webkit-backface-visibility: hidden; }
   &:hover {
     &:after { visibility: visible; @include transform(rotateY(0deg) scale(1,1)); @include opacity(1); }

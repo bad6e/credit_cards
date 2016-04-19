@@ -150,6 +150,8 @@ GEM
     minitest (5.8.1)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
+    momentjs-rails (2.11.1)
+      railties (>= 3.1)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -176,11 +178,6 @@ GEM
       slop (~> 3.4)
     puma (2.16.0)
     rack (1.6.4)
-    rack-proxy (0.5.17)
-      rack
-    rack-reverse-proxy (0.11.0)
-      rack (>= 1.0.0)
-      rack-proxy (~> 0.5, >= 0.5.14)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -328,12 +325,12 @@ DEPENDENCIES
   launchy
   lodash-rails
   mocha
+  momentjs-rails
   nokogiri
   omniauth-facebook
   pg
   pry
   puma
-  rack-reverse-proxy
   rails (= 4.2.4)
   rails_12factor
   react-rails (~> 1.6.0)
