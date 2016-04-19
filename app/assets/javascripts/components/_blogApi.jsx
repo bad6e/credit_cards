@@ -10,7 +10,7 @@ var BlogApi = React.createClass({
 var LoadBlog = React.createClass({
   getInitialState : function() {
     return {
-      blog: [],
+      blog: '',
     };
   },
 
@@ -24,7 +24,7 @@ var LoadBlog = React.createClass({
       dataType: 'json',
       success: function (data) {
         this.setState({
-          blog : data.post
+          blog: data.post
         });
       }.bind(this),
       error: function (xhr, status, err) {
