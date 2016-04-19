@@ -5,6 +5,7 @@ SitemapGenerator::Sitemap.create do
   add root_path
   add about_index_path
   add categories_path
+  add blogs_path
 
   Card.find_each do |card|
     add card_path(card), lastmod: card.updated_at
