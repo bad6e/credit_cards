@@ -13,13 +13,10 @@ class CategoriesController < ApplicationController
   private
 
     def find_category(params)
-      current_user.categories.find(params[:id])
       Category.friendly.find(params[:category][:category_id])
     end
 
     def show_category_page_request(params)
       params[:category].nil?
     end
-
-
 end
