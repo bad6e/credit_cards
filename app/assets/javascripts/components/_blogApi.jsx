@@ -8,17 +8,17 @@ var BlogApi = React.createClass({
 });
 
 var LoadBlog = React.createClass({
-  getInitialState : function () {
+  getInitialState : function() {
     return {
       blog: [],
     };
   },
 
-  componentDidMount: function () {
+  componentDidMount: function() {
     this.loadBlogFromAPI();
   },
 
-  loadBlogFromAPI: function () {
+  loadBlogFromAPI: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -33,7 +33,7 @@ var LoadBlog = React.createClass({
     });
   },
 
-  render : function () {
+  render : function() {
     return (
       <div>
         <Blog blog={this.state.blog} />

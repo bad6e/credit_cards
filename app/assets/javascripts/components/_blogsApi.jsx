@@ -1,8 +1,8 @@
 var BlogList = React.createClass({
   renderBlogs : function(key) {
     return <Blogs key= {this.props.blogs[key].id}
-                 details= {this.props.blogs[key]}
-                 currentUser={this.props.currentUser}
+                  details= {this.props.blogs[key]}
+                  currentUser={this.props.currentUser}
             />
   },
 
@@ -28,20 +28,20 @@ var BlogsApi = React.createClass({
 });
 
 var LoadBlogs = React.createClass({
-  getInitialState : function () {
+  getInitialState : function() {
     return {
       blogs: [],
-      numberOfShownBlogPosts: 1,
+      numberOfShownBlogPosts: 2,
       showLoadMoreButton: true,
-      additionalPostsNumber: 1
+      additionalPostsNumber: 2
     };
   },
 
-  componentDidMount: function () {
+  componentDidMount: function() {
     this.loadBlogsFromAPI();
   },
 
-  loadBlogsFromAPI: function () {
+  loadBlogsFromAPI: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -66,7 +66,7 @@ var LoadBlogs = React.createClass({
     })
   },
 
-  render : function () {
+  render : function() {
     return (
       <div>
         <BlogList blogs= {this.state.blogs}

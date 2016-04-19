@@ -5,12 +5,12 @@ var Blogs = React.createClass({
   },
 
   findImage: function(details){
-    return details && details.attachments[0] ? details.attachments[0].url : "http://www.hotel.is/assets/img/skogarfoss.jpg"
+    return details && details.thumbnail ? details.thumbnail : "http://www.hotel.is/assets/img/skogarfoss.jpg"
   },
 
   relatedCards: function(details) {
     var cardNames = _.map(details.categories, function(value, key) {
-      return <a id={value.id} href="javaScript:void(0);">{value.title} ,</a>
+      return <a key={value.id} href="javaScript:void(0);">{value.title} ,</a>
     });
     return cardNames
   },
@@ -28,7 +28,7 @@ var Blogs = React.createClass({
     var day = moment(details.date).format("DD");
 
     return (
-      <div className="post" id={'blog-' + details.id}>
+      <div className="post" key={'blog-' + details.id}>
         <div className="post-content-wrapper">
           <figure className="image-container">
             <a href={'/blogs/' + details.slug} className="hover-effect"><img src={this.findImage(details)} alt="" /></a>

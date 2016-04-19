@@ -1,6 +1,20 @@
 var Blog = React.createClass({
+  renderHTML: function(content) {
+    return { __html: content};
+  },
+
+  relatedCards: function(details) {
+    var cardNames = _.map(details.categories, function(value, key) {
+      return <a key={value.id} href="javaScript:void(0);">{value.title} ,</a>
+    });
+    return cardNames
+  },
+
   render : function() {
     var details = this.props.blog;
+    var month = moment(details.date).format("MMM");
+    var day = moment(details.date).format("DD");
+
     return (
       <div>
         <div className="page-title-container">
@@ -22,23 +36,24 @@ var Blog = React.createClass({
               <div id="main" className="col-sm-8 col-md-9">
                 <div className="post">
                   <figure className="image-container">
-                    <a href="#"><img src="http://placehold.it/870x342" alt="" /></a>
+                    <a href="#"><img src="" alt="" /></a>
                   </figure>
                   <div className="details">
-                    <h1 className="entry-title">Standard single image post</h1>
+                    <h1 className="entry-title">{details.title}</h1>
                     <div className="post-content">
+                      <div dangerouslySetInnerHTML={this.renderHTML(details.content)}></div>
                     </div>
                     <div className="post-meta">
                       <div className="entry-date">
-                        <label className="date">29</label>
-                        <label className="month">Aug</label>
+                        <label className="date">{day}</label>
+                        <label className="month">{month}</label>
                       </div>
                       <div className="entry-author fn">
                         <i className="icon soap-icon-user"></i> Posted By:
-                        <a href="#" className="author">Jessica Browen</a>
+                        <a href="#" className="author">Bret</a>
                       </div>
                       <div className="entry-action">
-                        <span className="entry-tags"><i className="soap-icon-features"></i><span><a href="#">Adventure</a>, <a href="#">Romance</a></span></span>
+                        <span className="entry-tags"><i className="soap-icon-features">{this.relatedCards(details)}</i><span></span></span>
                       </div>
                     </div>
                   </div>
