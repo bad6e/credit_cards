@@ -11,21 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418152043) do
+ActiveRecord::Schema.define(version: 20160413155714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "citext"
 
   create_table "blogs", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "author"
-    t.string   "content"
     t.string   "meta_title"
     t.string   "meta_description"
     t.string   "slug"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "card_blogs", force: :cascade do |t|

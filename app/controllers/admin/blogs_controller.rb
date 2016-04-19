@@ -1,4 +1,4 @@
-class Admin::BlogsController < ApplicationController
+class Admin::BlogsController < Admin::BaseController
   before_action :load_blog, only: [:edit, :update, :destroy]
 
   def index
@@ -40,14 +40,16 @@ class Admin::BlogsController < ApplicationController
   private
 
     def load_blog
-      @blog = Blog.find(params[:id])
+      @blog = Blog.friendly.find(params[:id])
+    end
+
+    def slug_title
+      binding.pry
     end
 
     def blog_params
       params.require(:blog).permit(:meta_title,
                                    :meta_description,
-                                   :title,
-                                   :author,
-                                   :content)
+                                   :slug)
     end
 end

@@ -4,9 +4,7 @@ RSpec.describe Blog, type: :model do
   let(:blog) {
     Blog.create(meta_title: "Jet Blues Newest Card - My Review",
                 meta_description: 3000,
-                title: "Jet Blues Newest Card - My Review",
-                author: "Bret Doucette",
-                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.")
+                title: "Jet Blues Newest Card - My Review")
   }
 
   it "is valid" do
@@ -20,16 +18,6 @@ RSpec.describe Blog, type: :model do
 
   it "is invalid without a meta meta_description" do
     blog.meta_description = nil
-    expect(blog).to be_invalid
-  end
-
-  it "is invalid without a title" do
-    blog.title = nil
-    expect(blog).to be_invalid
-  end
-
-  it "is invalid without an author" do
-    blog.author = nil
     expect(blog).to be_invalid
   end
 
