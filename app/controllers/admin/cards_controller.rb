@@ -94,6 +94,7 @@ class Admin::CardsController < Admin::BaseController
                                    :image_link,
                                    :best_offer,
                                    :flyer_talk_link,
+                                   :image_url,
                                    :categories => [],
                                    :information => [])
     end
