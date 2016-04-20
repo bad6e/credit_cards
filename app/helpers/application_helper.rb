@@ -30,6 +30,24 @@ module ApplicationHelper
     end
   end
 
+  def facebook_url(full_url = '')
+    base_url = "http://www.toomanymiles.com/"
+    if full_url.empty?
+      base_url
+    else
+      full_url
+    end
+  end
+
+  def facebook_image(image_url = '')
+    base_image = image_url('logo-fb-post.png')
+    if image_url.empty?
+      base_image
+    else
+      image_url
+    end
+  end
+
   def no_follow_description(full_no_follow_description)
     if full_meta_description.empty?
     else
@@ -54,6 +72,4 @@ module ApplicationHelper
       end
     nil
   end
-
-
 end

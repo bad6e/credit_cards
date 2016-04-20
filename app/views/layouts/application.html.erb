@@ -10,10 +10,10 @@
   <meta name="msvalidate.01" content="C36156ADD172439BA028DE70EDE2FE34" />
 
   <!-- Facebook Properties -->
-  <meta property="og:url" content="http://www.toomanymiles.com/" />
-  <meta property="og:title" content="Too Many Miles" />
-  <meta property="og:image" content="<%= image_url('logo-fb-post.png') %>"/>
-  <meta property="og:description" content="Too Many Miles is a free tool to help you find the best credit card offers and maximize your credit card miles." />
+  <meta property="og:url" content="<%= facebook_url(yield(:full_url)) %>" />
+  <meta property="og:title" content="<%= full_title(yield(:title)) %>" />
+  <meta property="og:image" content="<%= facebook_image(yield(:image_url)) %>"/>
+  <meta property="og:description" content="<%= meta_description(yield(:meta_description)) %>" />
   <meta property="og:site_name" content="Too Many Miles" />
   <meta property="fb:app_id" content="458214874382899" />
 

@@ -50,6 +50,7 @@ class Admin::BlogsController < Admin::BaseController
     def blog_params
       params.require(:blog).permit(:meta_title,
                                    :meta_description,
-                                   :slug)
+                                   :slug,
+                                   :image_url)
     end
 end
