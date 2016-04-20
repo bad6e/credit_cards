@@ -1,7 +1,7 @@
 var Blogs = React.createClass({
 
   renderHTML: function() {
-    return { __html: this.truncateText(this.props.details.content)};
+    return { __html: this.truncateText(this.props.details.content) + '...'};
   },
 
   findImage: function(details){
@@ -10,14 +10,14 @@ var Blogs = React.createClass({
 
   relatedCards: function(details) {
     var cardNames = _.map(details.categories, function(value, key) {
-      return <a key={value.id} href="javaScript:void(0);">{value.title} ,</a>
+      return <a className="related-cards-links" key={value.id} href="javaScript:void(0);">{value.title}</a>
     });
     return cardNames
   },
 
   truncateText: function(text) {
     var stringToBeCut = text;
-    var maxCharLength = 260;
+    var maxCharLength = 157;
     var trimmedString = stringToBeCut.substr(0, maxCharLength);
     return trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
   },
@@ -34,9 +34,9 @@ var Blogs = React.createClass({
             <a href={'/blogs/' + details.slug} className="hover-effect"><img src={this.findImage(details)} alt="" /></a>
           </figure>
           <div className="details">
-            <h2 className="entry-title"><a href={'/blogs/' + details.slug}>{details.title}</a></h2>
-              <div className="excerpt-container">
-                <div dangerouslySetInnerHTML={this.renderHTML()}></div> <a className='active' href={'/blogs/' + details.slug}><h5>Continue Reading</h5></a>
+            <h2 className="entry-title" id="blog-title"><a href={'/blogs/' + details.slug}>{details.title}</a></h2>
+              <div className="excerpt-container content">
+                <div dangerouslySetInnerHTML={this.renderHTML()}></div><a className='continue-reading' href={'/blogs/' + details.slug}>Continue Reading...</a>
               </div>
               <div className="post-meta">
                 <div className="entry-date">
@@ -44,8 +44,8 @@ var Blogs = React.createClass({
                   <label className="month">{month}</label>
                 </div>
                 <div className="entry-author fn">
-                  <i className="icon soap-icon-user"></i> Posted By:
-                  <a href="#" className="author">{details.author.name}</a>
+                  <i></i> Posted By:
+                  <a href="/about" className="author"> {details.author.name}</a>
                 </div>
                 <div className="entry-action">
                   <span className="entry-tags"><i className="soap-icon-features"></i><span>{this.relatedCards(details)}</span></span>

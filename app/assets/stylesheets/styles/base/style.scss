@@ -1828,9 +1828,8 @@ ol {  }
       a.author { color: $skin-active-color; }
     }
     .entry-action {
-      float: right;
       > * {
-        height: 28px; line-height: 28px; display: inline-block; padding: 0 10px; margin-left: 8px; margin-bottom: 10px; background: #fff; color: #9e9e9e; letter-spacing: 0.04em; font-size: 0.8333em; font-weight: normal;
+        height: 28px; line-height: 28px; display: inline-block; padding: 0 15px; margin-bottom: 15px; background: #fff; color: #9e9e9e; letter-spacing: 0.07em; font-size: 0.8333em;
         i { float: left; font-size: 2.6667em; margin-right: 10px; color: #d9d9d9; }
       }
       a.button {
