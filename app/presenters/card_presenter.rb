@@ -44,4 +44,8 @@ class CardPresenter
   def category_list
     Card.find(card_id).categories
   end
+
+  def image_url
+    card.image_url
+  end
 end

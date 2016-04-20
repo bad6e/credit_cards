@@ -1,3 +1,5 @@
 <% provide(:title, @card_presenter.card.name) %>
 <% provide(:meta_description, @card_presenter.card.name + ": " + @card_presenter.card.information[0]) %>
+<% provide(:full_url, request.base_url + request.original_fullpath) %>
+<% provide(:image_url, @card_presenter ? @card_presenter.image_url : nil) %>
 
