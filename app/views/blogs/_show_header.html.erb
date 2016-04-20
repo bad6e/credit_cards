@@ -1,3 +1,4 @@
 <% provide(:title,  @blog ? @blog.meta_title : nil) %>
 <% provide(:meta_description, @blog ? @blog.meta_description : nil) %>
-
+<% provide(:full_url, request.base_url + request.original_fullpath) %>
+<% provide(:image_url, @blog ? @blog.image_url : nil) %>

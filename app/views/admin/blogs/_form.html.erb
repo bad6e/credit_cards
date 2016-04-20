@@ -1,5 +1,6 @@
 <%= bootstrap_form_for([:admin, @blog]) do |blog_form| %>
   <%= blog_form.text_field :meta_title %>
   <%= blog_form.text_field :meta_description %>
+  <%= blog_form.text_field :image_url %>
   <%= blog_form.submit 'Submit Blog', class:'button'%>
 <% end %>
