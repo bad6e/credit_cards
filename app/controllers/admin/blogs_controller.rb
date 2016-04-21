@@ -1,3 +1,4 @@
+
 class Admin::BlogsController < Admin::BaseController
   before_action :load_blog, only: [:edit, :update, :destroy]
 
@@ -24,7 +25,9 @@ class Admin::BlogsController < Admin::BaseController
   end
 
   def update
-    if @blog.update(blog_params)
+    associated_cards = params[:blog][:cards]
+    if @blog.update(blog_params.except(:cards))
+      assign_cards_to_blog(associated_cards)
       flash[:success] = "Blog successfully updated!"
       redirect_to admin_blogs_path
     else
@@ -43,14 +46,24 @@ class Admin::BlogsController < Admin::BaseController
       @blog = Blog.friendly.find(params[:id])
     end
 
-    def slug_title
-      binding.pry
+    def assign_cards_to_blog(selected_cards)
+      selected_cards.each do |id|
+        if ((id != "") and (card_not_already_assigned_to_blog(id) == false))
+          card = Card.find(id)
+          @blog.cards << card
+        end
+      end
+    end
+
+    def card_not_already_assigned_to_blog(id)
+      @blog.cards.include?(Card.find(id))
     end
 
     def blog_params
       params.require(:blog).permit(:meta_title,
                                    :meta_description,
                                    :slug,
-                                   :image_url)
+                                   :image_url,
+                                   :cards => [])
     end
 end
