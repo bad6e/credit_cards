@@ -32,7 +32,7 @@ var Blog = React.createClass({
           </div>
 
           <section id="content">
-            <div className="container">
+            <div className="container blog-content">
               <div className="row">
                 <div id="main" className="col-sm-8 col-md-9">
                   <div className="post">
