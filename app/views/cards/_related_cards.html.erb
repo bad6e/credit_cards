@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <% related_category_name = @featured_card_presenter.card.categories.sample.name %>
-    <h3 class="page-header related-card-header">Related <%= @featured_card_presenter.featured_category_name(related_category_name) %></h3>
+    <h2 class="page-header related-card-header">Related <%= @featured_card_presenter.featured_category_name(related_category_name) %></h2>
 </div>
 
 <% @featured_card_presenter.featured_cards_sorter(related_category_name).each do |card| %>

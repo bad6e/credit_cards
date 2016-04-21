@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show]
       resources :cards, only: [:index]
       resources :blogs, only: [:index, :show]
+      resources :related_blogs, only: [:show]
     end
   end
 end
