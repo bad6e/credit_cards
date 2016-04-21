@@ -197,16 +197,10 @@
 <!-- Related Blogs -->
   <div class="section related-blog-posts">
     <div class="container">
-      <h2>Related Blog Posts</h2>
-      <div class="image-box style11 block">
-        <div class="row">
-           <%= react_component('RelatedBlogsApi', url: "/api/v1/related_blogs/#{@card_presenter.card.id}", currentUser: short_current_user) %>
-        </div>
-      </div>
+      <%= react_component('RelatedBlogsApi', url: "/api/v1/related_blogs/#{@card_presenter.card.id}", currentUser: short_current_user) %>
     </div>
   </div>
   <!-- End Relateds Blogs -->
-
 
   <!-- Related Cards -->
   <div class="container">
