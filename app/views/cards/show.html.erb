@@ -194,40 +194,16 @@
 <!-- End - Points Value Graph -->
 
 
-
 <div class="section">
   <div class="container">
     <h2>Related Blog Posts</h2>
     <div class="image-box style11 block">
-        <div class="row">
-        <% @card_presenter.blog_posts.each do |post| %>
-            <div class="col-sm-4">
-                <article class="box">
-                    <figure >
-                      <a title="" href="/blogs/<%= post.slug %>"><img alt="" src="<%= post.image_url %>"></a>
-                        <figcaption>
-                          <h3 class="caption-title">20</h3>
-                          <span>APR</span>
-                        </figcaption>
-                    </figure>
-                    <div class="details details-text-box">
-
-                        <div class="icon-box style11">
-                            <div class="icon-wrapper">
-                                <i class="soap-icon-plane-right takeoff-effect circle"></i>
-                            </div>
-                            <div class="details">
-                                <h4 class="box-title"><%= post.meta_title %><small>Posted By: Bret</small></h4>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <% end %>
-        </div>
-    </div>
+      <div class="row">
+         <%= react_component('RelatedBlogs', currentUser: short_current_user) %>
+      </div>
     </div>
   </div>
+</div>
 
 
 <!-- Related Cards -->
