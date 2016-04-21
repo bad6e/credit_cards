@@ -26,6 +26,7 @@ $black          : #000;
 
 .related-card-header {
   padding-top: 0px;
+  padding-bottom: 10px;
 }
 
 .FavoriteButtonMobile {
@@ -34,6 +35,7 @@ $black          : #000;
 
 .related-card-name {
   padding-top: 10px;
+  min-height: 75px;
   font-family: 'Raleway', sans-serif;
   text-align: center;
 }
@@ -49,6 +51,38 @@ $black          : #000;
   .row{
     margin-left: 0px;
     margin-right: 0px;
+  }
+}
+
+.card-description {
+  h2 {
+    font-size: 2em;
+  }
+  .icon-box {
+    font-size: 1em;
+  }
+}
+
+.bottom-stats {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  h2 {
+    font-size: 2em;
+  }
+}
+
+.related-blog-posts {
+  h2 {
+    padding-bottom: 10px;
+  }
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#car-details {
+  li {
+    font-size: 1.15em;
+    padding-bottom: 5px;
   }
 }
 
