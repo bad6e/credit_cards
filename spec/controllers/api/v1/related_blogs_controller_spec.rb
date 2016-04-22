@@ -31,5 +31,4 @@ RSpec.describe Api::V1::RelatedBlogsController, type: :controller do
     expect(response_data[0]["meta_title"]).to eq("What is New with Jet Blue")
     expect(response_data[1]["meta_title"]).to eq("Southwest Companion Pass")
   end
-
 end

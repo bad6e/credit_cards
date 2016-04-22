@@ -1,6 +1,7 @@
 
 class Admin::BlogsController < Admin::BaseController
   before_action :load_blog, only: [:edit, :update, :destroy]
+  before_action :find_associated_cards
 
   def index
     @blogs = Blog.all.order('created_at DESC')
@@ -13,6 +14,7 @@ class Admin::BlogsController < Admin::BaseController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
+      assign_cards_to_blog(@associated_cards)
       flash[:success] = "Blog successfully created!"
       redirect_to admin_blogs_path
     else
@@ -25,9 +27,8 @@ class Admin::BlogsController < Admin::BaseController
   end
 
   def update
-    associated_cards = params[:blog][:cards]
     if @blog.update(blog_params.except(:cards))
-      assign_cards_to_blog(associated_cards)
+      assign_cards_to_blog(@associated_cards)
       flash[:success] = "Blog successfully updated!"
       redirect_to admin_blogs_path
     else
@@ -37,13 +38,18 @@ class Admin::BlogsController < Admin::BaseController
   end
 
   def destroy
-
   end
 
   private
 
     def load_blog
       @blog = Blog.friendly.find(params[:id])
+    end
+
+    def find_associated_cards
+      if params[:blog] && params[:blog][:cards]
+        @associated_cards = params[:blog][:cards]
+      end
     end
 
     def assign_cards_to_blog(selected_cards)
