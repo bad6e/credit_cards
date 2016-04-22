@@ -12,7 +12,7 @@ class Admin::BlogsController < Admin::BaseController
   end
 
   def create
-    @blog = Blog.new(blog_params)
+    @blog = Blog.new(blog_params.except(:cards))
     if @blog.save
       assign_cards_to_blog(@associated_cards)
       flash[:success] = "Blog successfully created!"
