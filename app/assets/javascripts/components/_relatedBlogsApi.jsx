@@ -31,17 +31,21 @@ var LoadRelatedBlogs = React.createClass({
   },
 
   render : function () {
-    return (
-      <div>
-        <RelatedBlogList relatedBlogs= {this.state.relatedBlogs} />
-      </div>
-    );
+    if (this.state.relatedBlogs.length !== 0) {
+      return (
+        <div>
+          <RelatedBlogList relatedBlogs= {this.state.relatedBlogs} />
+        </div>
+      );
+    } else {
+      return (
+        <div></div>
+      )
+    }
   }
 });
 
 var RelatedBlogList = React.createClass({
-
-
   renderRelatedBlogs: function(key) {
     return <RelatedBlogs key= {this.props.relatedBlogs[key].id}
                          details= {this.props.relatedBlogs[key]}
@@ -51,7 +55,12 @@ var RelatedBlogList = React.createClass({
   render : function() {
     return (
       <div>
-        {Object.keys(this.props.relatedBlogs).map(this.renderRelatedBlogs)}
+      <h2>Related Blog Posts</h2>
+        <div className="image-box style11 block">
+          <div className="row">
+            {Object.keys(this.props.relatedBlogs).map(this.renderRelatedBlogs)}
+          </div>
+        </div>
       </div>
     );
   }

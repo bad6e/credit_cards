@@ -126,6 +126,16 @@ shared_context "features" do
                 point_type: "American AAdvantage® Miles")
   }
 
+  let!(:blog_one) {
+     Blog.create(meta_title: "Omg The Southwest Companion Pass: How to Travel for Free ",
+                 meta_description: "This is the best deal ever!",
+                 image_url: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg")
+  }
+
+  def set_blog_categories
+    card_one.blogs << blog_one
+  end
+
   def set_card_categories
     c1 = Card.find(card_one.id)
     c1.categories << Category.find(category_one.id)
@@ -164,6 +174,22 @@ shared_context "features" do
     within("#card-#{card_one.id}") do
       first(:link, "Edit").click
     end
+  end
+
+  def admin_create_blog
+    visit admin_blogs_path
+
+    click_on "Add a New Blog"
+    expect(current_path).to eq(new_admin_blog_path)
+    expect(page).to have_content("Add New Blog Here")
+
+    fill_in "blog[meta_title]", with: "Test Blog Name"
+    fill_in "blog[meta_description]", with: "This is a test description"
+    fill_in "blog[image_url]", with: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg"
+    select card_one.name, :from => "blog[cards][]"
+    select card_two.name, :from => "blog[cards][]"
+
+    click_on "Submit Blog"
   end
 
   def fill_in_card_information
