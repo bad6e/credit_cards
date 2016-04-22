@@ -176,6 +176,22 @@ shared_context "features" do
     end
   end
 
+  def admin_create_blog
+    visit admin_blogs_path
+
+    click_on "Add a New Blog"
+    expect(current_path).to eq(new_admin_blog_path)
+    expect(page).to have_content("Add New Blog Here")
+
+    fill_in "blog[meta_title]", with: "Test Blog Name"
+    fill_in "blog[meta_description]", with: "This is a test description"
+    fill_in "blog[image_url]", with: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg"
+    select card_one.name, :from => "blog[cards][]"
+    select card_two.name, :from => "blog[cards][]"
+
+    click_on "Submit Blog"
+  end
+
   def fill_in_card_information
     fill_in "card[name]", with: "Test Name1"
     fill_in "card[annual_fee]", with: "$99"
