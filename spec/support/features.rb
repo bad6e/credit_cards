@@ -132,6 +132,10 @@ shared_context "features" do
                  image_url: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg")
   }
 
+  def set_blog_categories
+    card_one.blogs << blog_one
+  end
+
   def set_card_categories
     c1 = Card.find(card_one.id)
     c1.categories << Category.find(category_one.id)

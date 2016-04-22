@@ -17,7 +17,7 @@ var RelatedBlogs = React.createClass({
               <div className="icon-wrapper">
                 <i className="soap-icon-plane-right takeoff-effect circle"></i>
               </div>
-              <div className="details">
+              <div className="details title-link">
                 <h4 className="box-title"><a href={"/blogs/" + details.slug}>{details.meta_title}<small>Posted By: Bret</small></a></h4>
               </div>
             </div>

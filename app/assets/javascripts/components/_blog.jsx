@@ -24,8 +24,8 @@ var Blog = React.createClass({
                 <h2 className="entry-title">{details.title}</h2>
               </div>
               <ul className="breadcrumbs pull-right">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">BLOGS</a></li>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/blogs">BLOGS</a></li>
                 <li className="active">{details.title}</li>
               </ul>
             </div>
