@@ -10,4 +10,3 @@ feature "user - blog index page" do
     expect(page).to have_content("LOAD MORE POSTS")
   end
 end
-
