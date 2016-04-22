@@ -1,6 +1,10 @@
 $lightBlue : #01b7f2;
 $lightGray : #838383;
 
+.all-content{
+  background: white !important;
+}
+
 .main-start-here {
   h4 {
     font-family: 'Raleway', sans-serif;
@@ -21,6 +25,7 @@ $lightGray : #838383;
     font-size: 1.25em;
     text-align: justify;
   }
+  padding-bottom: 20px;
 }
 
 

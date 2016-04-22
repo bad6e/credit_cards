@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/sitemap.xml.gz', to: redirect("https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com/sitemaps/sitemap.xml.gz"), as: :sitemap
   root "welcome#index"
 
-  get '/learn-about-credit-cards', to: 'start#index'
+  get '/credit-card-beginners-guide', to: 'start#index'
 
   resources :about, only: [:index]
   resources :users, only: [:show, :update, :edit, :destroy]
