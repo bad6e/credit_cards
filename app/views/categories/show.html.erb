@@ -44,8 +44,13 @@
 
         <div class="col-sm-8 col-md-9">
           <!-- Card Listings and Sort Component -->
-          <div class="flight-list listing-style3 flight">
-            <%= react_component('CardApi', url: "/api/v1/categories/#{@category_presenter.category_id}", currentUser: short_current_user) %>
+          <div class="flight-list listing-style3 flight" id="shitty">
+            <script type="text/javascript">
+              $(document).ready(function() {
+                window.loadCardsFlux("/api/v1/categories/1", "Bret Doucette")
+              })
+         </script>
+
           </div>
           <!-- End - Card Listings and Sort Component -->
         </div>
