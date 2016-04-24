@@ -146,9 +146,9 @@
       <ul class="mobile-topnav container">
         <ul class="mobile-topnav container">
           <% if current_user %>
-            <li><%= link_to "MY ACCOUNT", user_path(current_user) %></li>
+            <li><%= link_to current_user.cards.count.to_s + " FAVORITE CARDS", user_path(current_user) %></li>
             <li><%= link_to "LOGOUT", logout_path, method: :delete %></a></li>
-            <li><%= link_to "Welcome, " + current_user.name + "!", user_path(current_user) %></li>
+            <li><%= link_to current_user.name, user_path(current_user) %></li>
           <% else %>
             <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
             <li><a href="#travelo-signup" class="soap-popupbox">SIGN UP</a></li>
