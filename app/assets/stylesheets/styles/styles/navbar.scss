@@ -42,3 +42,26 @@ $black          : #000;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
 }
+
+.example-enter {
+  transition: all 0.5s;
+  transform: translateY(100%);
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.example-leave {
+  transition: all 0.5s;
+  left: 0;
+  bottom: 0;
+  transform: translateY(0);
+  position: absolute !important;
+}
+
+.example-leave.example-leave-active {
+  transform: translateY(-100%);
+
+}

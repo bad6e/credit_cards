@@ -1,3 +1,5 @@
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
 window.loadNumberOfFavoriteCards = function(currentUser) {
   var FluxMixin = Fluxxor.FluxMixin(React),
       StoreWatchMixin = Fluxxor.StoreWatchMixin;
@@ -15,8 +17,19 @@ window.loadNumberOfFavoriteCards = function(currentUser) {
       var id = this.props.currentUser
       return (
         <div>
-          <ul className="quick-menu pull-left">
-            <li><a href={"/users/" + id} >{number} Favorite Cards</a></li>
+          <ul className="quick-menu pull">
+            <li key={id}>
+              <a href={"/users/" + id} key={id}>
+                <ReactCSSTransitionGroup
+                  transitionName="example"
+                  transitionLeaveTimeout={500}
+                  transitionEnterTimeout={500}
+                >
+                  <div key={number}>{number} Favorite Cards</div>
+                </ReactCSSTransitionGroup>
+
+              </a>
+            </li>
           </ul>
         </div>
       );
@@ -24,3 +37,20 @@ window.loadNumberOfFavoriteCards = function(currentUser) {
   });
   ReactDOM.render(<NumberOfFavoriteCards flux={flux} currentUser={currentUser} />, document.getElementById('shit'));
 }
+
+ // return (
+ //      <li key={key}>
+ //        <CSSTransitionGroup
+ //        component="span"
+ //        transitionName="count"
+ //        transitionLeaveTimeout={250}
+ //        transitionEnterTimeout={250}
+ //        >
+ //          <span key={count}>{count}</span>
+ //        </CSSTransitionGroup>
+
+ //        lbs {fish.name} {removeButton}
+ //        <span className="price">{h.formatPrice(count * fish.price)}</span>
+ //      </li>
+ //    )
+ //  },

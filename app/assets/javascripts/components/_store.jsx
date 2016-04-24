@@ -5,16 +5,20 @@ var constants = {
 var FluxNumberOfFavoriteCardsStore = Fluxxor.createStore({
   initialize: function() {
     $.ajax({
-      type: "GET",
-      url: "/api/v1/users/1/",
+      url: "/api/v1/users/1",
+      dataType: 'json',
+      type: 'GET',
       success: function(data) {
         this.number = data.length
+        this.emit("change")
+        console.log(data);
       }.bind(this),
-      failure: function() {
-
-      }
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
     });
-    this.numbrer = 0
+
+    this.number = 0;
     this.bindActions(
       constants.UPDATE_NUMBER, this.onNumberUpdate
     );
