@@ -234,8 +234,12 @@
             <!-- Favorite Card Section -->
             <div id="booking" class="tab-pane fade">
               <h2>Your Favorite Cards</h2>
-            <div class="booking-history">
-              <%= react_component('CardApi', url: "/api/v1/users/#{current_user.id}") %>
+            <div class="booking-history" id="shitty">
+              <%= javascript_tag do %>
+                $(document).ready(function() {
+                  window.loadCardsFlux("/api/v1/users/<%= @current_user.id %>")
+                })
+              <% end %>
             </div>
               <!-- End - Favorite Card Section -->
           </div>
