@@ -71,7 +71,7 @@ var FavButton = React.createClass({
   },
 
   render : function() {
-    var hasCurrentUser = (this.props.currentUser != null ? true : false);
+    var hasCurrentUser = (this.props.currentUser != "" ? true : false);
     var buttonOptions = this.checkIfFavoriteCard();
     var buttonText = (hasCurrentUser ?  buttonOptions : <a href="#" className="button sky-blue1 full-width uppercase btn-small active soap-popupbox" data-target="#travelo-login">Login to Favorite</a>);
     return (
