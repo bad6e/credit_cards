@@ -138,6 +138,7 @@ var LoadCards = React.createClass({
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: id,
       success: function(data) {
+        this.props.flux.actions.removeCardNumber();
         console.log(data)
       }.bind(this),
       error: function(xhr, status, err) {

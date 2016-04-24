@@ -1,5 +1,6 @@
 var constants = {
-    UPDATE_NUMBER: "UPDATE_NUMBER"
+    UPDATE_NUMBER: "UPDATE_NUMBER",
+    REMOVE_NUMBER: "REMOVE_NUMBER"
 };
 
 var FluxNumberOfFavoriteCardsStore = Fluxxor.createStore({
@@ -20,13 +21,20 @@ var FluxNumberOfFavoriteCardsStore = Fluxxor.createStore({
 
     this.number = 0;
     this.bindActions(
-      constants.UPDATE_NUMBER, this.onNumberUpdate
+      constants.UPDATE_NUMBER, this.onNumberUpdate,
+      constants.REMOVE_NUMBER, this.onNumberRemoval
     );
   },
 
   onNumberUpdate: function(payload) {
     var n = this.number
     this.number = n + payload.number
+    this.emit("change")
+  },
+
+  onNumberRemoval: function(payload) {
+    var n = this.number
+    this.number = n - payload.number
     this.emit("change")
   },
 
@@ -40,6 +48,10 @@ var FluxNumberOfFavoriteCardsStore = Fluxxor.createStore({
 var actions = {
   updateCardNumber: function() {
     this.dispatch(constants.UPDATE_NUMBER, {number: 1});
+  },
+
+  removeCardNumber: function() {
+    this.dispatch(constants.REMOVE_NUMBER, {number: 1})
   }
 };
 
