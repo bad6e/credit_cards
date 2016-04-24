@@ -6,12 +6,13 @@
         <% if current_user %>
         <% @abc = current_user.cards.count.to_json %>
         <div id="shit">
-         <script type="text/javascript">
-          $(document).ready(function() {
-            window.loadNumberOfFavoriteCards();
-          })
-         </script>
-         </div>
+          <%= javascript_tag do %>
+            $(document).ready(function() {
+              window.loadNumberOfFavoriteCards('<%= current_user.id %>')
+            })
+        <% end %>
+
+        </div>
         <% end %>
         <ul class="quick-menu pull-right">
           <li class="ribbon">

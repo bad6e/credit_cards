@@ -1,10 +1,18 @@
+function getIdeas() {
+  var beginNumber = $.getJSON('/api/v1/users/1', function(response){
+    if (response[0]) {
+      response[0]. favorite_card_ids.length
+    }
+  });
+}
+
 var constants = {
     UPDATE_NUMBER: "UPDATE_NUMBER"
 };
 
 var FluxNumberOfFavoriteCardsStore = Fluxxor.createStore({
-  initialize: function() {
-    this.number = 0;
+  initialize: function(startNumber) {
+    this.number = startNumber
     this.bindActions(
       constants.UPDATE_NUMBER, this.onNumberUpdate
     );
@@ -30,7 +38,7 @@ var actions = {
 };
 
 var stores = {
-  FluxNumberOfFavoriteCardsStore: new FluxNumberOfFavoriteCardsStore()
+  FluxNumberOfFavoriteCardsStore: new FluxNumberOfFavoriteCardsStore(19)
 };
 
 var flux = new Fluxxor.Flux(stores, actions);

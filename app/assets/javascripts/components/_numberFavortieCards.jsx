@@ -1,4 +1,4 @@
-window.loadNumberOfFavoriteCards = function() {
+window.loadNumberOfFavoriteCards = function(currentUser) {
   var FluxMixin = Fluxxor.FluxMixin(React),
       StoreWatchMixin = Fluxxor.StoreWatchMixin;
 
@@ -12,14 +12,15 @@ window.loadNumberOfFavoriteCards = function() {
 
     render: function() {
       var number = this.props.flux.stores.FluxNumberOfFavoriteCardsStore.number;
+      var id = this.props.currentUser
       return (
         <div>
           <ul className="quick-menu pull-left">
-            <li><a href="/">{number} Favorite Cards</a></li>
+            <li><a href={"/users/" + id} >{number} Favorite Cards</a></li>
           </ul>
         </div>
       );
     }
   });
-  ReactDOM.render(<NumberOfFavoriteCards flux={flux} />, document.getElementById('shit'));
+  ReactDOM.render(<NumberOfFavoriteCards flux={flux} currentUser={currentUser} />, document.getElementById('shit'));
 }
