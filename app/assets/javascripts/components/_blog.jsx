@@ -31,8 +31,8 @@ var Blog = React.createClass({
             </div>
           </div>
 
-          <section id="content">
-            <div className="container blog-content">
+          <section className="blog-content" id="content">
+            <div className="container">
               <div className="row">
                 <div id="main" className="col-sm-8 col-md-9">
                   <div className="post">
