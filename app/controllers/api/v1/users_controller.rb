@@ -5,6 +5,11 @@ class Api::V1::UsersController < ApplicationController
   def show
     if current_user
       respond_with current_user.cards
+    else
+      render json: {
+        error: "Must be logged to create Store",
+        status: 400
+      }
     end
   end
 end

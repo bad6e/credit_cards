@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require lodash
 //= require moment
+//= require fluxxor
 //= require react
 //= require react_ujs
 //= require components

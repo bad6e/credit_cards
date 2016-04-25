@@ -18,7 +18,7 @@ var Card = React.createClass({
 
   render : function() {
     var details = this.props.details
-    var hasCurrentUser = (this.props.currentUser != null ? true : false);
+    var hasCurrentUser = (this.props.currentUser != "" ? true : false);
     var buttonOptions = this.checkIfFavoriteCard();
     var buttonText = (hasCurrentUser ?  buttonOptions : <a href="#" className="button btn-small sky-blue1 active soap-popupbox" data-target="#travelo-login">LOGIN TO FAVORITE</a>);
 

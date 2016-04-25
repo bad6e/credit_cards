@@ -112,6 +112,7 @@ var LoadCards = React.createClass({
     this.setState({ cards: newCardState})
   },
 
+
   postFavoriteCard : function(id) {
     $.ajax({
       url: "api/v1/favorite_cards/" + id,
@@ -120,6 +121,7 @@ var LoadCards = React.createClass({
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: id,
       success: function(data) {
+        this.props.flux.actions.updateCardNumber();
         console.log(data);
       }.bind(this),
       error: function(xhr, status, err) {
@@ -136,6 +138,7 @@ var LoadCards = React.createClass({
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: id,
       success: function(data) {
+        this.props.flux.actions.removeCardNumber();
         console.log(data)
       }.bind(this),
       error: function(xhr, status, err) {
@@ -148,10 +151,10 @@ var LoadCards = React.createClass({
   render : function () {
     return (
       <div>
-        <SortByName sortCardsByName ={this.sortCardsByName}
-                    sortCardsByAmount ={this.sortCardsByAmount}
-                    sortCardsByDollarAmount ={this.sortCardsByDollarAmount}/>
-        <CardList cards= {this.state.cards}
+        <SortByName sortCardsByName={this.sortCardsByName}
+                    sortCardsByAmount={this.sortCardsByAmount}
+                    sortCardsByDollarAmount={this.sortCardsByDollarAmount}/>
+        <CardList cards={this.state.cards}
                   postFavoriteCard={this.postFavoriteCard}
                   removeFavoriteCard={this.removeFavoriteCard}
                   apiUrl={this.props.url}
@@ -162,12 +165,28 @@ var LoadCards = React.createClass({
   }
 });
 
-var CardApi = React.createClass({
-  render : function() {
-    return (
-      <div>
-        <LoadCards url={this.props.url} currentUser={this.props.currentUser} />
-      </div>
+window.loadCardsFlux = function(url, currentUser) {
+  var FluxMixin = Fluxxor.FluxMixin(React),
+      StoreWatchMixin = Fluxxor.StoreWatchMixin;
+
+  var CardApi = React.createClass({
+    mixins: [Fluxxor.FluxMixin(React), StoreWatchMixin("FluxNumberOfFavoriteCardsStore")],
+
+    getStateFromFlux: function() {
+      var flux = this.getFlux();
+      return flux.store("FluxNumberOfFavoriteCardsStore").getState();
+    },
+
+    render : function() {
+      return (
+        <div>
+          <LoadCards url={this.props.url}
+                     currentUser={this.props.currentUser}
+                     flux={flux}
+          />
+        </div>
       )
-  }
-});
+    }
+  });
+  ReactDOM.render(<CardApi flux={flux} url={url} currentUser={currentUser}/>, document.getElementById('shitty'));
+}

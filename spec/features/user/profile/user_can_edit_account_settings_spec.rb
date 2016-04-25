@@ -7,7 +7,7 @@ feature "User Profile Page" do
     User.delete_all
     expect(User.all.count).to eq(0)
     login_with_facebook
-    click_on "ACCOUNT"
+    click_on "0 Favorite Cards"
     expect(User.all.count).to eq(1)
     within(".delete-account") do
       click_on "DELETE ACCOUNT"
@@ -20,7 +20,7 @@ feature "User Profile Page" do
 
   scenario "user can see their email in the field", js: true do
     admin_login
-    click_on "ACCOUNT"
+    click_on "0 Favorite Cards"
     within(".edit_user") do
       expect(find_field('user[email]').value).to eq("test@test.com")
     end

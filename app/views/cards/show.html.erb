@@ -54,8 +54,11 @@
                   <% end %>
                 </div>
               </div>
-              <div class="FavoriteButtonMobile">
-                <%= react_component('FavoriteButton', url: "/api/v1/favorite_cards/#{@card_presenter.card.id}", currentUser: short_current_user, id: @card_presenter.card.id) %>
+              <div class="FavoriteButtonMobile" id="favorite-button">
+                <%= javascript_tag do %>
+                  $(document).ready(function() { window.loadFavButtonFromFlux("/api/v1/favorite_cards/1", '<%= short_current_user %>', '<%= @card_presenter.card.id %>')
+                  })
+                <% end %>
               </div>
               <% if @card_presenter.card_has_bonus? %>
                 <h2>Bonus Information</h2>
@@ -138,8 +141,12 @@
                   <h6 class="box-title" id="click-here-favorite"><a href="/best-credit-card-offers">Click Here for Cards with Bonus Information!</a></h6>
                 <% end %>
               </div>
-              <div class="FavoriteButton">
-                <%= react_component('FavoriteButton', url: "/api/v1/favorite_cards/#{@card_presenter.card.id}", currentUser: short_current_user, id: @card_presenter.card.id) %>
+
+              <div class="FavoriteButton" id="favorite-button-1">
+                <%= javascript_tag do %>
+                  $(document).ready(function() { window.loadFavButtonFromFlux1("/api/v1/favorite_cards/1", '<%= short_current_user %>', '<%= @card_presenter.card.id %>')
+                  })
+                <% end %>
               </div>
           </div>
         </article>

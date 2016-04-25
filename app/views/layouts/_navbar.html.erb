@@ -3,11 +3,17 @@
   <header id="header" class="navbar-static-top style4">
     <div class="topnav hidden-xs">
       <div class="container">
-        <ul class="quick-menu pull-left">
-          <% if current_user %>
-            <li><%= link_to "MY ACCOUNT", user_path(current_user)%></li>
-          <% end %>
-        </ul>
+        <% if current_user %>
+        <% @abc = current_user.cards.count.to_json %>
+        <div id="shit">
+          <%= javascript_tag do %>
+            $(document).ready(function() {
+              window.loadNumberOfFavoriteCards('<%= current_user.id %>')
+            })
+        <% end %>
+
+        </div>
+        <% end %>
         <ul class="quick-menu pull-right">
           <li class="ribbon">
             <% if current_user %>
@@ -61,7 +67,10 @@
               <a href="/">Home</a>
             </li>
             <li class="menu-item-has-children">
-              <a href="/learn-about-credit-cards">Start Here</a>
+              <a href="/credit-card-beginners-guide">Start Here</a>
+              <ul>
+                <li><a href="/what-is-a-credit-score">What is a Credit Score?</a></li>
+              </ul>
             </li>
             <li class="menu-item-has-children">
               <a href="/blogs">Card Blog</a>
@@ -97,14 +106,14 @@
       <ul id="mobile-primary-menu" class="menu">
         <li>
           <a href="/">Home</a>
-          <a href="/learn-about-credit-cards">Start Here</a>
           <a href="/blogs">Card Blog</a>
           <a href="/our-favorite-credit-cards">Our Favorite Credit Cards</a>
           <a href="/best-credit-card-offers">BEST OFFERS NOW</a>
           <a href="/travel-credit-cards">Browse Travel Credit Cards</a>
           <a href="/about">About</a>
+
           <li class="menu-item-has-children">
-              <a href="#">Card Categories</a>
+            <a href="#">Card Categories</a>
               <ul>
                 <li><a href="/travel-credit-cards">All Travel Credit Cards</a></li>
                 <li><a href="/airline-credit-cards">Airline Credit Cards</a></li>
@@ -114,6 +123,14 @@
                 <li><a href="/other-credit-cards">Other Credit Cards</a></li>
               </ul>
           </li>
+
+          <li class="menu-item-has-children">
+            <a href="/credit-card-beginners-guide">Start Here</a>
+            <ul>
+              <li><a href="/what-is-a-credit-score">What is a Credit Score?</a></li>
+            </ul>
+          </li>
+
         </li>
           <!-- Search Bar - Mobile -->
           <li class="menu-item-has-children">
@@ -128,9 +145,9 @@
       <ul class="mobile-topnav container">
         <ul class="mobile-topnav container">
           <% if current_user %>
-            <li><%= link_to "MY ACCOUNT", user_path(current_user) %></li>
+            <li><%= link_to current_user.cards.count.to_s + " FAVORITE CARDS", user_path(current_user) %></li>
             <li><%= link_to "LOGOUT", logout_path, method: :delete %></a></li>
-            <li><%= link_to "Welcome, " + current_user.name + "!", user_path(current_user) %></li>
+            <li><%= link_to current_user.name, user_path(current_user) %></li>
           <% else %>
             <li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
             <li><a href="#travelo-signup" class="soap-popupbox">SIGN UP</a></li>

@@ -16,7 +16,7 @@ feature "Facebook Oauth" do
     within(".alert") do
       expect(page).to have_content("Welcome, Bret Doucette!")
     end
-    expect(page).to have_content("ACCOUNT")
+    expect(page).to have_content("0 FAVORITE CARDS")
     expect(page).to have_content("LOGOUT")
     expect(page).to_not have_content ("SIGN UP")
     expect(page).to_not have_content ("LOGIN")
@@ -35,7 +35,7 @@ feature "Facebook Oauth" do
     within(".alert") do
       expect(page).to have_content("Welcome, Bret Doucette!")
     end
-    expect(page).to have_content("ACCOUNT")
+    expect(page).to have_content("0 FAVORITE CARDS")
     expect(page).to have_content("LOGOUT")
     expect(page).to_not have_content ("SIGN UP")
     expect(page).to_not have_content ("LOGIN")

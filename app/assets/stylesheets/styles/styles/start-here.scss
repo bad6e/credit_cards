@@ -1,0 +1,45 @@
+$lightBlue : #01b7f2;
+$lightGray : #838383;
+
+.all-content{
+  background: white !important;
+}
+
+.main-start-here {
+  h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+}
+
+.intro-para {
+  text-align: center;
+  h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 3em;
+    color: #01b7f2;
+    font-weight: 550;
+  }
+  p {
+    font-size: 1.25em;
+    text-align: justify;
+  }
+  padding-bottom: 20px;
+}
+
+
+.category-title {
+  text-align: center;
+}
+
+.coming-soon {
+  h2 {
+    color: #01b7f2 !important;
+    font-family: 'Raleway', sans-serif !important;
+  }
+  font-size: 2.5em;
+  text-align: center;
+  padding-top: 20px;
+}
+

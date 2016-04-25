@@ -50,9 +50,12 @@
           <!-- End - Sort By Result Box -->
 
           <!-- Card Listings -->
-          <div class="flight-list listing-style3 flight">
-          <%= react_component('CardApi', url: "/api/v1/cards?search#{@search_term}", currentUser: short_current_user) %>
-          </div>
+          <div class="flight-list listing-style3 flight" id="shitty">
+          <%= javascript_tag do %>
+              $(document).ready(function() {
+                window.loadCardsFlux("/api/v1/cards?search<%= @search_term %>", '<%= short_current_user %>')
+              })
+          <% end %>
           <!-- End Card Listings -->
         </div>
       </div>

@@ -1,13 +1,3 @@
-var FavoriteButton = React.createClass({
-  render : function() {
-    return (
-      <div>
-        <LoadFavoriteIds url={this.props.url} currentUser={this.props.currentUser} cardId={this.props.id} />
-      </div>
-    )
-  }
-});
-
 var LoadFavoriteIds = React.createClass({
   getInitialState : function () {
     return { ids: [] };
@@ -22,7 +12,9 @@ var LoadFavoriteIds = React.createClass({
       url: this.props.url,
       dataType: 'json',
       success: function (ids) {
-        this.setState({ids : ids});
+        this.setState({ids : ids}, function(){
+
+        });
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -38,6 +30,7 @@ var LoadFavoriteIds = React.createClass({
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: id,
       success: function(data) {
+        this.props.flux.actions.updateCardNumber();
         console.log(data);
       }.bind(this),
       error: function(xhr, status, err) {
@@ -54,7 +47,6 @@ var LoadFavoriteIds = React.createClass({
                    currentUser={this.props.currentUser}
                    postFavoriteCard={this.postFavoriteCard}/>
       </div>
-
     )
   }
 });
@@ -69,9 +61,9 @@ var FavButton = React.createClass({
   },
 
   checkIfFavoriteCard : function() {
-    var id = this.props.cardId
-    var favoriteCardIds = this.props.ids
-    if (_.includes(favoriteCardIds, id)) {
+    var id = this.props.cardId;
+    var favoriteCardIds = this.props.ids;
+    if (_.includes(favoriteCardIds, parseInt(id))) {
       return <a className="button yellow full-width uppercase btn-small favorite-button-side" id="favorite-button-side!" onClick={this.onButtonClick}>FAVORITED!</a>
     } else {
       return <a className="button green full-width uppercase btn-small favorite-button-side" id="favorite-button-side!" onClick={this.onButtonClick} href="javaScript:void(0);">FAVORITE CARD</a>
@@ -79,7 +71,7 @@ var FavButton = React.createClass({
   },
 
   render : function() {
-    var hasCurrentUser = (this.props.currentUser != null ? true : false);
+    var hasCurrentUser = (this.props.currentUser != "" ? true : false);
     var buttonOptions = this.checkIfFavoriteCard();
     var buttonText = (hasCurrentUser ?  buttonOptions : <a href="#" className="button sky-blue1 full-width uppercase btn-small active soap-popupbox" data-target="#travelo-login">Login to Favorite</a>);
     return (
@@ -89,3 +81,57 @@ var FavButton = React.createClass({
     )
   }
  });
+
+window.loadFavButtonFromFlux = function(url, currentUser, cardId) {
+  var FluxMixin = Fluxxor.FluxMixin(React),
+      StoreWatchMixin = Fluxxor.StoreWatchMixin;
+
+  var FavoriteButton = React.createClass({
+    mixins: [Fluxxor.FluxMixin(React), StoreWatchMixin("FluxNumberOfFavoriteCardsStore")],
+
+    getStateFromFlux: function() {
+      var flux = this.getFlux();
+      return flux.store("FluxNumberOfFavoriteCardsStore").getState();
+    },
+
+    render : function() {
+      return (
+        <div>
+          <LoadFavoriteIds url={this.props.url}
+                           currentUser={currentUser}
+                           cardId={cardId}
+                           flux={flux}
+           />
+        </div>
+      )
+    }
+  });
+  ReactDOM.render(<FavoriteButton flux={flux} url={url} currentUser={currentUser} cardId={cardId}/>, document.getElementById('favorite-button'));
+}
+
+window.loadFavButtonFromFlux1 = function(url, currentUser, cardId) {
+  var FluxMixin = Fluxxor.FluxMixin(React),
+      StoreWatchMixin = Fluxxor.StoreWatchMixin;
+
+  var FavoriteButton = React.createClass({
+    mixins: [Fluxxor.FluxMixin(React), StoreWatchMixin("FluxNumberOfFavoriteCardsStore")],
+
+    getStateFromFlux: function() {
+      var flux = this.getFlux();
+      return flux.store("FluxNumberOfFavoriteCardsStore").getState();
+    },
+
+    render : function() {
+      return (
+        <div>
+          <LoadFavoriteIds url={this.props.url}
+                           currentUser={currentUser}
+                           cardId={cardId}
+                           flux={flux}
+           />
+        </div>
+      )
+    }
+  });
+  ReactDOM.render(<FavoriteButton flux={flux} url={url} currentUser={currentUser} cardId={cardId}/>, document.getElementById('favorite-button-1'));
+}
