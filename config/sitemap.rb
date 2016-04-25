@@ -16,7 +16,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   Blog.find_each do |blog|
-    add blog_path(blog), lastmod: card.updated_at
+    add blog_path(blog), lastmod: blog.updated_at
   end
 
   Category.find_each do |category|
