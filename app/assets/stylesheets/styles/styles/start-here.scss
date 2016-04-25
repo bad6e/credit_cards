@@ -29,8 +29,17 @@ $lightGray : #838383;
 }
 
 
-  .category-title {
-    text-align: center;
-  }
+.category-title {
+  text-align: center;
+}
 
+.coming-soon {
+  h2 {
+    color: #01b7f2 !important;
+    font-family: 'Raleway', sans-serif !important;
+  }
+  font-size: 2.5em;
+  text-align: center;
+  padding-top: 20px;
+}
 
