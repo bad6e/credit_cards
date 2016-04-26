@@ -1,10 +1,27 @@
 <%= bootstrap_form_for([:admin, @reward]) do |reward_form| %>
-  <%= reward_form.number_field :amount, append: "Points" %>
-  <%= reward_form.number_field :spending_amount, prepend: "$" %>
-  <%= reward_form.date_field :record_date %>
-  <%= reward_form.number_field :length_of_time, append: "Months" %>
-  <%= reward_form.number_field :reward_type %>
-  <%= reward_form.text_field :apply_link %>
-  <%= reward_form.hidden_field :card_id, value: @reward.card_id %>
-<%= reward_form.submit 'Submit Reward Information' %>
+  <% if @reward.id? %>
+    <%= reward_form.number_field :amount, append: "Points" %>
+    <%= reward_form.number_field :spending_amount, prepend: "$" %>
+    <%= reward_form.number_field :length_of_time, append: "Months" %>
+    <%= reward_form.date_field :record_date %>
+    <%= reward_form.text_field :apply_link %>
+    <%= reward_form.hidden_field :card_id, value: @reward.card_id %>
+    <%= reward_form.submit 'Submit Reward Information' %>
+  <% elsif @reward.id == nil && @last_reward != nil %>
+    <%= reward_form.number_field :amount, append: "Points", value: @last_reward.amount %>
+    <%= reward_form.number_field :spending_amount, value: @last_reward.spending_amount, prepend: "$" %>
+    <%= reward_form.number_field :length_of_time, value: @last_reward.length_of_time, append: "Months" %>
+    <%= reward_form.date_field :record_date, value: Time.now.getlocal.strftime('%Y-%m-%d') %>
+    <%= reward_form.text_field :apply_link, value: @last_reward.apply_link %>
+    <%= reward_form.hidden_field :card_id, value: @reward.card_id %>
+    <%= reward_form.submit 'Submit Reward Information' %>
+  <% else %>
+    <%= reward_form.number_field :amount, append: "Points" %>
+    <%= reward_form.number_field :spending_amount, prepend: "$" %>
+    <%= reward_form.number_field :length_of_time, append: "Months" %>
+    <%= reward_form.date_field :record_date, value: Time.now.getlocal.strftime('%Y-%m-%d') %>
+    <%= reward_form.text_field :apply_link %>
+    <%= reward_form.hidden_field :card_id %>
+    <%= reward_form.submit 'Submit Reward Information' %>
+  <% end %>
 <% end %>
