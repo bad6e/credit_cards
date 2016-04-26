@@ -775,7 +775,7 @@ ul.arrow, ul.triangle, ul.circle, ul.check, ul.chevron, ul.arrow-square, ul.chec
 }
 ul.arrow li:before { content: "\f178"; margin-right: 10px; color: $skin-active-color; }
 ul.triangle {
-  li:before { content: "\f04b"; margin-right: 10px; color: #d9d9d9; display: block; float: left; font-size: 7px; }
+  li:before { content: "\f04b"; margin-right: 10px; color: #d9d9d9; display: none; float: left; font-size: 7px; }
   li.active, li.active:before, &.hover li:hover, &.hover li:hover .box-title, &.hover li:hover:before { color: $skin-active-color; }
 }
 
@@ -4183,7 +4183,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
     padding-top: 10px;
     > .container > .row > div { margin-top: 20px; }
   }
-  .discover li { line-height: 2.0em; font-size: 1.0833em; }
+  .discover li { line-height: 2.0em; font-size: 1.2em; }
   h2 { margin-bottom: 20px; text-align: center;}
   .travel-news {
     li {
@@ -4200,7 +4200,6 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
   }
 
   .bottom {
-    height: 60px;
     .logo { margin: 18px 0 0; }
     .copyright { font-size: 1.0833em; margin: 23px 20px 0; }
     #back-to-top {
@@ -4309,7 +4308,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
     > .footer-wrapper {
       background: url(image_path('footer/sky.png')) no-repeat center bottom; padding-bottom: 0;
       > .container:first-child {
-        position: relative; padding-bottom: 180px;
+        position: relative; padding-bottom: 100px;
         &:before, &:after { content: ""; display: block; position: absolute; background-repeat: no-repeat; }
         &:before { width: 267px; height: 166px; bottom: 20px; left: -30px;}
 
