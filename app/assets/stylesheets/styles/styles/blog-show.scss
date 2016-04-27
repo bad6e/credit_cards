@@ -1,4 +1,10 @@
 .blog-content {
+  a {
+    color: #01b7f2;
+  }
+  a:hover {
+    color: red;
+  }
   background: white !important;
   p {
     font-size: 1.25em;
