@@ -7,6 +7,9 @@ class Admin::BlogsController < Admin::BaseController
     @blogs = Blog.all.order('created_at DESC')
   end
 
+  def show
+  end
+
   def new
     @blog = Blog.new
   end
@@ -70,6 +73,7 @@ class Admin::BlogsController < Admin::BaseController
                                    :meta_description,
                                    :slug,
                                    :image_url,
+                                   :published,
                                    :cards => [])
     end
 end

@@ -46,8 +46,12 @@ var LoadBlogs = React.createClass({
       url: this.props.url,
       dataType: 'json',
       success: function (data) {
+        var filterCards = _.filter(data.posts, function(post, key) {
+          return post.tags.length === 0;
+        });
+
         this.setState({
-          blogs : data.posts
+          blogs : filterCards
         });
       }.bind(this),
       error: function (xhr, status, err) {

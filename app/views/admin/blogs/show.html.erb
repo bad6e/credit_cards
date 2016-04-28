@@ -1,0 +1,2 @@
+<% path_name = request.fullpath.gsub("blogs","").gsub("admin","").gsub("/","") %>
+<%= react_component('BlogApi', url: 'http://toomanymiles.sweatersaga.com/blog/?json=get_post&slug=' + path_name.to_s, currentUser: short_current_user) %>
