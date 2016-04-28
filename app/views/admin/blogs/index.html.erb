@@ -4,7 +4,7 @@
       <h2>Too Many Miles - Blogs</h2><br>
       <ul>
         <% @blogs.each do |blog| %>
-          <li class="blog-<%= blog.id %>"><%= blog.meta_title %> | <%= link_to "Edit", edit_admin_blog_path(blog) %></li>
+          <li class="blog-<%= blog.id %>"><%= blog.meta_title %> | <%= link_to "Edit", edit_admin_blog_path(blog) %> | <%= link_to "Preview Post", admin_blog_path(blog.slug) %></li>
         <% end %>
       </ul><br>
       <%= link_to "Add a New Blog", new_admin_blog_path %>
