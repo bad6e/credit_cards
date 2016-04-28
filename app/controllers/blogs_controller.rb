@@ -3,6 +3,6 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find_by(slug: params[:id])
+    @blog = Blog.where(slug: params[:id], published: true).first
   end
 end
