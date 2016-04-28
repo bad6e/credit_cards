@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     get 'imports/index'
     resources :cards, only: [:new, :create, :edit, :update, :index]
     resources :rewards, only: [:new, :create, :edit, :update, :index, :destroy]
-    resources :blogs, only: [:index, :new, :create, :edit, :update, :index, :destroy]
+    resources :blogs
     resources :imports do
       collection { post :import}
     end
