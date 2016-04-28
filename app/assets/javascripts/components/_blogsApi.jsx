@@ -31,7 +31,7 @@ var LoadBlogs = React.createClass({
   getInitialState : function() {
     return {
       blogs: [],
-      numberOfShownBlogPosts: 2,
+      numberOfShownBlogPosts: 3,
       showLoadMoreButton: true,
       additionalPostsNumber: 2
     };
