@@ -129,7 +129,8 @@ shared_context "features" do
   let!(:blog_one) {
      Blog.create(meta_title: "Omg The Southwest Companion Pass: How to Travel for Free ",
                  meta_description: "This is the best deal ever!",
-                 image_url: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg")
+                 image_url: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg",
+                 published: true)
   }
 
   def set_blog_categories

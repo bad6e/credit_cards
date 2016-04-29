@@ -8,11 +8,13 @@ RSpec.describe Api::V1::RelatedBlogsController, type: :controller do
   it "returns all the blogs associated with a card in DESC order" do
     blog_one = Blog.create(meta_title: "Southwest Companion Pass",
                            meta_description: "This is the best deal ever!",
-                           image_url: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg")
+                           image_url: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg",
+                           published: true)
 
     blog_two = Blog.create(meta_title: "What is New with Jet Blue",
                            meta_description: "This is the best deal ever!",
-                           image_url: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg")
+                           image_url: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg",
+                           published: true)
 
 
     card_one = Card.create(name: "Southwest Airlines Rapid Rewards® Premier Credit Card",
