@@ -27,4 +27,13 @@ feature "user - card show page" do
     end
     expect(current_path).to eq(blog_path(blog_one))
   end
+
+  scenario "if the admin HAS NOT published a blog postarticle -- it does not show up related card show page", js: true do
+    blog = Blog.find_by(meta_title: 'Omg The Southwest Companion Pass: How to Travel for Free ')
+    blog.update(published: false)
+    set_card_categories
+    visit card_path(card_one)
+    expect(page).to_not have_content("Related Blog Posts")
+    expect(page).to_not have_content("Omg The Southwest Companion Pass: How to Travel for Free")
+  end
 end

@@ -33,4 +33,8 @@ RSpec.describe Blog, type: :model do
   it "automatically creates a parameterized slug" do
     expect(blog.slug).to eq("jet-blues-newest-card-my-review")
   end
+
+  it "defaults to a value of published to false" do
+    expect(blog.published).to eq(false)
+  end
 end
