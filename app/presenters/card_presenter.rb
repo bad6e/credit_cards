@@ -10,10 +10,6 @@ class CardPresenter
     Card.find(card_id)
   end
 
-  def blog_posts
-    Blog.all
-  end
-
   #Related Cards Display Logic
   def featured_cards_category_name
     category_list.first.parse_category_name
