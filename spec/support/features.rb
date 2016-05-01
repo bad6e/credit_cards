@@ -107,6 +107,7 @@ shared_context "features" do
                 image_link: "https://www.google.com/?gws_rd=ssl")
   }
 
+
   let!(:card_seven) {
     Card.create(name: "Chase Cash Back",
                 annual_fee: "$99",
