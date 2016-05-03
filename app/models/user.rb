@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-  # after_create :send_hello_email
 
   has_many :favorite_cards
   has_many :cards, through: :favorite_cards
@@ -28,6 +27,11 @@ class User < ActiveRecord::Base
     user.save!
     user
   end
+
+  # def self.send_hello_email
+  #   binding.pry
+  #   UserMailer.welcome_email(user).deliver
+  # end
 
   def self.first_time_login?(user)
     if user.password_digest == nil
