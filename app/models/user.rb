@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+  # after_create :send_hello_email
 
   has_many :favorite_cards
   has_many :cards, through: :favorite_cards
@@ -13,6 +14,7 @@ class User < ActiveRecord::Base
               presence: true
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+
 
   def self.from_omniauth(auth_hash)
     user                 = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
