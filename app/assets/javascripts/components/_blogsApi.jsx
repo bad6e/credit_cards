@@ -33,7 +33,7 @@ var LoadBlogs = React.createClass({
       blogs: [],
       numberOfShownBlogPosts: 1,
       showLoadMoreButton: true,
-      additionalPostsNumber: 3
+      additionalPostsNumber: 1
     };
   },
 
