@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
     user                 = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
     user.name            = auth_hash['info']['name']
     user.email           = set_email(auth_hash, user)
+    binding.pry
     first_time_login?(user)
     user.password_digest = SecureRandom.urlsafe_base64
     user.location        = auth_hash['info']['location']
