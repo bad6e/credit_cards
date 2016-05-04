@@ -28,6 +28,7 @@ gem 'react-rails', '~> 1.6.0'
 gem 'omniauth-facebook'
 gem 'momentjs-rails'
 gem 'fluxxor-rails'
+gem 'sidekiq'
 
 group :development do
   gem 'web-console', '~> 2.0'

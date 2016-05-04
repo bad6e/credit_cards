@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-
   has_many :favorite_cards
   has_many :cards, through: :favorite_cards
 
@@ -14,14 +13,13 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
+  after_create :send_welcome_email
 
   def self.from_omniauth(auth_hash)
     user                 = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
     user.name            = auth_hash['info']['name']
-    user.email           = set_email(auth_hash, user)
-    binding.pry
-    first_time_login?(user)
     user.password_digest = SecureRandom.urlsafe_base64
+    user.email           = set_email(auth_hash, user)
     user.location        = auth_hash['info']['location']
     user.image_url       = auth_hash['info']['image']
     user.url             = auth_hash['info']['urls']
@@ -29,10 +27,8 @@ class User < ActiveRecord::Base
     user
   end
 
-  def self.first_time_login?(user)
-    if user.password_digest == nil
-      UserMailer.welcome_email(user).deliver
-    end
+  def send_welcome_email
+    UserMailer.delay.welcome_email(self)
   end
 
   def self.set_email(auth_hash, user)
@@ -43,6 +39,3 @@ class User < ActiveRecord::Base
     end
   end
 end
-
-
-
