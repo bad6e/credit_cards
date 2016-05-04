@@ -28,11 +28,6 @@ class User < ActiveRecord::Base
     user
   end
 
-  # def self.send_hello_email
-  #   binding.pry
-  #   UserMailer.welcome_email(user).deliver
-  # end
-
   def self.first_time_login?(user)
     if user.password_digest == nil
       UserMailer.welcome_email(user).deliver
