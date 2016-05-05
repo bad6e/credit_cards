@@ -1,7 +1,7 @@
 class Blog < ActiveRecord::Base
   extend FriendlyId
   friendly_id :meta_title, use: :slugged
-  after_create :slug_meta_title
+
   has_many :card_blogs
   has_many :cards, through: :card_blogs
 
@@ -14,7 +14,8 @@ class Blog < ActiveRecord::Base
     presence: true,
     length: { maximum: 160}
 
-  def slug_meta_title
-    self.update(slug: meta_title.parameterize)
+
+  def self.parameterize_slug(blog)
+    blog.update(slug: blog.meta_title.parameterize)
   end
 end

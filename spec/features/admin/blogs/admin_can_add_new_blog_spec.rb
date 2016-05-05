@@ -53,11 +53,14 @@ feature "admin - blogs" do
 
     click_on "Submit Blog"
     updated_blog = Blog.last
-
     expect(card_one.blogs.first.meta_title).to eq("Test Blog Name Edit")
     expect(card_two.blogs.first.meta_title).to eq("Test Blog Name Edit")
     expect(card_three.blogs.first.meta_title).to eq("Test Blog Name Edit")
+
     expect(updated_blog.cards.count).to eq(3)
+
+    expect(updated_blog.meta_title).to eq("Test Blog Name Edit")
     expect(updated_blog.meta_description).to eq("This is a test description edit")
+    expect(updated_blog.slug).to eq("test-blog-name-edit")
   end
 end
