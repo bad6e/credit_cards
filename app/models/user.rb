@@ -28,9 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def send_welcome_email
-    if !Rails.env.test?
-      UserMailer.delay.welcome_email(self)
-    end
+    UserMailer.delay.welcome_email(self)
   end
 
   def self.set_email(auth_hash, user)

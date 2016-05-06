@@ -1,4 +1,5 @@
 require "rails_helper"
+# require 'sidekiq/testing'
 
 feature "Facebook Oauth" do
   include_context "features"
