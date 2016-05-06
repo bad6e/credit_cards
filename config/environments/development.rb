@@ -25,7 +25,7 @@ Rails.application.configure do
     domain: 'http://localhost:3000/',
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV['SENDGRID_USER_NAME'],
+    user_name: ENV['SENDGRID_USERNAME'],
     password: ENV['SENDGRID_PASSWORD']
   }
 
