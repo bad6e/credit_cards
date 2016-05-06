@@ -30,8 +30,14 @@ RSpec.describe Blog, type: :model do
     expect(blog).to be_invalid
   end
 
-  it "automatically creates a parameterized slug" do
+  it "automatically creates a parameterized slug on CREATE" do
     expect(blog.slug).to eq("jet-blues-newest-card-my-review")
+  end
+
+  it "creates a parameterized slug from Blogs Controller" do
+    blog.meta_title = "Hello World"
+    Blog.parameterize_slug(blog)
+    expect(blog.slug).to eq("hello-world")
   end
 
   it "defaults to a value of published to false" do

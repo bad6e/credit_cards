@@ -8,6 +8,9 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'support/features'
 
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
+
 OmniAuth.config.test_mode = true
 
 OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({

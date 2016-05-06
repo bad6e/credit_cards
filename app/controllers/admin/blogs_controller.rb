@@ -31,6 +31,7 @@ class Admin::BlogsController < Admin::BaseController
 
   def update
     if @blog.update(blog_params.except(:cards))
+      Blog.parameterize_slug(@blog)
       assign_cards_to_blog(@associated_cards)
       flash[:success] = "Blog successfully updated!"
       redirect_to admin_blogs_path
