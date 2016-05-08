@@ -1,7 +1,7 @@
 <%= bootstrap_form_for([:admin, @blog]) do |blog_form| %>
   <%= blog_form.text_field :meta_title %>
   <%= blog_form.text_field :meta_description %>
-  <%= blog_form.text_field :image_url %>
+  <%= blog_form.text_field :image_url, label: "Facebook Post Image" %>
   <%= blog_form.check_box :published %>
   <%= blog_form.collection_select :cards, Card.order(:name),:id,:name, {:include_blank => true}, {:multiple => true} %>
   <%= blog_form.submit 'Submit Blog', class:'button'%>
