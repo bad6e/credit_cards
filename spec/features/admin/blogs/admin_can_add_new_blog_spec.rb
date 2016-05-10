@@ -14,6 +14,7 @@ feature "admin - blogs" do
     fill_in "blog[meta_title]", with: "Test Blog Name"
     fill_in "blog[meta_description]", with: "This is a test description"
     fill_in "blog[image_url]", with: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg"
+    fill_in "blog[related_image_url]", with: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg"
     select card_one.name, :from => "blog[cards][]"
     select card_two.name, :from => "blog[cards][]"
 
@@ -47,6 +48,7 @@ feature "admin - blogs" do
     fill_in "blog[meta_title]", with: "Test Blog Name Edit"
     fill_in "blog[meta_description]", with: "This is a test description edit"
     fill_in "blog[image_url]", with: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg"
+    fill_in "blog[related_image_url]", with: "https://s3.amazonaws.com/card-facebook-images/southwest/bigstock-Southwest-Boeing---36166444.jpg"
     select card_one.name, :from => "blog[cards][]"
     select card_two.name, :from => "blog[cards][]"
     select card_three.name, :from => "blog[cards][]"

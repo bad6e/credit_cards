@@ -1,5 +1,5 @@
 class BlogSerializer < ActiveModel::Serializer
-  attributes :id, :slug, :meta_title, :meta_description, :day, :month, :image_url
+  attributes :id, :slug, :meta_title, :meta_description, :day, :month, :image_url, :related_image_url
 
   def day
     object.created_at.day
