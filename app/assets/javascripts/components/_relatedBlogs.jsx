@@ -1,12 +1,13 @@
 var RelatedBlogs = React.createClass({
   render : function() {
     var details = this.props.details;
+    debugger
 
     return (
       <div className="col-sm-4">
         <article className="box">
           <figure>
-            <a title="" href={"/blogs/" + details.slug}><img alt={details.meta_title} src={details.image_url}/></a>
+            <a title="" href={"/blogs/" + details.slug}><img alt={details.meta_title} src={details.related_image_url}/></a>
             <figcaption>
               <h3 className="caption-title">{details.day}</h3>
               <span>{details.month}</span>

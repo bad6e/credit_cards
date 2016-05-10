@@ -74,6 +74,7 @@ class Admin::BlogsController < Admin::BaseController
                                    :meta_description,
                                    :slug,
                                    :image_url,
+                                   :related_image_url,
                                    :published,
                                    :cards => [])
     end
