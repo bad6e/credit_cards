@@ -1,0 +1,12 @@
+<div class="col-md-12 cards-mentioned">
+  <h2>Cards Mentioned in this Blog</h2>
+</div>
+
+<% @related_cards.each do |card| %>
+  <div class="related-cards">
+    <div class="col-sm-3 col-xs-6">
+      <%= link_to image_tag(card.image_link, class:"img-responsive img-hover img-related related-card-image"), card_path(card) %>
+      <p class="related-card-name"><%= link_to card.name, card_path(card) %></p>
+    </div>
+  </div>
+<% end %>

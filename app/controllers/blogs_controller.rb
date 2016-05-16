@@ -4,5 +4,6 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.where(slug: params[:id], published: true).first
+    @related_cards = Blog.friendly.find(params['id']).cards.limit(4)
   end
 end
