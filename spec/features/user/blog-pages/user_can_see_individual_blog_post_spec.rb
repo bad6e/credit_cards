@@ -7,5 +7,6 @@ feature "user - blog show page" do
     visit blog_path(blog_one)
     expect(page).to have_content("The Southwest Companion Pass: How to Travel for Free")
     expect(page).to have_content("Cards Mentioned in this Blog")
+    expect(page).to have_content("Southwest Airlines Rapid Rewards® Premier Credit Card")
   end
 end
