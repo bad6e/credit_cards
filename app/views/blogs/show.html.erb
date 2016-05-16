@@ -3,13 +3,10 @@
 <%= react_component('BlogApi', url: 'http://toomanymiles.sweatersaga.com/blog/?json=get_post&slug=' + path_name, currentUser: short_current_user) %>
 
 <div class="container">
-    <div class="row">
-      <%= render partial: "related_cards" %>
-    </div>
+  <div class="row">
+    <%= render partial: "related_cards" %>
   </div>
-  <hr>
 </div>
-
 
 <!-- These features will be added in later  -->
 

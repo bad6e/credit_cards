@@ -1,7 +1,6 @@
 var RelatedBlogs = React.createClass({
   render : function() {
     var details = this.props.details;
-    debugger
 
     return (
       <div className="col-sm-4">
