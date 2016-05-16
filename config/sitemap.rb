@@ -11,10 +11,6 @@ SitemapGenerator::Sitemap.create do
   add categories_path
   add blogs_path
 
-  Card.find_each do |card|
-    add card_path(card), lastmod: card.updated_at
-  end
-
   Blog.find_each do |blog|
     add blog_path(blog), lastmod: blog.updated_at
   end
