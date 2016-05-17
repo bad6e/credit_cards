@@ -31,9 +31,9 @@ var LoadBlogs = React.createClass({
   getInitialState : function() {
     return {
       blogs: [],
-      numberOfShownBlogPosts: 1,
+      numberOfShownBlogPosts: 8,
       showLoadMoreButton: true,
-      additionalPostsNumber: 1
+      additionalPostsNumber: 8
     };
   },
 
@@ -46,11 +46,8 @@ var LoadBlogs = React.createClass({
       url: this.props.url,
       dataType: 'json',
       success: function (data) {
-        var filterCards = _.filter(data.posts, function(post, key) {
-          return post.tags.length === 0;
-        });
         this.setState({
-          blogs : filterCards
+          blogs : data
         });
       }.bind(this),
       error: function (xhr, status, err) {
