@@ -1,6 +1,6 @@
 <%= render partial: "show_header" %>
 <% path_name = request.fullpath.gsub("blogs","").gsub("/","") %>
-<%= react_component('BlogApi', url: 'http://toomanymiles.sweatersaga.com/blog/?json=get_post&slug=' + path_name, currentUser: short_current_user) %>
+<%= react_component('BlogApi', url: 'http://107.170.1.202/?json=get_post&slug=' + path_name, currentUser: short_current_user) %>
 
 <div class="container">
   <div class="row">
