@@ -8,7 +8,7 @@ class Blog < ActiveRecord::Base
   validates :meta_title,
     presence: true,
     uniqueness: true,
-    length: { maximum: 75}
+    length: { maximum: 85}
 
   validates :meta_description,
     presence: true,
