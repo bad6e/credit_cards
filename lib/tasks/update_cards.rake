@@ -54,7 +54,6 @@ task :update_cards => :environment do
     def card_details
       @links = @page.css('.terms').css('a').map {|link| link['href']}
       @links.insert(32, "/card-details/22034405")
-      binding.pry
       individual_details = []
       @grouped_details = []
       n = 1
