@@ -54,6 +54,7 @@ task :update_cards => :environment do
     def card_details
       @links = @page.css('.terms').css('a').map {|link| link['href']}
       @links.insert(32, "/card-details/22034405")
+      binding.pry
       individual_details = []
       @grouped_details = []
       n = 1
@@ -89,7 +90,6 @@ task :update_cards => :environment do
     end
 
     def organize_data
-      binding.pry
       @data = @card_name.zip(@annual_fee, @apr, @intro_rate, @image_url, @grouped_details)
     end
 
