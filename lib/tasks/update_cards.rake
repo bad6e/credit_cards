@@ -23,7 +23,7 @@ task :update_cards => :environment do
     end
 
     def url_list
-      [""]
+      ["airline"]
     end
 
     def card_name
@@ -109,7 +109,12 @@ task :update_cards => :environment do
     end
 
     def url_key
-      {"airline" => "airline-credit-cards"}
+      {"airline" => "airline-credit-cards",
+      "travel" => "travel-credit-cards",
+      "hotel" => "hotel-credit-cards",
+      "business-rewards" => "business-rewards-credit-cards",
+      "cash-back" => "cash-back-credit-cards",
+      "other" => "other-credit-cards"}
     end
 
     def assign_category(data)
