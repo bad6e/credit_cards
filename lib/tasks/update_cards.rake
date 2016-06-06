@@ -23,7 +23,7 @@ task :update_cards => :environment do
     end
 
     def url_list
-      ["airline"]
+      [""]
     end
 
     def card_name
