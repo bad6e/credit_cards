@@ -57,7 +57,6 @@ task :update_cards => :environment do
       @grouped_details = []
       n = 1
       @links.each do |link|
-        sleep(rand(1..8))
         user_agent = @user_agent.sample[0]
         @new_page = Nokogiri::HTML(open("http://thepointsguy.com/#{link}", "User-Agent" => user_agent))
         stuff = @new_page.css(".card-right").css("ul").children.each do |r|
