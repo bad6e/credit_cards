@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/what-is-a-credit-score', to: 'pages#what_is_a_credit_score'
   get '/types-of-credit-cards', to: 'pages#types_of_credit_cards'
   get '/the-credit-card-game', to: 'pages#the_credit_card_game'
+  get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
 
   resources :about, only: [:index]
   resources :users, only: [:show, :update, :edit, :destroy]
