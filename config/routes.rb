@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/sitemap.xml.gz', to: redirect("https://#{ENV['S3_BUCKET_NAME']}.s3.amazonaws.com/sitemaps/sitemap.xml.gz"), as: :sitemap
   root "welcome#index"
 
-  get '/.well-known/acme-challenge/:id' => 'pages#lets_encrypt'
+  get '/.well-known/acme-challenge/:id', to: 'pages#lets_encrypt'
   get '/credit-card-beginners-guide', to: 'pages#start_here'
   get '/what-is-a-credit-score', to: 'pages#what_is_a_credit_score'
   get '/types-of-credit-cards', to: 'pages#types_of_credit_cards'
