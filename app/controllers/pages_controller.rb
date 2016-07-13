@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  def letsencrypt
-    render text: "dykLYFeTyHWXt7uVa5-JLWvsBAsCyegx7jYXIBspMS8.eOcz6--yPvWnpuVnCkJtt8vpHS32JvLyWl8YEmWw1LE"
+  def lets_encrypt
+    render text: "N6UBGeLlcBR7LXtLTdMgB8jv4NZipzOgSr7iIJ7jBZs.eOcz6--yPvWnpuVnCkJtt8vpHS32JvLyWl8YEmWw1LE"
   end
 
   def start_here
