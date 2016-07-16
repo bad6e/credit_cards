@@ -120,7 +120,8 @@ class MonthlyValuations
       "Ritz-Carlton" => "The Ritz-Carlton Rewards",
       "Starwood" => "Starwood Starpoints",
       "Wyndham" => "Wyndham Rewards®",
-      "Amtrak" => "Amtrak Guest Rewards®"
+      "Amtrak" => "Amtrak Guest Rewards®",
+      "Frontier" => "Frontier Miles",
     }
   end
 end
