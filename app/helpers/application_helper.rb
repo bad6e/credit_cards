@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def facebook_url(full_url = '')
-    base_url = "http://www.toomanymiles.com/"
+    base_url = "https://www.toomanymiles.com/"
     if full_url.empty?
       base_url
     else
