@@ -15,7 +15,7 @@ module ApplicationHelper
     base_title      = "Too Many Miles"
     extension_title = "Always Apply at the Right Time"
     if page_title.empty?
-      base_title + " - " + extension_title
+      base_title + ": " + extension_title
     else
       page_title + " | " + base_title
     end
