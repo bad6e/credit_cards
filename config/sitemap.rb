@@ -1,4 +1,4 @@
-SitemapGenerator::Sitemap.default_host = "http://www.toomanymiles.com"
+SitemapGenerator::Sitemap.default_host = "https://www.toomanymiles.com"
 SitemapGenerator::Sitemap.public_path = 'tmp/sitemaps/'
 
 SitemapGenerator::Sitemap.create do
