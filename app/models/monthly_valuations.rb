@@ -122,6 +122,7 @@ class MonthlyValuations
       "Wyndham" => "Wyndham Rewards®",
       "Amtrak" => "Amtrak Guest Rewards®",
       "Frontier" => "Frontier Miles",
+      "Hawaiian" => "Hawaiian Miles"
     }
   end
 end
