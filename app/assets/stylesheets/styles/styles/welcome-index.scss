@@ -1,29 +1,30 @@
 $lightBlue : #01b7f2;
 $lightGray : #838383;
 
-.fullwidthbanner-container {
-    max-height: 425px;
+@media (min-width: 991px) {
+  .fullwidthbanner-container {
+    height: 500px;
     overflow: hidden;
     padding: 0;
     position: relative;
     width: 100%;
+    background: url("/assets/welcome/beach1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
 }
 
-.fullwidthbanner-container img {
-   width: 100%;
-   height: auto;
- }
-
- .top-title {
-  padding-top: 40px;
-  color: $lightBlue;
-  font-size: 40px;
+.top-title {
+  margin-top: 176px;
+  font-weight: 900;
   text-align: center;
+  color: white;
+  font-size: 2.8em;
   font-family: 'Raleway', sans-serif;
  }
 
  //Graph CSS
-
 .graph-detail {
   display: none;
   text-align: center;
@@ -39,27 +40,28 @@ $lightGray : #838383;
   padding-bottom: 3px;
 }
 
-#how {
-  color: $lightGray !important;
-  text-align: center;
-  font-size: 29px;
-}
 
-
-
-
-//Step Boxes
+//How It Works Boxes
 .how {
-  padding-bottom: 50px;
-}
-
-.steps-box {
+  padding-top: 35px;
+  padding-bottom: 20px;
   font-family: 'Raleway', sans-serif;
 }
 
+#how {
+  color: $lightGray !important;
+  text-align: center;
+  font-size: 3.5em;
+  padding-bottom: 10px;
+}
+
 .how-desc {
-  font-size: 1.4em;
+  font-size: 1.7em;
   color: #838383;
+}
+
+.description {
+  font-size: 1.5em;
 }
 
 .steps {
@@ -71,11 +73,6 @@ $lightGray : #838383;
   text-align: center;
   font-family: 'Raleway', sans-serif;
   color: $lightGray !important;
-}
-
-#how {
-  padding-bottom: 10px;
-  font-size: 29px;
 }
 
 //Reward Box
@@ -95,4 +92,24 @@ $lightGray : #838383;
 .apply-info {
   padding: 30px 20px 20px 20px;
   text-align: center;
+}
+
+//Favorite Cards
+
+.best-offer {
+  font-size: 2.2em;
+}
+
+.apply-now {
+  font-size: 1.5em;
+}
+
+//Recent Blogs Posts
+.recent-blog-posts {
+  text-align: center;
+  font-size: 1.8em;
+  padding-bottom: 10px;
+  h2 {
+    color: $lightBlue !important;
+  }
 }
