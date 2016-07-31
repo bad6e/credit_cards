@@ -1,32 +1,33 @@
 <%= render partial: "index_header" %>
+<div class="fullwidthbanner-container">
+  <div class="col-md-offset-2 col-md-8">
+  <h1 class="top-title" id="40">Apply for Credit Cards, Earn Millions of Miles, and Travel the World for Free</h1>
+  </div>
+</div>
 
-<h1 class="top-title" id="40">Always Apply at the Right Time</h1><br><br><br>
 <section class= "container how">
-  <h2 id="how">How does it work?</h2><br><br>
+  <h2 id="how">How It Works</h2><br><br>
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
         <div class="icon-box style10 steps-box">
           <i class="soap-icon-search"></i>
-          <small class="steps"><strong>Step 1</strong></small>
-          <h4 class="box-title">100% Original Theme</h4>
-          <p class="description how-desc">Search for a specific credit card or card category.</p>
+          <p class="description how-desc"><strong>1. Search for a credit card</strong></p>
+          <p class="description">Search for specific travel credit cards or specific travel credit card categories.</p>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="icon-box style10 steps-box">
           <i class="soap-icon-insurance"></i>
-          <small class="steps"><strong>Step 2</strong></small>
-          <h4 class="box-title">Custom Travel Icons Pack</h4>
-          <p class="description how-desc">Check the credit card's <a href="#step2" class="active">historical reward graph.</a></p>
+          <p class="description how-desc"><strong>2. Check the card's graph</strong></a></p>
+          <p class="description">We graph the credit card's sign-up bonus over time and graphically display them in easy to use tools.</p>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="icon-box style10 steps-box">
           <i class="soap-icon-plane-right"></i>
-          <small class="steps"><strong>Step 3</strong></small>
-          <h4 class="box-title">Dashboard Included</h4>
-          <p class="description how-desc"><a href="#step3" class="active">If the deal is great</a> -- apply and start using your points!</p>
+          <p class="description how-desc"><strong>3. If the bonus is high -- apply!</strong></p>
+          <p class="description">These sign-up bonuses change all the time. Always apply when the bonus is at its highest.</p>
         </div>
       </div>
     </div>
@@ -35,7 +36,6 @@
 
 <a name="step2">
 <div class="example">
-  <h2 id="how">An Example</h2>
   <%= link_to image_tag(@welcome_presenter.featured_card.image_link, class: 'card-image-cat') , card_path(@welcome_presenter.featured_card) %><br>
   <h4><%= link_to "Starwood's Sign Up Bonus Over Time", card_path(@welcome_presenter.featured_card), class: "active" %></h4>
 </div>
@@ -51,8 +51,9 @@
 </div><hr>
 </a>
 
-<h2 id="how">Check Out Our Favorite Cards</h2><br>
-
+<div class="recent-blog-posts">
+  <h2>Check Out Our Favorite Cards</h2><br>
+</div>
 <div class="container section front-page-deals">
   <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
     <ul class="slides image-box car listing-style1">
@@ -64,8 +65,8 @@
           </figure>
           <div class="details">
             <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
-            <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %></strong></p>
-            <p class="mile"><span class="skin-color">Apply Now?</span><div class="best-offer-color" id="yes-or-no"> <%=card.best_offer %></div></p>
+            <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %> Miles</strong></p>
+            <p class="mile"><span class="skin-color apply-now">Apply Now?</span><strong><div class="best-offer-color best-offer" id="yes-or-no"> <%=card.best_offer %></div></strong></p>
             <div class="action">
             <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
           </div>
@@ -75,32 +76,11 @@
       <% end %>
     </ul>
   </div>
-</div>
+</div><hr>
 
-<h2 id="how">Hot Deals NOW</h2>
-
-<div class="container section front-page-deals">
-  <h2>Travel Credit Cards</h2>
-  <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
-    <ul class="slides image-box car listing-style1">
-      <% @welcome_presenter.best_cards.each do |card| %>
-      <li>
-        <article class="box">
-          <figure>
-            <%= link_to image_tag(card.image_link), card_path(card) %>
-          </figure>
-          <div class="details">
-            <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
-            <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %></strong></p>
-            <p class="mile"><span class="skin-color">Apply Now?</span><div class="best-offer-color" id="yes-or-no"> <%=card.best_offer %></div></p>
-            <div class="action">
-            <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
-          </div>
-          </div>
-        </article>
-      </li>
-      <% end %>
-    </ul>
+<div class="section related-blog-posts">
+  <div class="container">
+    <%= react_component('RecentBlogsApi', url: "/api/v1/recent_blogs", currentUser: short_current_user) %>
   </div>
 </div>
 
