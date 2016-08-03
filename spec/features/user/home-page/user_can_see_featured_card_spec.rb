@@ -6,7 +6,7 @@ CreditCards::Application.load_tasks
 feature "home page" do
   include_context "features"
 
-  scenario "user can see featured card as an example" do
+  scenario "user can see featured card as an example", js: true do
     set_card_categories
     visit root_path
     expect(page).to have_content("Starwood's Sign Up Bonus Over Time")

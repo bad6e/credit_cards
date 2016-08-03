@@ -1,19 +1,17 @@
 $lightBlue : #01b7f2;
 $lightGray : #838383;
 
-
-  .fullwidthbanner-container {
-    height: 500px;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    width: 100%;
-    background: url(image_path('welcome/beach1.jpg'));
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-  }
-
+.fullwidthbanner-container {
+  height: 500px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  background: url(image_path('welcome/beach1.jpg'));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
 
 .top-title {
   margin-top: 176px;
@@ -115,6 +113,9 @@ $lightGray : #838383;
 }
 
 @media (max-width: 480px) {
+  .fullwidthbanner-container {
+    height: 450px;
+  }
   .top-title {
     font-size: 2.6em;
     margin-top: 150px;
