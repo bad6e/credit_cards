@@ -12,7 +12,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap_form'
-gem 'rails_12factor'
 gem 'responders'
 gem 'jquery-ui-rails'
 gem 'friendly_id'
@@ -37,7 +36,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.4'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'

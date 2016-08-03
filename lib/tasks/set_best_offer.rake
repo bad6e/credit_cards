@@ -1,6 +1,5 @@
 desc 'Create the sitemap, then upload it to S3 and ping the search engines'
 task set_best_offer: :environment do
-  puts "To Infinity and Beyond!"
   class BestCards
 
     def initialize
