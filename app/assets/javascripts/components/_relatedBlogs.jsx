@@ -27,5 +27,3 @@ var RelatedBlogs = React.createClass({
     )
   }
 });
-
-

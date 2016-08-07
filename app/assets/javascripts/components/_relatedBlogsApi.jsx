@@ -55,9 +55,7 @@ var RelatedBlogList = React.createClass({
   render : function() {
     return (
       <div>
-        <div className="cards-mentioned">
-          <h2>Related Blog Posts</h2>
-        </div>
+        <h2>Related Blog Posts</h2>
         <div className="image-box style11 block">
           <div className="row">
             {Object.keys(this.props.relatedBlogs).map(this.renderRelatedBlogs)}
@@ -67,5 +65,3 @@ var RelatedBlogList = React.createClass({
     );
   }
 });
-
-
