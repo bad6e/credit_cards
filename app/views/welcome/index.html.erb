@@ -36,16 +36,16 @@
 
 <a name="step2">
 <div class="example">
+  <h2 class="example-card-title"><%= link_to "Starwood's Sign Up Bonus Over Time", card_path(@welcome_presenter.featured_card), class: "active" %></h2>
   <%= link_to image_tag(@welcome_presenter.featured_card.image_link, class: 'card-image-cat') , card_path(@welcome_presenter.featured_card) %><br>
-  <h4><%= link_to "Starwood's Sign Up Bonus Over Time", card_path(@welcome_presenter.featured_card), class: "active" %></h4>
 </div>
 
 <div class="reward-graph-box subtitles">
   <div class="container reward-graph-container">
     <a name="step3">
       <div id="dollar-amount-chart" style="height: 300px;"></div>
-      <h3 class="title-to-apply-subtitle"></h3>
       <h2 class="time-to-apply-title"></h2>
+      <h3 class="title-to-apply-subtitle"></h3>
     </a>
   </div>
 </div><hr>
@@ -78,7 +78,7 @@
   </div>
 </div><hr>
 
-<div class="section related-blog-posts">
+<div class="section">
   <div class="container">
     <%= react_component('RecentBlogsApi', url: "/api/v1/recent_blogs", currentUser: short_current_user) %>
   </div>

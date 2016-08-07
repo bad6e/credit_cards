@@ -73,6 +73,11 @@ $lightGray : #838383;
   color: $lightGray !important;
 }
 
+.example-card-title {
+  font-size: 2.0em;
+  padding-bottom: 10px;
+}
+
 //Reward Box
 .reward-graph-box {
   padding-bottom: 30px;
@@ -93,7 +98,6 @@ $lightGray : #838383;
 }
 
 //Favorite Cards
-
 .best-offer {
   font-size: 2.2em;
 }
@@ -119,6 +123,10 @@ $lightGray : #838383;
   .top-title {
     font-size: 2.6em;
     margin-top: 110px;
+  }
+
+  .example-card-title {
+    font-size: 1.5em;
   }
 }
 

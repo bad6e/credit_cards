@@ -109,4 +109,3 @@ function notEnoughInformation() {
   $('.time-to-apply-title').text("Good Time To Apply: N/A");
   $('.title-to-apply-subtitle').text("Sorry we are still accumulating data for this card - check back soon!");
 }
-
