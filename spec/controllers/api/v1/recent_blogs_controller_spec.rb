@@ -28,9 +28,9 @@ RSpec.describe Api::V1::RecentBlogsController, type: :controller do
       blog_three.cards << card_one
 
       get :index, format: :json
-      expect(response_data.length).to eq(4)
-      expect(response_data[0]['meta_title']).to eq("Sup Friends I like travel Part III")
-      expect(response_data[1]['meta_title']).to eq("Sup Friends I like travel Part II")
+      expect(response_data.length).to eq(3)
+      expect(response_data[0]['meta_title']).to eq("Sup Friends I like travel Part II")
+      expect(response_data[1]['meta_title']).to eq("Sup Friends I like travel")
     end
   end
 end
