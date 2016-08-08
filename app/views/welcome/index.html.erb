@@ -82,6 +82,9 @@
   <div class="container">
     <%= react_component('RecentBlogsApi', url: "/api/v1/recent_blogs", currentUser: short_current_user) %>
   </div>
+  <div class='col-md-offset-3 col-md-6'>
+    <%= link_to "See All Blogs", blogs_path, class: "btn btn-success btn-lg btn-block" %>
+  </div>
 </div>
 
 <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js" %>
