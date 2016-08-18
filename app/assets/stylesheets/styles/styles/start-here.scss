@@ -1,6 +1,18 @@
 $lightBlue : #01b7f2;
 $lightGray : #838383;
 
+.fullwidthbanner-container-start-here {
+  height: 450px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  background: url(image_path('start_here/trees.jpg'));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
 .all-content{
   background: white !important;
 }
@@ -41,5 +53,11 @@ $lightGray : #838383;
   font-size: 2.5em;
   text-align: center;
   padding-top: 20px;
+}
+
+@media (max-width: 480px) {
+  .fullwidthbanner-container-start-here {
+    height: 390px;
+  }
 }
 

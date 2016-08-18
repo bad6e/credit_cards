@@ -1,10 +1,10 @@
-.fullwidthbanner-container-scores {
+.fullwidthbanner-container-types {
   height: 450px;
   overflow: hidden;
   padding: 0;
   position: relative;
   width: 100%;
-  background: url(image_path('start_here/credit_score/bear.jpg'));
+  background: url(image_path('start_here/what_type_of_card/thailand.jpg'));
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -18,15 +18,7 @@
 }
 
 @media (max-width: 480px) {
-  .fullwidthbanner-container-scores {
+  .fullwidthbanner-container-types {
     height: 390px;
   }
-}
-
-.article-summary {
-  min-height: 130px;
-}
-
-.continue-button {
-  padding-top: 30px;
 }
