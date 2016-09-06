@@ -82,7 +82,11 @@
                   </div>
                 </div>
                 <div class='col-md-12 apply-here'>
-                  <%= link_to "Apply Here", @card_presenter.rewards.last.apply_link, class: "btn btn-success btn-lg btn-block" %>
+                  <% if @card_presenter.rewards.last.apply_link.empty? %>
+                    <a class="btn btn-danger btn-lg btn-block">Card No Longer Offered</a>
+                  <% else %>
+                    <%= link_to "Apply Here", @card_presenter.rewards.last.apply_link, class: "btn btn-success btn-lg btn-block" %>
+                  <% end %>
                 </div>
               <% end %>
             </div>
