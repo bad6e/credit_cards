@@ -19,9 +19,11 @@ class Admin::CardsController < Admin::BaseController
 
   def create
     selected_categories = card_params[:categories]
-    @card = Card.new(card_params.except(:categories))
+    selected_transfer_partners = card_params[:transfer_partners]
+    @card = Card.new(card_params.except(:categories, :transfer_partners))
     if @card.save
       assign_categories_to_card(selected_categories)
+      assign_transfer_partners_to_cards(selected_transfer_partners)
       flash[:success] = "Card successfully added!"
       redirect_to admin_cards_path
     else
@@ -35,9 +37,11 @@ class Admin::CardsController < Admin::BaseController
   end
 
   def update
-    selected_categories = card_params[:categories]
-    if @card.update(card_params.except(:categories))
+    selected_categories        = card_params[:categories]
+    selected_transfer_partners = card_params[:transfer_partners]
+    if @card.update(card_params.except(:categories, :transfer_partners))
       assign_categories_to_card(selected_categories)
+      assign_transfer_partners_to_cards(selected_transfer_partners)
       flash[:success] = "Card successfully updated!"
       redirect_to admin_cards_path
     else
@@ -82,8 +86,21 @@ class Admin::CardsController < Admin::BaseController
       end
     end
 
+    def assign_transfer_partners_to_cards(selected_transfer_partners)
+      selected_transfer_partners.each do |id|
+        if ((id != "") and (card_not_already_assigned_tp(id) == false))
+          transfer_partner = TransferPartner.find(id)
+          @card.transfer_partners << transfer_partner
+        end
+      end
+    end
+
     def card_not_already_assigned(id)
       @card.categories.include?(Category.find(id))
+    end
+
+    def card_not_already_assigned_tp(id)
+      @card.transfer_partners.include?(TransferPartner.find(id))
     end
 
     def card_params
@@ -96,6 +113,7 @@ class Admin::CardsController < Admin::BaseController
                                    :flyer_talk_link,
                                    :image_url,
                                    :categories => [],
+                                   :transfer_partners => [],
                                    :information => [])
     end
 end

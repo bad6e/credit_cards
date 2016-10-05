@@ -9,6 +9,7 @@
   <%= card_form.text_field :flyer_talk_link %>
   <%= card_form.text_field :image_url %>
   <%= card_form.collection_select :categories, Category.order(:name),:id,:name, {:include_blank => true}, {:multiple => true} %>
+  <%= card_form.collection_select :transfer_partners, TransferPartner.order(:name),:id,:name, {:include_blank => true}, {:multiple => true} %>
   <%= card_form.submit 'Submit Information' %>
 <% end %>
 

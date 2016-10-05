@@ -49,6 +49,7 @@ Rails.application.routes.draw do
       resources :blogs, only: [:index, :show]
       resources :related_blogs, only: [:show]
       resources :recent_blogs, only: [:index]
+      resources :transfer_partners, only: [:show]
       get "/show_related_blogs/:id", to: "related_blogs#show_related_blogs"
     end
   end

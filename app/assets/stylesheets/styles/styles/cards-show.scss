@@ -235,6 +235,28 @@ h3 {
   min-height: 75px;
 }
 
+.logo-figure {
+  margin-left: 60px;
+}
+
+@media (max-width: 480px) {
+  .logo-figure {
+    margin-left: 120px;
+  }
+}
+
+.logo-title {
+  text-align: center;
+}
+
+.image-box .box img {
+  width: auto !important;
+}
+
+.section {
+  padding-bottom: 0px !important;
+}
+
 @media (max-width: 480px) {
   .time-to-apply-title {
     font-size: 2em;

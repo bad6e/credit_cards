@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510190543) do
+ActiveRecord::Schema.define(version: 20160917193351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,24 @@ ActiveRecord::Schema.define(version: 20160510190543) do
   add_index "card_blogs", ["blog_id"], name: "index_card_blogs_on_blog_id", using: :btree
   add_index "card_blogs", ["card_id"], name: "index_card_blogs_on_card_id", using: :btree
 
+  create_table "card_program_transfer_partners", force: :cascade do |t|
+    t.integer  "card_id"
+    t.integer  "card_program_id"
+    t.integer  "transfer_partner_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "card_program_transfer_partners", ["card_id"], name: "index_card_program_transfer_partners_on_card_id", using: :btree
+  add_index "card_program_transfer_partners", ["card_program_id"], name: "index_card_program_transfer_partners_on_card_program_id", using: :btree
+  add_index "card_program_transfer_partners", ["transfer_partner_id"], name: "index_card_program_transfer_partners_on_transfer_partner_id", using: :btree
+
+  create_table "card_programs", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cards", force: :cascade do |t|
     t.citext   "name"
     t.datetime "created_at",                   null: false
@@ -51,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160510190543) do
     t.string   "flyer_talk_link"
     t.string   "point_type"
     t.string   "image_url"
+    t.integer  "card_program_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -99,6 +118,13 @@ ActiveRecord::Schema.define(version: 20160510190543) do
 
   add_index "rewards", ["card_id"], name: "index_rewards_on_card_id", using: :btree
 
+  create_table "transfer_partners", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -122,6 +148,9 @@ ActiveRecord::Schema.define(version: 20160510190543) do
 
   add_foreign_key "card_blogs", "blogs"
   add_foreign_key "card_blogs", "cards"
+  add_foreign_key "card_program_transfer_partners", "card_programs"
+  add_foreign_key "card_program_transfer_partners", "cards"
+  add_foreign_key "card_program_transfer_partners", "transfer_partners"
   add_foreign_key "categorizings", "cards"
   add_foreign_key "categorizings", "categories"
   add_foreign_key "favorite_cards", "cards"

@@ -160,6 +160,15 @@
   </div>
 </section>
 
+<!-- Popuplar Destinations -->
+
+<!-- Transfer Partners -->
+<div class="destinations section">
+
+      <%= react_component('TransferPartners', url: "/api/v1/transfer_partners/#{@card_presenter.card.id}") %>
+
+</div>
+
 <div class="container apply-center-container">
   <h2 class="time-to-apply-title"></h2>
   <h3 class="title-to-apply-subtitle"></h3>
