@@ -37,7 +37,6 @@ class Admin::CardsController < Admin::BaseController
   end
 
   def update
-    binding.pry
     selected_categories        = card_params[:categories]
     selected_card_program      = card_params[:card_program]
     selected_main_card_program = card_params[:main_program]
