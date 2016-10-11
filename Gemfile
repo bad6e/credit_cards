@@ -28,6 +28,7 @@ gem 'omniauth-facebook'
 gem 'momentjs-rails'
 gem 'fluxxor-rails'
 gem 'sidekiq'
+gem 'rails_12factor'
 
 group :development do
   gem 'web-console', '~> 2.0'
