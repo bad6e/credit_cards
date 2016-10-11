@@ -4,6 +4,7 @@ class CreateCardProgramTransferPartners < ActiveRecord::Migration
       t.references :card, index: true, foreign_key: true
       t.references :card_program, index: true, foreign_key: true
       t.references :transfer_partner, index: true, foreign_key: true
+      t.integer :ratio, default: 0
 
       t.timestamps null: false
     end

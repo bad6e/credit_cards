@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917193351) do
+ActiveRecord::Schema.define(version: 20161008174815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(version: 20160917193351) do
     t.integer  "card_id"
     t.integer  "card_program_id"
     t.integer  "transfer_partner_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.integer  "ratio",               default: 0
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "card_program_transfer_partners", ["card_id"], name: "index_card_program_transfer_partners_on_card_id", using: :btree
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160917193351) do
 
   create_table "card_programs", force: :cascade do |t|
     t.string   "name"
+    t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160917193351) do
     t.string   "point_type"
     t.string   "image_url"
     t.integer  "card_program_id"
+    t.integer  "main_program_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -101,6 +104,24 @@ ActiveRecord::Schema.define(version: 20160917193351) do
 
   add_index "favorite_cards", ["card_id"], name: "index_favorite_cards_on_card_id", using: :btree
   add_index "favorite_cards", ["user_id"], name: "index_favorite_cards_on_user_id", using: :btree
+
+  create_table "main_program_card_programs", force: :cascade do |t|
+    t.integer  "main_program_id"
+    t.integer  "card_program_id"
+    t.integer  "ratio",           default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "main_program_card_programs", ["card_program_id"], name: "index_main_program_card_programs_on_card_program_id", using: :btree
+  add_index "main_program_card_programs", ["main_program_id"], name: "index_main_program_card_programs_on_main_program_id", using: :btree
+
+  create_table "main_programs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "rewards", force: :cascade do |t|
     t.integer  "amount"
@@ -155,5 +176,7 @@ ActiveRecord::Schema.define(version: 20160917193351) do
   add_foreign_key "categorizings", "categories"
   add_foreign_key "favorite_cards", "cards"
   add_foreign_key "favorite_cards", "users"
+  add_foreign_key "main_program_card_programs", "card_programs"
+  add_foreign_key "main_program_card_programs", "main_programs"
   add_foreign_key "rewards", "cards"
 end

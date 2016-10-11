@@ -23,7 +23,7 @@ class Admin::CardsController < Admin::BaseController
     @card = Card.new(card_params.except(:categories, :transfer_partners))
     if @card.save
       assign_categories_to_card(selected_categories)
-      assign_transfer_partners_to_cards(selected_transfer_partners)
+      assign_card_program_to_cards(selected_transfer_partners)
       flash[:success] = "Card successfully added!"
       redirect_to admin_cards_path
     else

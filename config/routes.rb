@@ -33,6 +33,9 @@ Rails.application.routes.draw do
     resources :cards, only: [:new, :create, :edit, :update, :index]
     resources :rewards, only: [:new, :create, :edit, :update, :index, :destroy]
     resources :blogs
+    resources :main_programs
+    resources :card_programs
+    resources :transfer_partners
     resources :imports do
       collection { post :import}
     end

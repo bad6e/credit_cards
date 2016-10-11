@@ -1,0 +1,13 @@
+<div class="container upload-file">
+  <div class="row">
+    <div class="col-lg-12">
+      <%= bootstrap_form_for([:admin, @transfer_partner]) do |partner| %>
+        <%= partner.hidden_field :id, value: @transfer_partner.id %>
+        <%= partner.text_field :name %>
+        <%= partner.text_field :image_url %>
+        <%= partner.submit 'Submit Information' %>
+      <% end %>
+      <%= link_to "Go Back to Main Admin Panel",  admin_cards_path %>
+    </div>
+  </div>
+</div>
