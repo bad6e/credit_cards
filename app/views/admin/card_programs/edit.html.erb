@@ -1,0 +1,14 @@
+<div class="container upload-file">
+  <div class="row">
+    <div class="col-lg-12">
+      <%= bootstrap_form_for([:admin, @card_program]) do |program| %>
+        <%= program.hidden_field :id, value: @card_program.id %>
+        <%= program.text_field :name %>
+        <%= program.text_field :image_url %>
+        <%= program.collection_select :transfer_partners, TransferPartner.order(:name),:id,:name, {:include_blank => false}, {:multiple => true} %>
+        <%= program.submit 'Submit Information' %>
+      <% end %>
+      <%= link_to "Go Back to Main Admin Panel",  admin_cards_path %>
+    </div>
+  </div>
+</div>

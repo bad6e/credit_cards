@@ -8,6 +8,13 @@ require 'capybara/rspec'
 require 'support/features'
 require 'sidekiq/testing'
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
 Sidekiq::Testing.fake!
 
 OmniAuth.config.test_mode = true
@@ -35,8 +42,8 @@ OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-
   config.use_transactional_fixtures = false
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

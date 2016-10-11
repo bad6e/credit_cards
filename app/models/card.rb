@@ -10,6 +10,12 @@ class Card < ActiveRecord::Base
   has_many :card_blogs
   has_many :blogs, through: :card_blogs
 
+  has_many :card_program_transfer_partners
+  has_many :transfer_partners, through: :card_program_transfer_partners
+
+  belongs_to :card_program, class_name: "CardProgram"
+  belongs_to :main_program, class_name: "MainProgram"
+
   accepts_nested_attributes_for :categories,
                                   reject_if: :all_blank,
                                   allow_destroy: true

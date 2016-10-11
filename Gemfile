@@ -36,17 +36,21 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.4'
-  gem 'database_cleaner'
-  gem 'capybara'
+  gem 'pry-byebug'
   gem 'launchy'
-  gem 'pry'
-  gem 'shoulda-matchers'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'selenium-webdriver'
-  gem 'simplecov', :require => false
   gem 'nokogiri'
-  gem 'mocha'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'mocha'
+  gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.4'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'database_cleaner'
+  gem 'simplecov', :require => false
+end

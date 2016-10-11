@@ -33,6 +33,9 @@ Rails.application.routes.draw do
     resources :cards, only: [:new, :create, :edit, :update, :index]
     resources :rewards, only: [:new, :create, :edit, :update, :index, :destroy]
     resources :blogs
+    resources :main_programs
+    resources :card_programs
+    resources :transfer_partners
     resources :imports do
       collection { post :import}
     end
@@ -49,6 +52,7 @@ Rails.application.routes.draw do
       resources :blogs, only: [:index, :show]
       resources :related_blogs, only: [:show]
       resources :recent_blogs, only: [:index]
+      resources :transfer_partners, only: [:show]
       get "/show_related_blogs/:id", to: "related_blogs#show_related_blogs"
     end
   end
