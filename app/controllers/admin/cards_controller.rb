@@ -18,12 +18,12 @@ class Admin::CardsController < Admin::BaseController
   end
 
   def create
-    selected_categories = card_params[:categories]
-    selected_transfer_partners = card_params[:transfer_partners]
-    @card = Card.new(card_params.except(:categories, :transfer_partners))
+    selected_categories   = card_params[:categories]
+    selected_card_program = card_params[:card_program]
+    @card = Card.new(card_params.except(:categories, :card_program))
     if @card.save
       assign_categories_to_card(selected_categories)
-      assign_card_program_to_cards(selected_transfer_partners)
+      assign_card_program_to_card(selected_card_program)
       flash[:success] = "Card successfully added!"
       redirect_to admin_cards_path
     else
@@ -37,13 +37,16 @@ class Admin::CardsController < Admin::BaseController
   end
 
   def update
+    binding.pry
     selected_categories        = card_params[:categories]
-    selected_transfer_partners = card_params[:transfer_partners]
-    if @card.update(card_params.except(:categories, :transfer_partners))
+    selected_card_program      = card_params[:card_program]
+    selected_main_card_program = card_params[:main_program]
+    if @card.update(card_params.except(:categories, :card_program, :main_program))
       assign_categories_to_card(selected_categories)
-      assign_transfer_partners_to_cards(selected_transfer_partners)
+      assign_main_card_program_to_card(selected_main_card_program)
+      assign_card_program_to_card(selected_card_program)
       flash[:success] = "Card successfully updated!"
-      redirect_to admin_cards_path
+      redirect_to edit_admin_card_path(@card)
     else
       flash.now[:errors] = @card.errors.full_messages.join(", ")
       render :edit
@@ -86,12 +89,29 @@ class Admin::CardsController < Admin::BaseController
       end
     end
 
-    def assign_transfer_partners_to_cards(selected_transfer_partners)
-      selected_transfer_partners.each do |id|
-        if ((id != "") and (card_not_already_assigned_tp(id) == false))
-          transfer_partner = TransferPartner.find(id)
-          @card.transfer_partners << transfer_partner
+    def assign_main_card_program_to_card(selected_main_card_program)
+      binding.pry
+      @card.update(main_program_id: MainProgram.find(selected_main_card_program[-1]).id)
+    end
+
+
+    def assign_card_program_to_card(selected_card_program)
+      if @card.card_program === nil
+
+        selected_card_program.each do |id|
+          if id != ""
+            @card.update(card_program_id: CardProgram.find(id).id)
+          end
         end
+
+      else
+
+        selected_card_program.each do |id|
+          if id != "" && card_not_already_assigned_card_program(id)
+            @card.update(card_program_id: CardProgram.find(id).id)
+          end
+        end
+
       end
     end
 
@@ -99,8 +119,8 @@ class Admin::CardsController < Admin::BaseController
       @card.categories.include?(Category.find(id))
     end
 
-    def card_not_already_assigned_tp(id)
-      @card.transfer_partners.include?(TransferPartner.find(id))
+    def card_not_already_assigned_card_program(id)
+      @card.card_program.include?(CardProgram.find(id))
     end
 
     def card_params
@@ -113,7 +133,8 @@ class Admin::CardsController < Admin::BaseController
                                    :flyer_talk_link,
                                    :image_url,
                                    :categories => [],
-                                   :transfer_partners => [],
+                                   :main_program => [],
+                                   :card_program => [],
                                    :information => [])
     end
 end

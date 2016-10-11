@@ -3,7 +3,15 @@ class Api::V1::TransferPartnersController < ApplicationController
   before_action :verify_card_exists, only: [:show]
 
   def show
-    respond_with find_card.transfer_partners
+    if find_card.main_program_id
+      programs = []
+      find_card.main_program.card_programs.each do |p|
+        programs << p.transfer_partners
+      end
+      respond_with programs.flatten
+    else
+      respond_with find_card.card_program.transfer_partners
+    end
   end
 
   private
