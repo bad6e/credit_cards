@@ -28,9 +28,16 @@ var TransferPartners = React.createClass({
            />
   },
 
+  renderTitle: function() {
+    if (typeof this.state.transferPartners[0] !== 'undefined') {
+      return <h2 className="transfer-partner-title">Transfer Partners</h2>
+    }
+  },
+
   render: function() {
     return (
       <div className="container">
+        {this.renderTitle()}
         <div className="row image-box style1 add-clearfix">
           {this.state.transferPartners.map(this.renderTransferPartners)}
         </div>

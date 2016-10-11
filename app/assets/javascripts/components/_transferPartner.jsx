@@ -1,6 +1,5 @@
 var TransferPartner = React.createClass({
   render: function() {
-    debugger;
     const { name, id, imageUrl} = this.props;
     return (
       <div className="col-sms-6 col-sm-6 col-md-3">
