@@ -1,7 +1,7 @@
 <div class="container upload-file">
   <div class="row">
     <div class="col-lg-12">
-      <%= render partial: 'form' %>
+      <%= render partial: 'form', :locals => {:main_program => @main_program} %>
     </div>
   </div>
 </div>

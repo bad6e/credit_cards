@@ -1,0 +1,9 @@
+<%= bootstrap_form_for([:admin, @main_program]) do |program| %>
+  <%= program.hidden_field :id, value: @main_program.id %>
+  <%= program.text_field :name %>
+  <%= program.text_field :image_url %>
+  <%= program.collection_select :card_programs, CardProgram.order(:name),:id,:name, {:include_blank => false}, {:multiple => true} %>
+  <%= program.submit 'Submit Information' %>
+<% end %>
+<%= link_to "Go Back to Main Admin Panel",  admin_cards_path %>
+
