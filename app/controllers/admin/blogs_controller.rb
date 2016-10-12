@@ -1,4 +1,3 @@
-
 class Admin::BlogsController < Admin::BaseController
   before_action :load_blog, only: [:edit, :update, :destroy]
   before_action :find_associated_cards
