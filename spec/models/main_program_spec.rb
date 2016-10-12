@@ -10,6 +10,8 @@ RSpec.describe MainProgram, type: :model do
 
   it { should validate_presence_of(:name) }
 
+  it { should validate_uniqueness_of(:name) }
+
   it { should have_many (:main_program_card_programs)}
   it { should have_many (:card_programs)}
 end
