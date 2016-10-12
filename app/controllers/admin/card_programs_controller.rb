@@ -1,4 +1,4 @@
-class Admin::CardProgramsController < ApplicationController
+class Admin::CardProgramsController < Admin::BaseController
   before_action :load_card_program, only: [:edit, :update]
 
   def index
