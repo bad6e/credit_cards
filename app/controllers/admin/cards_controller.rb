@@ -120,7 +120,7 @@ class Admin::CardsController < Admin::BaseController
     end
 
     def card_not_already_assigned_card_program(id)
-      @card.card_program.include?(CardProgram.find(id))
+      @card.card_programs.include?(CardProgram.find(id))
     end
 
     def card_params
