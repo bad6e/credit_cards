@@ -12,6 +12,10 @@ RSpec.describe CardProgram, type: :model do
   it { should validate_uniqueness_of(:name) }
 
   it { should have_many(:cards) }
+
   it { should have_many(:card_program_transfer_partners) }
   it { should have_many(:transfer_partners) }
+
+  it { should have_many(:main_program_card_programs) }
+  it { should have_many(:main_programs) }
 end
