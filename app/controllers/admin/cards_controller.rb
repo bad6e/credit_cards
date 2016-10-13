@@ -89,7 +89,6 @@ class Admin::CardsController < Admin::BaseController
     end
 
     def assign_main_card_program_to_card(selected_main_card_program)
-      binding.pry
       if selected_main_card_program.length > 1 && selected_main_card_program[0] == ""
         @card.update(main_program_id: MainProgram.find(selected_main_card_program[-1]).id)
       end
