@@ -678,7 +678,7 @@ $(window).load(function() {
         if (type != "") {
             imageHtml += ' animated" data-animation-type="' + type + '" data-animation-duration="' + duration;
         }
-        imageHtml += '"><img src="" alt="" /></div>';
+        imageHtml += '">';
         $(this).prepend(imageHtml);
         if ($(this).find(".panel-collapse.in").length > 0) {
             var activeImg = $(this).find(".panel-collapse.in").parent().children("img");

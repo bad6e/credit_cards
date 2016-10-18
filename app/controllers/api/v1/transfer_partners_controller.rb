@@ -4,13 +4,9 @@ class Api::V1::TransferPartnersController < ApplicationController
 
   def show
     if find_card.main_program_id
-      programs = []
-      find_card.main_program.card_programs.each do |p|
-        programs << p.transfer_partners
-      end
-      respond_with programs.flatten
+      respond_with find_card.main_program.card_programs
     else
-      respond_with find_card.card_program.transfer_partners
+      respond_with [find_card.card_program]
     end
   end
 

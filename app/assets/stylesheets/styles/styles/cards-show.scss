@@ -245,6 +245,17 @@ h3 {
   font-size: 2em !important;
 }
 
+.toggle-container.with-image > .image-container {
+  background: white;
+  img {
+    padding: 35px;
+  }
+}
+
+.transfer-partner-toggle {
+  box-shadow: 5px 5px 20px #888888;
+}
+
 @media (max-width: 480px) {
   .logo-figure {
     margin-left: 120px;
