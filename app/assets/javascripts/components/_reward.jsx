@@ -44,7 +44,7 @@ var Reward = React.createClass({
       return <h3 className="deal">This is a <strong><span style={red}>Bad</span></strong> deal.</h3>
     }
     if (result === 'ok') {
-      return <h3 className="deal">This is a <strong><span style={yello}>Ok</span></strong> deal.</h3>
+      return <h3 className="deal">This is a <strong><span style={yellow}>Ok</span></strong> deal.</h3>
     }
   },
 
