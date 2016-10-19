@@ -26,7 +26,7 @@ var Reward = React.createClass({
     debugger;
     return (
       <div className="apply-info-card">
-        <h2>Applying for this card will earn you: <strong>{this.state.reward} {this.state.currency} Points</strong></h2>
+        <h2>Applying for this card will earn you: <strong>{this.state.reward} {this.state.currency}</strong></h2>
         <h3>You can transfer these points to the following partners below:</h3>
       </div>
     );
