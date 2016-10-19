@@ -158,16 +158,13 @@
       <!-- End Side Panel - Card Info -->
     </div>
   </div>
-</section>
-
-<!-- Popuplar Destinations -->
+</section></br></br>
 
 <!-- Transfer Partners -->
 <div class="destinations section">
-
-      <%= react_component('TransferPartners', url: "/api/v1/transfer_partners/#{@card_presenter.card.id}") %>
-
+  <%= react_component('TransferPartners', url: "/api/v1/transfer_partners/#{@card_presenter.card.id}", cardId: "#{@card_presenter.card.id}") %>
 </div>
+<!-- END Transfer Partners -->
 
 <div class="container apply-center-container">
   <h2 class="time-to-apply-title"></h2>

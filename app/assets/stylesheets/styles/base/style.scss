@@ -879,7 +879,7 @@ ol {  }
      background: $skin-bg-color;
      > img { width: 100%; height: auto; }
    }
-   .panel > img { display: none; }
+   .panel > img { width: 100%; height: auto; padding: 35px; }
    .panel-title > a {
       color: #01b7f2;
       &.collapsed { color: inherit; &:hover { color: #01b7f2; } }
