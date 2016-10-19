@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     namespace :v1, defaults: {format: :json} do
       get "/search", to: 'auto_complete#search'
       resources :rewards, only: [:show]
+      get "/reward/:id", to: 'rewards#show_one'
       resources :categories, only: [:show]
       resources :favorite_cards
       resources :users, only: [:show]

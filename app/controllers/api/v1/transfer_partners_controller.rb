@@ -1,6 +1,7 @@
 class Api::V1::TransferPartnersController < ApplicationController
   respond_to :json
   before_action :verify_card_exists, only: [:show]
+  before_action :verify_card_has_programs, only: [:show]
 
   def show
     if find_card.main_program_id
@@ -21,6 +22,12 @@ class Api::V1::TransferPartnersController < ApplicationController
         render status: 400, json: {
           error: "No card found."
         }.to_json
+      end
+    end
+
+    def verify_card_has_programs
+      if !find_card.main_program_id && !find_card.card_program_id
+        render json: nil
       end
     end
 

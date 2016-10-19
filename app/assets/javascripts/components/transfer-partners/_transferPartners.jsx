@@ -31,11 +31,17 @@ var TransferPartners = React.createClass({
   },
 
   render: function() {
+    const transferPartners = this.state.transferPartners
+    if (transferPartners.length === 0) {
+      return false;
+    }
+
     return (
       <div>
         <section id="content" className="gray-area">
+          <Reward id={this.props.cardId}/>
           <div className="container shortcode">
-            {this.state.transferPartners.map(this.renderCardPrograms)}
+            {transferPartners.map(this.renderCardPrograms)}
           </div>
         </section>
       </div>
