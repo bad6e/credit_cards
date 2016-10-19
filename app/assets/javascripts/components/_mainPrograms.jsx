@@ -1,4 +1,4 @@
-var TransferPartners = React.createClass({
+var MainPrograms = React.createClass({
   getInitialState: function () {
     return {
       transferPartners: []
@@ -11,7 +11,7 @@ var TransferPartners = React.createClass({
       dataType: 'json',
       success: function (transferPartners) {
         this.setState({
-          transferPartners: transferPartners
+          transferPartners: this.formatStateIntoThreeObjects(transferPartners)
         });
       }.bind(this),
       error: function (xhr, status, err) {
@@ -20,11 +20,9 @@ var TransferPartners = React.createClass({
     });
   },
 
-  renderTransferPartners: function(partner) {
-    return <TransferPartner key= {partner.id}
-                            name= {partner.name}
-                            imageUrl={partner.image_url}
-                            id=  {partner.id}
+  renderTransferPartners: function(partners) {
+    return <CardPrograms key= {partners[0].id}
+                         partners= {partners}
            />
   },
 
@@ -34,13 +32,18 @@ var TransferPartners = React.createClass({
     }
   },
 
+  formatStateIntoThreeObjects: function(transferPartners) {
+    return _.chunk(transferPartners, 3);
+  },
+
   render: function() {
     return (
-      <div className="container">
-        {this.renderTitle()}
-        <div className="row image-box style1 add-clearfix">
-          {this.state.transferPartners.map(this.renderTransferPartners)}
-        </div>
+      <div>
+        <section id="content" className="gray-area">
+          <div className="container shortcode">
+            {this.state.transferPartners.map(this.renderTransferPartners)}
+          </div>
+        </section>
       </div>
     );
   }
