@@ -21,6 +21,7 @@ var CardProgram = React.createClass({
             </h4>
             <div className="panel-collapse collapse" id={firstformattedId}>
               <div className="panel-content">
+                <h5>Direct Transfer Partners</h5>
                 {cardProgram.transfer_partners.map(this.renderPartner)}
               </div>
             </div>
