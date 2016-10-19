@@ -8,6 +8,7 @@
   <%= card_form.text_field :best_offer %>
   <%= card_form.text_field :flyer_talk_link %>
   <%= card_form.text_field :image_url %>
+  <%= card_form.text_field :point_type %>
   <%= card_form.collection_select :categories, Category.order(:name),:id,:name, {:include_blank => true}, {:multiple => true} %>
   <%= card_form.collection_select :main_program, MainProgram.order(:name),:id,:name, {:include_blank => false}, {:multiple => true} %>
   <%= card_form.collection_select :card_program, CardProgram.order(:name),:id,:name, {:include_blank => false}, {:multiple => true} %>

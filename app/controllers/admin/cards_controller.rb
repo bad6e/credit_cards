@@ -132,6 +132,7 @@ class Admin::CardsController < Admin::BaseController
                                    :best_offer,
                                    :flyer_talk_link,
                                    :image_url,
+                                   :point_type,
                                    :categories => [],
                                    :main_program => [],
                                    :card_program => [],
