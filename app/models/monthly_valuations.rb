@@ -91,7 +91,7 @@ class MonthlyValuations
       "American Express Membership Rewards" => "American Express Membership Rewards®",
       "Barclaycard Arrival Miles" => "Barclaycard Arrival™ Miles",
       "Capital One" => "Capital One® Venture Miles",
-      "Chase Ultimate Rewards" => "Chase Ultimate Rewards®",
+      "Chase Ultimate Rewards" => "Chase Ultimate Rewards® Points",
       "Citi ThankYou" => "Citi ThankYou® Rewards",
       "Diners Club Rewards" => "Diners Club Rewards®",
       "FlexPerks" => "U.S. Bank FlexPoints",

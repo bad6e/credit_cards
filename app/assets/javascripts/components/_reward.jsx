@@ -2,7 +2,8 @@ var Reward = React.createClass({
   getInitialState: function () {
     return {
       reward: [],
-      currency: ''
+      currency: '',
+      bestOffer: ''
     };
   },
 
@@ -13,7 +14,8 @@ var Reward = React.createClass({
       success: function (reward) {
         this.setState({
           reward: reward.reward.amount,
-          currency: reward.currency
+          currency: reward.currency,
+          bestOffer: reward.best_offer
         });
       }.bind(this),
       error: function (xhr, status, err) {
@@ -22,12 +24,36 @@ var Reward = React.createClass({
     });
   },
 
+  formatEarnings: function() {
+    return <h2 className="earnings">Applying for this card will earn you: <strong>{this.state.reward} {this.state.currency}</strong></h2>
+  },
+
+  formatBestOffer: function() {
+    const result = this.state.bestOffer;
+    const green = { color: 'green'}
+    const red = { color: 'red'}
+    const yellow = {color: '#BB9D40'}
+
+    if (result === "n/a") {
+      return false
+    }
+    if (result === 'yes') {
+      return <h3 className="deal">This is a <strong><span style={green}>Good</span></strong> deal.</h3>
+    }
+    if (result === 'no') {
+      return <h3 className="deal">This is a <strong><span style={red}>Bad</span></strong> deal.</h3>
+    }
+    if (result === 'ok') {
+      return <h3 className="deal">This is a <strong><span style={yello}>Ok</span></strong> deal.</h3>
+    }
+  },
+
   render: function() {
-    debugger;
     return (
       <div className="apply-info-card">
-        <h2>Applying for this card will earn you: <strong>{this.state.reward} {this.state.currency}</strong></h2>
-        <h3>You can transfer these points to the following partners below:</h3>
+        {this.formatEarnings()}
+        {this.formatBestOffer()}
+        <h3 className="transfer-info">You can transfer these points to the following partners below:</h3>
       </div>
     );
   }
