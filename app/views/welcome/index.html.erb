@@ -1,7 +1,7 @@
 <%= render partial: "index_header" %>
 <div class="fullwidthbanner-container">
   <div class="col-md-offset-2 col-md-8">
-    <h1 class="top-title" id="40">Apply for Credit Cards, Earn Millions of Miles, and Travel the World for Free</h1>
+    <h1 class="top-title" id="3">Apply for Credit Cards, Earn Millions of Miles, and Travel the World for Free</h1>
   </div>
 </div>
 
@@ -36,7 +36,7 @@
 
 <a name="step2">
 <div class="example">
-  <h2 class="example-card-title"><%= link_to "Starwood's Sign Up Bonus Over Time", card_path(@welcome_presenter.featured_card), class: "active" %></h2>
+  <h2 class="example-card-title"><%= link_to "American Airlines' Card Bonus Over Time", card_path(@welcome_presenter.featured_card), class: "active" %></h2>
   <%= link_to image_tag(@welcome_presenter.featured_card.image_link, class: 'card-image-cat') , card_path(@welcome_presenter.featured_card) %><br>
 </div>
 
@@ -52,12 +52,12 @@
 </a>
 
 <div class="recent-blog-posts">
-  <h2>Check Out Our Favorite Cards</h2><br>
+  <h2>Bret's Favorite Deals NOW</h2><br>
 </div>
 <div class="container section front-page-deals">
   <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
     <ul class="slides image-box car listing-style1">
-      <% @welcome_presenter.our_favorite_cards.each do |card| %>
+      <% @welcome_presenter.brets_favorite_deal_now.each do |card| %>
       <li>
         <article class="box">
           <figure>
@@ -65,10 +65,11 @@
           </figure>
           <div class="details">
             <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
-            <p class="mile"><span class="skin-color"><strong>CURRENT BONUS: </span><%=  number_with_delimiter(card.rewards.last.amount) %> Miles</strong></p>
+            <p class="mile"><span class="skin-color"><strong>DOllAR BONUS: </span><%=  number_to_currency(card.rewards.last.dollar_amount, precision: 0) %></strong></p>
+            <p class="mile"><span class="skin-color"><strong>BONUS: </span><%= number_with_delimiter(card.rewards.last.amount) %> Miles</strong></p>
             <p class="mile"><span class="skin-color apply-now">Apply Now?</span><strong><div class="best-offer-color best-offer" id="yes-or-no"> <%=card.best_offer %></div></strong></p>
             <div class="action">
-            <%= link_to "SEE MORE", card_path(card), class: "button btn-small full-width" %>
+            <%= link_to "SEE MORE", card_path(card), class: "button btn-small btn-success full-width" %>
           </div>
           </div>
         </article>

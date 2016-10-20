@@ -10,6 +10,10 @@ class WelcomePresenter
   end
 
   def featured_card
-    Card.find_by(name: "Starwood Preferred Guest® Credit Card from American Express")
+    Card.find_by(name: "Citi® / AAdvantage® Executive World Elite™ MasterCard®")
+  end
+
+  def brets_favorite_deal_now
+    Category.find_by(name: "brets-favorite-cards").cards
   end
 end
