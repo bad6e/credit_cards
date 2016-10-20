@@ -1,12 +1,12 @@
 var CardList = React.createClass({
 
   determinePointRewardStatus : function(details) {
-    return  details && details.rewards && details.rewards.length
+    return details && details.rewards && details.rewards.length
                         ? details.rewards[0].amount : "NO INFO FOR THIS CARD"
   },
 
   determineDollarRewardStatus : function(details) {
-    return  details && details.rewards && details.rewards.length && details.rewards[0].dollar_amount
+    return details && details.rewards && details.rewards.length
                         ? details.rewards[0].dollar_amount : "NO INFO FOR THIS CARD"
   },
 
@@ -95,6 +95,8 @@ var LoadCards = React.createClass({
     var sortedCardsByDollarAmount = _.sortBy(this.state.cards, function(o) {
       if (o.rewards.length > 0  &&  o.rewards[0].dollar_amount) {
         return o.rewards[0].dollar_amount;
+      } else if (o.rewards.length > 0 && o.rewards[0].dollar_amount === 0) {
+        return -1
       } else if (o.rewards.length > 0 && o.rewards[0].dollar_amount === null) {
         return -1
       } else if (o.rewards.length === 0) {
