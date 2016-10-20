@@ -86,7 +86,7 @@ class MonthlyValuations
 
   def program_key
     {
-      "Southwest" => "Southwest Rapid Rewards®",
+      "Southwest" => "Southwest Rapid Rewards® Miles",
       "American" => "American AAdvantage® Miles",
       "American Express Membership Rewards" => "American Express Membership Rewards®",
       "Barclaycard Arrival Miles" => "Barclaycard Arrival™ Miles",
@@ -96,7 +96,7 @@ class MonthlyValuations
       "Diners Club Rewards" => "Diners Club Rewards®",
       "FlexPerks" => "U.S. Bank FlexPoints",
       "Aeroplan" => "Aeroplan Miles",
-      "Alaska" => "Alaska Airlines Mileage Plan™",
+      "Alaska" => "Alaska Airlines Mileage Plan™ Miles",
       "ANA" => "ANA Mileage Club Miles",
       "Avianca" => "Avianca LifeMiles",
       "British Airways" => "British Airways Avios",
@@ -105,7 +105,7 @@ class MonthlyValuations
       "Etihad" => "Etihad™ Guest Miles",
       "Flying Blue" => "Air France Flying Blue Miles",
       "Frontier" => "Frontier Miles",
-      "JetBlue" => "JetBlue Points",
+      "JetBlue" => "JetBlue TrueBlue Points",
       "Miles & More" => "Lufthansa Miles & More®",
       "Singapore Airlines" => "Singapore Airlines KrisFlyer Miles",
       "United" => "United MileagePlus® Miles",
