@@ -1,20 +1,53 @@
+.box {
+  box-shadow: 0 2px 15px 2px #E0E0E0;
+}
+
 .card-image-cat {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 15%;
+  @media (max-width: 480px) {
+    width: 45%;
+  }
 }
 
-#apply-now-color {
+@media (min-width: 480px) {
+  .apply-now-button {
+    max-width: 500px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .see-more-button {
+    max-width: 300px;
+  }
+}
+
+.favorite-button {
+  margin-bottom: 50px !important;
+}
+
+.listing-style3.flight .details {
+  padding-left: 0px;
+}
+
+.apply-now-color {
   color: #838383;
 }
 
-#apply-now-title {
+.apply-now-title {
   font-size: .8em;
 }
 
 #cat-card-title {
+  font-size: 1.6em;
   padding-top: 10px;
   padding-bottom: 6px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+#best-offer-color {
+  padding-bottom: 10px;
 }
 
 .see-more-button {
@@ -33,4 +66,8 @@
   text-align: center;
   padding-top: 15px;
   font-family: 'Raleway', sans-serif;
+}
+
+.time {
+  font-size: 1.0em;
 }

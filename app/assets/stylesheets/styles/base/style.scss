@@ -1651,8 +1651,7 @@ ol {  }
           display: table-row;
           > * {
             padding: 8px 8px;
-            &:first-child { padding-left: 0; }
-            &:last-child { text-align: center; padding-right: 0;}
+            &:last-child { text-align: center;}
           }
           &:first-child > * { border-bottom: 1px solid #f5f5f5; padding-top: 0; }
         }

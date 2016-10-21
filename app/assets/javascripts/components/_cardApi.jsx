@@ -1,5 +1,4 @@
 var CardList = React.createClass({
-
   determinePointRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
                         ? details.rewards[0].amount : "NO INFO FOR THIS CARD"
@@ -7,9 +6,14 @@ var CardList = React.createClass({
 
   determineDollarRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
-                        ? details.rewards[0].dollar_amount : "NO INFO FOR THIS CARD"
+                        ? `$${this.numberWithCommas(details.rewards[0].dollar_amount)}` : "NO INFO FOR THIS CARD"
   },
 
+  numberWithCommas: function(number) {
+    if (number) {
+      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  },
 
   determineBestOfferColor : function(bestOffer) {
     if (bestOffer === "yes") {
