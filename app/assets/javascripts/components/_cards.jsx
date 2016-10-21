@@ -38,20 +38,46 @@ var Card = React.createClass({
                   {details.best_offer}<br/>
                 </div>
 
+                <div className="desktop">
+                  <div className="col-xs-4">
+                    <h6 className="apply-now-title">Bonus in Points</h6>
+                    <div id="other-nums">
+                      {this.props.determinePointRewardStatus(details)}
+                    </div>
+                  </div>
 
-                <div className="col-xs-6">
-                  <h6 className="apply-now-title">Bonus in Points</h6>
-                  <div id="other-nums">
-                    {this.props.determinePointRewardStatus(details)}
+                  <div className="col-xs-4">
+                    <h6 className="apply-now-title">Bonus in Dollars</h6>
+                    <div id="other-nums">
+                      {this.props.determineDollarRewardStatus(details)}
+                    </div>
+                  </div>
+
+                  <div className="col-xs-4">
+                    <h6 className="apply-now-title">Annual Fee</h6>
+                    <div id="other-nums">
+                      {details.annual_fee}
+                    </div>
                   </div>
                 </div>
 
-                <div className="col-xs-6">
-                  <h6 className="apply-now-title">Bonus in Dollars</h6>
-                  <div id="other-nums">
-                    {this.props.determineDollarRewardStatus(details)}
+                <div className="mobile">
+                  <div className="col-xs-6">
+                    <h6 className="apply-now-title">Points</h6>
+                    <div id="other-nums">
+                      {this.props.determinePointRewardStatus(details)}
+                    </div>
+                  </div>
+
+                  <div className="col-xs-6">
+                    <h6 className="apply-now-title">Dollars</h6>
+                    <div id="other-nums">
+                      {this.props.determineDollarRewardStatus(details)}
+                    </div>
                   </div>
                 </div>
+
+
               </span>
             </div>
 

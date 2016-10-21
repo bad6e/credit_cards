@@ -45,8 +45,10 @@
 }
 
 #other-nums {
+  font-size: 0.7em;
   color: #838383;
   padding-bottom: 30px;
+  text-transform: lowercase;
 }
 
 #cat-card-title {
@@ -57,7 +59,7 @@
 }
 
 #best-offer-color {
-  padding-bottom: 15px;
+  padding-bottom: 50px;
 }
 
 .see-more-button {
@@ -81,3 +83,27 @@
 .time {
   font-size: 1.0em;
 }
+
+@media (max-width: 480px) {
+  .desktop {
+    display: none;
+  }
+  #other-nums {
+    font-size: 1.2em !important;
+  }
+}
+
+@media (min-width: 480px) {
+  .mobile {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
