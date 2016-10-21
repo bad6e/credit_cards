@@ -22,6 +22,7 @@ var Card = React.createClass({
     const buttonOptions = this.checkIfFavoriteCard();
     const buttonText = (hasCurrentUser ?  buttonOptions : <a href="#" className="button btn-small sky-blue1 active soap-popupbox favorite-button" data-target="#travelo-login">LOGIN TO FAVORITE</a>);
     const applyNowButton = details.rewards && details.rewards.length >= 1 ? <a className="btn btn-success btn-lg btn-block full-width apply-now-button" href={details.rewards[0].apply_link}>APPLY NOW</a> :  false;
+
     return (
       <article className="box" id={'card-' + details.id}>
         <div className="details col-xs-12">
@@ -33,16 +34,30 @@ var Card = React.createClass({
             <div>
               <span className="price" id="apply-now-color">
                 <h6 className="apply-now-title">Apply Now</h6>
-                <div className="best-offer-color" id="best-offer-color" style={this.props.determineBestOfferColor(details.best_offer)}>{details.best_offer}<br/></div>
+                <div className="best-offer-color" id="best-offer-color" style={this.props.determineBestOfferColor(details.best_offer)}>
+                  {details.best_offer}<br/>
+                </div>
 
-                <h6 className="apply-now-title">Bonus in Dollars</h6>
-                <div className="best-offer-color" id="best-offer-color">{this.props.determineDollarRewardStatus(details)}</div>
+
+                <div className="col-xs-6">
+                  <h6 className="apply-now-title">Bonus in Points</h6>
+                  <div id="other-nums">
+                    {this.props.determinePointRewardStatus(details)}
+                  </div>
+                </div>
+
+                <div className="col-xs-6">
+                  <h6 className="apply-now-title">Bonus in Dollars</h6>
+                  <div id="other-nums">
+                    {this.props.determineDollarRewardStatus(details)}
+                  </div>
+                </div>
               </span>
             </div>
 
             <div className="second-row">
               <div className="action">
-              {buttonText}
+                {buttonText}
               </div>
             </div>
 

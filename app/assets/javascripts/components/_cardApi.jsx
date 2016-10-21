@@ -1,17 +1,27 @@
 var CardList = React.createClass({
   determinePointRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
-                        ? details.rewards[0].amount : "NO INFO FOR THIS CARD"
+                        ? this.numberWithCommas(details.rewards[0].amount) : <div id="no-info">No point data for this card!</div>
   },
 
   determineDollarRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
-                        ? `$${this.numberWithCommas(details.rewards[0].dollar_amount)}` : "NO INFO FOR THIS CARD"
+                        ? this.dollarWithCommas(details.rewards[0].dollar_amount) : <div id="no-info">No bonus info for this card!</div>
   },
 
   numberWithCommas: function(number) {
-    if (number) {
+    if (number > 0) {
       return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    } else if (number === 0) {
+      return 0
+    }
+  },
+
+  dollarWithCommas: function(number) {
+    if (number > 0) {
+      return "$" + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    } else if (number === 0) {
+      return "$" + 0
     }
   },
 
@@ -102,9 +112,9 @@ var LoadCards = React.createClass({
       } else if (o.rewards.length > 0 && o.rewards[0].dollar_amount === 0) {
         return -1
       } else if (o.rewards.length > 0 && o.rewards[0].dollar_amount === null) {
-        return -1
+        return -2
       } else if (o.rewards.length === 0) {
-        return -1
+        return -3
       }
     })
     this.setState({ cards: sortedCardsByDollarAmount.reverse() })
