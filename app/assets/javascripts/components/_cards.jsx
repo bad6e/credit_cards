@@ -24,7 +24,7 @@ var Card = React.createClass({
     const applyNowButton = details.rewards && details.rewards.length >= 1 ? <a className="btn btn-success btn-lg btn-block full-width apply-now-button" href={details.rewards[0].apply_link}>APPLY NOW</a> :  false;
 
     return (
-      <article className="box" id={'card-' + details.id}>
+      <article className="box card-box" id={'card-' + details.id}>
         <div className="details col-xs-12">
           <a href={'/cards/' + details.id}><img className="card-image-cat" src={details.image_link} alt={details.name}/></a>
           <div className="details-wrapper">

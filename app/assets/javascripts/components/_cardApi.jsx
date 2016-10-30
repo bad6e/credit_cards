@@ -1,12 +1,12 @@
 var CardList = React.createClass({
   determinePointRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
-                        ? this.numberWithCommas(details.rewards[0].amount) : <div id="no-info">No point data for this card!</div>
+                        ? this.numberWithCommas(details.rewards[0].amount) : <div id="no-info">--</div>
   },
 
   determineDollarRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
-                        ? this.dollarWithCommas(details.rewards[0].dollar_amount) : <div id="no-info">No bonus info for this card!</div>
+                        ? this.dollarWithCommas(details.rewards[0].dollar_amount) : <div id="no-info">--</div>
   },
 
   numberWithCommas: function(number) {
