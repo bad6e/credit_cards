@@ -1,6 +1,9 @@
 $(document).ready(function(){
   auto("select_origin");
   auto("select_origin_mobile");
+  $( ".middle-search" ).click(function() {
+    auto("select_origin_middle")
+  });
 });
 
 function auto(div) {
@@ -12,7 +15,7 @@ function auto(div) {
       return false;
     },
     select: function(event, ui) {
-      $('#select_origin').val(ui.item.name);
+      $('#' + div).val(ui.item.name);
         window.location.pathname = "cards/" + ui.item.id;
     }
   })
@@ -23,5 +26,3 @@ function auto(div) {
     .appendTo( div );
   };
 };
-
-

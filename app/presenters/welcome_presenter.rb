@@ -10,7 +10,7 @@ class WelcomePresenter
   end
 
   def featured_card
-    Card.find_by(name: "Citi® / AAdvantage® Executive World Elite™ MasterCard®")
+    Card.find_by(name: "Citi® / AAdvantage® Platinum Select® MasterCard®")
   end
 
   def brets_favorite_deal_now
