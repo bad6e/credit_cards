@@ -1,6 +1,16 @@
 $lightBlue : #01b7f2;
 $lightGray : #838383;
 
+.center-nav {
+  text-align: center;
+}
+
+@media (min-width: 991px) {
+  #main-menu {
+    display: inline-block;
+  }
+}
+
 .fullwidthbanner-container {
   height: 500px;
   overflow: hidden;
@@ -66,7 +76,6 @@ $lightGray : #838383;
 }
 
 //Search Box
-
 .search-home {
   text-align: center;
 }
@@ -119,6 +128,11 @@ $lightGray : #838383;
 }
 
 //Recent Blogs Posts
+
+.recent-posts-section {
+  padding-top: 0 !important;
+}
+
 .recent-blog-posts {
   text-align: center;
   font-size: 1.8em;
