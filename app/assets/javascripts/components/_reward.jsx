@@ -24,8 +24,16 @@ var Reward = React.createClass({
     });
   },
 
+  numberWithCommas: function(number) {
+    if (number > 0) {
+      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    } else if (number === 0) {
+      return 0
+    }
+  },
+
   formatEarnings: function() {
-    return <h2 className="earnings">Applying for this card will earn you: <strong>{this.state.reward} {this.state.currency}</strong></h2>
+    return <h2 className="earnings">Applying for this card will earn you: <strong>{this.numberWithCommas(this.state.reward)} {this.state.currency}</strong></h2>
   },
 
   formatBestOffer: function() {
