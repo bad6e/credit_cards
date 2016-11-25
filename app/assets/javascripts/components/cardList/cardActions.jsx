@@ -1,4 +1,4 @@
-var CardList = React.createClass({
+var CardActions = React.createClass({
   determinePointRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
                         ? this.numberWithCommas(details.rewards[0].amount) : <div id="no-info">--</div>
@@ -46,15 +46,17 @@ var CardList = React.createClass({
                            determineDollarRewardStatus={this.determineDollarRewardStatus}
                            determineBestOfferColor={this.determineBestOfferColor}
                            removeFavoriteCard={this.props.removeFavoriteCard}
-                           removeFavoriteCardFromState={this.props.removeFavoriteCardFromState}/>
+                           removeFavoriteCardFromState={this.props.removeFavoriteCardFromState}
+             />
     } else {
-      return <Card key= {this.props.cards[key].id}
-                   details= {this.props.cards[key]}
-                   postFavoriteCard={this.props.postFavoriteCard}
-                   determinePointRewardStatus={this.determinePointRewardStatus}
-                   determineDollarRewardStatus={this.determineDollarRewardStatus}
-                   determineBestOfferColor={this.determineBestOfferColor}
-                   currentUser={this.props.currentUser}/>
+      return <CardContainer key= {this.props.cards[key].id}
+                            details= {this.props.cards[key]}
+                            postFavoriteCard={this.props.postFavoriteCard}
+                            determinePointRewardStatus={this.determinePointRewardStatus}
+                            determineDollarRewardStatus={this.determineDollarRewardStatus}
+                            determineBestOfferColor={this.determineBestOfferColor}
+                            currentUser={this.props.currentUser}
+             />
     }
   },
 
@@ -170,12 +172,12 @@ var LoadCards = React.createClass({
         <SortByName sortCardsByName={this.sortCardsByName}
                     sortCardsByAmount={this.sortCardsByAmount}
                     sortCardsByDollarAmount={this.sortCardsByDollarAmount}/>
-        <CardList cards={this.state.cards}
-                  postFavoriteCard={this.postFavoriteCard}
-                  removeFavoriteCard={this.removeFavoriteCard}
-                  apiUrl={this.props.url}
-                  removeFavoriteCardFromState={this.removeFavoriteCardFromState}
-                  currentUser={this.props.currentUser}/>
+        <CardActions cards={this.state.cards}
+                     postFavoriteCard={this.postFavoriteCard}
+                     removeFavoriteCard={this.removeFavoriteCard}
+                     apiUrl={this.props.url}
+                     removeFavoriteCardFromState={this.removeFavoriteCardFromState}
+                     currentUser={this.props.currentUser}/>
       </div>
     );
   }

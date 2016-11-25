@@ -1,4 +1,4 @@
-var Card = React.createClass({
+var CardContainer = React.createClass({
   onButtonClick : function() {
     var id = this.props.details.id
     document.getElementById("favorite-button-" + id).text="FAVORITED!";
@@ -22,7 +22,6 @@ var Card = React.createClass({
     const buttonOptions = this.checkIfFavoriteCard();
     const buttonText = (hasCurrentUser ?  buttonOptions : <a href="#" className="button btn-small sky-blue1 active soap-popupbox favorite-button" data-target="#travelo-login">LOGIN TO FAVORITE</a>);
     const applyNowButton = details.rewards && details.rewards.length >= 1 ? <a className="btn btn-success btn-lg btn-block full-width apply-now-button" href={details.rewards[0].apply_link}>APPLY NOW</a> :  false;
-
     return (
       <article className="box card-box" id={'card-' + details.id}>
         <div className="details col-xs-12">
@@ -37,40 +36,33 @@ var Card = React.createClass({
                 <div className="best-offer-color" id="best-offer-color" style={this.props.determineBestOfferColor(details.best_offer)}>
                   {details.best_offer}<br/>
                 </div>
-
                 <div className="desktop">
-                  <div className="col-xs-4">
-                    <h6 className="apply-now-title">Bonus in Points</h6>
-                    <div id="other-nums">
-                      {this.props.determinePointRewardStatus(details)}
-                    </div>
-                  </div>
+                  <BonusInPoints details={details}
+                                 size='col-xs-4'
+                                 applyNowTitle='Bonus in Points'
+                                 determinePointRewardStatus={this.props.determinePointRewardStatus}
+                  />
 
-                  <DollarBonus details={details}
-                               determineDollarRewardStatus={this.props.determineDollarRewardStatus}/>
+                  <BonusInDollars details={details}
+                                  size='col-xs-4'
+                                  applyNowTitle='Bonus in Dollars'
+                                  determineDollarRewardStatus={this.props.determineDollarRewardStatus}
+                  />
 
-                  <div className="col-xs-4">
-                    <h6 className="apply-now-title">Annual Fee</h6>
-                    <div id="other-nums">
-                      {details.annual_fee}
-                    </div>
-                  </div>
+                  <AnnualFee details={details} />
                 </div>
-
                 <div className="mobile">
-                  <div className="col-xs-6">
-                    <h6 className="apply-now-title">Points</h6>
-                    <div id="other-nums">
-                      {this.props.determinePointRewardStatus(details)}
-                    </div>
-                  </div>
+                  <BonusInPoints details={details}
+                                 size='col-xs-6'
+                                 applyNowTitle='Points'
+                                 determinePointRewardStatus={this.props.determinePointRewardStatus}
+                  />
 
-                  <div className="col-xs-6">
-                    <h6 className="apply-now-title">Dollars</h6>
-                    <div id="other-nums">
-                      {this.props.determineDollarRewardStatus(details)}
-                    </div>
-                  </div>
+                  <BonusInDollars details={details}
+                                  size='col-xs-6'
+                                  applyNowTitle='Dollars'
+                                  determineDollarRewardStatus={this.props.determineDollarRewardStatus}
+                  />
                 </div>
               </span>
             </div>

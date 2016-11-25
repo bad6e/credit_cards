@@ -1,5 +1,5 @@
 var SortByName = React.createClass({
-  render : function() {
+  render: function() {
     return (
       <div className="sort-by-section clearfix box" id="sorter-box">
         <h4 className="sort-by-title block-sm">Sort Results By:</h4>
