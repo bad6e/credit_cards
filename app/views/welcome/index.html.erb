@@ -82,7 +82,7 @@
 
 <div class="section recent-posts-section">
   <div class="container">
-    <%= react_component('RecentBlogsApi', url: "/api/v1/recent_blogs", currentUser: short_current_user) %>
+    <%= react_component('LoadRecentBlogs', url: "/api/v1/recent_blogs", currentUser: short_current_user) %>
   </div><br>
   <div class='col-md-offset-3 col-md-6'>
     <%= link_to "See All Blogs", blogs_path, class: "btn btn-success btn-lg btn-block" %>

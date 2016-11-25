@@ -213,7 +213,7 @@
 <!-- Related Blogs -->
   <div class="section related-blog-posts">
     <div class="container">
-      <%= react_component('RelatedBlogsApi', url: "/api/v1/related_blogs/#{@card_presenter.card.id}", currentUser: short_current_user) %>
+      <%= react_component('LoadRelatedBlogs', url: "/api/v1/related_blogs/#{@card_presenter.card.id}", currentUser: short_current_user) %>
     </div>
   </div>
   <!-- End Relateds Blogs -->
