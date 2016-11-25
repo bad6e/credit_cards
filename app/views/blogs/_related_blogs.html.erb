@@ -1,5 +1,5 @@
 <div class="section related-blog-posts">
   <div class="container">
-    <%= react_component('RelatedBlogsApi', url: "/api/v1/show_related_blogs/#{@blog.id}", currentUser: short_current_user) %>
+    <%= react_component('LoadRelatedBlogs', url: "/api/v1/show_related_blogs/#{@blog.id}", currentUser: short_current_user) %>
   </div>
 </div>
