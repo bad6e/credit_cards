@@ -1,74 +1,3 @@
-var CardActions = React.createClass({
-  determinePointRewardStatus : function(details) {
-    return details && details.rewards && details.rewards.length
-                        ? this.numberWithCommas(details.rewards[0].amount) : <div id="no-info">--</div>
-  },
-
-  determineDollarRewardStatus : function(details) {
-    return details && details.rewards && details.rewards.length
-                        ? this.dollarWithCommas(details.rewards[0].dollar_amount) : <div id="no-info">--</div>
-  },
-
-  numberWithCommas: function(number) {
-    if (number > 0) {
-      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    } else if (number === 0) {
-      return 0
-    }
-  },
-
-  dollarWithCommas: function(number) {
-    if (number > 0) {
-      return "$" + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    } else if (number === 0) {
-      return "$" + 0
-    }
-  },
-
-  determineBestOfferColor : function(bestOffer) {
-    if (bestOffer === "yes") {
-      return {color: 'green'}
-    } else if (bestOffer === "no") {
-      return {color: 'red'}
-    } else if (bestOffer === "ok") {
-      return {color: '#BB9D40'}
-    } else {
-      return {color: 'black'}
-    }
-  },
-
-  renderCards: function(key) {
-    if (this.props.apiUrl.indexOf("/users/") > -1 == "1"){
-      return <FavoriteCard key= {this.props.cards[key].id}
-                           details= {this.props.cards[key]}
-                           postFavoriteCard={this.props.postFavoriteCard}
-                           determinePointRewardStatus={this.determinePointRewardStatus}
-                           determineDollarRewardStatus={this.determineDollarRewardStatus}
-                           determineBestOfferColor={this.determineBestOfferColor}
-                           removeFavoriteCard={this.props.removeFavoriteCard}
-                           removeFavoriteCardFromState={this.props.removeFavoriteCardFromState}
-             />
-    } else {
-      return <CardContainer key= {this.props.cards[key].id}
-                            details= {this.props.cards[key]}
-                            postFavoriteCard={this.props.postFavoriteCard}
-                            determinePointRewardStatus={this.determinePointRewardStatus}
-                            determineDollarRewardStatus={this.determineDollarRewardStatus}
-                            determineBestOfferColor={this.determineBestOfferColor}
-                            currentUser={this.props.currentUser}
-             />
-    }
-  },
-
-  render : function() {
-    return (
-      <div>
-        {Object.keys(this.props.cards).map(this.renderCards)}
-      </div>
-    );
-  }
-});
-
 var LoadCards = React.createClass({
   getInitialState : function () {
     return { cards: [] };
@@ -123,13 +52,10 @@ var LoadCards = React.createClass({
   },
 
   removeFavoriteCardFromState : function(id) {
-    var deletedCard = _.find(this.state.cards, function(o) { return o.id === id; })
-    var newCardState = _.remove(this.state.cards, function (card) {
-      return card != deletedCard
-    })
+    var deletedCard = _.find(this.state.cards, function(o) { return o.id === id })
+    var newCardState = _.remove(this.state.cards, function (card) { return card != deletedCard })
     this.setState({ cards: newCardState})
   },
-
 
   postFavoriteCard : function(id) {
     $.ajax({
@@ -172,12 +98,12 @@ var LoadCards = React.createClass({
         <SortByName sortCardsByName={this.sortCardsByName}
                     sortCardsByAmount={this.sortCardsByAmount}
                     sortCardsByDollarAmount={this.sortCardsByDollarAmount}/>
-        <CardActions cards={this.state.cards}
-                     postFavoriteCard={this.postFavoriteCard}
-                     removeFavoriteCard={this.removeFavoriteCard}
-                     apiUrl={this.props.url}
-                     removeFavoriteCardFromState={this.removeFavoriteCardFromState}
-                     currentUser={this.props.currentUser}/>
+        <Cards cards={this.state.cards}
+               postFavoriteCard={this.postFavoriteCard}
+               removeFavoriteCard={this.removeFavoriteCard}
+               apiUrl={this.props.url}
+               removeFavoriteCardFromState={this.removeFavoriteCardFromState}
+               currentUser={this.props.currentUser}/>
       </div>
     );
   }
@@ -187,7 +113,7 @@ window.loadCardsFlux = function(url, currentUser) {
   var FluxMixin = Fluxxor.FluxMixin(React),
       StoreWatchMixin = Fluxxor.StoreWatchMixin;
 
-  var CardApi = React.createClass({
+  var CardActions = React.createClass({
     mixins: [Fluxxor.FluxMixin(React), StoreWatchMixin("FluxNumberOfFavoriteCardsStore")],
 
     getStateFromFlux: function() {
@@ -206,5 +132,5 @@ window.loadCardsFlux = function(url, currentUser) {
       )
     }
   });
-  ReactDOM.render(<CardApi flux={flux} url={url} currentUser={currentUser}/>, document.getElementById('shitty'));
+  ReactDOM.render(<CardActions flux={flux} url={url} currentUser={currentUser}/>, document.getElementById('shitty'));
 }
