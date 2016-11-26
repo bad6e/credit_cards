@@ -1,12 +1,3 @@
-
-var BlogApi = React.createClass({
-  render : function() {
-    return (
-      <LoadBlog url={this.props.url} currentUser={this.props.currentUser} />
-    )
-  }
-});
-
 var LoadBlog = React.createClass({
   getInitialState : function() {
     return {

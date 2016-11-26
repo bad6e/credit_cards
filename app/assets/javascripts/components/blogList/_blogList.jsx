@@ -75,7 +75,7 @@ var LoadBlogs = React.createClass({
                   numberOfShownBlogPosts= {this.state.numberOfShownBlogPosts} />
         {
           this.state.showLoadMoreButton &&
-          <LoadMoreButton loadMoreCards={this.loadMoreCards} />
+          <LoadMoreBlogsButton loadMoreCards={this.loadMoreCards} />
         }
       </div>
     );

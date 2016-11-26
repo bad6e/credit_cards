@@ -1,13 +1,3 @@
-var RelatedBlogsApi = React.createClass({
-  render : function() {
-    return (
-      <div>
-        <LoadRelatedBlogs url={this.props.url} currentUser={this.props.currentUser} />
-      </div>
-      )
-  }
-});
-
 var LoadRelatedBlogs = React.createClass({
   getInitialState : function () {
     return { relatedBlogs: [] };

@@ -27,13 +27,11 @@ feature "admin" do
     select category_one.name, :from => "card[categories][]"
     select category_four.name, :from => "card[categories][]"
     select category_three.name, :from => "card[categories][]"
+    select card_program_one.name, :from => "card[card_program][]"
     click_on "Submit Information"
 
-    expect(current_path).to eq(admin_cards_path)
-
-    within("#card-#{card_one.id}") do
-      first(:link, "Edit").click
-    end
+    card = Card.find_by(name: 'Test Name1')
+    expect(current_path).to eq(edit_admin_card_path(card))
 
     within(".edit_card") do
       find_field('card[name]').value.should eq "Test Name1"
@@ -62,7 +60,8 @@ feature "admin" do
     admin_edit
     fill_in_card_information
 
-    expect(current_path).to eq(admin_cards_path)
+    card = Card.find_by(name: 'Test Name1')
+    expect(current_path).to eq(edit_admin_card_path(card))
 
     expect(card_one.categories.first.name).to eq(category_one.name)
     expect(card_one.categories.second.name).to eq(category_three.name)
@@ -73,7 +72,8 @@ feature "admin" do
     admin_edit
     fill_in_card_information
 
-    expect(current_path).to eq(admin_cards_path)
+    card = Card.find_by(name: 'Test Name1')
+    expect(current_path).to eq(edit_admin_card_path(card))
 
     expect(card_one.categories.first.name).to eq(category_one.name)
     expect(card_one.categories.second.name).to eq(category_three.name)
@@ -95,6 +95,7 @@ feature "admin" do
     select category_four.name, :from => "card[categories][]"
     select category_three.name, :from => "card[categories][]"
     select category_two.name, :from => "card[categories][]"
+    select card_program_one.name, :from => "card[card_program][]"
     click_on "Submit Information"
 
     expect(card_one.categories.count).to eq(4)
@@ -116,9 +117,10 @@ feature "admin" do
     select category_one.name, :from => "card[categories][]"
     select category_four.name, :from => "card[categories][]"
     select category_three.name, :from => "card[categories][]"
+    select card_program_one.name, :from => "card[card_program][]"
     click_on "Submit Information"
-
-    expect(current_path).to eq(admin_cards_path)
+    card = Card.find_by(name: 'Test Name1')
+    expect(current_path).to eq(edit_admin_card_path(card))
 
     visit card_path(card_one)
     expect(page).to have_content("Test Name1")

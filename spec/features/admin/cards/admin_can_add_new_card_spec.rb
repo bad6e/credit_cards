@@ -19,8 +19,9 @@ feature "admin" do
     select category_one.name, :from => "card[categories][]"
     select category_four.name, :from => "card[categories][]"
     select category_three.name, :from => "card[categories][]"
-    click_on "Submit Information"
+    select card_program_one.name, :from => "card[card_program][]"
 
+    click_on "Submit Information"
     card = Card.last
 
     expect(card.categories.first.name).to eq(category_one.name)

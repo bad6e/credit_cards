@@ -1,13 +1,3 @@
-var RecentBlogsApi = React.createClass({
-  render : function() {
-    return (
-      <div>
-        <LoadRecentBlogs url={this.props.url} currentUser={this.props.currentUser} />
-      </div>
-      )
-  }
-});
-
 var LoadRecentBlogs = React.createClass({
   getInitialState : function () {
     return { recentBlogs: [] };

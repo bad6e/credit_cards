@@ -20,9 +20,11 @@ class Admin::CardsController < Admin::BaseController
   def create
     selected_categories   = card_params[:categories]
     selected_card_program = card_params[:card_program]
-    @card = Card.new(card_params.except(:categories, :card_program))
+    elected_main_card_program = card_params[:main_program]
+    @card = Card.new(card_params.except(:categories, :card_program, :main_program))
     if @card.save
       assign_categories_to_card(selected_categories)
+      assign_card_program_to_card(selected_card_program)
       assign_card_program_to_card(selected_card_program)
       flash[:success] = "Card successfully added!"
       redirect_to admin_cards_path

@@ -1,4 +1,4 @@
-var Reward = React.createClass({
+var CurrentBonus = React.createClass({
   getInitialState: function () {
     return {
       reward: [],

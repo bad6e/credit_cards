@@ -39,6 +39,12 @@ shared_context "features" do
                     slug: "our-favorite-credit-cards")
   }
 
+  let!(:category_nine ) {
+    Category.create(name: "brets-favorite-cards",
+                    slug: "brets-favorite-cards")
+  }
+
+  let!(:card_program_one) { create(:card_program) }
 
   let!(:admin_one) {
     User.create(first_name: "Bret",
@@ -58,8 +64,6 @@ shared_context "features" do
                 image_link: "https://www.google.com/?gws_rd=ssl",
                 point_type: "Southwest Rapid Rewards®")
   }
-
-
 
   let!(:card_two) {
     Card.create(name: "Southwest Rapid Rewards® Plus Credit Card",
@@ -231,7 +235,7 @@ shared_context "features" do
   def search_for_term_south
     visit root_path
 
-    within("#search-form") do
+    within(".search-form-test") do
       fill_in "search", with: "South"
       find('#search-button').click
     end

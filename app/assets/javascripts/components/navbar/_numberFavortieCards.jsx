@@ -27,7 +27,6 @@ window.loadNumberOfFavoriteCards = function(currentUser) {
                 >
                   <div key={number}>{number} Favorite Cards</div>
                 </ReactCSSTransitionGroup>
-
               </a>
             </li>
           </ul>
@@ -37,20 +36,3 @@ window.loadNumberOfFavoriteCards = function(currentUser) {
   });
   ReactDOM.render(<NumberOfFavoriteCards flux={flux} currentUser={currentUser} />, document.getElementById('shit'));
 }
-
- // return (
- //      <li key={key}>
- //        <CSSTransitionGroup
- //        component="span"
- //        transitionName="count"
- //        transitionLeaveTimeout={250}
- //        transitionEnterTimeout={250}
- //        >
- //          <span key={count}>{count}</span>
- //        </CSSTransitionGroup>
-
- //        lbs {fish.name} {removeButton}
- //        <span className="price">{h.formatPrice(count * fish.price)}</span>
- //      </li>
- //    )
- //  },
