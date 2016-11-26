@@ -20,9 +20,8 @@ feature "user - category show page" do
     visit category_path(category_two)
     within("#card-#{card_one.id}") do
       expect(page).to have_content "Southwest Airlines Rapid Rewards® Premier Credit Card"
-      expect(page).to have_content "NO INFO FOR THIS CARD"
+      expect(page).to have_content "--"
       expect(page).to have_content "$99"
-      expect(page).to have_content "12%"
     end
   end
 
@@ -49,7 +48,7 @@ feature "user - category show page" do
     within("#card-#{card_one.id}") do
       expect(page).to have_content "Southwest Airlines Rapid Rewards® Premier Credit Card"
       expect(page).to have_content "N/A"
-      expect(page).to have_content "55000"
+      expect(page).to have_content "55,000"
     end
   end
 
@@ -112,7 +111,7 @@ feature "user - category show page" do
     within("#card-#{card_one.id}") do
       expect(page).to have_content "Southwest Airlines Rapid Rewards® Premier Credit Card"
       expect(page).to have_content "YES"
-      expect(page).to have_content "50000"
+      expect(page).to have_content "50,000"
     end
   end
 
@@ -174,7 +173,7 @@ feature "user - category show page" do
     within("#card-#{card_one.id}") do
       expect(page).to have_content "Southwest Airlines Rapid Rewards® Premier Credit Card"
       expect(page).to have_content "NO"
-      expect(page).to have_content "35000"
+      expect(page).to have_content "35,000"
     end
   end
 
@@ -236,8 +235,8 @@ feature "user - category show page" do
     within("#card-#{card_one.id}") do
       expect(page).to have_content "Southwest Airlines Rapid Rewards® Premier Credit Card"
       expect(page).to have_content "OK"
-      expect(page).to have_content "47000"
-      expect(page).to_not have_content "48000"
+      expect(page).to have_content "47,000"
+      expect(page).to_not have_content "48,000"
     end
   end
 

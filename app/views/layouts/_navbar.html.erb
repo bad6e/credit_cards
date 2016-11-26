@@ -14,7 +14,7 @@
 
         </div>
         <% end %>
-        <ul class="quick-menu pull-right">
+        <ul class="quick-menu pull-right login-navbar-test">
           <li class="ribbon">
             <% if current_user %>
               <a href="#"><%= current_user.name %></a>
@@ -39,7 +39,7 @@
       <!-- Search Bar - Non Mobile -->
       <div class="pull-right hidden-mobile search-area">
         <%#= react_component('SearchResults') %>
-        <form method="get" accept-charset="UTF-8" id="search-form" role="search" action="/cards" class="quick-search">
+        <form method="get" accept-charset="UTF-8" class="search-form-test" id="search-form" role="search" action="/cards" class="quick-search">
           <div class="with-icon">
             <input type="text" name="search" class="input-text search-input" id="select_origin" placeholder="Search for Credit Cards" />
             <button class="icon" id="search-button" type="button submit"><i class="soap-icon-search"></i></button>

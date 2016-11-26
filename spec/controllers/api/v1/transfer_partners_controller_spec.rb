@@ -1,43 +1,55 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::TransferPartnersController, type: :controller do
-  describe "GET //api/v1/transfer_partners/:id" do
+  describe "GET /api/v1/transfer_partners/:id" do
     context "the card_id is valid" do
+      let!(:card_program)      { create(:card_program) }
+      let!(:card_one)          { create(:card,
+                                        card_program_id: card_program.id)
+                               }
+
+      let!(:transfer_partner1) { create(:transfer_partner) }
+      let!(:transfer_partner2) { create(:transfer_partner) }
+      let!(:transfer_partner3) { create(:transfer_partner) }
+      let!(:transfer_partner4) { create(:transfer_partner) }
+
+      let!(:ctp_1) { create(:card_program_transfer_partner,
+                            card_program_id: card_program.id,
+                            transfer_partner_id: transfer_partner1.id
+                           )
+      }
+
+      let!(:ctp_2) { create(:card_program_transfer_partner,
+                            card_program_id: card_program.id,
+                            transfer_partner_id: transfer_partner2.id
+                           )
+      }
+
+      let!(:ctp_3) { create(:card_program_transfer_partner,
+                            card_program_id: card_program.id,
+                            transfer_partner_id: transfer_partner3.id
+                           )
+      }
+
+      let!(:ctp_4) { create(:card_program_transfer_partner,
+                            card_program_id: card_program.id,
+                            transfer_partner_id: transfer_partner4.id
+                           )
+      }
+
       before(:each) do
-        card_one        = FactoryGirl.create(:card)
-        card_program    = FactoryGirl.create(:card_program)
-        card_one.update(card_program_id: card_program.id)
-
-        @transfer_one   = FactoryGirl.create(:transfer_partner)
-        transfer_two    = FactoryGirl.create(:transfer_partner)
-        transfer_three  = FactoryGirl.create(:transfer_partner)
-        @transfer_four  = FactoryGirl.create(:transfer_partner)
-
-        ctp_one         = FactoryGirl.create(:card_program_transfer_partner,
-                                            card_id: card_one.id,
-                                            transfer_partner_id: @transfer_one.id)
-
-        ctp_two         = FactoryGirl.create(:card_program_transfer_partner,
-                                            card_id: card_one.id,
-                                            transfer_partner_id: transfer_two.id)
-
-        ctp_three      = FactoryGirl.create(:card_program_transfer_partner,
-                                            card_id: card_one.id,
-                                            transfer_partner_id: transfer_three.id)
-
-        ctp_four       = FactoryGirl.create(:card_program_transfer_partner,
-                                            card_id: card_one.id,
-                                            transfer_partner_id: @transfer_four.id)
-
         get :show, id: card_one.id, format: :json
       end
 
       it { should respond_with 200 }
 
-      it "returns all the cards transfer partners" do
-        expect(response_data.length).to eq(4)
-        expect(response_data.first.dig("id")).to eq(@transfer_one.id)
-        expect(response_data.last.dig("id")).to eq(@transfer_four.id)
+      it "returns the card program associated with the card" do
+        expect(response_data.first.dig("name")).to eq(card_program.name)
+        expect(response_data.first.dig("image_url")).to eq(card_program.image_url)
+      end
+
+      it "returns the transfer partners associated with the card program" do
+        expect(response_data.first.dig("transfer_partners").length).to eq(4)
       end
     end
 

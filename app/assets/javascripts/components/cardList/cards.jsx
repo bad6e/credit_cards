@@ -37,33 +37,41 @@ var Cards = React.createClass({
     }
   },
 
-  renderCards: function(key) {
+  renderCards: function(card) {
     if (this.props.apiUrl.indexOf("/users/") > -1 == "1"){
-      return <FavoriteCard key= {this.props.cards[key].id}
-                           details= {this.props.cards[key]}
-                           postFavoriteCard={this.props.postFavoriteCard}
-                           determinePointRewardStatus={this.determinePointRewardStatus}
-                           determineDollarRewardStatus={this.determineDollarRewardStatus}
-                           determineBestOfferColor={this.determineBestOfferColor}
-                           removeFavoriteCard={this.props.removeFavoriteCard}
-                           removeFavoriteCardFromState={this.props.removeFavoriteCardFromState}
-             />
+      return (
+        <FavoriteCard key={card.id}
+                      details={card}
+                      postFavoriteCard={this.props.postFavoriteCard}
+                      determinePointRewardStatus={this.determinePointRewardStatus}
+                      determineDollarRewardStatus={this.determineDollarRewardStatus}
+                      determineBestOfferColor={this.determineBestOfferColor}
+                      removeFavoriteCard={this.props.removeFavoriteCard}
+                      removeFavoriteCardFromState={this.props.removeFavoriteCardFromState}
+        />
+      )
     } else {
-      return <CardContainer key= {this.props.cards[key].id}
-                            details= {this.props.cards[key]}
-                            postFavoriteCard={this.props.postFavoriteCard}
-                            determinePointRewardStatus={this.determinePointRewardStatus}
-                            determineDollarRewardStatus={this.determineDollarRewardStatus}
-                            determineBestOfferColor={this.determineBestOfferColor}
-                            currentUser={this.props.currentUser}
-             />
+      return (
+        <CardContainer key={card.id}
+                       details={card}
+                       postFavoriteCard={this.props.postFavoriteCard}
+                       removeFavoriteCard={this.props.removeFavoriteCard}
+                       determinePointRewardStatus={this.determinePointRewardStatus}
+                       determineDollarRewardStatus={this.determineDollarRewardStatus}
+                       determineBestOfferColor={this.determineBestOfferColor}
+                       currentUser={this.props.currentUser}
+        />
+      )
     }
   },
 
   render : function() {
     return (
       <div>
-        {Object.keys(this.props.cards).map(this.renderCards)}
+        <SortByName sortCardsByName={this.props.sortCardsByName}
+                    sortCardsByAmount={this.props.sortCardsByAmount}
+                    sortCardsByDollarAmount={this.props.sortCardsByDollarAmount}/>
+        {this.props.cards.map(this.renderCards)}
       </div>
     );
   }

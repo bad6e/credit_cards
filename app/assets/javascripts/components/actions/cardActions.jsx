@@ -1,6 +1,8 @@
 var LoadCards = React.createClass({
   getInitialState : function () {
-    return { cards: [] };
+    return {
+      cards: []
+    };
   },
 
   componentDidMount: function () {
@@ -91,20 +93,19 @@ var LoadCards = React.createClass({
     });
   },
 
-
   render : function () {
     return (
-      <div>
-        <SortByName sortCardsByName={this.sortCardsByName}
-                    sortCardsByAmount={this.sortCardsByAmount}
-                    sortCardsByDollarAmount={this.sortCardsByDollarAmount}/>
-        <Cards cards={this.state.cards}
-               postFavoriteCard={this.postFavoriteCard}
-               removeFavoriteCard={this.removeFavoriteCard}
-               apiUrl={this.props.url}
-               removeFavoriteCardFromState={this.removeFavoriteCardFromState}
-               currentUser={this.props.currentUser}/>
-      </div>
+      <Cards key={1}
+             cards={this.state.cards}
+             postFavoriteCard={this.postFavoriteCard}
+             removeFavoriteCard={this.removeFavoriteCard}
+             sortCardsByName={this.sortCardsByName}
+             sortedCardsByAmount={this.sortedCardsByAmount}
+             sortCardsByDollarAmount={this.sortCardsByDollarAmount}
+             apiUrl={this.props.url}
+             removeFavoriteCardFromState={this.removeFavoriteCardFromState}
+             currentUser={this.props.currentUser}
+      />
     );
   }
 });
@@ -134,3 +135,4 @@ window.loadCardsFlux = function(url, currentUser) {
   });
   ReactDOM.render(<CardActions flux={flux} url={url} currentUser={currentUser}/>, document.getElementById('shitty'));
 }
+

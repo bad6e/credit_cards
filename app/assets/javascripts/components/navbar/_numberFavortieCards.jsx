@@ -27,7 +27,6 @@ window.loadNumberOfFavoriteCards = function(currentUser) {
                 >
                   <div key={number}>{number} Favorite Cards</div>
                 </ReactCSSTransitionGroup>
-
               </a>
             </li>
           </ul>

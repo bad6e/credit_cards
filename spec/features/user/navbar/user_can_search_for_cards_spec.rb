@@ -10,7 +10,7 @@ feature "navbar" do
 
     visit root_path
 
-    within("#search-form") do
+    within(".search-form-test") do
       fill_in "search", with: "South"
       find('#search-button').click
     end
@@ -31,7 +31,7 @@ feature "navbar" do
 
     visit root_path
 
-    within("#search-form") do
+    within(".search-form-test") do
       fill_in "search", with: "South"
 
     end
