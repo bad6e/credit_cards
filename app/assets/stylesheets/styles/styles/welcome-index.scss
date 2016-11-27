@@ -32,6 +32,13 @@ $lightGray : #838383;
   font-family: 'Raleway', sans-serif;
  }
 
+.main-search-box {
+  margin: 40px;
+  box-shadow: 0 2px 15px 2px #E0E0E0;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
  //Graph CSS
 .graph-detail {
   display: none;
@@ -41,7 +48,6 @@ $lightGray : #838383;
 .subtitles {
   text-align: center;
 }
-
 
 .front-page-deals {
   padding-top: 3px;
@@ -81,10 +87,12 @@ $lightGray : #838383;
 }
 
 #search {
-  color: $lightGray !important;
+  color: #01b7f2;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2.8em;
   padding-bottom: 10px;
+  font-weight: bolder;
+  letter-spacing: 1px;
 }
 
 //Example Title
@@ -138,9 +146,18 @@ $lightGray : #838383;
   font-size: 1.8em;
   padding-bottom: 10px;
   h2 {
-    color: $lightBlue !important;
+    color: $lightGray !important;
   }
 }
+
+@media (max-width: 767px) {
+  .main-search-box {
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+
 
 @media (max-width: 480px) {
   .fullwidthbanner-container {
