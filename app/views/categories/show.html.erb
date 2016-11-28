@@ -12,18 +12,22 @@
     </div>
 </div>
 
-<div class="category-description">
+<!-- <div class="category-description">
   <h4><%= @category_presenter.category.description %></h4>
-</div>
+</div> -->
 
 <section id="content">
   <div class="container">
     <div id="main">
       <div class="row">
+      <div class="explanation">
+        <h2>Our Favorite Credit Cards</h2>
+        <p>A rewards credit card can help you earn cash back, travel rewards and other perks with everyday purchases. Compare NerdWallet's best offers below, including some deals from our partners. Showing <%= pluralize(@category_presenter.number_of_cards_per_category, "Card") %>
+      </div>
 
         <!-- Modify Search Box -->
         <div class="col-sm-4 col-md-3">
-          <h4 class="search-results-title"><i class="soap-icon-search"></i><b><%= pluralize(@category_presenter.number_of_cards_per_category, "Card") %></b> found.</h4>
+
           <div class="toggle-container filters-container">
             <div class="panel style1 arrow-right">
               <h4 class="panel-title">
