@@ -21,7 +21,7 @@ var SortByName = React.createClass({
     } else {
       this.props.sortCardsByName();
     }
-    setTimeout(function() { this.setState({loaderImg: false}); }.bind(this), 650);
+    setTimeout(function() { this.setState({loaderImg: false}); }.bind(this), 750);
   },
 
   render: function() {
