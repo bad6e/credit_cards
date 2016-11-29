@@ -12,17 +12,13 @@
     </div>
 </div>
 
-<!-- <div class="category-description">
-  <h4><%= @category_presenter.category.description %></h4>
-</div> -->
-
 <section id="content">
   <div class="container">
     <div id="main">
       <div class="row">
       <div class="explanation">
-        <h2>Our Favorite Credit Cards</h2>
-        <p>A rewards credit card can help you earn cash back, travel rewards and other perks with everyday purchases. Compare NerdWallet's best offers below, including some deals from our partners. Showing <%= pluralize(@category_presenter.number_of_cards_per_category, "Card") %>
+        <h2><%= @category_presenter.category_name %></h2>
+        <p><%= @category_presenter.category.description %></p>
       </div>
 
         <!-- Modify Search Box -->
@@ -36,7 +32,7 @@
                 <div id="modify-search-panel" class="panel-collapse collapse">
                   <div class="panel-content" id="cat-panel">
                     <%= form_tag({controller: "categories", action: "show"}, method: "get") do %>
-                       <%= select(:category, :category_id, Category.all.collect {|c| [ c.parse_category_name, c.id ] }) %></br>
+                       <%= select(:category, :category_id, Category.where.not(id: @category_presenter.excluded_ids).order(:name).collect {|c| [ c.parse_category_name, c.id ] }) %></br>
                        <br><button type="submit"  class="btn-medium uppercase full-width">Search</button>
                     <% end %>
                   </div>

@@ -21,4 +21,8 @@ class CategoryPresenter
   def categories_cards
     category.cards
   end
+
+  def excluded_ids
+    Category.exclude_ids
+  end
 end

@@ -23,6 +23,35 @@ $lightGray : #838383;
   background-position: center center;
 }
 
+.portal-section {
+  padding: 0 25px;
+}
+
+.idea-title {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.image-box .box img {
+  width: 80% !important;
+}
+
+.image-box {
+  .box, .image-box.box {
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 0px;
+    img {
+      margin: auto;
+    }
+
+  }
+}
+
+.box {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.15);
+  margin: none !important;
+}
+
 .top-title {
   margin-top: 176px;
   font-weight: 900;
@@ -37,6 +66,10 @@ $lightGray : #838383;
   box-shadow: 0 2px 15px 2px #E0E0E0;
   margin-left: 150px;
   margin-right: 150px;
+}
+
+.search-title-2 {
+  padding-bottom: 0px;
 }
 
  //Graph CSS
