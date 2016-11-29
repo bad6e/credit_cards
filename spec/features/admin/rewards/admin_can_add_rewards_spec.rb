@@ -151,7 +151,7 @@ feature "admin" do
     end
 
     within(".bonus-information-side") do
-      expect(page).to have_content("60000")
+      expect(page).to have_content("60,000")
       expect(page).to have_content("$4,000")
       expect(page).to have_content("4 Months")
 

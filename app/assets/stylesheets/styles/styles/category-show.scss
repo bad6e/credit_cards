@@ -1,4 +1,7 @@
-// Loader Img Plane
+$lightBlue : #01b7f2;
+$lightGray : #838383;
+
+// Loader Img
 .loading-animation-overlay {
   position: absolute;
   width: 100%;
@@ -39,13 +42,20 @@
 //Top Description
 .explanation {
   h2 {
+    color: $lightBlue;
     font-size: 2.5em;
     text-align: center;
     font-weight: bolder;
+    @media (min-width: 991px) {
+      font-size: 3.2em;
+    }
   }
   p {
     padding: 10px 20px;
     font-size: 1.3em;
+    @media (min-width: 991px) {
+      font-size: 1.6em;
+    }
   }
 }
 
@@ -68,7 +78,7 @@ select {
 }
 
 .card-box {
-  box-shadow: 0 2px 15px 2px #E0E0E0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card-image-cat {
@@ -118,6 +128,10 @@ select {
   color: #838383;
   padding-bottom: 30px;
   text-transform: lowercase;
+}
+
+#cat-panel {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
 }
 
 #cat-card-title {
