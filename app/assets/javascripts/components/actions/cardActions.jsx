@@ -1,7 +1,8 @@
 var LoadCards = React.createClass({
   getInitialState : function () {
     return {
-      cards: []
+      cards: [],
+      loaderImg: true
     };
   },
 
@@ -14,8 +15,15 @@ var LoadCards = React.createClass({
       url: this.props.url,
       dataType: 'json',
       success: function (cards) {
-        this.setState({cards : cards});
-        this.sortCardsByDollarAmount();
+        setTimeout(function() {
+          this.setState(
+            {
+              cards: cards,
+              loaderImg: false
+            },
+            this.sortCardsByDollarAmount()
+          )
+        }.bind(this), 800);
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -95,18 +103,22 @@ var LoadCards = React.createClass({
   },
 
   render : function () {
+    const loadImg = this.state.loaderImg ?  <LoaderImg /> : null
     return (
-      <Cards key={1}
-             cards={this.state.cards}
-             postFavoriteCard={this.postFavoriteCard}
-             removeFavoriteCard={this.removeFavoriteCard}
-             sortCardsByName={this.sortCardsByName}
-             sortCardsByAmount={this.sortCardsByAmount}
-             sortCardsByDollarAmount={this.sortCardsByDollarAmount}
-             apiUrl={this.props.url}
-             removeFavoriteCardFromState={this.removeFavoriteCardFromState}
-             currentUser={this.props.currentUser}
-      />
+      <div>
+        { loadImg }
+        <Cards key={1}
+               cards={this.state.cards}
+               postFavoriteCard={this.postFavoriteCard}
+               removeFavoriteCard={this.removeFavoriteCard}
+               sortCardsByName={this.sortCardsByName}
+               sortCardsByAmount={this.sortCardsByAmount}
+               sortCardsByDollarAmount={this.sortCardsByDollarAmount}
+               apiUrl={this.props.url}
+               removeFavoriteCardFromState={this.removeFavoriteCardFromState}
+               currentUser={this.props.currentUser}
+        />
+      </div>
     );
   }
 });
