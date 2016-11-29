@@ -42,18 +42,7 @@
               <% end %>
             </ul>
             <br />
-            <h2>Card Categories</h2>
-              <div class="car-features box">
-                <div class="row add-clearfix">
-                  <% @card_presenter.category_list.each do |category| %>
-                    <div class="col-sms-6 col-sm-6 col-md-4">
-                      <span class="icon-box style2">
-                      <i class="soap-icon-plane-right circle"></i><%= link_to category.parse_category_name, category_path(category) %>
-                      </span>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
+
               <div class="FavoriteButtonMobile" id="favorite-button">
                 <%= javascript_tag do %>
                   $(document).ready(function() { window.loadFavButtonFromFlux("/api/v1/favorite_cards/1", '<%= short_current_user %>', '<%= @card_presenter.card.id %>')
@@ -66,7 +55,7 @@
                   <div class="row add-clearfix">
                     <div class="col-sms-6 col-sm-6 col-md-4">
                       <span class="icon-box style2">
-                        <i class="soap-icon-beach circle"></i>Sign Up Bonus: <%= @card_presenter.rewards.last.amount %> Miles
+                        <i class="soap-icon-beach circle"></i>Sign Up Bonus: <%= number_with_delimiter(@card_presenter.rewards.last.amount) %> Miles
                       </span>
                     </div>
                     <div class="col-sms-6 col-sm-6 col-md-4">

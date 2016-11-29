@@ -12,7 +12,7 @@ feature "user - category show page - sorting" do
 
     visit category_path(category_one)
     within(".sort-by-section") do
-      click_on "Card Name"
+      select("Card Name", from: "sort-buttons")
     end
 
     expect(page.first(:css, '#cat-card-title').text).to eq(("Barclaycard Arrival Plus™ World Elite MasterCard®"))
@@ -66,7 +66,7 @@ feature "user - category show page - sorting" do
     visit category_path(category_one)
 
     within(".sort-by-section") do
-      click_on "Current Bonus - Points"
+      select("Bonus in Points", from: "sort-buttons")
     end
 
     expect(page.first(:css, '#cat-card-title').text).to eq(("Southwest Airlines Rapid Rewards® Premier Credit Card"))
@@ -127,7 +127,7 @@ feature "user - category show page - sorting" do
     visit category_path(category_one)
 
     within(".sort-by-section") do
-      click_on "Current Bonus - Dollars"
+      select("Bonus in Dollars", from: "sort-buttons")
     end
 
     expect(page.first(:css, '#cat-card-title').text).to eq(("Chase Sapphire Preferred® Card"))
@@ -186,9 +186,8 @@ feature "user - category show page - sorting" do
     Rake::Task["set_best_offer"].execute
     visit category_path(category_one)
 
-    within(".sort-by-section") do
-      click_on "Current Bonus - Dollars"
-
+     within(".sort-by-section") do
+      select("Bonus in Dollars", from: "sort-buttons")
     end
 
     expect(page.first(:css, '#cat-card-title').text).to eq(("Chase Sapphire Preferred® Card"))

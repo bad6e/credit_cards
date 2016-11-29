@@ -15,6 +15,7 @@ var LoadCards = React.createClass({
       dataType: 'json',
       success: function (cards) {
         this.setState({cards : cards});
+        this.sortCardsByDollarAmount();
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString());

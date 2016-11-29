@@ -1,5 +1,4 @@
 class Api::V1::AutoCompleteController < ApplicationController
-
   respond_to :json
 
   def search
@@ -10,5 +9,4 @@ class Api::V1::AutoCompleteController < ApplicationController
     end
     render json: @card.to_json
   end
-
 end
