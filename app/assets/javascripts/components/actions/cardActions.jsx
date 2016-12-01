@@ -21,7 +21,7 @@ var LoadCards = React.createClass({
               cards: cards,
               loaderImg: false
             },
-            this.sortCardsByDollarAmount()
+            this.sortCardsByDollarAmount
           )
         }.bind(this), 800);
       }.bind(this),
