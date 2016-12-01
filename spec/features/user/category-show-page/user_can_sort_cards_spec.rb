@@ -13,18 +13,20 @@ feature "user - category show page - sorting" do
     visit category_path(category_one)
     within(".sort-by-section") do
       select("Card Name", from: "sort-buttons")
+      sleep(1)
     end
 
     expect(page.first(:css, '#cat-card-title').text).to eq(("Barclaycard Arrival Plus™ World Elite MasterCard®"))
   end
 
   scenario "user can sort the cards by their bonus amount(POINTS)", js: true do
+
     Reward.create(amount: 55000,
-              length_of_time: 2,
-              record_date: "2016-02-10",
-              spending_amount: 2000,
-              apply_link: "https://creditcards.chase.com/a1/southwest/2rtfosam1?",
-              card_id: card_three.id)
+                  length_of_time: 2,
+                  record_date: "2016-02-10",
+                  spending_amount: 2000,
+                  apply_link: "https://creditcards.chase.com/a1/southwest/2rtfosam1?",
+                  card_id: card_three.id)
 
     Reward.create(amount: 48000,
               length_of_time: 2,
@@ -47,6 +49,7 @@ feature "user - category show page - sorting" do
               apply_link: "https://creditcards.chase.com/a1/southwest/2rtfosam1?",
               card_id: card_two.id)
 
+
      Reward.create(amount: 57000,
               length_of_time: 2,
               record_date: "2016-02-07",
@@ -66,12 +69,12 @@ feature "user - category show page - sorting" do
     visit category_path(category_one)
 
     within(".sort-by-section") do
+      sleep(3)
       select("Bonus in Points", from: "sort-buttons")
     end
 
     expect(page.first(:css, '#cat-card-title').text).to eq(("Southwest Airlines Rapid Rewards® Premier Credit Card"))
   end
-
 
   scenario "user can sort the cards by their bonus amount(DOLLARS)", js: true do
     Reward.create(amount: 55000,
@@ -128,6 +131,7 @@ feature "user - category show page - sorting" do
 
     within(".sort-by-section") do
       select("Bonus in Dollars", from: "sort-buttons")
+      sleep(1)
     end
 
     expect(page.first(:css, '#cat-card-title').text).to eq(("Chase Sapphire Preferred® Card"))
@@ -188,6 +192,7 @@ feature "user - category show page - sorting" do
 
      within(".sort-by-section") do
       select("Bonus in Dollars", from: "sort-buttons")
+      sleep(1)
     end
 
     expect(page.first(:css, '#cat-card-title').text).to eq(("Chase Sapphire Preferred® Card"))
