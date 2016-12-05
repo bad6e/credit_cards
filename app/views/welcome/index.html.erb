@@ -40,37 +40,37 @@
         <div class="travelo-box travel-ideas">
           <h2 class="idea-title"><span class="index">1.</span>Search for Card Categories</h2>
             <div class="column-3 image-box suggestions">
-              <div class="box category-box">
+              <div class="box category-image">
                 <a href="/travel-credit-cards" class="hover-effect style1">
                   <img src="https://s3.amazonaws.com/toomanymiles-svgs/landmark.svg">
                   <h4 class="caption"><a href="#">All Travel Cards</a></h4>
                 </a>
               </div>
-              <div class="box category-box">
+              <div class="box category-image">
                 <a href="/airline-credit-cards" class="hover-effect style1">
                   <img src="https://s3.amazonaws.com/toomanymiles-svgs/airplane.svg">
                   <h4 class="caption"><a href="#">Airline Cards</a></h4>
                 </a>
               </div>
-              <div class="box category-box">
+              <div class="box category-image">
                 <a href="/hotel-credit-cards" class="hover-effect style1">
                   <img src="https://s3.amazonaws.com/toomanymiles-svgs/hospital-bed.svg">
                   <h4 class="caption"><a href="#">Hotel Cards</a></h4>
                 </a>
               </div>
-              <div class="box category-box">
+              <div class="box category-image">
                 <a href="/business-rewards-credit-cards" class="hover-effect style1">
                   <img src="https://s3.amazonaws.com/toomanymiles-svgs/briefcase_2.svg">
                   <h4 class="caption"><a href="#">Business Cards</a></h4>
                 </a>
               </div>
-              <div class="box category-box">
+              <div class="box category-image">
                 <a href="/cash-back-credit-cards" class="hover-effect style1">
                   <img src="https://s3.amazonaws.com/toomanymiles-svgs/dollar-bill.svg">
                   <h4 class="caption"><a href="#">Cash Back Cards</a></h4>
                 </a>
               </div>
-              <div class="box category-box">
+              <div class="box category-image">
                 <a href="/our-favorite-credit-cards" class="hover-effect style1">
                   <img src="https://s3.amazonaws.com/toomanymiles-svgs/credit-card.svg">
                   <h4 class="caption"><a href="#">Our Favorite Cards</a></h4>
@@ -111,7 +111,7 @@
     <ul class="slides image-box car listing-style1">
       <% @welcome_presenter.brets_favorite_deal_now.each do |card| %>
       <li>
-        <article class="box">
+        <article class="box favorite-deal-image">
           <figure>
             <%= link_to image_tag(card.image_link), card_path(card) %>
           </figure>

@@ -4,7 +4,7 @@ var RecentBlogs = React.createClass({
 
     return (
       <div className="col-sm-6">
-        <article className="box">
+        <article className="box related-blog-image">
           <figure>
             <a title="" href={"/blogs/" + details.slug}><img alt={details.meta_title} src={details.related_image_url}/></a>
             <figcaption>
