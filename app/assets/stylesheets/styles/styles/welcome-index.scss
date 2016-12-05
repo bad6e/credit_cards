@@ -173,8 +173,19 @@ $lightGray : #838383;
   font-size: 1.5em;
 }
 
-//Recent Blogs Posts
+.apply-now-button-welcome {
+  margin-top: 10px;
+  @media (max-width: 480px) {
+    font-size: 1.0em;
+  }
+  @media (min-width: 480px) {
+    max-width: 500px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
+//Recent Blogs Posts
 .recent-posts-section {
   padding-top: 0 !important;
 }

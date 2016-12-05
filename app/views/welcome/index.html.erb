@@ -122,6 +122,7 @@
             <p class="mile"><span class="skin-color apply-now">Apply Now?</span><strong><div class="best-offer-color best-offer" id="yes-or-no"> <%=card.best_offer %></div></strong></p>
             <div class="action">
             <%= link_to "SEE MORE", card_path(card), class: "button btn-small btn-success full-width" %>
+            <a class="btn btn-success btn-lg btn-block full-width apply-now-button-welcome" href=<%= card.rewards.last.apply_link %>>APPLY NOW</a>
           </div>
           </div>
         </article>
