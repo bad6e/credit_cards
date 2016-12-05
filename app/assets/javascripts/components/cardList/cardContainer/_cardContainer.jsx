@@ -31,7 +31,7 @@ var CardContainer = React.createClass({
                                                              data-target="#travelo-login">LOGIN TO FAVORITE</a>);
     const applyNowButton = details.rewards
                            && details.rewards.length >= 1
-                           ? <a className="btn btn-success btn-lg btn-block full-width apply-now-button" href={details.rewards[0].apply_link}>APPLY NOW</a> : false;
+                           ? <a className="btn btn-success btn-lg btn-block full-width apply-now-button-category" href={details.rewards[0].apply_link}>APPLY NOW</a> : false;
 
     return (
       <article className="box card-box" id={'card-' + details.id}>
