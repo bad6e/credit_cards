@@ -1,8 +1,8 @@
+const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
 var CardContainer = React.createClass({
   addFavoriteCard: function() {
     const id = this.props.details.id
-    document.getElementById("favorite-button-" + id).text="FAVORITED!";
-    document.getElementById("favorite-button-" + id).style.backgroundColor="#e9b02b"
     this.props.postFavoriteCard(id);
   },
 
@@ -11,14 +11,14 @@ var CardContainer = React.createClass({
     const favoriteCardIds = this.props.details.favorite_card_ids
 
     if (_.includes(favoriteCardIds, id)) {
-      return <a className="button btn-small yellow active favorite-button"
-                id={"favorite-button-" + id}
-                href="javaScript:void(0);">FAVORITED!</a>
+      return <Heart id={id}
+                    cssClass="heart"
+             />
     } else {
-      return <a className="button btn-small green active favorite-button"
-                id={"favorite-button-" + id}
-                onClick={this.addFavoriteCard}
-                href="javaScript:void(0);">FAVORITE CARD</a>
+      return <Heart id={id}
+                    cssClass="empty-heart"
+                    addFavoriteCard={this.addFavoriteCard}
+             />
     }
   },
 
@@ -26,9 +26,16 @@ var CardContainer = React.createClass({
     const details = this.props.details
     const hasCurrentUser = (this.props.currentUser != "" ? true : false);
     const buttonOptions = this.checkIfFavoriteCard();
-    const buttonText = (hasCurrentUser ?  buttonOptions : <a href="#"
-                                                             className="button btn-small sky-blue1 active soap-popupbox favorite-button"
-                                                             data-target="#travelo-login">LOGIN TO FAVORITE</a>);
+
+    const buttonText = (hasCurrentUser ?  buttonOptions : <a href="#travelo-login" className="soap-popupbox favorite-button" data-target="#travelo-login">
+                                                            <svg className='empty-heart' viewBox="-2 -2 35 33">
+                                                              <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,
+                                                                    0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+                                                                    c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+                                                            </svg>
+                                                          </a>
+                        );
+
     const applyNowButton = details.rewards
                            && details.rewards.length >= 1
                            ? <a className="btn btn-success btn-lg btn-block full-width apply-now-button-category" href={details.rewards[0].apply_link}>APPLY NOW</a> : false;
@@ -47,7 +54,6 @@ var CardContainer = React.createClass({
                 <div className="best-offer-color" id="best-offer-color" style={this.props.determineBestOfferColor(details.best_offer)}>
                   {details.best_offer}<br/>
                 </div>
-
                 <div className="desktop">
                   <BonusInPoints details={details}
                                  size='col-xs-4'

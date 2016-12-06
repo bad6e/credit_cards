@@ -8,7 +8,7 @@ feature "Liking Cards on Category Show Page" do
     visit category_path(category_one)
 
     within('#card-' + card_one.id.to_s) do
-      expect(page).to have_content("LOGIN TO FAVORITE")
+      page.has_css?("empty-heart")
     end
   end
 
@@ -17,7 +17,7 @@ feature "Liking Cards on Category Show Page" do
     visit category_path(category_one)
 
     within('#card-' + card_one.id.to_s) do
-      click_on "LOGIN TO FAVORITE"
+      find(:css, "svg").click
     end
 
     expect(page).to have_content("Login with Facebook")
@@ -34,13 +34,13 @@ feature "Liking Cards on Category Show Page" do
     visit category_path(category_one)
 
     within('#card-' + card_one.id.to_s) do
-      click_on("FAVORITE CARD")
+      find(:css, "svg").click
     end
 
     visit category_path(category_one)
 
     within('#card-' + card_two.id.to_s) do
-      click_on("FAVORITE CARD")
+      find(:css, "svg").click
     end
 
     current_user = User.last
@@ -58,12 +58,13 @@ feature "Liking Cards on Category Show Page" do
     set_card_categories
     login_with_facebook
     visit category_path(category_one)
+
     within('#card-' + card_one.id.to_s) do
-      click_on("FAVORITE CARD")
+      find(:css, "svg").click
     end
 
     within('#card-' + card_two.id.to_s) do
-      click_on("FAVORITE CARD")
+      find(:css, "svg").click
     end
 
     current_user = User.last
@@ -72,6 +73,7 @@ feature "Liking Cards on Category Show Page" do
     find('.favorite-card-tab').click
 
     within("#unfavorite-" + card_one.id.to_s) do
+      sleep(5)
       click_on "Unfavorite"
     end
 
@@ -95,11 +97,11 @@ feature "Liking Cards on Category Show Page" do
     visit category_path(category_one)
 
     within("#card-" + card_one.id.to_s) do
-      expect(page).to have_content("FAVORITE CARD")
+      page.has_css?("empty-heart")
     end
 
     within("#card-" + card_two.id.to_s) do
-      expect(page).to have_content("FAVORITED!")
+      page.has_css?("heart")
     end
   end
 end

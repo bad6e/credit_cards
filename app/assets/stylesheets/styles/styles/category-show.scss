@@ -130,6 +130,28 @@ select {
   text-transform: lowercase;
 }
 
+//Favorite Button
+.heart {
+  fill: #D75A4A;
+  position: relative;
+
+  width: 30px;
+  animation: pulse 1s ease,
+}
+
+.empty-heart {
+  fill: none;
+  stroke: $lightGray;
+  position: relative;
+  width: 30px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
 #cat-panel {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
 }
