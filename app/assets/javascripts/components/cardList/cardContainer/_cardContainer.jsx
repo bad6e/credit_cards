@@ -1,5 +1,3 @@
-const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-
 var CardContainer = React.createClass({
   addFavoriteCard: function() {
     const id = this.props.details.id
