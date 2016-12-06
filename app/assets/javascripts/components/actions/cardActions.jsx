@@ -1,6 +1,7 @@
 var LoadCards = React.createClass({
   getInitialState : function () {
     return {
+      unfilteredCards: [],
       cards: [],
       loaderImg: true
     };
@@ -19,6 +20,7 @@ var LoadCards = React.createClass({
           this.setState(
             {
               cards: cards,
+              unfilteredCards: cards,
               loaderImg: false
             },
             this.sortCardsByDollarAmount
@@ -29,43 +31,6 @@ var LoadCards = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
-
-  sortCardsByName : function() {
-   var sortedCardsByName = _.sortBy(this.state.cards, function(o) { return o.name; })
-   this.setState({ cards: sortedCardsByName })
-  },
-
-  sortCardsByAmount : function() {
-    var sortedCardsByAmount = _.sortBy(this.state.cards, function(o) {
-      if (o.rewards.length > 0) {
-        return o.rewards[0].amount;
-      } else if (o.rewards.length === 0) {
-        return -1
-      }
-    })
-    this.setState({ cards: sortedCardsByAmount.reverse() })
-  },
-
-  sortCardsByDollarAmount : function() {
-    var sortedCardsByDollarAmount = _.sortBy(this.state.cards, function(o) {
-      if (o.rewards.length > 0  &&  o.rewards[0].dollar_amount) {
-        return o.rewards[0].dollar_amount;
-      } else if (o.rewards.length > 0 && o.rewards[0].dollar_amount === 0) {
-        return -1
-      } else if (o.rewards.length > 0 && o.rewards[0].dollar_amount === null) {
-        return -2
-      } else if (o.rewards.length === 0) {
-        return -3
-      }
-    })
-    this.setState({ cards: sortedCardsByDollarAmount.reverse() })
-  },
-
-  removeFavoriteCardFromState : function(id) {
-    var deletedCard = _.find(this.state.cards, function(o) { return o.id === id })
-    var newCardState = _.remove(this.state.cards, function (card) { return card != deletedCard })
-    this.setState({ cards: newCardState})
   },
 
   postFavoriteCard : function(id) {
@@ -102,6 +67,12 @@ var LoadCards = React.createClass({
     });
   },
 
+  removeFavoriteCardFromState : function(id) {
+    var deletedCard = _.find(this.state.cards, function(o) { return o.id === id })
+    var newCardState = _.remove(this.state.cards, function (card) { return card != deletedCard })
+    this.setState({ cards: newCardState })
+  },
+
   render : function () {
     const loadImg = this.state.loaderImg ?  <LoaderImg /> : null
     return (
@@ -114,6 +85,7 @@ var LoadCards = React.createClass({
                sortCardsByName={this.sortCardsByName}
                sortCardsByAmount={this.sortCardsByAmount}
                sortCardsByDollarAmount={this.sortCardsByDollarAmount}
+               sortCardsByCreditScore={this.sortCardsByCreditScore}
                apiUrl={this.props.url}
                removeFavoriteCardFromState={this.removeFavoriteCardFromState}
                currentUser={this.props.currentUser}
@@ -148,4 +120,3 @@ window.loadCardsFlux = function(url, currentUser) {
   });
   ReactDOM.render(<CardActions flux={flux} url={url} currentUser={currentUser}/>, document.getElementById('shitty'));
 }
-
