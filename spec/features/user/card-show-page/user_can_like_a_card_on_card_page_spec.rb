@@ -63,7 +63,7 @@ feature "Liking Cards on Card Show Page" do
     visit category_path(category_one)
 
     within("#card-" + card_one.id.to_s) do
-      expect(page).to have_content("FAVORITED!")
+      page.has_css?("heart")
     end
 
     current_user = User.last
@@ -92,7 +92,7 @@ feature "Liking Cards on Card Show Page" do
     visit category_path(category_one)
 
     within("#card-" + card_one.id.to_s) do
-      expect(page).to have_content("FAVORITE CARD")
+      page.has_css?("heart")
     end
   end
 end

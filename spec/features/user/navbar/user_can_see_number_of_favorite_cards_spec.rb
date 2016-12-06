@@ -10,16 +10,10 @@ feature "Liked Cards in Navbar" do
     visit category_path(category_one)
 
     within('#card-' + card_one.id.to_s) do
-      click_on("FAVORITE CARD")
+      find(:css, "svg").click
     end
 
     expect(page).to have_content("1 FAVORITE CARDS")
-
-    # within('#card-' + card_two.id.to_s) do
-    #   click_on("FAVORITE CARD")
-    # end
-
-    # expect(page).to have_content("2 FAVORITE CARDS")
   end
 
   scenario "User can like a card and unlike it and see the update", js: true do
@@ -29,7 +23,7 @@ feature "Liked Cards in Navbar" do
     visit category_path(category_one)
 
     within('#card-' + card_one.id.to_s) do
-      click_on("FAVORITE CARD")
+      find(:css, "svg").click
     end
 
     expect(page).to have_content("1 FAVORITE CARDS")
