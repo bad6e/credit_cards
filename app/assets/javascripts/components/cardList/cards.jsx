@@ -1,10 +1,8 @@
 var Cards = React.createClass({
   getInitialState : function () {
     return {
-      filterbyName: false,
-      filterByDollarAmount: false,
-      filterByPointAmount: false,
-      filterByCreditScore: false,
+      sortBy: 'bonus-in-dollars',
+      filterByCreditScore: 'all',
       loaderImg: true
     };
   },
