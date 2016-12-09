@@ -7,10 +7,13 @@ $(document).ready(function(){
 function grabCardId() {
   if (window.location.pathname === "/") {
     checkForTestEnv();
+  } else if (window.location.pathname.indexOf("/admin/cards/") == 0) {
+    return;
   } else if (window.location.pathname.indexOf("/cards/") > -1) {
     checkForShowTestEnv();
-  } else {
-    return;
+  }
+  else {
+    return
   }
 }
 
