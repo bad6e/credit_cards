@@ -16,6 +16,7 @@ feature "admin" do
     fill_in "card[intro_rate]", with: "N/A"
     fill_in "card[image_link]", with: "http://www.cnn.com/"
     fill_in "card[information]", with: "This is the best card ever. I really like it. Fact."
+    fill_in "card[credit_score]", with: "poor"
     select category_one.name, :from => "card[categories][]"
     select category_four.name, :from => "card[categories][]"
     select category_three.name, :from => "card[categories][]"

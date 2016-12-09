@@ -135,6 +135,7 @@ class Admin::CardsController < Admin::BaseController
                                    :flyer_talk_link,
                                    :image_url,
                                    :point_type,
+                                   :credit_score,
                                    :categories => [],
                                    :main_program => [],
                                    :card_program => [],
