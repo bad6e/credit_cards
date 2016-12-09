@@ -59,10 +59,6 @@ feature "Liking Cards on Category Show Page" do
     login_with_facebook
     visit category_path(category_one)
 
-    within('#card-' + card_one.id.to_s) do
-      find(:css, "svg").click
-    end
-
     within('#card-' + card_two.id.to_s) do
       find(:css, "svg").click
     end
@@ -72,26 +68,14 @@ feature "Liking Cards on Category Show Page" do
     visit user_path(current_user)
     find('.favorite-card-tab').click
 
-    within("#unfavorite-" + card_one.id.to_s) do
-      sleep(5)
-      click_on "Unfavorite"
-    end
-
     within(".booking-history") do
-      expect(page).to_not have_content("Southwest Airlines Rapid Rewards® Premier Credit Card - cat show")
-      expect(page).to have_content("Southwest Rapid Rewards® Plus Credit Card")
+      expect(page).to have_content(card_two.name)
     end
 
     visit card_path(card_two)
 
     within(".FavoriteButton") do
       expect(page).to have_content("FAVORITED!")
-    end
-
-    visit card_path(card_one)
-
-    within(".FavoriteButton") do
-      expect(page).to have_content("FAVORITE CARD")
     end
 
     visit category_path(category_one)
