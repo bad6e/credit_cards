@@ -2,8 +2,7 @@ var Cards = React.createClass({
   getInitialState : function () {
     return {
       sortBy: 'bonus-in-dollars',
-      filterByCreditScore: 'all',
-      loaderImg: true
+      filterByCreditScore: 'all'
     };
   },
 
@@ -45,46 +44,67 @@ var Cards = React.createClass({
     }
   },
 
-  sortCardsByDollarAmount : function (cards) {
-    if (cards.length > 0) {
+  onSortBy: function (value) {
+    this.setState(
+      { sortBy: value }
+    )
+  },
 
-      let sortedCardsByDollarAmount = _.sortBy(cards, function(card) {
-        if (card.rewards.length > 0  &&  card.rewards[0].dollar_amount) {
-          return card.rewards[0].dollar_amount;
-        } else if (card.rewards.length > 0 && card.rewards[0].dollar_amount === 0) {
-          return -1
-        } else if (card.rewards.length > 0 && card.rewards[0].dollar_amount === null) {
-          return -2
-        } else if (card.rewards.length === 0) {
-          return -3
-        }
+  getSortedCards: function (cards) {
+    let sortByState = this.state.sortBy
 
-      })
-      return sortedCardsByDollarAmount.reverse();
-    } else {
-      return []
+    const map = {
+      'bonus-in-dollars': this.sortCardsByDollarAmount,
+      'bonus-in-points': this.sortCardsByAmount,
+      'card-name': this.sortCardsByName,
     }
+    return map[sortByState](cards);
+
   },
 
-  sortCardsByName : function () {
-    var sortedCardsByName = _.sortBy(this.state.cards, function(o) { return o.name; })
+  sortCardsByDollarAmount: function (cards) {
+    return _.sortBy(cards, function(card) {
+      if (card.rewards.length > 0  &&  card.rewards[0].dollar_amount) {
+        return card.rewards[0].dollar_amount;
+      } else if (card.rewards.length > 0 && card.rewards[0].dollar_amount === 0) {
+        return -1
+      } else if (card.rewards.length > 0 && card.rewards[0].dollar_amount === null) {
+        return -2
+      } else if (card.rewards.length === 0) {
+        return -3
+      }
+    }).reverse();
   },
 
-  sortCardsByAmount : function () {
-    var sortedCardsByAmount = _.sortBy(this.state.cards, function(o) {
-      if (o.rewards.length > 0) {
-        return o.rewards[0].amount;
-      } else if (o.rewards.length === 0) {
+  sortCardsByAmount: function (cards) {
+    return _.sortBy(cards, function(card) {
+      if (card.rewards.length > 0) {
+        return card.rewards[0].amount;
+      } else if (card.rewards.length === 0) {
         return -1
       }
-    })
+    }).reverse();
   },
 
-  sortCardsByCreditScore: function (score) {
-    let allCards = this.state.unfilteredCards
-    let sortedCardsByCreditScore = _.filter(allCards, function (card) {
-      return card.credit_score == score
-    })
+  sortCardsByName: function (cards) {
+    return _.sortBy(cards, function(card) { return card.name; })
+  },
+
+  onFilterByCreditScore: function (value) {
+    this.setState(
+      { filterByCreditScore: value }
+    )
+  },
+
+  getFilteredByCreditScoreCards: function (cards) {
+    let score = this.state.filterByCreditScore
+    if (score === 'all') {
+      return cards
+    } else {
+      return _.filter(cards, function (card) {
+        return card.credit_score == score
+      })
+    }
   },
 
   renderCards: function(card) {
@@ -115,34 +135,18 @@ var Cards = React.createClass({
     }
   },
 
+
+
   render : function () {
-    // debugger;
-    let cards = this.sortCardsByDollarAmount(this.props.cards)
-
-    //I have an array of objects (this.props.cards) - Im just going to filter it down
-
-      //Ok first things first - lets default to showing all the cards ordered by bonus amount and all credit scores
-
-      //Next I need to list to what buttons were clicked - aka if the good credit score if clicked - i will update filterByCreditScoreGood to true
-        //If the good credit scores is clicked - i need filter all the cards by good credit scores
-        //If the the good credit score and sort by card name - I need to filter all the cards first by good credit score then name
-
-      //
-
-
-
-    //I am going to call functions based on the buttons are clicked
-
-    //I'll need to know which functions to call based on what the sort by name returns
-
-    //this.filterCardsb(this.props.cards)
+    let cards = this.getSortedCards(this.props.cards);
+    cards = this.getFilteredByCreditScoreCards(cards);
 
     return (
       <div>
-        <SortByName sortCardsByName={this.sortCardsByName}
-                    sortCardsByAmount={this.sortCardsByAmount}
-                    sortCardsByDollarAmount={this.sortCardsByDollarAmount}
-                    sortCardsByCreditScore={this.sortCardsByCreditScore}
+        <SortByName sortBy={this.state.sortBy}
+                    filterByCreditScore={this.state.filterByCreditScore}
+                    onSortBy={this.onSortBy}
+                    onFilterByCreditScore={this.onFilterByCreditScore}
         />
         {cards.map(this.renderCards)}
       </div>
