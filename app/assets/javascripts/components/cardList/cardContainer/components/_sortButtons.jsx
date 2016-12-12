@@ -1,44 +1,29 @@
 var SortByName = React.createClass({
   getInitialState: function () {
     return {
-      selectedOption: 'bonus-in-dollars',
-      loaderImg: false
+      selectedOption: 'bonus-in-dollars'
     };
   },
 
   handleBonusChange: function (event) {
     this.props.onSortBy(event.target.value);
-    this.handleLoaderImg();
   },
 
   handleCreditScoreChange: function (event) {
     this.props.onFilterByCreditScore(event.target.value);
-    this.handleLoaderImg();
-  },
-
-  //Move up another level sometime soon
-  handleLoaderImg: function (event) {
-    this.setState(
-      { loaderImg: true }
-    )
-    setTimeout(function() {
-      this.setState( {loaderImg: false});
-    }.bind(this), 650);
   },
 
   render: function() {
-    const loadImg = this.state.loaderImg ?  <LoaderImg /> : null
     return (
       <div>
-        { loadImg }
         <div className="sort-by-section clearfix box" id="sorter-box">
-          <h4 className="sort-by-title block-sm">Sort Bonus</h4>
+          <h4 className="sort-by-title block-sm">Order Cards by:</h4>
           <select key="input" ref="input" name="sort-buttons" value={this.props.sortBy} onChange={this.handleBonusChange}>
-            <option value="bonus-in-dollars">Bonus in Dollars</option>
-            <option value="bonus-in-points">Bonus in Points</option>
+            <option value="bonus-in-dollars">Approx. Bonus Value in Dollars</option>
+            <option value="bonus-in-points">Bonus Value in Points</option>
             <option value="card-name">Card Name</option>
           </select>
-          <h4 className="sort-by-title sort-by-credit-score block-sm">Filter By Credit Score</h4>
+          <h4 className="sort-by-title sort-by-credit-score block-sm">Filter By Credit Score:</h4>
           <select key="input-credit-score" ref="input" name="sort-buttons-credit-score" value={this.props.filterByCreditScore} onChange={this.handleCreditScoreChange}>
             <option value="all">All Scores</option>
             <option value="excellent">Excellent (720-850)</option>
