@@ -2,10 +2,21 @@ var Cards = React.createClass({
   getInitialState : function () {
     return {
       sortBy: 'bonus-in-dollars',
-      filterByCreditScore: 'all'
+      filterByCreditScore: 'all',
+      loaderImg: false
     };
   },
 
+  handleLoaderImg: function (event) {
+    this.setState(
+      { loaderImg: true }
+    )
+    setTimeout(function() {
+      this.setState( {loaderImg: false});
+    }.bind(this), 650);
+  },
+
+  //Card Info Display Functions
   determinePointRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
                         ? this.numberWithCommas(details.rewards[0].amount) : <div id="no-info">--</div>
@@ -44,10 +55,12 @@ var Cards = React.createClass({
     }
   },
 
+  //Card Bonus Sorting Functions
   onSortBy: function (value) {
     this.setState(
       { sortBy: value }
     )
+    this.handleLoaderImg();
   },
 
   getSortedCards: function (cards) {
@@ -90,9 +103,20 @@ var Cards = React.createClass({
     return _.sortBy(cards, function(card) { return card.name; })
   },
 
+  //Card Credit Score Filtering Functions
   onFilterByCreditScore: function (value) {
     this.setState(
       { filterByCreditScore: value }
+    )
+    this.handleLoaderImg();
+  },
+
+  resetFilters: function () {
+    this.setState(
+      {
+        sortBy: 'bonus-in-dollars',
+        filterByCreditScore: 'all'
+      }
     )
   },
 
@@ -104,6 +128,17 @@ var Cards = React.createClass({
       return _.filter(cards, function (card) {
         return card.credit_score == score
       })
+    }
+  },
+
+  //Card Render Methods
+  renderCardsOrNoResults: function(cards) {
+    if (cards.length > 0) {
+      return cards.map(this.renderCards)
+    } else {
+      return <NoResults resetFilters={this.resetFilters}
+                        handleLoaderImg={this.handleLoaderImg}
+             />
     }
   },
 
@@ -140,15 +175,18 @@ var Cards = React.createClass({
   render : function () {
     let cards = this.getSortedCards(this.props.cards);
     cards = this.getFilteredByCreditScoreCards(cards);
+    const loadImg = this.state.loaderImg ?  <LoaderImg /> : null
 
     return (
       <div>
+        { loadImg }
         <SortByName sortBy={this.state.sortBy}
                     filterByCreditScore={this.state.filterByCreditScore}
                     onSortBy={this.onSortBy}
                     onFilterByCreditScore={this.onFilterByCreditScore}
+                    handleLoaderImg={this.handleLoaderImg}
         />
-        {cards.map(this.renderCards)}
+        {this.renderCardsOrNoResults(cards)}
       </div>
     );
   }
