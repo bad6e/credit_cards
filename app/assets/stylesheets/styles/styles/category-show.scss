@@ -244,6 +244,15 @@ select {
   opacity: 1;
 }
 
+.tooltop-apply-now:active .tooltop-apply-now-text {
+  visibility: visible;
+  margin-top: 25px;
+  margin-left: -100px;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
 #cat-panel {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
 }
