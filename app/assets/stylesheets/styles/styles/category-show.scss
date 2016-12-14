@@ -245,12 +245,14 @@ select {
   }
 }
 
-.tooltop-apply-now:hover .tooltop-apply-now-text {
-  visibility: visible;
-  margin-top: 25px;
-  margin-left: -100px;
-  transition: opacity 0.3s ease-in-out;
-  -webkit-transition: opacity 0.3s ease-in-out;
+@media (min-width: 991px) {
+  .tooltop-apply-now:hover .tooltop-apply-now-text {
+    visibility: visible;
+    margin-top: 25px;
+    margin-left: -100px;
+    transition: opacity 0.3s ease-in-out;
+    -webkit-transition: opacity 0.3s ease-in-out;
+  }
 }
 
 

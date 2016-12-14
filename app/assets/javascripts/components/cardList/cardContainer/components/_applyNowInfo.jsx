@@ -43,14 +43,12 @@ var ApplyNowInfo = React.createClass({
 
   displayNormalBonusInfo: function (reward, details) {
     return (
-      <a href="javascript:void(0);">
-        <div className="tooltop-apply-now">
+        <a className="tooltop-apply-now">
           <span className="tooltop-apply-now-text">
             <p>This card's current bonus is <strong>{this.props.numberWithCommas(reward)} {details.point_type}.</strong></p>
             <p>Based on this card's past bonuses, we believe this card's <strong>current</strong> bonus is a <strong><span style={this.props.determineBestOfferColor(details.best_offer)}>{this.determineDealStatus(details.best_offer)}</span></strong> deal.</p>
           </span>
           <h6 className="apply-now-title question-icon">Apply Now</h6>
-        </div>
       </a>
     )
   },
