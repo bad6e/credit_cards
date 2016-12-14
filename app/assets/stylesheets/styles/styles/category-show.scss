@@ -232,17 +232,15 @@ select {
   z-index: 1;
   padding: 15px;
   text-transform: none;
-  opacity: 0;
+
 }
 
 .tooltop-apply-now:hover .tooltop-apply-now-text {
   visibility: visible;
   margin-top: 25px;
   margin-left: -100px;
-  -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  opacity: 1;
-  cursor: pointer;
+  -webkit-transition: opacity 0.3s ease-in-out;
 }
 
 #cat-panel {
