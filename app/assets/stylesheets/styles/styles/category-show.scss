@@ -218,7 +218,6 @@ select {
 }
 
 .tooltop-apply-now .tooltop-apply-now-text {
-  visibility: hidden;
   font-size: 14px;
   background-color: white;
   color: #929292;
@@ -236,7 +235,6 @@ select {
 }
 
 .tooltop-apply-now:hover .tooltop-apply-now-text {
-  visibility: visible;
   margin-top: 25px;
   margin-left: -100px;
   -webkit-transition: opacity 0.3s ease-in-out;
