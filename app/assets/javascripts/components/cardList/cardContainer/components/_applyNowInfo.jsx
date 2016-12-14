@@ -43,7 +43,7 @@ var ApplyNowInfo = React.createClass({
 
   displayNormalBonusInfo: function (reward, details) {
     return (
-      <a href="javascript:void(0);">
+      <a onclick="">
       <div className="tooltop-apply-now">
         <span className="tooltop-apply-now-text">
           <p>This card's current bonus is <strong>{this.props.numberWithCommas(reward)} {details.point_type}.</strong></p>
