@@ -232,29 +232,17 @@ select {
   z-index: 1;
   padding: 15px;
   text-transform: none;
-
+  opacity: 0;
 }
 
-@media (max-width: 991px) {
-  .tooltop-apply-now:active .tooltop-apply-now-text {
-    visibility: visible;
-    margin-top: 25px;
-    margin-left: -100px;
-    transition: opacity 0.3s ease-in-out;
-    -webkit-transition: opacity 0.3s ease-in-out;
-  }
+.tooltop-apply-now:hover .tooltop-apply-now-text {
+  visibility: visible;
+  margin-top: 25px;
+  margin-left: -100px;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
 }
-
-@media (min-width: 992px) {
-  .tooltop-apply-now:hover .tooltop-apply-now-text {
-    visibility: visible;
-    margin-top: 25px;
-    margin-left: -100px;
-    transition: opacity 0.3s ease-in-out;
-    -webkit-transition: opacity 0.3s ease-in-out;
-  }
-}
-
 
 #cat-panel {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
