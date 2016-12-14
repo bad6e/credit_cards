@@ -234,7 +234,7 @@ select {
   opacity: 0;
 }
 
-.tooltop-apply-now:hover .tooltop-apply-now-text, .tooltop-apply-now:focus .tooltop-apply-now-text {
+.tooltop-apply-now:hover .tooltop-apply-now-text, .tooltop-apply-now:focus .tooltop-apply-now-text, .tooltop-apply-now:active .tooltop-apply-now-text {
   margin-top: 25px;
   margin-left: -100px;
   -webkit-transition: opacity 0.3s ease-in-out;
