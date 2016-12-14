@@ -8,7 +8,7 @@ var NoResults = React.createClass({
     return (
       <div className="no-cards-found">
         <img src="https://s3.amazonaws.com/toomanymiles-svgs/credit-card.svg"/>
-        <h2>It looks like we don't have any cards that match your filters.</h2>
+        <h2>Sorry it appears that we don't have any cards that match your filters.</h2>
         <button className="button btn-large sky-blue1" onClick={this.handleReset}>Clear Filters</button>
       </div>
     )

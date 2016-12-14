@@ -13,13 +13,21 @@ var SortByName = React.createClass({
     this.props.onFilterByCreditScore(event.target.value);
   },
 
+
   render: function() {
     return (
       <div>
         <div className="sort-by-section clearfix box" id="sorter-box">
-          <h4 className="sort-by-title block-sm">Order Cards by:</h4>
+          <div className="tooltop">
+            <span className="tooltoptext">
+              <p>To entice customers, credit cards have signup bonuses usually in the form of miles or points.</p>
+              <p><strong>These miles or points mean free flights!</strong></p>
+              <p>Too Many Miles crunches these bonuses for you and provides the bonus's approximate value in US dollars.</p>
+            </span>
+            <h4 className="sort-by-title block-sm question-icon">Order Cards by:</h4>
+          </div>
           <select key="input" ref="input" name="sort-buttons" value={this.props.sortBy} onChange={this.handleBonusChange}>
-            <option value="bonus-in-dollars">Approx. Bonus Value in Dollars</option>
+            <option value="bonus-in-dollars tooltip">Approx. Bonus Value in Dollars</option>
             <option value="bonus-in-points">Bonus Value in Points</option>
             <option value="card-name">Card Name</option>
           </select>
