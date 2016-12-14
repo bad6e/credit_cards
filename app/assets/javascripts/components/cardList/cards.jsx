@@ -145,26 +145,29 @@ var Cards = React.createClass({
   renderCards: function(card) {
     if (this.props.apiUrl.indexOf("/users/") > -1 == "1"){
       return (
-        <FavoriteCard key={card.id}
-                      details={card}
-                      postFavoriteCard={this.props.postFavoriteCard}
-                      determinePointRewardStatus={this.determinePointRewardStatus}
-                      determineDollarRewardStatus={this.determineDollarRewardStatus}
-                      determineBestOfferColor={this.determineBestOfferColor}
-                      removeFavoriteCard={this.props.removeFavoriteCard}
-                      removeFavoriteCardFromState={this.props.removeFavoriteCardFromState}
+        <FavoriteCard
+          key={card.id}
+          details={card}
+          postFavoriteCard={this.props.postFavoriteCard}
+          determinePointRewardStatus={this.determinePointRewardStatus}
+          determineDollarRewardStatus={this.determineDollarRewardStatus}
+          determineBestOfferColor={this.determineBestOfferColor}
+          removeFavoriteCard={this.props.removeFavoriteCard}
+          removeFavoriteCardFromState={this.props.removeFavoriteCardFromState}
         />
       )
     } else {
       return (
-        <CardContainer key={card.id}
-                       details={card}
-                       postFavoriteCard={this.props.postFavoriteCard}
-                       removeFavoriteCard={this.props.removeFavoriteCard}
-                       determinePointRewardStatus={this.determinePointRewardStatus}
-                       determineDollarRewardStatus={this.determineDollarRewardStatus}
-                       determineBestOfferColor={this.determineBestOfferColor}
-                       currentUser={this.props.currentUser}
+        <CardContainer
+          key={card.id}
+          details={card}
+          postFavoriteCard={this.props.postFavoriteCard}
+          removeFavoriteCard={this.props.removeFavoriteCard}
+          determinePointRewardStatus={this.determinePointRewardStatus}
+          determineDollarRewardStatus={this.determineDollarRewardStatus}
+          determineBestOfferColor={this.determineBestOfferColor}
+          numberWithCommas={this.numberWithCommas}
+          currentUser={this.props.currentUser}
         />
       )
     }

@@ -1,5 +1,5 @@
 class CardSerializer < ActiveModel::Serializer
-  attributes :id, :name, :annual_fee, :apr, :intro_rate, :image_link, :best_offer, :credit_score
+  attributes :id, :name, :annual_fee, :apr, :intro_rate, :image_link, :best_offer, :credit_score, :point_type
   has_many :rewards
   has_many :favorite_card_ids
 
