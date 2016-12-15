@@ -47,12 +47,14 @@ $lightGray : #838383;
     text-align: center;
     font-weight: bolder;
     @media (min-width: 991px) {
-      font-size: 3.2em;
+      font-size: 4.2em;
+      letter-spacing: 1px;
     }
   }
   p {
     padding: 10px 20px;
     font-size: 1.3em;
+    text-align: justify;
     @media (min-width: 991px) {
       font-size: 1.6em;
     }
