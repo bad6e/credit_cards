@@ -233,13 +233,26 @@ select {
   text-transform: none;
   opacity: 0;
 }
+@media (max-width: 991px) {
+  .tooltop-apply-now:hover .tooltop-apply-now-text, .tooltop-apply-now:focus .tooltop-apply-now-text {
+    position: absolute;
+    bottom: 80px;
+    right: 50px;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+  }
+}
 
-.tooltop-apply-now:hover .tooltop-apply-now-text, .tooltop-apply-now:focus .tooltop-apply-now-text {
-  margin-top: 25px;
-  margin-left: -100px;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 1;
+@media (min-width: 992px) {
+  .tooltop-apply-now:hover .tooltop-apply-now-text, .tooltop-apply-now:focus .tooltop-apply-now-text {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+  }
 }
 
 #cat-panel {
