@@ -236,8 +236,6 @@ select {
 @media (max-width: 991px) {
   .tooltop-apply-now:hover .tooltop-apply-now-text, .tooltop-apply-now:focus .tooltop-apply-now-text {
     position: absolute;
-    bottom: 80px;
-    right: 50px;
     -webkit-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
     opacity: 1;
