@@ -154,49 +154,27 @@
 </div>
 <!-- END Transfer Partners -->
 
-<div class="container apply-center-container">
-  <h2 class="time-to-apply-title"></h2>
-  <h3 class="title-to-apply-subtitle"></h3>
-</div><br><br>
-
-<!-- Dollar/Reward Graph -->
-  <div class="container reward-graph-container">
+<!-- Highest Reward Checker & Graphs -->
+<%= react_component('LoadRewards', url: "/api/v1/rewards/#{@card_presenter.card.id}") %>
+<!-- END Highest Reward Checker & Graphs -->
+<br><br>
+ <div>
+  <div class="container reward-graph-container dollars-container" style="display:none;">
     <div class="row">
       <h2 class="sign-up-bonus-title">Bonus Amount &amp; Value</h2>
-
-      <div class="no-bonus-info">
-        <h1 class="no-bonus-info-title-h1">
-          No Bonus Information
-        </h1>
-        <% category_name = @card_presenter.card.categories.sample.name %>
-        <h1 class="no-bonus-info-subtitle-h1">
-          But Here are some <strong><%= @card_presenter.parse_category_name(category_name) %> with Bonuses!</strong>
-        </h1>
-
-        <!-- Cards With Bonuses Partial  -->
-        <% if !@card_presenter.card_has_bonus? %>
-          <%= render partial: "cards_with_bonuses",  locals: {:category_name => category_name} %>
-        <% end %>
+      <div id="dollar-amount-chart" style="height: 300px;">
       </div>
-
-      <div id='loaderImg'>
-        <%= image_tag("loader.gif") %>
-      </div>
-
-      <div id="dollar-amount-chart" style="height: 300px;"></div>
     </div>
   </div>
-<!-- End - Dollar/Reward Graph -->
 
-<!-- Points Value Graph -->
-  <div class="container reward-graph-container points-container">
+  <div class="container reward-graph-container points-container" style="display:none;">
     <div class="row">
-      <h2 class="sign-up-bonus-title">Rewards Value - <%= @card_presenter.card.point_type %></h2>
+    <h2 class="sign-up-bonus-title">Rewards Value</h2>
       <div id="reward-chart" style="height: 300px;">
       </div>
     </div>
   </div>
-<!-- End - Points Value Graph -->
+</div>
 
 <div class="bottom-stats">
 <!-- Related Blogs -->

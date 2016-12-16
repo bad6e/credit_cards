@@ -78,17 +78,14 @@ var LoadCards = React.createClass({
     return (
       <div>
         { loadImg }
-        <Cards key={1}
-               cards={this.state.cards}
-               postFavoriteCard={this.postFavoriteCard}
-               removeFavoriteCard={this.removeFavoriteCard}
-               sortCardsByName={this.sortCardsByName}
-               sortCardsByAmount={this.sortCardsByAmount}
-               sortCardsByDollarAmount={this.sortCardsByDollarAmount}
-               sortCardsByCreditScore={this.sortCardsByCreditScore}
-               apiUrl={this.props.url}
-               removeFavoriteCardFromState={this.removeFavoriteCardFromState}
-               currentUser={this.props.currentUser}
+        <Cards
+          key={1}
+          cards={this.state.cards}
+          postFavoriteCard={this.postFavoriteCard}
+          removeFavoriteCard={this.removeFavoriteCard}
+          apiUrl={this.props.url}
+          removeFavoriteCardFromState={this.removeFavoriteCardFromState}
+          currentUser={this.props.currentUser}
         />
       </div>
     );
