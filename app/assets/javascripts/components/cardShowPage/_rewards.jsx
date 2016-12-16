@@ -5,7 +5,6 @@ var Rewards = React.createClass({
       return (
         <NoBonusInfo/>
       )
-      //hideAllRewardInformation();
     } else {
       return (
         <div>

@@ -1,10 +1,15 @@
 var Graphs = React.createClass({
   checkWhatTypeOfRewardsArePresent: function (rewards) {
+    this.hideNoBonusInfo();
     if (this.allCentValuesAreNull(rewards)) {
       this.showOnlyBonusInformation(rewards);
     } else {
       this.showBonusAndPointInformation(rewards);
     }
+  },
+
+  hideNoBonusInfo: function () {
+    document.querySelector('.no-bonus-info').style.display = 'none';
   },
 
   allCentValuesAreNull: function(rewards) {

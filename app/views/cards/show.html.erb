@@ -156,12 +156,27 @@
 
 <!-- Highest Reward Checker & Graphs -->
 <%= react_component('LoadRewards', url: "/api/v1/rewards/#{@card_presenter.card.id}") %>
-<!-- END Highest Reward Checker & Graphs -->
+
 <br><br>
  <div>
   <div class="container reward-graph-container dollars-container" style="display:none;">
     <div class="row">
       <h2 class="sign-up-bonus-title">Bonus Amount &amp; Value</h2>
+
+      <div class="no-bonus-info" style="display:none;">
+        <div class="no-bonus-info-titles">
+          <h2 class="no-bonus-info-title">No Bonus Information</h2>
+          <% category_name = @card_presenter.card.categories.sample.name %>
+          <h2 class="no-bonus-info-subtitle">
+          But Here are some <strong><%= @card_presenter.parse_category_name(category_name) %> with Bonuses!</strong>
+          </h2>
+        </div>
+        <!-- Cards With Bonuses Partial  -->
+        <% if !@card_presenter.card_has_bonus? %>
+          <%= render partial: "cards_with_bonuses",  locals: {:category_name => category_name} %>
+        <% end %>
+      </div>
+
       <div id="dollar-amount-chart" style="height: 300px;">
       </div>
     </div>
@@ -175,6 +190,10 @@
     </div>
   </div>
 </div>
+<!-- END Highest Reward Checker & Graphs -->
+
+
+
 
 <div class="bottom-stats">
 <!-- Related Blogs -->

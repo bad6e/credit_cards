@@ -9,4 +9,3 @@ var GraphContainer = React.createClass({
     )
   }
 });
-
