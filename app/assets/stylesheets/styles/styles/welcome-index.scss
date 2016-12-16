@@ -181,6 +181,11 @@ $lightGray : #838383;
   font-size: 1.5em;
 }
 
+.image-box.style11 figure img {
+  width: 100% !important;
+}
+
+
 .apply-now-button-welcome {
   margin-top: 10px;
   @media (max-width: 480px) {
