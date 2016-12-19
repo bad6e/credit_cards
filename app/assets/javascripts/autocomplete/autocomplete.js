@@ -1,3 +1,9 @@
+//To Do's
+
+//1. expire local storage
+//2. Arrow keys down -
+
+
 window.onload = function() {
   checkLocalStorage();
 }
