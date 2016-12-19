@@ -5,8 +5,36 @@ $colHighlight   : #0e95e0;
 $white          : #FFF;
 $black          : #000;
 
+.suggestions {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+
+  /*perspective:20px;*/
+}
+
+.suggestions li {
+  background:white;
+  list-style: none;
+  border-bottom: 1px solid #D8D8D8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+  margin:0;
+  padding:20px;
+  transition:background 0.2s;
+  display:flex;
+  justify-content:space-between;
+  text-transform: capitalize;
+}
+
+
+
+.hl {
+  background:#ffc600;
+}
 
 .ui-menu-item {
+  position: absolute;
   max-width: auto;
   font-family: 'Raleway', sans-serif;
   padding: 8px 5px;
@@ -14,7 +42,7 @@ $black          : #000;
   background-color: $colHighlight;
 }
 
-.ui-autocomplete {
+.ui-auto {
   position: absolute;
   top: 100%;
   left: 0;
