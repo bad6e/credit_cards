@@ -1,23 +1,34 @@
-let cards = []
-
 window.onload = function() {
-  autocomplete(cards);
+  checkLocalStorage();
+}
+
+function checkLocalStorage () {
+  if (localStorage.cards) {
+    addSearchEventListers();
+  } else {
+    autocomplete()
+  }
+}
+
+function autocomplete () {
+  fetch('/api/v1/card_names')
+    .then(blob => blob.json())
+    .then(data => localStorage.setItem('cards',
+      JSON.stringify(Array.from(data))))
+    .then(addSearchEventListers);
+}
+
+function addSearchEventListers () {
   const nonMobileSearchInput = document.querySelector('#select_origin');
   const mobileSearchInput = document.querySelector('#select_origin_mobile');
-
   nonMobileSearchInput.addEventListener('keyup', displayMatches);
   mobileSearchInput.addEventListener('keyup', displayMatches);
 }
 
-function autocomplete(cards) {
-  fetch('/api/v1/cards')
-    .then(blob => blob.json())
-    .then(data => cards.push(...data));
-}
-
 function displayMatches () {
   if (this.value.length >= 2) {
-    const matchArray = findMatches(this.value, cards);
+    const matchArray = findMatches(this.value,
+      JSON.parse(localStorage.getItem('cards') || []));
     displayHtmlMatches(matchArray, this.value);
     setEventListeners();
   } else if (this.value.length < 2) {

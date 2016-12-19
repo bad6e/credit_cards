@@ -11,4 +11,13 @@ class Api::V1::CardsController < ApplicationController
       respond_with @cards
     end
   end
+
+  def names
+    a = []
+    cards  = Card.all.pluck(:id, :name)
+    cards.each do |card|
+      a << {id: card[0], name: card[1]}
+    end
+    respond_with a
+  end
 end

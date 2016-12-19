@@ -50,6 +50,7 @@ Rails.application.routes.draw do
       resources :favorite_cards
       resources :users, only: [:show]
       resources :cards, only: [:index]
+      get 'card_names', to: 'cards#names'
       resources :blogs, only: [:index, :show]
       resources :related_blogs, only: [:show]
       resources :recent_blogs, only: [:index]
