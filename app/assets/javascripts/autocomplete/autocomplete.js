@@ -1,22 +1,28 @@
 let cards = []
 
-$(document).ready(function(){
-  const endpoint = '/api/v1/cards'
-  const searchInput = document.querySelector('#select_origin');
-  auto2("select_origin", cards, endpoint);
-  searchInput.addEventListener('keyup', displayMatches);
+window.onload = function() {
+  autocomplete(cards);
+  const nonMobileSearchInput = document.querySelector('#select_origin');
+  const mobileSearchInput = document.querySelector('#select_origin_mobile');
 
+  nonMobileSearchInput.addEventListener('keyup', displayMatches);
+  mobileSearchInput.addEventListener('keyup', displayMatches);
+}
 
-  auto2 ("select_origin_mobile", cards, endpoint);
-  // $( ".middle-search" ).click(function() {
-  //   auto("select_origin_middle")
-  // });
-});
-
-function auto2(div, cards, endpoint) {
-  fetch(endpoint)
+function autocomplete(cards) {
+  fetch('/api/v1/cards')
     .then(blob => blob.json())
     .then(data => cards.push(...data));
+}
+
+function displayMatches () {
+  if (this.value.length >= 2) {
+    const matchArray = findMatches(this.value, cards);
+    displayHtmlMatches(matchArray, this.value);
+    setEventListeners();
+  } else if (this.value.length < 2) {
+    setHtml(null);
+  }
 }
 
 function findMatches(wordToMatch, cards) {
@@ -26,78 +32,33 @@ function findMatches(wordToMatch, cards) {
   })
 }
 
-function displayMatches () {
-  if (this.value.length >= 2) {
-    const matchArray = findMatches(this.value, cards);
-
-    const html = matchArray.map(card => {
-      const regex = new RegExp(this.value, 'gi');
-      const cardName = card.name.replace(regex, `<span class=\"hl\">${this.value}</span>`)
-      return `
-        <li class="suggestion" data-id=${card.id}>
-          <span>${cardName}</span>
-        </li>
-
-      `;
-    }).join('');
-
-    let suggestions = document.querySelector('.suggestions');
-    suggestions.innerHTML = html;
-
-    let suggestion = document.querySelectorAll('.suggestion')
-    suggestion.forEach(sug => {
-      sug.addEventListener('click', route);
-    })
-
-
-
-  } else if (this.value.length < 2) {
-    let suggestions = document.querySelector('.suggestions');
-    suggestions.innerHTML = null
-  }
-}
-
 function route () {
   window.location.pathname = `cards/${this.dataset.id}`
 }
 
-// function enterKey (e) {
-//   debugger;
-//   if (e.keyCode === 13) {
-//     route
-//   }
-// }
+function setHtml (html) {
+  let suggestions = document.querySelectorAll('.card-suggestions');
+    suggestions.forEach(sug => {
+      sug.innerHTML = html;
+  })
+}
 
+function setEventListeners () {
+  let suggestion = document.querySelectorAll('.suggestion')
+    suggestion.forEach(sug => {
+      sug.addEventListener('click', route);
+  })
+}
 
-
-// ocument.querySelector('#txtSearch').addEventListener('keypress', function (e) {
-//     var key = e.which || e.keyCode;
-//     if (key === 13) { // 13 is enter
-//       // code for enter
-//     }
-// });
-
-
-
-
-
-// function auto(div) {
-//   $('#' + div).autocomplete({
-//     minLength: 2,
-//     source: '/api/v1/search',
-//     focus: function(event, ui) {
-//       $('#select_origin').val(ui.item.name);
-//       return false;
-//     },
-//     select: function(event, ui) {
-//       $('#' + div).val(ui.item.name);
-//         window.location.pathname = "cards/" + ui.item.id;
-//     }
-//   })
-//   .data("uiAutocomplete")._renderItem = function(div, item) {
-//     return $( "<div activetrigger'></div>")
-//     .data( "item.autocomplete", item )
-//     .append(item.name)
-//     .appendTo( div );
-//   };
-// };
+function displayHtmlMatches(matchArray, wordTyped) {
+  const html = matchArray.map(card => {
+    const regex = new RegExp(wordTyped, 'gi');
+    const cardName = card.name.replace(regex, `<span class=\"hl\">${wordTyped}</span>`)
+      return `
+        <li class="suggestion" data-id=${card.id}>
+          <span>${cardName}</span>
+        </li>
+      `;
+  }).join('');
+  setHtml(html);
+}

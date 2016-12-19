@@ -5,7 +5,7 @@ $colHighlight   : #0e95e0;
 $white          : #FFF;
 $black          : #000;
 
-.suggestions {
+.card-suggestions {
   margin: 0;
   padding: 0;
   position: absolute;
@@ -14,7 +14,7 @@ $black          : #000;
   /*perspective:20px;*/
 }
 
-.suggestions li {
+.card-suggestions li {
   background:white;
   list-style: none;
   border-bottom: 1px solid #D8D8D8;
@@ -27,49 +27,51 @@ $black          : #000;
   text-transform: capitalize;
 }
 
-
-
 .hl {
   background:#ffc600;
 }
 
-.ui-menu-item {
-  position: absolute;
-  max-width: auto;
-  font-family: 'Raleway', sans-serif;
-  padding: 8px 5px;
-  color: $white;
-  background-color: $colHighlight;
+.mobile-search-form {
+  padding: 12px;
 }
 
-.ui-auto {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  float: left;
-  display: none;
-  min-width: 160px;
-  padding: 6px 0;
-  margin: 0 0 10px 25px;
-  list-style: none;
-  background-color: #ffffff;
-  border-color: #ccc;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: solid;
-  border-width: 1px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box;
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
-}
+// .ui-menu-item {
+//   position: absolute;
+//   max-width: auto;
+//   font-family: 'Raleway', sans-serif;
+//   padding: 8px 5px;
+//   color: $white;
+//   background-color: $colHighlight;
+// }
+
+// .ui-auto {
+//   position: absolute;
+//   top: 100%;
+//   left: 0;
+//   z-index: 1000;
+//   float: left;
+//   display: none;
+//   min-width: 160px;
+//   padding: 6px 0;
+//   margin: 0 0 10px 25px;
+//   list-style: none;
+//   background-color: #ffffff;
+//   border-color: #ccc;
+//   border-color: rgba(0, 0, 0, 0.2);
+//   border-style: solid;
+//   border-width: 1px;
+//   -webkit-border-radius: 5px;
+//   -moz-border-radius: 5px;
+//   border-radius: 5px;
+//   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+//   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+//   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+//   -webkit-background-clip: padding-box;
+//   -moz-background-clip: padding;
+//   background-clip: padding-box;
+//   *border-right-width: 2px;
+//   *border-bottom-width: 2px;
+// }
 
 .example-enter {
   transition: all 0.5s;
