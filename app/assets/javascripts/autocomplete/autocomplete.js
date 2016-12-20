@@ -1,8 +1,14 @@
 //To Do's
 
 //1. expire local storage
-//2. Arrow keys down -
+//2. Arrow keys down
+//3. Styling form
 
+//2a
+
+//On down key take next node and populate form
+
+let n = 0
 
 window.onload = function() {
   checkLocalStorage();
@@ -28,6 +34,7 @@ function addSearchEventListers () {
   const nonMobileSearchInput = document.querySelector('#select_origin');
   const mobileSearchInput = document.querySelector('#select_origin_mobile');
   nonMobileSearchInput.addEventListener('keyup', displayMatches);
+  nonMobileSearchInput.addEventListener('keydown', jumpDown);
   mobileSearchInput.addEventListener('keyup', displayMatches);
 }
 
@@ -58,6 +65,7 @@ function setHtml (html) {
     suggestions.forEach(sug => {
       sug.innerHTML = html;
   })
+
 }
 
 function setEventListeners () {
@@ -67,12 +75,49 @@ function setEventListeners () {
   })
 }
 
+function jumpDown (e) {
+  console.log(e.keyCode)
+  if (e.keyCode === 40) {
+
+    let suggestion = document.querySelectorAll('.suggestion');
+    const nonMobileSearchInput = document.querySelector('#select_origin');
+    nonMobileSearchInput.removeEventListener('keyup', displayMatches);
+
+
+    console.log(n)
+    this.value = suggestion[n].dataset.name
+    if (n < suggestion.length - 1) {
+      n++
+    }
+
+
+  } else if (e.keyCode === 38) {
+    if (n > 0) {
+      n--
+    }
+
+    let suggestion = document.querySelectorAll('.suggestion');
+    const nonMobileSearchInput = document.querySelector('#select_origin');
+    nonMobileSearchInput.removeEventListener('keyup', displayMatches);
+    console.log(n)
+    this.value = suggestion[n].dataset.name
+
+
+
+  }
+  if(e.keyCode === 8) {
+    const nonMobileSearchInput = document.querySelector('#select_origin');
+    nonMobileSearchInput.addEventListener('keyup', displayMatches);
+    n = 0
+  }
+}
+
 function displayHtmlMatches(matchArray, wordTyped) {
   const html = matchArray.map(card => {
     const regex = new RegExp(wordTyped, 'gi');
     const cardName = card.name.replace(regex, `<span class=\"hl\">${wordTyped}</span>`)
       return `
-        <li class="suggestion" data-id=${card.id}>
+        <li class="suggestion" data-id="${card.id}" data-name="${card.name}">
           <span>${cardName}</span>
         </li>
       `;
