@@ -17,7 +17,12 @@ $lightGray      : #f8f8f8;
   :active {
     background: $bgHighlight;
   }
-  /*perspective:20px;*/
+  @media (min-width: 992px) {
+    width: 25%;
+  }
+  @media (max-width: 991px) {
+    width: 100%;
+  }
 }
 
 .card-suggestions li {
