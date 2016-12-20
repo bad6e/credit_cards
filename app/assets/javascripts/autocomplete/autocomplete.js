@@ -4,10 +4,6 @@
 //2. Arrow keys down
 //3. Styling form
 
-//2a
-
-//On down key take next node and populate form
-
 let n = 0
 
 window.onload = function() {
@@ -34,7 +30,7 @@ function addSearchEventListers () {
   const nonMobileSearchInput = document.querySelector('#select_origin');
   const mobileSearchInput = document.querySelector('#select_origin_mobile');
   nonMobileSearchInput.addEventListener('keyup', displayMatches);
-  nonMobileSearchInput.addEventListener('keydown', jumpDown);
+  nonMobileSearchInput.addEventListener('keydown', scrollCards);
   mobileSearchInput.addEventListener('keyup', displayMatches);
 }
 
@@ -75,41 +71,39 @@ function setEventListeners () {
   })
 }
 
-function jumpDown (e) {
-  console.log(e.keyCode)
+function scrollCards (e) {
   if (e.keyCode === 40) {
-
-    let suggestion = document.querySelectorAll('.suggestion');
-    const nonMobileSearchInput = document.querySelector('#select_origin');
-    nonMobileSearchInput.removeEventListener('keyup', displayMatches);
-
-
-    console.log(n)
-    this.value = suggestion[n].dataset.name
-    if (n < suggestion.length - 1) {
-      n++
-    }
-
-
+    removeInputEventListner();
+    let cardSuggestions = document.querySelectorAll('.suggestion');
+    this.value = cardSuggestions[n].dataset.name;
+    increaseNByOne(cardSuggestions.length);
   } else if (e.keyCode === 38) {
-    if (n > 0) {
-      n--
-    }
-
-    let suggestion = document.querySelectorAll('.suggestion');
-    const nonMobileSearchInput = document.querySelector('#select_origin');
-    nonMobileSearchInput.removeEventListener('keyup', displayMatches);
-    console.log(n)
-    this.value = suggestion[n].dataset.name
-
-
-
-  }
-  if(e.keyCode === 8) {
+    removeInputEventListner();
+    let cardSuggestions = document.querySelectorAll('.suggestion');
+    this.value = cardSuggestions[n].dataset.name;
+    decreaseNByOne();
+  } else {
     const nonMobileSearchInput = document.querySelector('#select_origin');
     nonMobileSearchInput.addEventListener('keyup', displayMatches);
     n = 0
   }
+}
+
+function increaseNByOne (length) {
+  if (n < length - 1) {
+    n++
+  }
+}
+
+function decreaseNByOne () {
+  if (n > 0) {
+    n--
+  }
+}
+
+function removeInputEventListner () {
+  const nonMobileSearchInput = document.querySelector('#select_origin');
+  nonMobileSearchInput.removeEventListener('keyup', displayMatches);
 }
 
 function displayHtmlMatches(matchArray, wordTyped) {

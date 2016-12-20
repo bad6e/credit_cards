@@ -14,6 +14,9 @@ $lightGray      : #f8f8f8;
   :hover {
     background: $lightGray;
   }
+  :active {
+    background: $bgHighlight;
+  }
   /*perspective:20px;*/
 }
 
