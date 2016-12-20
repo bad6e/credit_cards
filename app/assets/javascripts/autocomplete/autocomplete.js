@@ -29,11 +29,9 @@ function autocomplete () {
 function addSearchEventListers () {
   const nonMobileSearchInput = document.querySelector('#select_origin');
   const mobileSearchInput = document.querySelector('#select_origin_mobile');
-  const middleSearchInput = document.querySelector('#select_origin_middle');
 
   nonMobileSearchInput.addEventListener('keyup', displayMatches);
   nonMobileSearchInput.addEventListener('keydown', scrollCards);
-  middleSearchInput.addEventListener('keyup', displayMatches);
 
   mobileSearchInput.addEventListener('keyup', displayMatches);
 }

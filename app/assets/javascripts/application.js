@@ -22,7 +22,6 @@
 //= require components
 
 //VENDOR FILES
-//= require jquery.flexslider-min
 //= require theme-scripts
 //= require react
 //= require react_ujs
