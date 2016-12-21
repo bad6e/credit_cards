@@ -1,8 +1,8 @@
 var LoadCards = React.createClass({
   getInitialState : function () {
     return {
-      unfilteredCards: [],
       cards: [],
+      searchTerm: '',
       loaderImg: true
     };
   },
@@ -19,8 +19,8 @@ var LoadCards = React.createClass({
         setTimeout(function() {
           this.setState(
             {
-              cards: cards,
-              unfilteredCards: cards,
+              cards: cards.cards,
+              searchTerm: cards.search_term,
               loaderImg: false
             },
             this.sortCardsByDollarAmount
@@ -81,6 +81,7 @@ var LoadCards = React.createClass({
         <Cards
           key={1}
           cards={this.state.cards}
+          searchTerm={this.state.searchTerm}
           postFavoriteCard={this.postFavoriteCard}
           removeFavoriteCard={this.removeFavoriteCard}
           apiUrl={this.props.url}
