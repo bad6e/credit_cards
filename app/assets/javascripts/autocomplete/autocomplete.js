@@ -1,29 +1,38 @@
-//To Do's
-
-//1. expire local storage
-//2. Arrow keys down
-//3. Styling form
-
 let n = 0
 
 window.onload = function() {
-  checkLocalStorage();
+  checkForLocalStorage();
 }
 
-function checkLocalStorage () {
-  if (localStorage.cards) {
-    addSearchEventListers();
+function checkForLocalStorage () {
+  localStorage.cards && localStorage.time ? checkTimeStamp() : autocomplete();
+}
+
+function checkTimeStamp () {
+  const savedTime = JSON.parse(localStorage.getItem('time')).timestamp;
+  const currentTime = new Date().getTime();
+  compareTime(savedTime, currentTime);
+}
+
+function compareTime (savedTime, currentTime) {
+  if (currentTime > savedTime + 86400000) {
+    autocomplete();
   } else {
-    autocomplete()
+    addSearchEventListers();
   }
 }
 
 function autocomplete () {
   fetch('/api/v1/card_names')
     .then(blob => blob.json())
-    .then(data => localStorage.setItem('cards',
-      JSON.stringify(Array.from(data))))
+    .then(data => saveToLocalStorage(data))
     .then(addSearchEventListers);
+}
+
+function saveToLocalStorage (data) {
+  localStorage.setItem('cards', JSON.stringify(Array.from(data)))
+  const time = { timestamp: new Date().getTime() }
+  localStorage.setItem('time', JSON.stringify(time));
 }
 
 function addSearchEventListers () {
