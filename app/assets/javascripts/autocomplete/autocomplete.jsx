@@ -127,8 +127,7 @@ function removeInputEventListner () {
 function displayHtmlMatches(matchArray, wordTyped) {
   const html = matchArray.map(card => {
     const regex = new RegExp(wordTyped, 'gi');
-    const cardName = card.name.replace(regex, `<span class=\"hl\">${wordTyped}</span>`)
-     const terms = card.term.replace(regex, `<span class=\"hl\">${this.value}</span>`)
+    const cardName = card.name.replace(regex, `<span class=\"hl\">${wordTyped}</span>`);
       return `
         <li class="suggestion" data-id="${card.id}" data-name="${card.name}">
           <span>${cardName}</span>
