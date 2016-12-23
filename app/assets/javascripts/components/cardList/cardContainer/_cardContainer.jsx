@@ -5,8 +5,8 @@ var CardContainer = React.createClass({
   },
 
   checkIfFavoriteCard : function() {
-    const id = this.props.details.id
-    const favoriteCardIds = this.props.details.favorite_card_ids
+    const id = this.props.details.id;
+    const favoriteCardIds = this.props.favIds;
 
     if (_.includes(favoriteCardIds, id)) {
       return <Heart id={id}

@@ -2,6 +2,7 @@ var LoadCards = React.createClass({
   getInitialState : function () {
     return {
       cards: [],
+      favIds: [],
       searchTerm: '',
       loaderImg: true
     };
@@ -21,6 +22,7 @@ var LoadCards = React.createClass({
             {
               cards: cards.cards,
               searchTerm: cards.search_term,
+              favIds: cards.favorite_card_ids,
               loaderImg: false
             }
           )
@@ -40,6 +42,7 @@ var LoadCards = React.createClass({
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: id,
       success: function(data) {
+        debugger;
         this.props.flux.actions.updateCardNumber();
         console.log(data);
       }.bind(this),
@@ -81,6 +84,7 @@ var LoadCards = React.createClass({
           key={1}
           cards={this.state.cards}
           searchTerm={this.state.searchTerm}
+          favIds={this.state.favIds}
           postFavoriteCard={this.postFavoriteCard}
           removeFavoriteCard={this.removeFavoriteCard}
           apiUrl={this.props.url}

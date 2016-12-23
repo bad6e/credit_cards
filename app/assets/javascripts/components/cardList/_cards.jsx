@@ -162,6 +162,7 @@ var Cards = React.createClass({
         <CardContainer
           key={card.id}
           details={card}
+          favIds={this.props.favIds}
           postFavoriteCard={this.props.postFavoriteCard}
           removeFavoriteCard={this.props.removeFavoriteCard}
           determinePointRewardStatus={this.determinePointRewardStatus}
