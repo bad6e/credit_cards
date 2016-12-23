@@ -4,7 +4,8 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     if current_user
-      respond_with current_user.cards
+      response = { cards: current_user.cards, search_term: 'fav'}
+      render json: response, include: ['rewards']
     else
       render json: {
         error: "Must be logged to create Store",
