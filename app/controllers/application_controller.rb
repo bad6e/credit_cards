@@ -20,4 +20,12 @@ class ApplicationController < ActionController::Base
   def allow_stumble_upon_iframe
     response.headers['X-Frame-Options'] = 'ALLOW-FROM http://www.stumbleupon.com/'
   end
+
+  def current_user_favorite_cards
+    if current_user
+      current_user.cards.pluck(:id)
+    else
+      []
+    end
+  end
 end

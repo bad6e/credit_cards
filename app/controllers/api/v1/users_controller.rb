@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     if current_user
-      response = { cards: current_user.cards, search_term: 'fav', favorite_card_ids: current_user.cards.pluck(:id)}
+      response = { cards: current_user.cards, search_term: 'fav', favorite_card_ids: current_user_favorite_cards}
       render json: response, include: ['rewards']
     else
       render json: {
