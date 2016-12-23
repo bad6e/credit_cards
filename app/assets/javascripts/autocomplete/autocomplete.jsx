@@ -23,16 +23,23 @@ function compareTime (savedTime, currentTime) {
 }
 
 function autocomplete () {
-  fetch('/api/v1/card_names')
-    .then(blob => blob.json())
-    .then(data => saveToLocalStorage(data))
-    .then(addSearchEventListers);
+ $.ajax({
+    url: '/api/v1/card_names',
+    dataType: 'json',
+    success: function (data) {
+      saveToLocalStorage(data);
+    }.bind(this),
+    error: function (xhr, status, err) {
+      console.error('api/v1/card_names', status, err.toString());
+    }.bind(this)
+  });
 }
 
 function saveToLocalStorage (data) {
   localStorage.setItem('cards', JSON.stringify(Array.from(data)))
   const time = { timestamp: new Date().getTime() }
   localStorage.setItem('time', JSON.stringify(time));
+  addSearchEventListers();
 }
 
 function addSearchEventListers () {
