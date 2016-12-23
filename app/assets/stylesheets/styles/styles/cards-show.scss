@@ -110,38 +110,22 @@ $black          : #000;
   font-family: 'Raleway', sans-serif;
 }
 
-//No Bonus Message Styling
-.no-bonus-info {
-  display: none;
-}
-
-.no-bonus-info-title-h1 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 30px;
-  font-weight: 500;
-  color: #01b7f2;
+.no-bonus-info-titles {
   left: 0;
   position: absolute;
   text-align: center;
-  margin-top: 0px;
   width: 100%;
   z-index: 1;
-  a:hover {
-    color: #2d3e52;
+  .no-bonus-info-title {
+    color: red;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 0px;
   }
-}
-
-.no-bonus-info-subtitle-h1 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 20px;
-  color: #01b7f2;
-  left: 0;
-  position: absolute;
-  text-align: center;
-  margin-top: 50px;
-  width: 100%;
-  z-index: 1;
-  a:hover {
+  .no-bonus-info-subtitle {
+    font-size: 20px;
+  }
+   a:hover {
     color: #2d3e52;
   }
 }

@@ -51,5 +51,14 @@ class Card < ActiveRecord::Base
   def self.search(params)
     where("name LIKE ?", "%#{params}%")
   end
+
+  def self.card_names
+    date_key = Time.now
+    cache_key = "card_name|{date_key}"
+
+    Rails.cache.fetch(cache_key, expires_in: 2.days) do
+      cards = Card.all.pluck(:id, :name)
+    end
+  end
 end
 

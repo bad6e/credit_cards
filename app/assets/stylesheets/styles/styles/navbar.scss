@@ -4,43 +4,47 @@ $colDefault     : #464646;
 $colHighlight   : #0e95e0;
 $white          : #FFF;
 $black          : #000;
+$lightGray      : #f8f8f8;
 
-
-.ui-menu-item {
-  max-width: auto;
-  font-family: 'Raleway', sans-serif;
-  padding: 8px 5px;
-  color: $white;
-  background-color: $colHighlight;
+.card-suggestions {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  :hover {
+    background: $lightGray;
+  }
+  :active {
+    background: $bgHighlight;
+  }
+  @media (min-width: 992px) {
+    width: 25%;
+  }
+  @media (max-width: 991px) {
+    width: 100%;
+  }
 }
 
-.ui-autocomplete {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  float: left;
-  display: none;
-  min-width: 160px;
-  padding: 6px 0;
-  margin: 0 0 10px 25px;
+.card-suggestions li {
+  background:white;
   list-style: none;
-  background-color: #ffffff;
-  border-color: #ccc;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: solid;
-  border-width: 1px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box;
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
+  border-bottom: 1px solid #D8D8D8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+  margin:0;
+  padding:20px;
+  transition:background 0.2s;
+  display:flex;
+  justify-content:space-between;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.hl {
+  background:#ffc600;
+}
+
+.mobile-search-form {
+  padding: 12px;
 }
 
 .example-enter {
@@ -63,5 +67,4 @@ $black          : #000;
 
 .example-leave.example-leave-active {
   transform: translateY(-100%);
-
 }

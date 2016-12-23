@@ -28,8 +28,10 @@ $lightGray : #838383;
 }
 
 .idea-title {
+  font-size: 2em;
   text-align: center;
   padding-bottom: 40px;
+  padding-top: 20px;
 }
 
 .image-box .favorite-deal-image img {
@@ -173,13 +175,33 @@ $lightGray : #838383;
 }
 
 //Favorite Cards
+.best-deal-cards {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.best-deal-box {
+  margin-bottom: 20px !important;
+}
+
+.best-deal-title {
+  min-height: 40px !important;
+}
+
 .best-offer {
+  color: green;
   font-size: 2.2em;
+  text-align: center;
 }
 
 .apply-now {
   font-size: 1.5em;
 }
+
+.image-box.style11 figure img {
+  width: 100% !important;
+}
+
 
 .apply-now-button-welcome {
   margin-top: 10px;

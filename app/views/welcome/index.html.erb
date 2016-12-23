@@ -12,7 +12,7 @@
       <div class="col-sm-4">
         <div class="icon-box style10 steps-box">
           <i class="soap-icon-search"></i>
-          <p class="description how-desc"><strong>1. Search for a category or card</strong></p>
+          <p class="description how-desc"><strong>1. Click a Card Category</strong></p>
           <p class="description">Search for a specific travel credit card or focus on one of the travel categories below.</p>
         </div>
       </div>
@@ -38,7 +38,7 @@
     <div class="row">
       <div id="main" class="col-md-offset-2 col-md-8">
         <div class="travelo-box travel-ideas">
-          <h2 class="idea-title"><span class="index">1</span>Search for Card Categories</h2>
+          <h2 class="idea-title"><span class="index">1</span>Click a Card Category Here</h2>
             <div class="column-3 image-box suggestions">
               <div class="box category-image">
                 <a href="/travel-credit-cards" class="hover-effect style1">
@@ -83,7 +83,7 @@
   </div>
 </section>
 
-<div class="search-box-wrapper search-home">
+<!-- <div class="search-box-wrapper search-home">
   <div class="container">
     <div class="main-search-box">
       <form method="get" accept-charset="UTF-8" id="search-form" role="search" action="/cards" class="quick-search">
@@ -96,8 +96,10 @@
           </div>
         </div>
       </form>
+      <ul class="card-suggestions">
+      </ul>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <br>
@@ -106,31 +108,29 @@
 <div class="recent-blog-posts">
   <h2>Best Deals for Dec. 2016</h2><br>
 </div>
-<div class="container section front-page-deals">
-  <div class="car-slideshow image-carousel style2 box" data-animation="slide" data-item-width="270" data-item-margin="30">
-    <ul class="slides image-box car listing-style1">
-      <% @welcome_presenter.brets_favorite_deal_now.each do |card| %>
-      <li>
-        <article class="box favorite-deal-image">
-          <figure>
-            <%= link_to image_tag(card.image_link), card_path(card) %>
-          </figure>
-          <div class="details">
-            <h4 class="box-title"><%= link_to card.name, card_path(card) %></h4>
-            <p class="mile"><span class="skin-color"><strong>DOllAR BONUS: </span><%=  number_to_currency(card.rewards.last.dollar_amount, precision: 0) %></strong></p>
-            <p class="mile"><span class="skin-color"><strong>BONUS: </span><%= number_with_delimiter(card.rewards.last.amount) %> Miles</strong></p>
-            <p class="mile"><span class="skin-color apply-now">Apply Now?</span><strong><div class="best-offer-color best-offer" id="yes-or-no"> <%=card.best_offer %></div></strong></p>
-            <div class="action">
-            <%= link_to "SEE MORE", card_path(card), class: "button btn-small btn-success full-width" %>
-            <a class="btn btn-success btn-lg btn-block full-width apply-now-button-welcome" href=<%= card.rewards.last.apply_link %>>APPLY NOW</a>
-          </div>
-          </div>
-        </article>
-      </li>
-      <% end %>
-    </ul>
+
+<div class="row flight-list image-box flight listing-style1 best-deal-cards">
+  <% @welcome_presenter.brets_favorite_deal_now.each do |card| %>
+    <div class="col-md-3">
+      <article class="box best-deal-box">
+      <figure>
+        <span><%= link_to image_tag(card.image_link), card_path(card) %></span>
+      </figure>
+      <div class="details">
+        <h4 class="box-title best-deal-title"><%= card.name %></h4>
+      <p class="duration"><span class="skin-color apply-now">Apply Now?</span><div class="best-offer"><%=card.best_offer %></div></p>
+      <div class="action">
+      <a class="btn btn-success btn-lg btn-block full-width apply-now-button-welcome" href=<%= card.rewards.last.apply_link %>>APPLY NOW</a><br>
+      <%= link_to "SEE MORE", card_path(card), class: "button btn-small btn-success full-width" %>
+      </div>
+    </div>
+    </article>
   </div>
-</div><hr>
+  <% end %>
+</div>
+
+<br><br><br><br><hr><br><br><br>
+
 
 <div class="section recent-posts-section">
   <div class="container">

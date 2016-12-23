@@ -3,8 +3,15 @@ class Api::V1::CategoriesController < ApplicationController
   respond_to :json
 
   def show
-    category_presenter = CategoryPresenter.new(params)
-    respond_with category_presenter.categories_cards
+    cards = Category.find_by(slug: category_params[:id]).cards
+    response = { cards: cards, search_term: nil }
+    render json: response, include: ['rewards']
   end
+
+  private
+
+    def category_params
+      params.permit(:id)
+    end
 end
 

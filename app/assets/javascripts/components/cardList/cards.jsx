@@ -138,7 +138,8 @@ var Cards = React.createClass({
     } else {
       return <NoResults resetFilters={this.resetFilters}
                         handleLoaderImg={this.handleLoaderImg}
-             />
+                        searchTerm={this.props.searchTerm}
+      />
     }
   },
 

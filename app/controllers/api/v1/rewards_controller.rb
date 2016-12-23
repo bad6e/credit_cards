@@ -3,7 +3,6 @@ class Api::V1::RewardsController < ApplicationController
   before_action :find_card, only: [:show, :show_one]
 
   def show
-    sleep(1)
     rewards  = Reward.where(card_id: params[:id]).order(record_date: 'desc')
     currency = find_card.point_type
     response = {rewards: rewards, currency: currency}

@@ -45,6 +45,8 @@
             <button class="icon" id="search-button" type="button submit"><i class="soap-icon-search"></i></button>
           </div>
         </form>
+        <ul class="card-suggestions">
+        </ul>
 
         <% if current_user %>
           <button style="display:none" class="btn-medium blue-bg soap-popupbox" data-target="#travelo-signup">SIGN UP</button>
@@ -127,15 +129,14 @@
           </li>
 
         </li>
-          <!-- Search Bar - Mobile -->
-          <li class="menu-item-has-children">
-            <form method="get" accept-charset="UTF-8" id="search-form" role="search" action="/cards" class="quick-search">
-              <div class="with-icon">
-                <input type="text" name="search" class="input-text search-input" id="select_origin_mobile" placeholder="Search for Credit Cards" />
-                <button class="icon" id="search-button" type="button submit"><i class="soap-icon-search"></i></button>
-              </div>
-            </form>
-          </li>
+          <form method="get" accept-charset="UTF-8" id="search-form" role="search" action="/cards" class="quick-search  mobile-search-form">
+            <div class="with-icon">
+              <input type="text" name="search" class="input-text search-input" id="select_origin_mobile" placeholder="Search for Credit Cards" />
+              <button class="icon" id="search-button" type="button submit"><i class="soap-icon-search"></i></button>
+            </div>
+          </form>
+          <ul class="card-suggestions">
+          </ul>
       </ul>
       <ul class="mobile-topnav container">
         <ul class="mobile-topnav container">

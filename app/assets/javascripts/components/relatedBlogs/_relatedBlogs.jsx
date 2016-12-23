@@ -6,7 +6,7 @@ var RelatedBlogs = React.createClass({
       <div className="col-sm-4">
         <article className="box">
           <figure>
-            <a title="" href={"/blogs/" + details.slug}><img alt={details.meta_title} src={details.related_image_url}/></a>
+            <a title="" href={"/blogs/" + details.slug}><img id="related-blogs-images" alt={details.meta_title} src={details.related_image_url}/></a>
             <figcaption>
               <h3 className="caption-title">{details.day}</h3>
               <span>{details.month}</span>
