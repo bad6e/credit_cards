@@ -2,21 +2,23 @@ var LoadBlog = React.createClass({
   getInitialState : function() {
     return {
       blog: '',
+      loaderImg: true
     };
   },
 
   componentDidMount: function() {
-    this.loadBlogFromAPI();
-  },
-
-  loadBlogFromAPI: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
       success: function (data) {
-        this.setState({
-          blog: data.post
-        });
+        setTimeout(function() {
+          this.setState(
+            {
+              blog: data.post,
+              loaderImg: false
+            }
+          )
+        }.bind(this), 500);
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -25,9 +27,12 @@ var LoadBlog = React.createClass({
   },
 
   render : function() {
+    const loadImg = this.state.loaderImg ?  <LoaderImg object={ "blogs "} /> : null
     return (
       <div>
+        { loadImg }
         <Blog blog={this.state.blog} />
+        }
       </div>
     );
   }
