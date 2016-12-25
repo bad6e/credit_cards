@@ -18,7 +18,7 @@ var LoadBlog = React.createClass({
               loaderImg: false
             }
           )
-        }.bind(this), 500);
+        }.bind(this), 600);
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -27,7 +27,7 @@ var LoadBlog = React.createClass({
   },
 
   render : function() {
-    const loadImg = this.state.loaderImg ?  <LoaderImg object={ "blogs "} /> : null
+    const loadImg = this.state.loaderImg ?  <LoaderImg object={ "blog" } /> : null
     return (
       <div>
         { loadImg }
