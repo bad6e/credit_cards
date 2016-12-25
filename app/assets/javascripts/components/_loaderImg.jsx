@@ -18,7 +18,7 @@ var LoaderImg = React.createClass({
       <div className='loading-animation-overlay'>
         <div className='loading-animation-container'>
           <img alt="" id="loader-img-plane" src={this.state.oneSampleLoaderImg} />
-          <p className="loading-cards-text">Loading your cards...</p>
+          <p className="loading-cards-text">Loading your { this.props.object }...</p>
         </div>
       </div>
     )

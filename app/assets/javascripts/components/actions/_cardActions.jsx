@@ -75,7 +75,7 @@ var LoadCards = React.createClass({
   },
 
   render : function () {
-    const loadImg = this.state.loaderImg ?  <LoaderImg /> : null
+    const loadImg = this.state.loaderImg ?  <LoaderImg object={ "cards" } /> : null
     return (
       <div>
         { loadImg }

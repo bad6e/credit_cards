@@ -12,7 +12,7 @@ var Cards = React.createClass({
       { loaderImg: true }
     )
     setTimeout(function() {
-      this.setState( {loaderImg: false});
+      this.setState( { loaderImg: false });
     }.bind(this), 650);
   },
 
@@ -180,7 +180,7 @@ var Cards = React.createClass({
   render : function () {
     let cards = this.getSortedCards(this.props.cards);
     cards = this.getFilteredByCreditScoreCards(cards);
-    const loadImg = this.state.loaderImg ?  <LoaderImg /> : null
+    const loadImg = this.state.loaderImg ?  <LoaderImg object={ "cards" } /> : null
 
     return (
       <div>
