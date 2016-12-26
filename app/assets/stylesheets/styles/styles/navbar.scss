@@ -38,6 +38,7 @@ $lightGray      : #f8f8f8;
   text-transform: capitalize;
   cursor: pointer;
   @media (max-width: 991px) {
+    margin-left: 20px;
     width: 80%;
     padding: 12px;
   }
@@ -55,8 +56,9 @@ $lightGray      : #f8f8f8;
 @media (max-width: 991px) {
   #header.style4 .quick-search {
     display: table;
-    width:50%;
-    margin:0 auto;
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 0;
   }
 }
 
