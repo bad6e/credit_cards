@@ -37,10 +37,28 @@ $lightGray      : #f8f8f8;
   justify-content:space-between;
   text-transform: capitalize;
   cursor: pointer;
+  @media (max-width: 991px) {
+    width: 80%;
+    margin: auto;
+    padding: 15px;
+  }
 }
 
 .hl {
   background:#ffc600;
+}
+
+.mobile-nav-div {
+  height:auto;
+  margin:0 auto;
+}
+
+@media (max-width: 991px) {
+  #header.style4 .quick-search {
+    display: table;
+    width:50%;
+    margin:0 auto;
+  }
 }
 
 .mobile-search-form {
