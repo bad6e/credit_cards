@@ -47,7 +47,7 @@ function addSearchEventListers () {
   const mobileSearchInput = document.querySelector('#select_origin_mobile');
 
   nonMobileSearchInput.addEventListener('keyup', displayMatches);
-  nonMobileSearchInput.addEventListener('keydown', scrollCards);
+  nonMobileSearchInput.addEventListener('keydown', checkIfUsingArrowKeys);
 
   mobileSearchInput.addEventListener('keyup', displayMatches);
 }
@@ -88,61 +88,81 @@ function setEventListeners () {
   })
 }
 
+function setBackgroundColor (suggestions, color) {
+  suggestions[n].style.background = color;
+}
+
+function removeBackgroundColorDown (suggestions) {
+  suggestions[n - 1].style.background = null;
+}
+
+function removeBackgroundColorUp (suggestions) {
+  suggestions[n + 1].style.background = null;
+}
+
 function updateBackgroundColorDown(cardSuggestions) {
   if (n === 0) {
-    cardSuggestions[n].style.background = '#D3D3D3'
+    setBackgroundColor(cardSuggestions, '#D3D3D3');
   } else if (n > 0) {
-    cardSuggestions[n].style.background = '#D3D3D3'
-    cardSuggestions[n -1].style.background = null
+    setBackgroundColor(cardSuggestions, '#D3D3D3');
+    removeBackgroundColorDown(cardSuggestions);
   }
 }
 
 function updateBackgroundColorUp(cardSuggestions) {
   if (n >= 0) {
-    cardSuggestions[n].style.background = '#D3D3D3'
-    cardSuggestions[n + 1].style.background = null
+    setBackgroundColor(cardSuggestions, '#D3D3D3');
+    removeBackgroundColorUp(cardSuggestions);
   }
 }
 
-function scrollCards (e) {
-  if (e.keyCode === 40) {
-    removeInputEventListner();
-    const cardSuggestions = document.querySelectorAll('.suggestion');
-    const suggestions = Array.from(cardSuggestions)
-                          .slice(0, cardSuggestions.length/2)
-    this.value = suggestions[n].dataset.name;
-    updateBackgroundColorDown(suggestions)
-    increaseNByOne(suggestions.length);
-  } else if (e.keyCode === 38) {
-    removeInputEventListner();
-    decreaseNByOne();
-    const cardSuggestions = document.querySelectorAll('.suggestion');
-    const suggestions = Array.from(cardSuggestions)
-                          .slice(0, cardSuggestions.length/2)
-    this.value = suggestions[n].dataset.name;
-    updateBackgroundColorUp(suggestions)
+function checkIfUsingArrowKeys (e) {
+  const self = this
+  if (e.keyCode === 40 || e.keyCode === 38) {
+    scrollCardsWithArrows(self, e.keyCode);
   } else {
-    const nonMobileSearchInput = document.querySelector('#select_origin');
-    nonMobileSearchInput.addEventListener('keyup', displayMatches);
-    n = 0
+    addInputEventListener();
+    n = 0;
   }
+}
+
+function scrollCardsWithArrows (self, keyCode) {
+  removeInputEventListner();
+  const cardSuggestions = document.querySelectorAll('.suggestion');
+  const suggestions = Array.from(cardSuggestions)
+                       .slice(0, cardSuggestions.length/2)
+
+  if (keyCode === 40) {
+    setInputValue(self,suggestions);
+    updateBackgroundColorDown(suggestions);
+    increaseNByOne(suggestions.length);
+  } else {
+    decreaseNByOne();
+    setInputValue(self,suggestions);
+    updateBackgroundColorUp(suggestions)
+  }
+}
+
+function setInputValue (self, suggestions)  {
+  self.value = suggestions[n].dataset.name;
 }
 
 function increaseNByOne (length) {
-  if (n < length - 1) {
-    n++
-  }
+  n < length - 1 ? n++ : null;
 }
 
 function decreaseNByOne () {
-  if (n > 0) {
-    n--
-  }
+  n > 0 ? n-- : null;
 }
 
 function removeInputEventListner () {
   const nonMobileSearchInput = document.querySelector('#select_origin');
   nonMobileSearchInput.removeEventListener('keyup', displayMatches);
+}
+
+function addInputEventListener () {
+  const nonMobileSearchInput = document.querySelector('#select_origin');
+  nonMobileSearchInput.addEventListener('keyup', displayMatches);
 }
 
 function displayHtmlMatches(matchArray, wordTyped) {
