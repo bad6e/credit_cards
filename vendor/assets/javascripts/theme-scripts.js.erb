@@ -436,33 +436,7 @@ function displayImageCarousel($item) {
     });
 }
 
-
-
-
-
-
-
-
 // THIS IS WHAT I AM GOING TO START GUTTING
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(window).load(function() {
     // back to top
     $("body").on("click", "#back-to-top", function(e) {
@@ -471,31 +445,23 @@ $(window).load(function() {
         $("html,body").animate({scrollTop: 0}, 1000);
     });
 
-
     // Mobile menu - I USE THIS
     $(".mobile-menu ul.menu > li.menu-item-has-children").each(function(index) {
         var menuItemId = "mobile-menu-submenu-item-" + index;
-        $('<button class="dropdown-toggle collapsed" data-toggle="collapse" data-target="#' + menuItemId + '"></button>').insertAfter($(this).children("a"));
-        /*$(this).children(".dropdown-toggle").click(function(e) {
-            if ($(this).hasClass("collapsed")) {
-                $(this).parent().addClass("open");
-            } else {
-                $(this).parent().removeClass("open");
-            }
-        });*/
+
+        //Sets navbar closed
         $(this).children("ul").prop("id", menuItemId);
         $(this).children("ul").addClass("collapse");
 
+        //opens navbar
         $("#" + menuItemId).on("show.bs.collapse", function() {
+          console.log($(this).parent())
             $(this).parent().addClass("open");
         });
         $("#" + menuItemId).on("hidden.bs.collapse", function() {
             $(this).parent().removeClass("open");
         });
     });
-
-    // middle block
-    // $(".middle-block").middleblock();
 
     // third level menu position to left - I USE THIS
     function fixPositionSubmenu() {
@@ -512,9 +478,6 @@ $(window).load(function() {
         });
     }
     fixPositionSubmenu();
-
-
-
 
     // chaser - I USE THIS - TOP NAV BAR ON SCROLL
     if (enableChaser == 1 && $('#content').length > 0 && $('#main-menu ul.menu').length > 0) {
