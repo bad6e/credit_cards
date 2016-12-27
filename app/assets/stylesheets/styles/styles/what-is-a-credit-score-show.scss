@@ -1,5 +1,5 @@
 .fullwidthbanner-container-scores {
-  height: 450px;
+  height: 400px;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -19,14 +19,18 @@
 
 @media (max-width: 480px) {
   .fullwidthbanner-container-scores {
-    height: 390px;
+    height: 300px;
   }
 }
 
 .article-summary {
-  min-height: 130px;
+  min-height: 150px;
 }
 
 .continue-button {
   padding-top: 30px;
+}
+
+.article-box {
+  margin-bottom: 30px !important;
 }

@@ -1,5 +1,5 @@
 .fullwidthbanner-container-types {
-  height: 450px;
+  height: 400px;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -19,6 +19,14 @@
 
 @media (max-width: 480px) {
   .fullwidthbanner-container-types {
-    height: 390px;
+    height: 300px;
   }
+}
+
+.article-summary {
+  min-height: 150px;
+}
+
+#type-image {
+  width: 100% !important;
 }

@@ -2,7 +2,7 @@ $lightBlue : #01b7f2;
 $lightGray : #838383;
 
 .fullwidthbanner-container-start-here {
-  height: 450px;
+  height: 400px;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -57,7 +57,7 @@ $lightGray : #838383;
 
 @media (max-width: 480px) {
   .fullwidthbanner-container-start-here {
-    height: 390px;
+    height: 300px;
   }
 }
 
