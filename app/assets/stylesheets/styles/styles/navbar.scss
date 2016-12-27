@@ -12,10 +12,10 @@ $lightGray      : #f8f8f8;
   position: absolute;
   z-index: 1;
   :hover {
-    background: $lightGray;
+    background: $bgHighlight;
   }
   :active {
-    background: $bgHighlight;
+    background: $colHighlight;
   }
   @media (min-width: 992px) {
     width: 25%;

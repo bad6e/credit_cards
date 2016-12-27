@@ -90,16 +90,16 @@ function setEventListeners () {
 
 function updateBackgroundColorDown(cardSuggestions) {
   if (n === 0) {
-    cardSuggestions[n].style.background = 'red'
+    cardSuggestions[n].style.background = '#D3D3D3'
   } else if (n > 0) {
-    cardSuggestions[n].style.background = 'red'
+    cardSuggestions[n].style.background = '#D3D3D3'
     cardSuggestions[n -1].style.background = null
   }
 }
 
 function updateBackgroundColorUp(cardSuggestions) {
-  if (n > 0) {
-    cardSuggestions[n].style.background = 'red'
+  if (n >= 0) {
+    cardSuggestions[n].style.background = '#D3D3D3'
     cardSuggestions[n + 1].style.background = null
   }
 }
@@ -107,21 +107,20 @@ function updateBackgroundColorUp(cardSuggestions) {
 function scrollCards (e) {
   if (e.keyCode === 40) {
     removeInputEventListner();
-
     const cardSuggestions = document.querySelectorAll('.suggestion');
     const suggestions = Array.from(cardSuggestions)
                           .slice(0, cardSuggestions.length/2)
-    increaseNByOne(suggestions.length);
     this.value = suggestions[n].dataset.name;
+    updateBackgroundColorDown(suggestions)
+    increaseNByOne(suggestions.length);
   } else if (e.keyCode === 38) {
-
     removeInputEventListner();
     decreaseNByOne();
     const cardSuggestions = document.querySelectorAll('.suggestion');
     const suggestions = Array.from(cardSuggestions)
                           .slice(0, cardSuggestions.length/2)
     this.value = suggestions[n].dataset.name;
-
+    updateBackgroundColorUp(suggestions)
   } else {
     const nonMobileSearchInput = document.querySelector('#select_origin');
     nonMobileSearchInput.addEventListener('keyup', displayMatches);
