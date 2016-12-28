@@ -29,6 +29,8 @@ gem 'momentjs-rails'
 gem 'fluxxor-rails'
 gem 'sidekiq'
 gem 'rails_12factor'
+gem 'omniauth-instagram', '~> 1.0', '>= 1.0.2'
+gem 'mechanize'
 
 group :development do
   gem 'web-console', '~> 2.0'
