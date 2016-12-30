@@ -43,6 +43,15 @@ class Admin::BlogsController < Admin::BaseController
   def destroy
   end
 
+  def send_blog_email
+    blog = Blog.find(params[:id])
+    User.all.each do |user|
+      Blog.send_blog_email(blog, user)
+    end
+    redirect_to admin_blogs_path
+    flash[:success] = "Blog successfully sent to users!"
+  end
+
   private
 
     def load_blog
