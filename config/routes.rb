@@ -29,10 +29,11 @@ Rails.application.routes.draw do
   resources :categories, path: "", only: [:show]
 
   namespace :admin do
-    get 'imports/index'
+    get "imports/index"
     resources :cards, only: [:new, :create, :edit, :update, :index]
     resources :rewards, only: [:new, :create, :edit, :update, :index, :destroy]
     resources :blogs
+    get "blogs/:id/send_email", to: 'blogs#send_blog_email'
     resources :main_programs
     resources :card_programs
     resources :transfer_partners
