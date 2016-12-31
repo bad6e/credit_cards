@@ -138,6 +138,7 @@
     }
     else if (e.keyCode === 27) {
       this.value = null;
+      addInputEventListener();
     } else {
       addInputEventListener();
       n = 0;
