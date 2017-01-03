@@ -4,10 +4,6 @@ var LoadRelatedBlogs = React.createClass({
   },
 
   componentDidMount: function () {
-    this.loadRelatedBlogsFromAPI();
-  },
-
-  loadRelatedBlogsFromAPI: function () {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
