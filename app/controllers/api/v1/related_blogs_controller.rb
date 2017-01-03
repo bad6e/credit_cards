@@ -2,25 +2,29 @@ class Api::V1::RelatedBlogsController < ApplicationController
   respond_to :json
 
   def show
-    related_blogs = Card.find(related_blogs_params[:id]).blogs
-                         .order('created_at DESC')
-                         .where(published: true)
+    related_blogs = Blog.find_related_blogs(card_id_params[:id])
     respond_with related_blogs
   end
 
   def show_related_blogs
-    id = related_blogs_params[:id]
-    ids = Blog.find(id).cards.pluck(:id)
-    related_blogs_show_page = Blog.joins(:cards)
-                              .where(cards: {id: ids})
-                              .where.not(id: id)
-                              .uniq.shuffle[0..2]
-    respond_with related_blogs_show_page
+    related_blogs = Blog.find_related_blogs_exclude_current_blog(load_all_cards_associated_with_single_blog, blogs_params[:id])
+    respond_with related_blogs
   end
 
   private
-
-    def related_blogs_params
+    def card_id_params
       params.permit(:id)
+    end
+
+    def load_current_blog_from_params
+      @_blog ||= Card.find(blogs_params[:id]).blogs.last
+    end
+
+    def blogs_params
+      params.permit(:id)
+    end
+
+    def load_all_cards_associated_with_single_blog
+      @_card ||= Blog.find(blogs_params[:id]).cards.pluck(:id)
     end
 end

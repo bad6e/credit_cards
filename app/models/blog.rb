@@ -14,6 +14,22 @@ class Blog < ActiveRecord::Base
     presence: true,
     length: { maximum: 160}
 
+  scope :find_blogs_with_cards_associated, -> (ids) { joins(:cards).where(cards: { id: ids }) }
+
+  def self.find_related_blogs_exclude_current_blog(card_ids, current_blog_id)
+    find_blogs_with_cards_associated(card_ids)
+    .where.not(id: current_blog_id)
+    .order(created_at: :desc)
+    .limit(3)
+    .uniq
+  end
+
+  def self.find_related_blogs(card_id)
+    find_blogs_with_cards_associated(card_id)
+    .order(created_at: :desc)
+    .limit(3)
+    .uniq
+  end
 
   def self.parameterize_slug(blog)
     blog.update(slug: blog.meta_title.parameterize)
