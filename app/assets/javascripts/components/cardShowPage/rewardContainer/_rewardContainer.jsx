@@ -22,12 +22,14 @@ var RewardContainer = React.createClass({
   },
 
   calculateMaxReward: function (rewards) {
-    rewards.shift();
-    return _.maxBy(rewards, function(reward){return reward.amount;}).amount;
+    let rewardList = [...rewards];
+    rewardList.shift();
+    return _.maxBy(rewardList, function(reward){return reward.amount;}).amount;
   },
 
   findOldestRewardDate: function (rewards) {
-    return rewards.slice(-1)[0].record_date
+    const rewardList = [...rewards];
+    return rewardList.slice(-1)[0].record_date
   },
 
   findCurrentRewardDate: function (rewards) {

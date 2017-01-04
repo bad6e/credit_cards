@@ -80,7 +80,7 @@ var ApplyNowInfo = React.createClass({
   render : function() {
     const details = this.props.details;
     const reward = details.rewards
-                    && details.rewards.length >= 1 ? details.rewards[0].amount : false;
+                    && details.rewards.length >= 1 ? details.rewards[details.rewards.length -1].amount : false;
 
     return(
       <div>
