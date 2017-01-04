@@ -7,7 +7,6 @@ var NoResults = React.createClass({
 
   checkForSearchTerm: function () {
     let searchTerm = this.props.searchTerm;
-
     const map = {
       '' : this.initialRender(),
       null : this.noResultsFound(),
@@ -20,10 +19,18 @@ var NoResults = React.createClass({
     return (
       <div className="no-cards-found">
         <img src="https://s3.amazonaws.com/toomanymiles-svgs/cancel.svg"/>
-        <h2>Sorry your search for <strong>'{this.props.searchTerm}'</strong> did not match any cards!</h2>
+        {this.searchNull()}
         <h2>Please search again!</h2>
       </div>
     )
+  },
+
+  searchNull: function () {
+    if (this.props.searchTerm) {
+      return (<h2>Sorry your search for <strong>'{this.props.searchTerm}'</strong> did not match any cards!</h2>)
+    } else {
+      return (<h2>Dude Bro - You have to search for something...</h2>)
+    }
   },
 
   noResultsFound: function () {
