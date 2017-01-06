@@ -23,6 +23,7 @@ var RecentBlogs = React.createClass({
             </div>
           </div>
         </article>
+        <br/><br/>
       </div>
     )
   }
