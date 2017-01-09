@@ -34,6 +34,10 @@ var LoadBlog = React.createClass({
         referringUrl={'https://www.toomanymiles.com' + window.location.pathname}
         blog={this.state.blog}
       />
+      <SocialIcons
+        referringUrl={'https://www.toomanymiles.com' + window.location.pathname}
+        blog={this.state.blog}
+      />
         <div>
           { loadImg }
           <Blog blog={this.state.blog} />

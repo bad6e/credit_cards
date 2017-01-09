@@ -38,6 +38,26 @@
   padding-top: 40px;
 }
 
+@media (min-width: 992px) {
+  .social-sidebar {
+    position: fixed;
+    top: 300px;
+    left: 0px;
+    width: 50px;
+    background-color: white;
+    .social-items {
+      img {
+        width: 54px;
+        padding: 10px;
+        border: 0;
+        box-shadow: 0;
+        margin: auto;
+        display: block;
+      }
+    }
+  }
+}
+
 @media (max-width: 991px) {
   .blog-content figure {
     max-width: 300px;
@@ -62,6 +82,9 @@
         display: block;
       }
     }
+  }
+  .social-sidebar {
+    display: none;
   }
 }
 
