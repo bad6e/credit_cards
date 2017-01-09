@@ -1,15 +1,16 @@
 var MobileSocialIcons = React.createClass({
+
   render : function() {
     return (
       <div>
         <div className="social-wrapper">
           <div className="social-item">
-            <a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
+            <a href={"http://www.facebook.com/sharer.php?u=" + this.props.referringUrl} target="_blank">
               <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
             </a>
           </div>
           <div className="social-item">
-            <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank">
+            <a href={"https://twitter.com/share?url=" + this.props.referringUrl} target="_blank">
               <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
             </a>
           </div>
@@ -19,12 +20,12 @@ var MobileSocialIcons = React.createClass({
             </a>
           </div>
           <div className="social-item">
-            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://simplesharebuttons.com" target="_blank">
+            <a href={"http://www.linkedin.com/shareArticle?mini=true&url=" + this.props.referringUrl} target="_blank">
               <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
             </a>
           </div>
           <div className="social-item">
-            <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
+            <a href={"mailto:?Subject=" + this.props.blog.title + "&Body=I%20saw%20this%20article%20on%20Too%20Many%20Miles%20and%20thought%20of%20you!%20 " + this.props.referringUrl}>
               <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
             </a>
           </div>
