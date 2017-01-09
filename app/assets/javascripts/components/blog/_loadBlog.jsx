@@ -30,9 +30,19 @@ var LoadBlog = React.createClass({
     const loadImg = this.state.loaderImg ?  <LoaderImg object={ "blog" } /> : null
     return (
       <div>
-        { loadImg }
-        <Blog blog={this.state.blog} />
-        }
+       <MobileSocialIcons
+        referringUrl={'https://www.toomanymiles.com' + window.location.pathname}
+        blog={this.state.blog}
+      />
+      <SocialIcons
+        referringUrl={'https://www.toomanymiles.com' + window.location.pathname}
+        blog={this.state.blog}
+      />
+        <div>
+          { loadImg }
+          <Blog blog={this.state.blog} />
+          }
+        </div>
       </div>
     );
   }
