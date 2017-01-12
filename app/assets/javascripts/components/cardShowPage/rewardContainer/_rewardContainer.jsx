@@ -24,7 +24,9 @@ var RewardContainer = React.createClass({
   calculateMaxReward: function (rewards) {
     let rewardList = [...rewards];
     rewardList.shift();
-    return _.maxBy(rewardList, function(reward){return reward.amount;}).amount;
+    return _.maxBy(rewardList, function (reward) {
+      return reward.amount;
+    }).amount;
   },
 
   findOldestRewardDate: function (rewards) {

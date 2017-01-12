@@ -19,12 +19,12 @@ var Cards = React.createClass({
   //Card Info Display Functions
   determinePointRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
-                        ? this.numberWithCommas(details.rewards[0].amount) : <div id="no-info">--</div>
+                        ? this.numberWithCommas(details.rewards[details.rewards.length - 1].amount) : <div id="no-info">--</div>
   },
 
   determineDollarRewardStatus : function(details) {
     return details && details.rewards && details.rewards.length
-                        ? this.dollarWithCommas(details.rewards[0].dollar_amount) : <div id="no-info">--</div>
+                        ? this.dollarWithCommas(details.rewards[details.rewards.length - 1].dollar_amount) : <div id="no-info">--</div>
   },
 
   numberWithCommas: function(number) {
@@ -64,7 +64,7 @@ var Cards = React.createClass({
   },
 
   getSortedCards: function (cards) {
-    let sortByState = this.state.sortBy
+    let sortByState = this.state.sortBy;
 
     const map = {
       'bonus-in-dollars': this.sortCardsByDollarAmount,
@@ -77,11 +77,11 @@ var Cards = React.createClass({
 
   sortCardsByDollarAmount: function (cards) {
     return _.sortBy(cards, function(card) {
-      if (card.rewards.length > 0  &&  card.rewards[0].dollar_amount) {
-        return card.rewards[0].dollar_amount;
-      } else if (card.rewards.length > 0 && card.rewards[0].dollar_amount === 0) {
+      if (card.rewards.length > 0  &&  card.rewards[card.rewards.length - 1].dollar_amount) {
+        return card.rewards[card.rewards.length - 1].dollar_amount;
+      } else if (card.rewards.length > 0 && card.rewards[card.rewards.length - 1].dollar_amount === 0) {
         return -1
-      } else if (card.rewards.length > 0 && card.rewards[0].dollar_amount === null) {
+      } else if (card.rewards.length > 0 && card.rewards[card.rewards.length - 1].dollar_amount === null) {
         return -2
       } else if (card.rewards.length === 0) {
         return -3
@@ -92,7 +92,7 @@ var Cards = React.createClass({
   sortCardsByAmount: function (cards) {
     return _.sortBy(cards, function(card) {
       if (card.rewards.length > 0) {
-        return card.rewards[0].amount;
+        return card.rewards[card.rewards.length - 1].amount;
       } else if (card.rewards.length === 0) {
         return -1
       }

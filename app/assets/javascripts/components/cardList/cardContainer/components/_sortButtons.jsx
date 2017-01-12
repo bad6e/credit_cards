@@ -6,6 +6,7 @@ var SortByName = React.createClass({
   },
 
   handleBonusChange: function (event) {
+    debugger;
     this.props.onSortBy(event.target.value);
   },
 
@@ -27,7 +28,7 @@ var SortByName = React.createClass({
             <h4 className="sort-by-title block-sm question-icon">Order Cards by:</h4>
           </div>
           <select key="input" ref="input" name="sort-buttons" value={this.props.sortBy} onChange={this.handleBonusChange}>
-            <option value="bonus-in-dollars tooltip">Approx. Bonus Value in Dollars</option>
+            <option value="bonus-in-dollars">Approx. Bonus Value in Dollars</option>
             <option value="bonus-in-points">Bonus Value in Points</option>
             <option value="card-name">Card Name</option>
           </select>

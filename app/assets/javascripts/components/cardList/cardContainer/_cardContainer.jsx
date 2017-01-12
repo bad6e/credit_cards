@@ -36,7 +36,7 @@ var CardContainer = React.createClass({
 
     const applyNowButton = details.rewards
                            && details.rewards.length >= 1
-                           ? <a className="btn btn-success btn-lg btn-block full-width apply-now-button-category" href={details.rewards[0].apply_link} target="_blank">APPLY NOW</a> : false;
+                           ? <a className="btn btn-success btn-lg btn-block full-width apply-now-button-category" href={details.rewards[details.rewards.length - 1].apply_link} target="_blank">APPLY NOW</a> : false;
 
     return (
       <article className="box card-box" id={'card-' + details.id}>
