@@ -6,7 +6,6 @@ var SortByName = React.createClass({
   },
 
   handleBonusChange: function (event) {
-    debugger;
     this.props.onSortBy(event.target.value);
   },
 
