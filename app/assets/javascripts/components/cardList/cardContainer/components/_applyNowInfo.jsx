@@ -21,7 +21,7 @@ var ApplyNowInfo = React.createClass({
   },
 
   displayBonusInfo: function (reward, details) {
-    if(details.rewards.length === 1) {
+    if(details.rewards.length < 6) {
       return this.displayNewBonusInfo(reward, details);
     } else {
       return this.displayNormalBonusInfo(reward, details);
