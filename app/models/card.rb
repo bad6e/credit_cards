@@ -1,5 +1,6 @@
 class Card < ActiveRecord::Base
-  has_many :rewards
+  has_many :rewards, -> { order(:record_date) }
+
   has_many :categorizings
   has_many :categories, through: :categorizings
 
