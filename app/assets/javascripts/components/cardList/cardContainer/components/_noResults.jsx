@@ -1,5 +1,4 @@
 var NoResults = React.createClass({
-
   handleReset: function () {
     this.props.resetFilters();
     this.props.handleLoaderImg();
@@ -9,8 +8,9 @@ var NoResults = React.createClass({
     let searchTerm = this.props.searchTerm;
     const map = {
       '' : this.initialRender(),
-      null : this.noResultsFound(),
-      'fav': this.goSearchForCards()
+      null : this.noFilteredResultsFound(),
+      'fav': this.noFavoriteCards(),
+      'blank': this.didNotSearchAnything()
     }
     return map[searchTerm] || this.noSearchFound();
   },
@@ -27,13 +27,21 @@ var NoResults = React.createClass({
 
   searchNull: function () {
     if (this.props.searchTerm) {
-      return (<h2>Sorry your search for <strong>'{this.props.searchTerm}'</strong> did not match any cards!</h2>)
-    } else {
-      return (<h2>Dude Bro - You have to search for something...</h2>)
+      return (<h2>Sorry your search for <strong>'{this.props.searchTerm}'</strong> did not match any cards.</h2>)
     }
   },
 
-  noResultsFound: function () {
+  didNotSearchAnything: function () {
+    return (
+      <div className="no-cards-found">
+        <img src="https://s3.amazonaws.com/toomanymiles-svgs/cancel.svg"/>
+        <h2>Dude Bro - You have to search for something...</h2>
+        <h2>Please search again!</h2>
+      </div>
+    )
+  },
+
+  noFilteredResultsFound: function () {
     return (
       <div className="no-cards-found">
         <img src="https://s3.amazonaws.com/toomanymiles-svgs/credit-card.svg"/>
@@ -43,7 +51,7 @@ var NoResults = React.createClass({
     )
   },
 
-  goSearchForCards: function () {
+  noFavoriteCards: function () {
     return (
       <div className="no-cards-found">
         <img src="https://s3.amazonaws.com/toomanymiles-svgs/credit-card.svg"/>

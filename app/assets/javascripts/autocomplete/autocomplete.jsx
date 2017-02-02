@@ -73,7 +73,7 @@
   function findMatches(wordToMatch, cards) {
     return cards.filter(card => {
       const regex = new RegExp(wordToMatch, 'gi');
-      return card.name.match(regex);
+      return card[1].match(regex);
     })
   }
 
@@ -136,6 +136,7 @@
       e.preventDefault();
       scrollCardsWithArrows(e);
     }
+
     else if (e.keyCode === 27) {
       this.value = null;
       addInputEventListener();
@@ -192,9 +193,9 @@
   function displayHtmlMatches(matchArray, wordTyped) {
     const html = matchArray.map(card => {
       const regex = new RegExp(wordTyped, 'gi');
-      const cardName = card.name.replace(regex, `<span class=\"hl\">${wordTyped}</span>`);
+      const cardName = card[1].replace(regex, `<span class=\"hl\">${wordTyped}</span>`);
         return `
-          <li class="suggestion" data-id="${card.id}" data-name="${card.name}">
+          <li class="suggestion" data-id="${card.id}" data-name="${card[1]}">
             <span>${cardName}</span>
           </li>
         `;

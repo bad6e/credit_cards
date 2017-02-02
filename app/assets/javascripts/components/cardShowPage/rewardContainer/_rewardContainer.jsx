@@ -53,7 +53,7 @@ var RewardContainer = React.createClass({
   determineReward: function (currentReward, maxReward, dateDifference) {
     if (currentReward > maxReward) {
       return (
-        <GreatTimeToAppy
+        <GreatTimeToApply
           dateDifference={dateDifference}
         />
       )

@@ -21,8 +21,8 @@ var LoadCards = React.createClass({
           this.setState(
             {
               cards: cards.cards,
-              searchTerm: cards.search_term,
-              favIds: cards.favorite_card_ids,
+              favIds: cards.meta.favorite_card_ids,
+              searchTerm: cards.meta.search_term,
               loaderImg: false
             }
           )
@@ -76,6 +76,7 @@ var LoadCards = React.createClass({
 
   render : function () {
     const loadImg = this.state.loaderImg ?  <LoaderImg object={ "cards" } /> : null
+
     return (
       <div>
         { loadImg }

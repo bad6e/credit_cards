@@ -124,11 +124,7 @@
                     <span class="skin-color">Length of Time:</span>
                     <span class="mileage pull-right"><%= pluralize(@card_presenter.rewards.last.length_of_time, "Month") %></span>
                   </div>
-                  <span class="price clearfix">
-                    <small class="pull-left">Good Time to Apply:</small>
-                    <span class="pull-right" id="good-time-spinner"><%= image_tag("loader_small.gif") %></span>
-                    <span class="pull-right" id="good-time"></span>
-                  </span>
+
                 <% else %>
                   <h6 class="box-title" id="click-here-favorite">No Bonus Information</h6>
                   <h6 class="box-title" id="click-here-favorite"><a href="/best-credit-card-offers">Click Here for Cards with Bonus Information!</a></h6>

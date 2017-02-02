@@ -10,8 +10,8 @@ var FluxNumberOfFavoriteCardsStore = Fluxxor.createStore({
       dataType: 'json',
       type: 'GET',
       success: function(data) {
-        if (data && data.favorite_card_ids) {
-          this.number = data.favorite_card_ids.length;
+        if (data && data.meta.favorite_card_ids) {
+          this.number = data.meta.favorite_card_ids.length;
           this.emit("change");
         }
       }.bind(this),

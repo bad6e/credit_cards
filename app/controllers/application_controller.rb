@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include ApplicationHelper
 
+  def current_user_favorite_ids
+    if current_user
+      current_user.cards.pluck(:id)
+    end
+  end
+
   def set_cache_headers!
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
