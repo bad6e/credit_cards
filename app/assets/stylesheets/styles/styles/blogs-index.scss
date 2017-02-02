@@ -2,6 +2,11 @@
   background: white !important;
 }
 
+.blog-image {
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 20px;
+}
+
 #blog-title {
   font-size: 2.3em;
 }
@@ -12,4 +17,11 @@
 
 .related-cards-links {
   margin-right: 11px;
+}
+
+@media (max-width: 991px) {
+  #blog-title {
+    font-size: 1.5em;
+    text-align: center;
+  }
 }
