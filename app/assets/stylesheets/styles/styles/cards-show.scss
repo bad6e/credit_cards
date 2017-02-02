@@ -91,6 +91,13 @@ $black          : #000;
 .related-card-image {
   margin-left: auto;
   margin-right: auto;
+  width: 70%;
+}
+
+@media (min-width: 992px) {
+  .related-card-image {
+    width: 60%;
+  }
 }
 
 #bonus-cards {
