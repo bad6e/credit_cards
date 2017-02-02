@@ -7,7 +7,7 @@ class Admin::RewardsController < Admin::BaseController
     card            = Card.find(params[:id])
     @card_name      = card.name
     @card_id        = card.id
-    @last_reward    = card.rewards.order(record_date: :desc).last
+    @last_reward    = card.rewards.order(record_date: :desc).first
     @reward.card_id = @card_id
   end
 

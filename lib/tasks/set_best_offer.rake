@@ -38,11 +38,11 @@ task set_best_offer: :environment do
     end
 
     def current_reward(card)
-      card.rewards.order("record_date ASC").last.amount
+      card.rewards.order("record_date DESC").first.amount
     end
 
     def highest_reward(card)
-      card.rewards.order("amount ASC").last.amount
+      card.rewards.order("amount DESC").first.amount
     end
 
     def remove_old_categories_and_best_offers
