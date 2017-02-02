@@ -5,16 +5,12 @@ class Api::V1::CategoriesController < ApplicationController
 
   def show
     cards = find_category.cards
-    respond_with cards,
-                 each_serializer: Api::V1::CategoryCardSerializer,
-                 search_term: nil
+    render json: cards,
+                    adapter: :json, each_serializer: Api::V1::SearchSerializer,
+                    meta: { favorite_card_ids: current_user_favorite_ids, search_term: nil }
   end
 
   private
-
-  def current_user_favorite_cards
-    current_user ? current_user.cards.pluck(:id) : []
-  end
 
   def category_params
     params.permit(:id)
