@@ -28,6 +28,47 @@ It can be hard to know where to start when applying for a credit card. Getting t
 
 Maximizing your miles seems daunting, but our guides will give you the basic knowledge to earn the most miles and redeem them at the best rates. Happy Travels!
 
+## Tool Tip Info
+
+### Card Category Page
+
+[Card Category Page](https://www.toomanymiles.com/our-favorite-credit-cards)
+
+Please check out the site and let me know if my explanations make any sense!
+
+#### ORDER CARDS BY Question Mark
+
+To entice customers, credit cards have signup bonuses usually in the form of miles or points.
+
+These miles or points mean free flights!
+
+Too Many Miles crunches these bonuses for you and provides the bonus's approximate value in US dollars.
+
+#### APPLY NOW Question Mark
+
+##### Option 1
+
+This card's current bonus is 50,000 Chase Ultimate Rewards® Points.
+
+Based on this card's past bonuses, we believe this card's current bonus is a Bad deal.
+
+##### Option 2
+
+We are working hard at Too Many Miles - constantly adding new cards to our Bonus Tracker Database
+
+Unfortunately we haven't added this card yet... but stay tuned for future additions!
+
+##### Option 3
+
+This card use to have a bonus but they got rid of it. Applying for this card will earn you 0 Barclaycard Arrival™ Miles.
+
+Obviously applying for this card now is a Bad deal.
+
+#### BONUS IN DOLLARS Question Mark
+
+This is the approximate value of the bonus in US dollars.
+To obtain this valuation we take the current bonus and multiple it by the our estimated point value.
+
 ----------------------------------
 
 ## Website Info
