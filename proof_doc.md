@@ -6,23 +6,23 @@ Here are a list of things to proof read. Thank you Anna!
 
 ### Blog Meta Description
 
-Want to learn how to use your points? Too Many Miles provides detailed content on how to maximize your travel credit card miles and how to find the best credit card deals.
+Want to learn how to use your points? Too Many Miles provides detailed content on how to maximize your travel credit card miles and find the best credit card deals.
 
 ### Search Results Meta Description
 
-Here are your credit card search results sorted from the best to worst deals.
+Here are your credit card search results sorted from the best to the worst deals.
 
 ### Home Page Meta Description
 
-Too Many Miles is a free tool that tracks card bonuses over time allowing you to get the best bonus possible!
+Too Many Miles is a free tool that tracks card bonuses over time, ensuring you get the best bonus possible!
 
 ### What is a Credit Score Meta Description
 
-Having a good credit score is crucial to applying for credit cards. Here you will find a list of articles covering all the aspects of credit scores. Having a solid foundation of what a credit score is will help you maximize your credit card rewards!
+Having a good credit score is crucial when applying for credit cards. Here, you will find a list of articles to help you decode all aspects of credit scores. With a solid understanding of what a credit score is, you can maximize your credit card rewards!
 
 ### Credit Card Beginners Guide Meta Description
 
-It can be hard to know where to start when applying for a credit card. Getting the best deals, maximizing your points, and keeping sane while accomplishing this can seem like a daunting task especially with so much information available. Our goal in this guide is to make planning, applying, and maximizing your travel rewards simple and easy.
+It is hard to know where to start when applying for a credit card. Getting the best deals and maximizing your points, all while staying sane, can seem daunting - especially with so much information available. In this guide, we make planning, applying, and maximizing your travel rewards simple and easy.
 
 ### Credit Card Game Meta Description
 
@@ -38,11 +38,11 @@ Please check out the site and let me know if my explanations make any sense!
 
 #### ORDER CARDS BY Question Mark
 
-To entice customers, credit cards have signup bonuses usually in the form of miles or points.
+To entice customers, credit cards offer signup bonuses, usually in the form of miles or points.
 
 These miles or points mean free flights!
 
-Too Many Miles crunches these bonuses for you and provides the bonus's approximate value in US dollars.
+Too Many Miles crunches the numbers for you and, and provides bonuses' approximate value in US dollars.
 
 #### APPLY NOW Question Mark
 
@@ -50,24 +50,24 @@ Too Many Miles crunches these bonuses for you and provides the bonus's approxima
 
 This card's current bonus is 50,000 Chase Ultimate Rewards® Points.
 
-Based on this card's past bonuses, we believe this card's current bonus is a Bad deal.
+Based on this card's past bonuses, its current bonus is a Bad deal.
 
 ##### Option 2
 
-We are working hard at Too Many Miles - constantly adding new cards to our Bonus Tracker Database
+We are working hard at Too Many Miles - constantly adding new cards to our Bonus Tracker Database.
 
-Unfortunately we haven't added this card yet... but stay tuned for future additions!
+Unfortunately, we haven't added this card yet...but stay tuned for future additions!
 
 ##### Option 3
 
-This card use to have a bonus but they got rid of it. Applying for this card will earn you 0 Barclaycard Arrival™ Miles.
+This card used to have a bonus, but no longer. Applying for this card will earn you 0 Barclaycard Arrival™ Miles.
 
-Obviously applying for this card now is a Bad deal.
+Obviously, applying for this card now is a Bad deal.
 
 #### BONUS IN DOLLARS Question Mark
 
 This is the approximate value of the bonus in US dollars.
-To obtain this valuation we take the current bonus and multiple it by the our estimated point value.
+To obtain this valuation, we multiply the current bonus by our estimated point value.
 
 ----------------------------------
 
