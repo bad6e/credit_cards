@@ -10,7 +10,7 @@ var FavoriteCard = React.createClass({
     return (
       <div className="booking-info clearfix" id={"unfavorite-" + details.id}>
         <div className="date">
-          <a href={'/cards/' + details.id}><img src={details.image_link} alt={details.name}/></a>
+          <a href={'/cards/' + details.id}><img className="favorite-card-img" src={details.image_link} alt={details.name}/></a>
         </div>
         <a href={'/cards/' + details.id}><h4 className="box-title"><i className="icon soap-icon-plane-right takeoff-effect yellow-color circle"></i>{details.name}</h4></a>
         <dl className="info">
