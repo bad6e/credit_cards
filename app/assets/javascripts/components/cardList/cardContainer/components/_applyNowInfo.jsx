@@ -13,12 +13,24 @@ var ApplyNowInfo = React.createClass({
     if(reward > 0) {
       return this.displayBonusInfo(reward, details);
     } else if(reward === 0) {
-      return this.displayRemovedBonusInfo(reward, details);
-    }
-    else {
+      return this.checkifNoBonus(reward, details);
+    } else {
       return this.displayNoBonusInfo(reward, details);
     }
   },
+
+  checkifNoBonus: function(reward, details) {
+    if(reward === 0 && this.all_bonuses_are_zero(details.rewards)) {
+      return this.displayDoesNotHaveBonus(reward, details);
+    } else {
+      return this.displayRemovedBonusInfo(reward, details);
+    }
+  },
+
+  all_bonuses_are_zero: function(rewards) {
+    return rewards.filter(reward => (reward.amount > 0)).length === 0;
+  },
+
 
   displayBonusInfo: function (reward, details) {
     if(details.rewards.length < 6) {
@@ -59,6 +71,18 @@ var ApplyNowInfo = React.createClass({
         <span className="tooltop-apply-now-text">
           <p>This card <strong>use to have a bonus</strong> but they got rid of it. Applying for this card will earn you <strong>{this.props.numberWithCommas(reward)} {details.point_type}.</strong></p>
           <p>Obviously applying for this card now is a <strong><span style={this.props.determineBestOfferColor(details.best_offer)}>{this.determineDealStatus(details.best_offer)}</span></strong> deal.</p>
+        </span>
+        <h6 className="apply-now-title question-icon">Apply Now</h6>
+      </div>
+    )
+  },
+
+  displayDoesNotHaveBonus: function (reward, details) {
+    return(
+      <div className="tooltop-apply-now">
+        <span className="tooltop-apply-now-text">
+          <p>This card <strong>does not have a bonus.</strong></p>
+          <p>Obviously applying for this card now is <strong><span style={this.props.determineBestOfferColor('no')}>Bad</span></strong> deal.</p>
         </span>
         <h6 className="apply-now-title question-icon">Apply Now</h6>
       </div>
