@@ -195,7 +195,7 @@
       const regex = new RegExp(wordTyped, 'gi');
       const cardName = card[1].replace(regex, `<span class=\"hl\">${wordTyped}</span>`);
         return `
-          <li class="suggestion" data-id="${card.id}" data-name="${card[1]}">
+          <li class="suggestion" data-id="${card[0]}" data-name="${card[1]}">
             <span>${cardName}</span>
           </li>
         `;
