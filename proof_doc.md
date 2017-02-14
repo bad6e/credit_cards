@@ -22,7 +22,7 @@ Having a good credit score is crucial when applying for credit cards. Here, you 
 
 ### Credit Card Beginners Guide Meta Description
 
-It is hard to know where to start when applying for a credit card. Getting the best deals and maximizing your points, all while staying sane, can seem daunting - especially with so much information available. In this guide, we make planning, applying, and maximizing your travel rewards simple and easy.
+It's hard to know where to start when applying for a credit card. Getting the best deals and maximizing your points, all while staying sane, can seem daunting - especially with so much information available. In this guide, we make planning, applying, and maximizing your travel rewards simple and easy.
 
 ### Credit Card Game Meta Description
 
@@ -75,25 +75,27 @@ To obtain this valuation, we multiply the current bonus by our estimated point v
 
 Feel free to fix any errors and spice up paragraphs that don't make any sense! Also I really want to be consistent in my word choice. Some places I write signup, others sign-up. Same with cobranded or co branded, co-branded. I think I should pick one format and move forward!
 
-### Beginners Guide Page
+### Beginner's Guide Page
 
 [Beginners Guide](https://www.toomanymiles.com/what-is-a-credit-score)
 
-It can be hard to know where to start when applying for a credit card. What’s the first step? Do I want an airline specific card or just a generic travel credit card? Will opening these cards hurt my credit score, and how can I go about keeping this all organized? Getting the best deals, maximizing your points/miles, and keeping sane while accomplishing this can seem like a daunting task especially with so much information available. Our goal in this guide is to make planning, applying, and maximizing your travel rewards simple and easy.
+It's hard to know where to start when applying for a credit card. What’s the first step? Do I want an airline-specific card or a generic travel credit card? Will opening multiple credit cards hurt my credit score? How can I go about keeping this all organized? 
 
-Below you will find a list of categories so you can find the information you need fast and effectively – our general advice is to read from left to right. Clicking on the images below will direct you to list of related blog posts. This is still a work in progress, but our end goal is to make the process as easy as possible. Thank you for reading and Happy Travels!
+Getting the best deals and maximizing your points, all while staying sane, can seem like a daunting task - especially with so much information available. In this guide, we make planning, applying, and maximizing your travel rewards simple and easy.
+
+Below is a list of categories so you can find the information you need quickly and easily. We recommend reading from left to right. Clicking the images below will direct you to lists of related blog posts.  This is a work in progress, but we are working hard to build content to help you navigate the credit card game. Thank you for reading and Happy Travels!
 
 ### What is a Credit Score Page
 
 [Credit Score](https://www.toomanymiles.com/what-is-a-credit-score)
 
-Having a good credit score is crucial to applying for credit cards. Unfortunately, I found that there is a lot of misconceptions about what exactly is a credit score and how one should go about finding and managing it! Below you will find a list of articles covering all the aspects of credit scores. Having a solid foundation of what a credit score is will help you maximize your credit card rewards. Thank you for reading and Happy Travels!
+Having a good credit score is crucial when applying for credit cards. Unfortunately, there are a lot of misconceptions about what a credit score truly is, and how to go about finding and managing it. Below is a list of articles covering all aspects of credit scores. With a solid understanding of what a credit score is, you can maximize your credit card rewards! Thank you for reading and Happy Travels!
 
-THE FIRST QUESTION I ALWAYS GET WHEN I TELL PEOPLE ABOUT MY OBSESSION WITH THE CREDIT CARD GAME IS “HOW DOES THAT NOT RUIN YOUR CREDIT SCORE?” OUR GUIDE WILL TEACH YOU WHAT MAKES UP A CREDIT SCORE AND HOPEFULLY WILL SHATTER SOME CREDIT CARD MYTHS ALONG THE WAY.
+THE FIRST QUESTION I GET WHEN I TELL PEOPLE ABOUT MY OBSESSION WITH THE CREDIT CARD GAME IS “DOESN'T THAT RUIN YOUR CREDIT SCORE?” OUR GUIDE WILL TEACH YOU ABOUT THE COMPONENTS OF A CREDIT SCORE, AND HOPEFULLY SHATTER SOME CREDIT CARD MYTHS ALONG THE WAY.
 
-MY SISTER, LAUREN, TAKES US ON A STORY THROUGH HER FIRST EXPERIENCES IN CREDIT CARD LAND WHERE MYTHS ARE SHATTERED AND NEW TRUTHS DISCOVERED!
+MY SISTER TAKES US ON A JOURNEY THROUGH HER FIRST EXPERIENCES IN CREDIT CARD LAND, SHATTERNING MYTHS AND MAKING NEW DISCOVERIES ALONG THE WAY!
 
-THE BEST CREDIT CARDS REQUIRE GOOD CREDIT. IF YOU HAVE NEVER HAD A CREDIT CARD, CHANCES ARE YOU HAVE ZERO CREDIT. OUR GUIDE ON BUILDING CREDIT FROM SCRATCH WILL HELP YOU MEET YOUR TRAVEL REWARD GOALS!
+THE BEST CREDIT CARDS REQUIRE GOOD CREDIT. IF YOU'VE NEVER HAD A CREDIT CARD, CHANCES ARE YOU HAVE ZERO CREDIT. OUR GUIDE ON BUILDING CREDIT FROM SCRATCH WILL HELP YOU MEET YOUR TRAVEL REWARD GOALS!
 
 ### What Type of Credit Card Page
 
