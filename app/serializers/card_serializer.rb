@@ -4,7 +4,6 @@ class CardSerializer < ActiveModel::Serializer
   has_many :favorite_card_ids
   has_one :search_term
 
-
   def rewards
     object.rewards.order('record_date DESC')
   end

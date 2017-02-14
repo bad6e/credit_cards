@@ -120,7 +120,7 @@
         <h4 class="box-title best-deal-title"><%= card.name %></h4>
       <p class="duration"><span class="skin-color apply-now">Apply Now?</span><div class="best-offer"><%=card.best_offer %></div></p>
       <div class="action">
-      <a class="btn btn-success btn-lg btn-block full-width apply-now-button-welcome" href=<%= card.rewards.last.apply_link %>>APPLY NOW</a><br>
+      <a class="btn btn-success btn-lg btn-block full-width apply-now-button-welcome" target="_blank" href=<%= card.rewards.last.apply_link %>>APPLY NOW</a><br>
       <%= link_to "SEE MORE", card_path(card), class: "button btn-small btn-success full-width" %>
       </div>
     </div>

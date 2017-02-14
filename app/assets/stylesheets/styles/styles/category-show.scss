@@ -1,5 +1,6 @@
 $lightBlue : #01b7f2;
 $lightGray : #838383;
+$dark-blue-theme-color: #2d3e52;
 
 // Loader Img
 .loading-animation-overlay {
@@ -327,6 +328,42 @@ select {
 
 .time {
   font-size: 1.0em;
+}
+
+.business-card-label {
+  figcaption {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    background: #b4b7bb;
+    border-radius: 7px;
+    .caption-title {
+      margin: 0;
+      color: #fff;
+      line-height: 1.1em;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .business-card-label {
+    figcaption {
+      padding: 5px 20px 5px 20px;
+      min-width: 130px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .business-card-label {
+    figcaption {
+      padding: 4px 10px 4px 10px;
+      .caption-title {
+        font-size: 0.8em;
+      }
+    }
+  }
 }
 
 @media (max-width: 480px) {
