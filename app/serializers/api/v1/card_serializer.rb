@@ -7,7 +7,8 @@ class Api::V1::CardSerializer < ActiveModel::Serializer
              :image_link,
              :best_offer,
              :credit_score,
-             :point_type
+             :point_type,
+             :bus_card
 
   has_many :rewards
 
