@@ -136,6 +136,7 @@ class Admin::CardsController < Admin::BaseController
                                    :image_url,
                                    :point_type,
                                    :credit_score,
+                                   :bus_card,
                                    :categories => [],
                                    :main_program => [],
                                    :card_program => [],
