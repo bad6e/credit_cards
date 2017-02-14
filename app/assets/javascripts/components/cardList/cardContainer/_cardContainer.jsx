@@ -24,9 +24,8 @@ var CardContainer = React.createClass({
     const details = this.props.details
     const hasCurrentUser = (this.props.currentUser != "" ? true : false);
     const buttonOptions = this.checkIfFavoriteCard();
-
+    const busCard = details.bus_card ? <BusCardLabel/> : null;
     const buttonText = (hasCurrentUser ?  buttonOptions : <LoginHeart/>);
-
     const applyNowButton = details.rewards
                            && details.rewards.length >= 1
                            ? <a className="btn btn-success btn-lg btn-block full-width apply-now-button-category" href={details.rewards[0].apply_link} target="_blank">APPLY NOW</a> : false;
@@ -34,6 +33,7 @@ var CardContainer = React.createClass({
     return (
       <article className="box card-box" id={'card-' + details.id}>
         <div className="details col-xs-12">
+          {busCard}
           <a href={'/cards/' + details.id}><img className="card-image-cat" src={details.image_link} alt={details.name}/></a>
           <div className="details-wrapper">
             <div className="first-row">
