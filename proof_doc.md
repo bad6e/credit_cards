@@ -101,15 +101,15 @@ THE BEST CREDIT CARDS REQUIRE GOOD CREDIT. IF YOU'VE NEVER HAD A CREDIT CARD, CH
 
 [Type of Credit Card](https://www.toomanymiles.com/types-of-credit-cards)
 
-Airline, Hotel, or Travel Credit Cards? There are many categories to choose from and within those categories there are many different types of cards. Do you want cards that you can redeem travel expenses directly or do want cards with specific airline points? Are you loyal to one airline or do you fly the cheapest fare always? These questions are tough to answer so we have created a series of articles detailing how to begin the selection process to find the travel credit card that BEST fits your travel needs.
+Airline, hotel, or travel rewards? There are several card categories to choose from, and many types of cards within those categories. Do you want a card that allows you can redeem travel expenses directly, or a card to earn points towards flights on a specific airline? Are you loyal to one airline or hotel franchise, or do you always choose the flights and accomodations with the lowest prices? These are some quesitons to ask yourself as you decide which cards to apply for. They're tough questions, so we have created a series of articles to help you get started. Let's find the travel credit card that BEST fits your travel needs.
 
-THE FIRST STEP TO UNDERSTANDING TRAVEL CREDIT CARDS IS TO LEARN HOW TO BEST USE THIS SITE. IN FACT, THERE ARE LOTS OF RESOURCES OUT THERE FOR CREDIT CARDS - SOME GOOD, MOST BAD. THIS ARTICLE SHOWS HOW WE DIFFER FROM THE COMPETITION AND WHAT OUR COMPETITIVE ADVANTAGES ARE!
+THE FIRST STEP TO UNDERSTANDING TRAVEL CREDIT CARDS IS LEARNING HOW TO USE TOO MANY MILES TO YOUR ADVANTAGE. THERE ARE LOTS OF RESOURCES OUT THERE TO LEARN ABOUT CREDIT CARDS - SOME GOOD, MOST BAD. WE ARE DIFFERENT FROM THE COMPETITION. LEARN ABOUT OUR COMPETITIVE EDGE!
 
-THERE ARE FOUR TYPES OF TRAVEL CREDIT CARDS - AIRLINE CARDS, HOTEL CARDS, TRANSFERRABLE POINT CARDS, AND STATEMENT CREDIT TRAVEL CARDS. THIS ARTICLE FOCUSES HIGH LEVEL OF THE PROS AND CONS OF APPLYING FOR STATEMENT CREDIT TRAVEL CARDS.
+I BREAK DOWN THE PROS AND CONS OF STATEMENT CREDIT TRAVEL CARDS.
 
-THERE ARE FOUR TYPES OF TRAVEL CREDIT CARDS - AIRLINE CARDS, HOTEL CARDS, TRANSFERRABLE POINT CARDS, AND STATEMENT CREDIT TRAVEL CARDS. THIS ARTICLE FOCUSES HIGH LEVEL OF THE PROS AND CONS OF APPLYING FOR AIRLINE SPECIFIC CREDIT CARDS.
+I EXPLORE THE ADVANTAGES AND DISADVANTAGES OF AIRLINE-SPECIFIC CREDIT CARDS.
 
-IF YOU DECIDE TO READ JUST ONE POST ON TOO MANY MILES, I SUGGEST THIS ONE. THE SIMPLE TRICK OUTLINED IN THIS ARTICLE IS HOW I HAVE MANAGED TO RACK UP HUNDREDS OF THOUSANDS OF MILES BY OPENING A PLETHORA OF CREDIT CARDS WITHOUT PAYING ANY OF THE CREDIT CARD FEES.
+IF YOU READ JUST ONE POST ON TOO MANY MILES, READ THIS ONE. I REVEAL THE SIMPLE TRICK I'VE USED TO RACK UP HUNDREDS OF THOUSANDS OF MILES BY OPENING A PLETHORA OF CREDIT CARDS WITHOUT PAYING ANY FEES.
 
 ### About Page
 
