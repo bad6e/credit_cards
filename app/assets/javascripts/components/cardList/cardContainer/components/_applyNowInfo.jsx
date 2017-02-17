@@ -58,7 +58,7 @@ var ApplyNowInfo = React.createClass({
       <div className="tooltop-apply-now">
         <span className="tooltop-apply-now-text">
           <p>This card's current bonus is <strong>{this.props.numberWithCommas(reward)} {details.point_type}.</strong></p>
-          <p>Based on this card's past bonuses, we believe this card's <strong>current</strong> bonus is a <strong><span style={this.props.determineBestOfferColor(details.best_offer)}>{this.determineDealStatus(details.best_offer)}</span></strong> deal.</p>
+          <p>Based on this card's past bonuses, its <strong>current</strong> bonus is a <strong><span style={this.props.determineBestOfferColor(details.best_offer)}>{this.determineDealStatus(details.best_offer)}</span></strong> deal.</p>
         </span>
         <h6 className="apply-now-title question-icon">Apply Now</h6>
       </div>
@@ -69,8 +69,8 @@ var ApplyNowInfo = React.createClass({
     return(
       <div className="tooltop-apply-now">
         <span className="tooltop-apply-now-text">
-          <p>This card <strong>use to have a bonus</strong> but they got rid of it. Applying for this card will earn you <strong>{this.props.numberWithCommas(reward)} {details.point_type}.</strong></p>
-          <p>Obviously applying for this card now is a <strong><span style={this.props.determineBestOfferColor(details.best_offer)}>{this.determineDealStatus(details.best_offer)}</span></strong> deal.</p>
+          <p>This card <strong>used to have a bonus</strong> but no longer. Applying for this card will earn you <strong>{this.props.numberWithCommas(reward)} {details.point_type}.</strong></p>
+          <p>Obviously, applying for this card now is a <strong><span style={this.props.determineBestOfferColor(details.best_offer)}>{this.determineDealStatus(details.best_offer)}</span></strong> deal.</p>
         </span>
         <h6 className="apply-now-title question-icon">Apply Now</h6>
       </div>
@@ -93,8 +93,8 @@ var ApplyNowInfo = React.createClass({
     return (
       <div className="tooltop-apply-now">
         <span className="tooltop-apply-now-text">
-          <p>We are working hard at Too Many Miles - constantly adding new cards to our <strong>Bonus Tracker Database</strong></p>
-          <p>Unfortunately we haven't added this card yet... but stay tuned for future additions!</p>
+          <p>We are working hard at Too Many Miles - constantly adding new cards to our <strong>Bonus Tracker Database.</strong></p>
+          <p>Unfortunately, we haven't added this card yet... but stay tuned for future additions!</p>
         </span>
         <h6 className="apply-now-title question-icon">Apply Now</h6>
       </div>

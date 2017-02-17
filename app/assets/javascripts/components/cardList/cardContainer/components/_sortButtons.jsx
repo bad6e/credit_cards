@@ -20,9 +20,9 @@ var SortByName = React.createClass({
         <div className="sort-by-section clearfix box" id="sorter-box">
           <div className="tooltop">
             <span className="tooltoptext">
-              <p>To entice customers, credit cards have signup bonuses usually in the form of miles or points.</p>
+              <p>To entice customers, credit cards offer signup bonuses, usually in the form of miles or points.</p>
               <p><strong>These miles or points mean free flights!</strong></p>
-              <p>Too Many Miles crunches these bonuses for you and provides the bonus's approximate value in US dollars.</p>
+              <p>Too Many Miles crunches the numbers for you and, and provides card bonuses' approximate value in US dollars.</p>
             </span>
             <h4 className="sort-by-title block-sm question-icon">Order Cards by:</h4>
           </div>
