@@ -1,20 +1,28 @@
-var SortByName = React.createClass({
-  getInitialState: function () {
-    return {
-      selectedOption: 'bonus-in-dollars'
-    };
-  },
+class SortByName extends React.Component {
+  constructor() {
+    super()
 
-  handleBonusChange: function (event) {
-    this.props.onSortBy(event.target.value);
-  },
+    this.handleBonusChange = this.handleBonusChange.bind(this)
+    this.handleCreditScoreChange = this.handleCreditScoreChange.bind(this)
+    this.handleBusCardChange = this.handleBusCardChange.bind(this)
+  }
 
-  handleCreditScoreChange: function (event) {
-    this.props.onFilterByCreditScore(event.target.value);
-  },
+  handleBonusChange(event) {
+    this.props.onSortBy(event.target.value)
+  }
 
+  handleCreditScoreChange(event) {
+    this.props.onFilterByCreditScore(event.target.value)
+  }
 
-  render: function() {
+  handleBusCardChange(event) {
+    const isChecked = !event.target.checked
+    this.props.onSortByBusCard(isChecked)
+  }
+
+  render() {
+    const isChecked = !this.props.filterByBusCard
+
     return (
       <div>
         <div className="sort-by-section clearfix box" id="sorter-box">
@@ -39,8 +47,20 @@ var SortByName = React.createClass({
             <option value="average">Average (630 - 689)</option>
             <option value="poor">Poor (350 - 629)</option>
           </select>
+          <div className="bus-card-checkbox">
+            <label>
+              <input
+                name="isChecked"
+                type="checkbox"
+                checked={isChecked}
+                value={isChecked}
+                onChange={this.handleBusCardChange}
+              />
+              Show Business Cards?
+            </label>
+          </div>
         </div>
       </div>
     )
   }
-})
+}

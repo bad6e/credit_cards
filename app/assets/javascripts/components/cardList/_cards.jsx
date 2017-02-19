@@ -3,6 +3,7 @@ var Cards = React.createClass({
     return {
       sortBy: 'bonus-in-dollars',
       filterByCreditScore: 'all',
+      filterByBusCard: false,
       loaderImg: false
     };
   },
@@ -115,7 +116,8 @@ var Cards = React.createClass({
     this.setState(
       {
         sortBy: 'bonus-in-dollars',
-        filterByCreditScore: 'all'
+        filterByCreditScore: 'all',
+        filterByBusCard: false
       }
     )
   },
@@ -127,6 +129,25 @@ var Cards = React.createClass({
     } else {
       return _.filter(cards, function (card) {
         return card.credit_score == score
+      })
+    }
+  },
+
+  //Business Card Filtering Functions
+  onSortByBusCard: function (value) {
+    this.setState(
+      { filterByBusCard: value }
+    )
+    this.handleLoaderImg();
+  },
+
+  getFilteredByBusinessCards: function (cards) {
+    let option = this.state.filterByBusCard
+    if (option === false) {
+      return cards
+    } else {
+      return _.filter(cards, function(card) {
+        return card.bus_card !== option
       })
     }
   },
@@ -178,15 +199,18 @@ var Cards = React.createClass({
   render : function () {
     let cards = this.getSortedCards(this.props.cards);
     cards = this.getFilteredByCreditScoreCards(cards);
+    cards = this.getFilteredByBusinessCards(cards);
     const loadImg = this.state.loaderImg ?  <LoaderImg object={ "cards" } /> : null;
 
     return (
       <div>
         { loadImg }
         <SortByName sortBy={this.state.sortBy}
+                    filterByBusCard={this.state.filterByBusCard}
                     filterByCreditScore={this.state.filterByCreditScore}
                     onSortBy={this.onSortBy}
                     onFilterByCreditScore={this.onFilterByCreditScore}
+                    onSortByBusCard={this.onSortByBusCard}
                     handleLoaderImg={this.handleLoaderImg}
         />
         {this.renderCardsOrNoResults(cards)}
