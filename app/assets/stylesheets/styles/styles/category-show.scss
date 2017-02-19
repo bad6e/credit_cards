@@ -137,6 +137,14 @@ select {
   text-transform: lowercase;
 }
 
+.bus-card-checkbox {
+  padding-top: 20px !important;
+  input[type="checkbox"] {
+    margin-right: 5px;
+    opacity: 1;
+  }
+}
+
 //Favorite Button - Heart
 .heart {
   fill: #D75A4A;
