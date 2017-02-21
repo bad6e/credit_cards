@@ -2,35 +2,6 @@
 
 AS of Feb. 16, 2017
 
-### About Page
-
-[About Page](https://www.toomanymiles.com/about)
-
-Why Me?
-
-Two years ago, I traveled completely around the world for free. How? By strategically applying for travel credit cards and using the points I earned to pay for flights. In total, I took 13 flights without spending any real cash. I want to share what I learned, so that you, too, can explore the world without breaking the bank.
-
-Why Too Many Miles?
-
-Travel credit cards offer excellent sign up bonuses. For example, the Chase Sapphire Preferred® Card, is currently offering 45,000 points if you spend $4,000 in 3 months. These points can be converted to airline miles and offer you a chance to see the world for free. In this case, Chase is giving away approximately $625 in flights!
-
-The problem? These sign up bonuses are fleeting. Some months, the deals are better than others, and the best deals can disappear quickly. Our app tracks bonuses across a variety of cards and provides recommendations based on the cards' current offers relative to their historical offers. We will coach you to apply at the correct time, and receive the largest bonus possible!
-
-Bret Doucette
-Founder & Developer
-
-"Travel Addict, Lord of the Rings Enthusiast, and Web Developer."
-
-Bret graduated from the University of Virginia in 2010, attended business school at Wake Forest, and worked in finance in Washington D.C. until realizing his heart wasn’t in it. Bret quit his job in 2014 to travel the world for 4 months. Among many valuable life lessons, Bret acquired a vast knowledge of the credit card game during his trip. Currently Bret lives in Denver, CO and spends his days working in software consulting. His nights are spent working on Too Many Miles where he hopes to share what he learned so you can travel more for less!
-
-
-Blake Thomas
-Developer & Card Strategist
-
-"Snow Skier, Blitz Patzer, and Data Visualizer"
-
-Following his graduation from the University of Virginia in 2010, Blake worked in Charlottesville, Virginia as a neurological researcher. He currently resides in Washington, D.C. and works as a consultant, writing JavaScript to create complex data visualizations for the policy industry. A passionate credit card enthusiast, Blake uses his knowledge to provide content and information for our (soon to be) blogs and codes graphs to help you visualize the best deals!
-
 ### Our Favorite Credit Cards Page
 
 [Favorite Cards](https://www.toomanymiles.com/our-favorite-credit-cards)
