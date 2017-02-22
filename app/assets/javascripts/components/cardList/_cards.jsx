@@ -4,6 +4,7 @@ var Cards = React.createClass({
       sortBy: 'bonus-in-dollars',
       filterByCreditScore: 'all',
       filterByBusCard: false,
+      showOnlyNoFeeCards: false,
       loaderImg: false
     };
   },
@@ -117,7 +118,8 @@ var Cards = React.createClass({
       {
         sortBy: 'bonus-in-dollars',
         filterByCreditScore: 'all',
-        filterByBusCard: false
+        filterByBusCard: false,
+        showOnlyNoFeeCards: false,
       }
     )
   },
@@ -149,6 +151,25 @@ var Cards = React.createClass({
       return _.filter(cards, function(card) {
         return card.bus_card !== option
       })
+    }
+  },
+
+  //Sorting by Fee Functions
+  onSortByFee: function (value) {
+    this.setState(
+      { showOnlyNoFeeCards: value }
+    )
+    this.handleLoaderImg();
+  },
+
+  getFilteredByFeeCards: function (cards) {
+    let option = this.state.showOnlyNoFeeCards
+    if (option === true) {
+      return _.filter(cards, function(card) {
+        return card.has_fee !== option
+      })
+    } else {
+      return cards
     }
   },
 
@@ -197,10 +218,11 @@ var Cards = React.createClass({
   },
 
   render : function () {
-    let cards = this.getSortedCards(this.props.cards);
-    cards = this.getFilteredByCreditScoreCards(cards);
-    cards = this.getFilteredByBusinessCards(cards);
-    const loadImg = this.state.loaderImg ?  <LoaderImg object={ "cards" } /> : null;
+    let cards = this.getSortedCards(this.props.cards)
+    cards = this.getFilteredByCreditScoreCards(cards)
+    cards = this.getFilteredByBusinessCards(cards)
+    cards = this.getFilteredByFeeCards(cards)
+    const loadImg = this.state.loaderImg ?  <LoaderImg object={ "cards" } /> : null
 
     return (
       <div>
@@ -208,9 +230,11 @@ var Cards = React.createClass({
         <SortByName sortBy={this.state.sortBy}
                     filterByBusCard={this.state.filterByBusCard}
                     filterByCreditScore={this.state.filterByCreditScore}
+                    showOnlyNoFeeCards={this.state.showOnlyNoFeeCards}
                     onSortBy={this.onSortBy}
                     onFilterByCreditScore={this.onFilterByCreditScore}
                     onSortByBusCard={this.onSortByBusCard}
+                    onSortByFee={this.onSortByFee}
                     handleLoaderImg={this.handleLoaderImg}
         />
         {this.renderCardsOrNoResults(cards)}
