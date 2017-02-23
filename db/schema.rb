@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214134333) do
+ActiveRecord::Schema.define(version: 20170222141326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170214134333) do
     t.integer  "main_program_id"
     t.string   "credit_score"
     t.boolean  "bus_card",        default: false
+    t.boolean  "has_fee",         default: false
   end
 
   create_table "categories", force: :cascade do |t|

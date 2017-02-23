@@ -137,6 +137,7 @@ class Admin::CardsController < Admin::BaseController
                                    :point_type,
                                    :credit_score,
                                    :bus_card,
+                                   :has_fee,
                                    :categories => [],
                                    :main_program => [],
                                    :card_program => [],

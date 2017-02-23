@@ -5,6 +5,7 @@ class SortByName extends React.Component {
     this.handleBonusChange = this.handleBonusChange.bind(this)
     this.handleCreditScoreChange = this.handleCreditScoreChange.bind(this)
     this.handleBusCardChange = this.handleBusCardChange.bind(this)
+    this.handleFeeChange = this.handleFeeChange.bind(this)
   }
 
   handleBonusChange(event) {
@@ -20,8 +21,14 @@ class SortByName extends React.Component {
     this.props.onSortByBusCard(isChecked)
   }
 
+  handleFeeChange(event) {
+    const isChecked = event.target.checked
+    this.props.onSortByFee(isChecked)
+  }
+
   render() {
-    const isChecked = !this.props.filterByBusCard
+    const isBusinessChecked = !this.props.filterByBusCard
+    const isFeeChecked = this.props.showOnlyNoFeeCards
 
     return (
       <div>
@@ -47,16 +54,26 @@ class SortByName extends React.Component {
             <option value="average">Average (630 - 689)</option>
             <option value="poor">Poor (350 - 629)</option>
           </select>
-          <div className="bus-card-checkbox">
+          <div className="col-md-12 bus-card-checkbox">
+            <label className="first-input">
+              <input
+                name="isChecked"
+                type="checkbox"
+                checked={isBusinessChecked}
+                value={isBusinessChecked}
+                onChange={this.handleBusCardChange}
+              />
+              Show Business Cards?
+            </label>
             <label>
               <input
                 name="isChecked"
                 type="checkbox"
-                checked={isChecked}
-                value={isChecked}
-                onChange={this.handleBusCardChange}
+                checked={isFeeChecked}
+                value={isFeeChecked}
+                onChange={this.handleFeeChange}
               />
-              Show Business Cards?
+              Show Only No Fee Cards?
             </label>
           </div>
         </div>
