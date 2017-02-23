@@ -53,12 +53,8 @@ class Card < ActiveRecord::Base
   end
 
   def self.card_names
-    date_key = Time.now
-    cache_key = "card_name|{date_key}"
-
-    Rails.cache.fetch(cache_key, expires_in: 2.days) do
-      cards = Card.all.pluck(:id, :name)
-    end
+    cards =  Card.joins(:categories).where.not({categories: {id: [5,6]}})
+    cards.pluck(:id, :name).uniq
   end
 end
 
