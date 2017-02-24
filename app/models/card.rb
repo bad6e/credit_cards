@@ -34,6 +34,8 @@ class Card < ActiveRecord::Base
   self.per_page = 10
 
   scope :find_cards_that_are_in_multiple_categories, ->(category_names) { where(id: Card.cards_with_multiple_categories(category_names)) }
+  scope :exclude_cash_and_other_cards, -> { joins(:categories).where.not({categories: {id: [5,6]}}) }
+  scope :name_like, ->(params) { where("cards.name LIKE ?", "%#{params}%") }
 
   def self.cards_with_multiple_categories(category_names)
     joins(:categories)
@@ -49,16 +51,11 @@ class Card < ActiveRecord::Base
   end
 
   def self.search(params)
-    where("name LIKE ?", "%#{params}%")
+    exclude_cash_and_other_cards.name_like(params).uniq
   end
 
   def self.card_names
-    date_key = Time.now
-    cache_key = "card_name|{date_key}"
-
-    Rails.cache.fetch(cache_key, expires_in: 2.days) do
-      cards = Card.all.pluck(:id, :name)
-    end
+    exclude_cash_and_other_cards.pluck(:id, :name).uniq
   end
 end
 
