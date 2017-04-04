@@ -41,7 +41,6 @@ var LoadBlog = React.createClass({
         <div>
           { loadImg }
           <Blog blog={this.state.blog} />
-          }
         </div>
       </div>
     );
