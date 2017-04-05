@@ -4978,10 +4978,18 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
     }
   }
 }
+@media (max-width: 767px) {
+  .blog-images {
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
 
-.blog-images {
-  height: 100% !important;
-  width: 95% !important;
+@media (min-width: 768px) {
+  .blog-images {
+    height: 100% !important;
+    width: auto !important;
+  }
 }
 
 
