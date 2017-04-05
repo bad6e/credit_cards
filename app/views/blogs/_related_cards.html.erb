@@ -1,5 +1,7 @@
 <div class="col-md-12 cards-mentioned">
-  <h2>Cards Mentioned in this Blog</h2>
+  <% if @related_cards %>
+    <h2>Cards Mentioned in this Blog</h2>
+  <% end %>
 </div>
 
 <% @related_cards.each do |card| %>
