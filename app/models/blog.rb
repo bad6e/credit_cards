@@ -27,7 +27,7 @@ class Blog < ActiveRecord::Base
   def self.find_related_blogs(card_id)
     find_blogs_with_cards_associated(card_id)
     .order(created_at: :desc)
-    .limit(3)
+    .limit(6)
     .uniq
   end
 
