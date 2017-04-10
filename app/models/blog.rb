@@ -20,7 +20,7 @@ class Blog < ActiveRecord::Base
     find_blogs_with_cards_associated(card_ids)
     .where.not(id: current_blog_id)
     .order(created_at: :desc)
-    .limit(3)
+    .limit(6)
     .uniq
   end
 
