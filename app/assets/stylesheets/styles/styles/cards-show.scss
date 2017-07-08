@@ -1,11 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:500);
 
-$white          : #fff;
-$lightgray      : #D3D3D3;
-$darkgray       : #464646;
-$skyblue        : #01b7f2;
-$lighterskyblue : #269fe3;
-$black          : #000;
+$white: #fff;
+$lightgray: #D3D3D3;
+$darkgray: #464646;
+$skyblue: #01b7f2;
+$lighterskyblue: #269fe3;
+$black: #000;
 
 .page-header {
   font-family: 'Raleway', sans-serif;
@@ -20,8 +20,8 @@ $black          : #000;
 }
 
 .related-cards {
-    padding-left: 10px;
-    padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .related-card-header {
@@ -48,7 +48,7 @@ $black          : #000;
 }
 
 .related-cards {
-  .row{
+  .row {
     margin-left: 0px;
     margin-right: 0px;
   }
@@ -58,6 +58,7 @@ $black          : #000;
   h2 {
     font-size: 2em;
   }
+
   .icon-box {
     font-size: 1em;
   }
@@ -66,6 +67,7 @@ $black          : #000;
 .bottom-stats {
   padding-top: 10px;
   padding-bottom: 0px;
+
   h2 {
     font-size: 2em;
   }
@@ -77,7 +79,8 @@ $black          : #000;
     font-size: 2.5em;
     border-bottom: 1px solid #eeeeee;
   }
-  padding-top: 10px;
+
+  padding-top: 100px;
   padding-bottom: 0px;
 }
 
@@ -123,16 +126,19 @@ $black          : #000;
   text-align: center;
   width: 100%;
   z-index: 1;
+
   .no-bonus-info-title {
     color: red;
     font-size: 30px;
     font-weight: 500;
     margin-top: 0px;
   }
+
   .no-bonus-info-subtitle {
     font-size: 20px;
   }
-   a:hover {
+
+  a:hover {
     color: #2d3e52;
   }
 }
@@ -171,11 +177,11 @@ $black          : #000;
 }
 
 .img-portfolio {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .img-hover:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 h3 {
@@ -192,21 +198,21 @@ h3 {
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
+  outline: 0 none;
 }
 
 .btn-success {
-    background: $skyblue;
-    color: $white;
+  background: $skyblue;
+  color: $white;
 }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
-    background: $lighterskyblue;
+  background: $lighterskyblue;
 }
 
 .btn-success:active, .btn-success.active {
-    background: $lightgray;
-    box-shadow: none;
+  background: $lightgray;
+  box-shadow: none;
 }
 
 .btn-success:active:focus {
@@ -254,6 +260,7 @@ h3.deal {
 
 .toggle-container.with-image > .image-container {
   background: white;
+
   img {
     padding: 35px;
   }
